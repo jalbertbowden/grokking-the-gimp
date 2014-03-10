@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>3. Selections</TITLE>
+<META NAME="description" CONTENT="3. Selections">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node42.html">
+<LINK REL="previous" HREF="node26.html">
+<LINK REL="up" HREF="Grokking_the_GIMP.html">
+<LINK REL="next" HREF="node36.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1267"
+ HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1263"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1257"
+ HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1265"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1266"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1268"
+ HREF="node36.html">3.1 The Basic Selection</A>
+<B> Up:</B> <A NAME="tex2html1264"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1258"
+ HREF="node34.html">2.8 Common Problems and</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001100000000000000000">&#160;</A>
+<A NAME="c3.selections">&#160;</A><A NAME="3329">&#160;</A>
+<BR>
+3. Selections
+</H1>
+
+<P>
+Selections are extremely important tools for working with digital
+images.  They are a means for partitioning an image into two groups of
+pixels: those we want to work on and those we do not.  Selections
+allow the <EM>selective</EM> application of enhancements, functions,
+filters, and plug-ins to specific target regions of an image.
+Furthermore, selections are essential tools for compositing image
+material from several sources into a single image.  This is core to
+collage and photo montage, two subjects developed in detail in
+Chapter&nbsp;<A HREF="node65.html#c7.compositing">7</A>.
+
+<P>
+This chapter covers the selection tools in the GIMP.  However, the
+material presented here is really only half the story on the subject
+of selections.  The other half is presented in Chapter&nbsp;<A HREF="node42.html#c4.masks">4</A>,
+which covers masks.  As described there, selections and masks are
+really just two implementations of the same principle.  They both
+result in a separation of subject from background.  They arrive at
+this result, however, using different and very complementary methods.
+You really need both to get the best selection results.
+
+<P>
+Selections are the scalpel of the image manipulator's toolbox, and you
+will use them a lot.  Because selections can easily be the most
+time-consuming and frustrating part of a project, it is important to
+know how to use the selection tools artfully and effectively.  This
+chapter explains how each selection tool works, and it presents the
+array of GIMP functions that are directly related to selections.
+Furthermore, the conditions for which each selection tool is most
+effective are described, and each tool is rated against the others for
+its usefulness.
+
+<P>
+Before launching into the descriptions of the various selection tools,
+it is worthwhile to mention where selections fit into the structure of
+images.  The relationship of pixels, channels, layers, and images was
+described in Section&nbsp;<A HREF="node28.html#s2.channels-layers">2.2</A>.  Where, then, do
+selections fit in?  A selection can be seen in the image window--does
+that mean it is part of the image?  The answer to these questions
+won't be fully given until Chapter&nbsp;<A HREF="node42.html#c4.masks">4</A>, which covers masks.
+However, for now it suffices to know that selections are special
+channels, independent of the image layers, and whose selective effects
+apply only to the active layer.<A NAME="3335">&#160;</A>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1269"
+ HREF="node36.html">3.1 The Basic Selection Tools</A>
+<UL>
+<LI><A NAME="tex2html1270"
+ HREF="node36.html#SECTION001111000000000000000">3.1.1 The Six Selection Tools from the Toolbox</A>
+<UL>
+<LI><A NAME="tex2html1271"
+ HREF="node36.html#SECTION001111100000000000000">3.1.1.1 The <TT>Rectangle Select</TT> and <TT>Ellipse Select</TT> Tools</A>
+<LI><A NAME="tex2html1272"
+ HREF="node36.html#SECTION001111200000000000000">3.1.1.2 The <TT>Lasso</TT> (the <TT>Free-Hand Selection</TT> Tool)</A>
+<LI><A NAME="tex2html1273"
+ HREF="node36.html#SECTION001111300000000000000">3.1.1.3 The <TT>Magic Wand</TT> (the <TT>Fuzzy Select</TT> Tool)</A>
+<LI><A NAME="tex2html1274"
+ HREF="node36.html#SECTION001111400000000000000">3.1.1.4 Bezier Paths</A>
+<LI><A NAME="tex2html1275"
+ HREF="node36.html#SECTION001111500000000000000">3.1.1.5 The <TT>Intelligent Scissors</TT></A>
+</UL>
+<LI><A NAME="tex2html1276"
+ HREF="node36.html#SECTION001112000000000000000">3.1.2 Selection Tool Options</A>
+<UL>
+<LI><A NAME="tex2html1277"
+ HREF="node36.html#SECTION001112100000000000000">3.1.2.1 Antialiasing</A>
+<LI><A NAME="tex2html1278"
+ HREF="node36.html#SECTION001112200000000000000">3.1.2.2 Feathering</A>
+<LI><A NAME="tex2html1279"
+ HREF="node36.html#SECTION001112300000000000000">3.1.2.3 Sample Merged</A>
+<LI><A NAME="tex2html1280"
+ HREF="node36.html#SECTION001112400000000000000">3.1.2.4 Threshold</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html1281"
+ HREF="node37.html">3.2 Combining Selections</A>
+<UL>
+<LI><A NAME="tex2html1282"
+ HREF="node37.html#SECTION001121000000000000000">3.2.1 Adding</A>
+<LI><A NAME="tex2html1283"
+ HREF="node37.html#SECTION001122000000000000000">3.2.2 Subtracting</A>
+<LI><A NAME="tex2html1284"
+ HREF="node37.html#SECTION001123000000000000000">3.2.3 Intersecting</A>
+<LI><A NAME="tex2html1285"
+ HREF="node37.html#SECTION001124000000000000000">3.2.4 Using Add, Subtract, and Intersect with the Rectangle
+and Ellipse Selection Tool Features</A>
+<LI><A NAME="tex2html1286"
+ HREF="node37.html#SECTION001125000000000000000">3.2.5 Moving a Selection Boundary</A>
+</UL>
+<LI><A NAME="tex2html1287"
+ HREF="node38.html">3.3 The Select Menu and Friends</A>
+<UL>
+<LI><A NAME="tex2html1288"
+ HREF="node38.html#SECTION001131000000000000000">3.3.1 The <TT>Invert</TT> Function</A>
+<LI><A NAME="tex2html1289"
+ HREF="node38.html#SECTION001132000000000000000">3.3.2 The <TT>All</TT> Function</A>
+<LI><A NAME="tex2html1290"
+ HREF="node38.html#SECTION001133000000000000000">3.3.3 The <TT>None</TT> Function</A>
+<LI><A NAME="tex2html1291"
+ HREF="node38.html#SECTION001134000000000000000">3.3.4 The <TT>Float</TT> Function</A>
+<LI><A NAME="tex2html1292"
+ HREF="node38.html#SECTION001135000000000000000">3.3.5 The <TT>Feather</TT> Function</A>
+<LI><A NAME="tex2html1293"
+ HREF="node38.html#SECTION001136000000000000000">3.3.6 The <TT>Sharpen</TT> Function</A>
+<LI><A NAME="tex2html1294"
+ HREF="node38.html#SECTION001137000000000000000">3.3.7 The <TT>Shrink</TT> Function</A>
+<LI><A NAME="tex2html1295"
+ HREF="node38.html#SECTION001138000000000000000">3.3.8 The <TT>Grow</TT> Function</A>
+<LI><A NAME="tex2html1296"
+ HREF="node38.html#SECTION001139000000000000000">3.3.9 The <TT>Border</TT> Function</A>
+<LI><A NAME="tex2html1297"
+ HREF="node38.html#SECTION0011310000000000000000">3.3.10 The <TT>Save to Channel</TT> Function</A>
+<LI><A NAME="tex2html1298"
+ HREF="node38.html#SECTION0011311000000000000000">3.3.11 The <TT>By Color</TT> Function</A>
+<LI><A NAME="tex2html1299"
+ HREF="node38.html#SECTION0011312000000000000000">3.3.12 The <TT>To Path</TT> Function</A>
+<LI><A NAME="tex2html1300"
+ HREF="node38.html#SECTION0011313000000000000000">3.3.13 The <TT>Toggle Selection</TT> Function</A>
+<LI><A NAME="tex2html1301"
+ HREF="node38.html#SECTION0011314000000000000000">3.3.14 <TT>Copy</TT>, <TT>Cut</TT>, and <TT>Paste</TT></A>
+<LI><A NAME="tex2html1302"
+ HREF="node38.html#SECTION0011315000000000000000">3.3.15 <TT>Stroke</TT></A>
+</UL>
+<LI><A NAME="tex2html1303"
+ HREF="node39.html">3.4 The Paths Dialog</A>
+<UL>
+<LI><A NAME="tex2html1304"
+ HREF="node39.html#SECTION001141000000000000000">3.4.1 The Paths Palette</A>
+<LI><A NAME="tex2html1305"
+ HREF="node39.html#SECTION001142000000000000000">3.4.2 The Control Point Mode Buttons</A>
+<LI><A NAME="tex2html1306"
+ HREF="node39.html#SECTION001143000000000000000">3.4.3 The Paths Menu</A>
+<LI><A NAME="tex2html1307"
+ HREF="node39.html#SECTION001144000000000000000">3.4.4 The Paths Button Bar</A>
+</UL>
+<LI><A NAME="tex2html1308"
+ HREF="node40.html">3.5 Using Selections Effectively</A>
+<UL>
+<LI><A NAME="tex2html1309"
+ HREF="node40.html#SECTION001151000000000000000">3.5.1 General Selection Tool Guidelines</A>
+<LI><A NAME="tex2html1310"
+ HREF="node40.html#SECTION001152000000000000000">3.5.2 Tool Conjugation</A>
+<LI><A NAME="tex2html1311"
+ HREF="node40.html#SECTION001153000000000000000">3.5.3 Using <TT>Zoom</TT></A>
+<LI><A NAME="tex2html1312"
+ HREF="node40.html#SECTION001154000000000000000">3.5.4 Selections and Guides</A>
+</UL>
+<LI><A NAME="tex2html1313"
+ HREF="node41.html">3.6 Common Problems and <BR>
+Frequently Asked Questions</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1267"
+ HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1263"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1257"
+ HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1265"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1266"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1268"
+ HREF="node36.html">3.1 The Basic Selection</A>
+<B> Up:</B> <A NAME="tex2html1264"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1258"
+ HREF="node34.html">2.8 Common Problems and</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

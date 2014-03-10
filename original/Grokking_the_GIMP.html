@@ -1,0 +1,636 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Grokking the GIMP</TITLE>
+<META NAME="description" CONTENT="Grokking the GIMP">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html340"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif_gr.gif"> 
+<A NAME="tex2html338"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html339"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html341"
+ HREF="node1.html">Copyright Notice and Open</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1 ALIGN="CENTER"><FONT SIZE="+4"><I>Grokking the GIMP</I></FONT></H1>
+<P ALIGN="CENTER"><STRONG>by <BR>
+Carey Bunks</STRONG></P>
+<P ALIGN="LEFT"></P>
+
+<P>
+
+<center>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0735709246/gimpsavvycom" TARGET="new"><img src="grokking-the-gimp.gif" ALT="Grokking the GIMP" ALIGN="CENTER"></a><br>
+</center>
+<center>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0735709246/gimpsavvycom" TARGET="new"><br>Buy the Printed Version of this Book</a><br>
+<br>
+<a href="TarDist/Grokking-the-GIMP-v1.0.tar.gz"><br>Download an HTML Tarball of this Book</a><br><br>
+</center>
+
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html342"
+ HREF="node1.html">Copyright Notice and Open Publication License</A>
+<LI><A NAME="tex2html343"
+ HREF="node2.html">About the Author</A>
+<LI><A NAME="tex2html344"
+ HREF="node3.html">Contents</A>
+<LI><A NAME="tex2html345"
+ HREF="node4.html">List of Figures</A>
+<LI><A NAME="tex2html346"
+ HREF="node5.html">List of Tables</A>
+<LI><A NAME="tex2html347"
+ HREF="node6.html">Preface</A>
+<LI><A NAME="tex2html348"
+ HREF="node7.html">Acknowledgements</A>
+<LI><A NAME="tex2html349"
+ HREF="node8.html"><TT>README</TT></A>
+<UL>
+<LI><A NAME="tex2html350"
+ HREF="node9.html">Book Overview</A>
+<LI><A NAME="tex2html351"
+ HREF="node10.html">Mouse Clicks</A>
+<LI><A NAME="tex2html352"
+ HREF="node11.html">Function Names, Menus, and Keyboard Shortcuts</A>
+<LI><A NAME="tex2html353"
+ HREF="node12.html">Setting up Your Computer to Get the Most from the GIMP</A>
+<UL>
+<LI><A NAME="tex2html354"
+ HREF="node12.html#SECTION00841000000000000000">Notes on RAM</A>
+<LI><A NAME="tex2html355"
+ HREF="node12.html#SECTION00842000000000000000">Notes on Video RAM</A>
+<LI><A NAME="tex2html356"
+ HREF="node12.html#SECTION00843000000000000000">Notes on Swap and GIMP Memory Management</A>
+<LI><A NAME="tex2html357"
+ HREF="node12.html#SECTION00844000000000000000">Loading Fonts</A>
+<LI><A NAME="tex2html358"
+ HREF="node12.html#SECTION00845000000000000000">Setting the X Window System to Run More Than 8 bpp</A>
+</UL>
+<LI><A NAME="tex2html359"
+ HREF="node13.html">Sources of Raw Image Materials</A>
+<LI><A NAME="tex2html360"
+ HREF="node14.html">The History of the GIMP</A>
+</UL>
+<LI><A NAME="tex2html361"
+ HREF="node15.html">1. GIMP Basics</A>
+<UL>
+<LI><A NAME="tex2html362"
+ HREF="node16.html">1.1 Introducing the GIMP Windows and Dialogs</A>
+<UL>
+<LI><A NAME="tex2html363"
+ HREF="node16.html#SECTION00911000000000000000">1.1.1 The Toolbox</A>
+<LI><A NAME="tex2html364"
+ HREF="node16.html#SECTION00912000000000000000">1.1.2 The Image Window</A>
+<LI><A NAME="tex2html365"
+ HREF="node16.html#SECTION00913000000000000000">1.1.3 The Layers, Channels, and Paths Dialogs</A>
+<LI><A NAME="tex2html366"
+ HREF="node16.html#SECTION00914000000000000000">1.1.4 The Dialogs for Color, Brushes, Patterns, Gradients, and Palettes</A>
+</UL>
+<LI><A NAME="tex2html367"
+ HREF="node17.html">1.2 Loading and Saving Images</A>
+<LI><A NAME="tex2html368"
+ HREF="node18.html">1.3 Creating New Images</A>
+<LI><A NAME="tex2html369"
+ HREF="node19.html">1.4 RGB, Grayscale, and Indexed Images</A>
+<LI><A NAME="tex2html370"
+ HREF="node20.html">1.5 Undoing and Redoing</A>
+<LI><A NAME="tex2html371"
+ HREF="node21.html">1.6 Recalling the Last Filter Dialog</A>
+<LI><A NAME="tex2html372"
+ HREF="node22.html">1.7 Copy, Cut, and Paste Buffers</A>
+<LI><A NAME="tex2html373"
+ HREF="node23.html">1.8 Zoom and New View</A>
+<UL>
+<LI><A NAME="tex2html374"
+ HREF="node23.html#SECTION00981000000000000000">1.8.1 Zoom</A>
+<LI><A NAME="tex2html375"
+ HREF="node23.html#SECTION00982000000000000000">1.8.2 New View</A>
+</UL>
+<LI><A NAME="tex2html376"
+ HREF="node24.html">1.9 The Help System</A>
+<LI><A NAME="tex2html377"
+ HREF="node25.html">1.10 Common Problems and <BR>
+Frequently Asked Questions</A>
+</UL>
+<LI><A NAME="tex2html378"
+ HREF="node26.html">2. Review of Layers</A>
+<UL>
+<LI><A NAME="tex2html379"
+ HREF="node27.html">2.1 Layers and the Role They Play in Images</A>
+<UL>
+<LI><A NAME="tex2html380"
+ HREF="node27.html#SECTION001011000000000000000">2.1.1 The Layers Dialog</A>
+<LI><A NAME="tex2html381"
+ HREF="node27.html#SECTION001012000000000000000">2.1.2 The Layers Menu</A>
+</UL>
+<LI><A NAME="tex2html382"
+ HREF="node28.html">2.2 Channels and Their Relationship <BR>
+to Layers</A>
+<UL>
+<LI><A NAME="tex2html383"
+ HREF="node28.html#SECTION001021000000000000000">2.2.1 The Channels Dialog</A>
+</UL>
+<LI><A NAME="tex2html384"
+ HREF="node29.html">2.3 Layer Creation, Deletion, Duplication, and Organization</A>
+<UL>
+<LI><A NAME="tex2html385"
+ HREF="node29.html#SECTION001031000000000000000">2.3.1 Creating New Layers</A>
+<LI><A NAME="tex2html386"
+ HREF="node29.html#SECTION001032000000000000000">2.3.2 Raising Layers</A>
+<LI><A NAME="tex2html387"
+ HREF="node29.html#SECTION001033000000000000000">2.3.3 Lowering Layers</A>
+<LI><A NAME="tex2html388"
+ HREF="node29.html#SECTION001034000000000000000">2.3.4 Duplicating Layers</A>
+<LI><A NAME="tex2html389"
+ HREF="node29.html#SECTION001035000000000000000">2.3.5 Deleting Layers</A>
+</UL>
+<LI><A NAME="tex2html390"
+ HREF="node30.html">2.4 Layer Export and Import</A>
+<LI><A NAME="tex2html391"
+ HREF="node31.html">2.5 Floats</A>
+<UL>
+<LI><A NAME="tex2html392"
+ HREF="node31.html#SECTION001051000000000000000">2.5.1 Automatic Creation of Floats</A>
+<LI><A NAME="tex2html393"
+ HREF="node31.html#SECTION001052000000000000000">2.5.2 Explicit Creation of Floats</A>
+<LI><A NAME="tex2html394"
+ HREF="node31.html#SECTION001053000000000000000">2.5.3 Anchoring Floats</A>
+</UL>
+<LI><A NAME="tex2html395"
+ HREF="node32.html">2.6 Manipulating Layers</A>
+<UL>
+<LI><A NAME="tex2html396"
+ HREF="node32.html#SECTION001061000000000000000">2.6.1 Positioning Layers</A>
+<UL>
+<LI><A NAME="tex2html397"
+ HREF="node32.html#SECTION001061100000000000000">2.6.1.1 Moving Layers</A>
+<LI><A NAME="tex2html398"
+ HREF="node32.html#SECTION001061200000000000000">2.6.1.2 Aligning Layers with Guides</A>
+<LI><A NAME="tex2html399"
+ HREF="node32.html#SECTION001061300000000000000">2.6.1.3 Toggling the Layer Boundary</A>
+</UL>
+<LI><A NAME="tex2html400"
+ HREF="node32.html#SECTION001062000000000000000">2.6.2 Resizing and Scaling</A>
+<UL>
+<LI><A NAME="tex2html401"
+ HREF="node32.html#SECTION001062100000000000000">2.6.2.1 Image Scaling</A>
+<LI><A NAME="tex2html402"
+ HREF="node32.html#SECTION001062200000000000000">2.6.2.2 Image Resizing</A>
+<LI><A NAME="tex2html403"
+ HREF="node32.html#SECTION001062300000000000000">2.6.2.3 Layer Scaling</A>
+<LI><A NAME="tex2html404"
+ HREF="node32.html#SECTION001062400000000000000">2.6.2.4 Layer Resizing</A>
+</UL>
+<LI><A NAME="tex2html405"
+ HREF="node32.html#SECTION001063000000000000000">2.6.3 Flipping</A>
+<LI><A NAME="tex2html406"
+ HREF="node32.html#SECTION001064000000000000000">2.6.4 Rotating in 90<SUP><I>o</I></SUP> Increments</A>
+<LI><A NAME="tex2html407"
+ HREF="node32.html#SECTION001065000000000000000">2.6.5 The Transform Tool</A>
+<UL>
+<LI><A NAME="tex2html408"
+ HREF="node32.html#SECTION001065010000000000000">2.6.5.0.1 Rotation</A>
+<LI><A NAME="tex2html409"
+ HREF="node32.html#SECTION001065020000000000000">2.6.5.0.2 Scaling</A>
+<LI><A NAME="tex2html410"
+ HREF="node32.html#SECTION001065030000000000000">2.6.5.0.3 Shearing</A>
+<LI><A NAME="tex2html411"
+ HREF="node32.html#SECTION001065040000000000000">2.6.5.0.4 Perspective</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html412"
+ HREF="node33.html">2.7 Combining Layers</A>
+<UL>
+<LI><A NAME="tex2html413"
+ HREF="node33.html#SECTION001071000000000000000">2.7.1 Merging</A>
+<LI><A NAME="tex2html414"
+ HREF="node33.html#SECTION001072000000000000000">2.7.2 Flattening</A>
+</UL>
+<LI><A NAME="tex2html415"
+ HREF="node34.html">2.8 Common Problems and <BR>
+Frequently Asked Questions</A>
+</UL>
+<LI><A NAME="tex2html416"
+ HREF="node35.html">3. Selections</A>
+<UL>
+<LI><A NAME="tex2html417"
+ HREF="node36.html">3.1 The Basic Selection Tools</A>
+<UL>
+<LI><A NAME="tex2html418"
+ HREF="node36.html#SECTION001111000000000000000">3.1.1 The Six Selection Tools from the Toolbox</A>
+<UL>
+<LI><A NAME="tex2html419"
+ HREF="node36.html#SECTION001111100000000000000">3.1.1.1 The <TT>Rectangle Select</TT> and <TT>Ellipse Select</TT> Tools</A>
+<LI><A NAME="tex2html420"
+ HREF="node36.html#SECTION001111200000000000000">3.1.1.2 The <TT>Lasso</TT> (the <TT>Free-Hand Selection</TT> Tool)</A>
+<LI><A NAME="tex2html421"
+ HREF="node36.html#SECTION001111300000000000000">3.1.1.3 The <TT>Magic Wand</TT> (the <TT>Fuzzy Select</TT> Tool)</A>
+<LI><A NAME="tex2html422"
+ HREF="node36.html#SECTION001111400000000000000">3.1.1.4 Bezier Paths</A>
+<LI><A NAME="tex2html423"
+ HREF="node36.html#SECTION001111500000000000000">3.1.1.5 The <TT>Intelligent Scissors</TT></A>
+</UL>
+<LI><A NAME="tex2html424"
+ HREF="node36.html#SECTION001112000000000000000">3.1.2 Selection Tool Options</A>
+<UL>
+<LI><A NAME="tex2html425"
+ HREF="node36.html#SECTION001112100000000000000">3.1.2.1 Antialiasing</A>
+<LI><A NAME="tex2html426"
+ HREF="node36.html#SECTION001112200000000000000">3.1.2.2 Feathering</A>
+<LI><A NAME="tex2html427"
+ HREF="node36.html#SECTION001112300000000000000">3.1.2.3 Sample Merged</A>
+<LI><A NAME="tex2html428"
+ HREF="node36.html#SECTION001112400000000000000">3.1.2.4 Threshold</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html429"
+ HREF="node37.html">3.2 Combining Selections</A>
+<UL>
+<LI><A NAME="tex2html430"
+ HREF="node37.html#SECTION001121000000000000000">3.2.1 Adding</A>
+<LI><A NAME="tex2html431"
+ HREF="node37.html#SECTION001122000000000000000">3.2.2 Subtracting</A>
+<LI><A NAME="tex2html432"
+ HREF="node37.html#SECTION001123000000000000000">3.2.3 Intersecting</A>
+<LI><A NAME="tex2html433"
+ HREF="node37.html#SECTION001124000000000000000">3.2.4 Using Add, Subtract, and Intersect with the Rectangle
+and Ellipse Selection Tool Features</A>
+<LI><A NAME="tex2html434"
+ HREF="node37.html#SECTION001125000000000000000">3.2.5 Moving a Selection Boundary</A>
+</UL>
+<LI><A NAME="tex2html435"
+ HREF="node38.html">3.3 The Select Menu and Friends</A>
+<UL>
+<LI><A NAME="tex2html436"
+ HREF="node38.html#SECTION001131000000000000000">3.3.1 The <TT>Invert</TT> Function</A>
+<LI><A NAME="tex2html437"
+ HREF="node38.html#SECTION001132000000000000000">3.3.2 The <TT>All</TT> Function</A>
+<LI><A NAME="tex2html438"
+ HREF="node38.html#SECTION001133000000000000000">3.3.3 The <TT>None</TT> Function</A>
+<LI><A NAME="tex2html439"
+ HREF="node38.html#SECTION001134000000000000000">3.3.4 The <TT>Float</TT> Function</A>
+<LI><A NAME="tex2html440"
+ HREF="node38.html#SECTION001135000000000000000">3.3.5 The <TT>Feather</TT> Function</A>
+<LI><A NAME="tex2html441"
+ HREF="node38.html#SECTION001136000000000000000">3.3.6 The <TT>Sharpen</TT> Function</A>
+<LI><A NAME="tex2html442"
+ HREF="node38.html#SECTION001137000000000000000">3.3.7 The <TT>Shrink</TT> Function</A>
+<LI><A NAME="tex2html443"
+ HREF="node38.html#SECTION001138000000000000000">3.3.8 The <TT>Grow</TT> Function</A>
+<LI><A NAME="tex2html444"
+ HREF="node38.html#SECTION001139000000000000000">3.3.9 The <TT>Border</TT> Function</A>
+<LI><A NAME="tex2html445"
+ HREF="node38.html#SECTION0011310000000000000000">3.3.10 The <TT>Save to Channel</TT> Function</A>
+<LI><A NAME="tex2html446"
+ HREF="node38.html#SECTION0011311000000000000000">3.3.11 The <TT>By Color</TT> Function</A>
+<LI><A NAME="tex2html447"
+ HREF="node38.html#SECTION0011312000000000000000">3.3.12 The <TT>To Path</TT> Function</A>
+<LI><A NAME="tex2html448"
+ HREF="node38.html#SECTION0011313000000000000000">3.3.13 The <TT>Toggle Selection</TT> Function</A>
+<LI><A NAME="tex2html449"
+ HREF="node38.html#SECTION0011314000000000000000">3.3.14 <TT>Copy</TT>, <TT>Cut</TT>, and <TT>Paste</TT></A>
+<LI><A NAME="tex2html450"
+ HREF="node38.html#SECTION0011315000000000000000">3.3.15 <TT>Stroke</TT></A>
+</UL>
+<LI><A NAME="tex2html451"
+ HREF="node39.html">3.4 The Paths Dialog</A>
+<UL>
+<LI><A NAME="tex2html452"
+ HREF="node39.html#SECTION001141000000000000000">3.4.1 The Paths Palette</A>
+<LI><A NAME="tex2html453"
+ HREF="node39.html#SECTION001142000000000000000">3.4.2 The Control Point Mode Buttons</A>
+<LI><A NAME="tex2html454"
+ HREF="node39.html#SECTION001143000000000000000">3.4.3 The Paths Menu</A>
+<LI><A NAME="tex2html455"
+ HREF="node39.html#SECTION001144000000000000000">3.4.4 The Paths Button Bar</A>
+</UL>
+<LI><A NAME="tex2html456"
+ HREF="node40.html">3.5 Using Selections Effectively</A>
+<UL>
+<LI><A NAME="tex2html457"
+ HREF="node40.html#SECTION001151000000000000000">3.5.1 General Selection Tool Guidelines</A>
+<LI><A NAME="tex2html458"
+ HREF="node40.html#SECTION001152000000000000000">3.5.2 Tool Conjugation</A>
+<LI><A NAME="tex2html459"
+ HREF="node40.html#SECTION001153000000000000000">3.5.3 Using <TT>Zoom</TT></A>
+<LI><A NAME="tex2html460"
+ HREF="node40.html#SECTION001154000000000000000">3.5.4 Selections and Guides</A>
+</UL>
+<LI><A NAME="tex2html461"
+ HREF="node41.html">3.6 Common Problems and <BR>
+Frequently Asked Questions</A>
+</UL>
+<LI><A NAME="tex2html462"
+ HREF="node42.html">4. Masks</A>
+<UL>
+<LI><A NAME="tex2html463"
+ HREF="node43.html">4.1 Channel Masks</A>
+<UL>
+<LI><A NAME="tex2html464"
+ HREF="node43.html#SECTION001211000000000000000">4.1.1 The Channels Dialog</A>
+<LI><A NAME="tex2html465"
+ HREF="node43.html#SECTION001212000000000000000">4.1.2 Saving Selections to Channel Masks</A>
+<LI><A NAME="tex2html466"
+ HREF="node43.html#SECTION001213000000000000000">4.1.3 Making Channel Masks Visible</A>
+<LI><A NAME="tex2html467"
+ HREF="node43.html#SECTION001214000000000000000">4.1.4 Setting a Channel Mask's Color, Transparency, and Title</A>
+<LI><A NAME="tex2html468"
+ HREF="node43.html#SECTION001215000000000000000">4.1.5 The Channels Menu</A>
+<LI><A NAME="tex2html469"
+ HREF="node43.html#SECTION001216000000000000000">4.1.6 Combining Channels</A>
+<LI><A NAME="tex2html470"
+ HREF="node43.html#SECTION001217000000000000000">4.1.7 Partially Selected Pixels</A>
+</UL>
+<LI><A NAME="tex2html471"
+ HREF="node44.html">4.2 Layer Masks</A>
+<UL>
+<LI><A NAME="tex2html472"
+ HREF="node44.html#SECTION001221000000000000000">4.2.1 Creating a Layer Mask</A>
+<LI><A NAME="tex2html473"
+ HREF="node44.html#SECTION001222000000000000000">4.2.2 Manipulating the Layer Mask</A>
+</UL>
+<LI><A NAME="tex2html474"
+ HREF="node45.html">4.3 Basic Tools for Working with Channel and Layer Masks</A>
+<UL>
+<LI><A NAME="tex2html475"
+ HREF="node45.html#SECTION001231000000000000000">4.3.1 Painting Tools</A>
+<LI><A NAME="tex2html476"
+ HREF="node45.html#SECTION001232000000000000000">4.3.2 Selection Tools</A>
+<LI><A NAME="tex2html477"
+ HREF="node45.html#SECTION001233000000000000000">4.3.3 Gradients</A>
+<LI><A NAME="tex2html478"
+ HREF="node45.html#SECTION001234000000000000000">4.3.4 Transparency as a Tool for Editing Masks</A>
+<LI><A NAME="tex2html479"
+ HREF="node45.html#SECTION001235000000000000000">4.3.5 Blurring of Masks and Other Effects</A>
+</UL>
+<LI><A NAME="tex2html480"
+ HREF="node46.html">4.4 Conversions of Selections, Channel Masks, <BR>
+Layer Masks, and Alpha Channels</A>
+<LI><A NAME="tex2html481"
+ HREF="node47.html">4.5 Masks and Selections</A>
+<UL>
+<LI><A NAME="tex2html482"
+ HREF="node47.html#SECTION001251000000000000000">4.5.1 Using Masks to Refine Selections</A>
+<LI><A NAME="tex2html483"
+ HREF="node47.html#SECTION001252000000000000000">4.5.2 The Quick Mask</A>
+<LI><A NAME="tex2html484"
+ HREF="node47.html#SECTION001253000000000000000">4.5.3 Finding the Natural Mask</A>
+<UL>
+<LI><A NAME="tex2html485"
+ HREF="node47.html#SECTION001253100000000000000">4.5.3.1 Working with the <TT>Threshold</TT> Tool</A>
+<LI><A NAME="tex2html486"
+ HREF="node47.html#SECTION001253200000000000000">4.5.3.2 The <TT>Threshold</TT> Tool Versus the <TT>Magic Wand</TT></A>
+<LI><A NAME="tex2html487"
+ HREF="node47.html#SECTION001253300000000000000">4.5.3.3 Threshold and Decompose</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html488"
+ HREF="node48.html">4.6 Common Problems and <BR>
+Frequently Asked Questions</A>
+</UL>
+<LI><A NAME="tex2html489"
+ HREF="node49.html">5. Colorspaces and Blending Modes</A>
+<UL>
+<LI><A NAME="tex2html490"
+ HREF="node50.html">5.1 The RGB Colorspace</A>
+<LI><A NAME="tex2html491"
+ HREF="node51.html">5.2 The HSV Colorspace</A>
+<LI><A NAME="tex2html492"
+ HREF="node52.html">5.3 Relating HSV to RGB</A>
+<LI><A NAME="tex2html493"
+ HREF="node53.html">5.4 The Subtractive Color Systems CMY <BR>
+and CMYK</A>
+<LI><A NAME="tex2html494"
+ HREF="node54.html">5.5 Conversion to Grayscale</A>
+<LI><A NAME="tex2html495"
+ HREF="node55.html">5.6 The Blending Modes</A>
+<UL>
+<LI><A NAME="tex2html496"
+ HREF="node55.html#SECTION001361000000000000000">5.6.1 The <TT>Normal</TT>, <TT>Dissolve</TT>, and <TT>Behind</TT>
+Blending Modes</A>
+<LI><A NAME="tex2html497"
+ HREF="node55.html#SECTION001362000000000000000">5.6.2 The <TT>Addition</TT>, <TT>Subtract</TT>, and <TT>Difference</TT>
+Blending Modes</A>
+<LI><A NAME="tex2html498"
+ HREF="node55.html#SECTION001363000000000000000">5.6.3 The <TT>Multiply (Burn)</TT>, <TT>Divide (Dodge)</TT>, <TT>Screen</TT>,
+and <TT>Overlay</TT> Blending Modes</A>
+<LI><A NAME="tex2html499"
+ HREF="node55.html#SECTION001364000000000000000">5.6.4 The <TT>Darken Only</TT> and <TT>Lighten Only</TT> Blending Modes</A>
+<LI><A NAME="tex2html500"
+ HREF="node55.html#SECTION001365000000000000000">5.6.5 The <TT>Hue</TT>, <TT>Saturation</TT>, <TT>Value</TT>, and <TT>Color</TT> Blending Modes</A>
+</UL>
+<LI><A NAME="tex2html501"
+ HREF="node56.html">5.7 Opacity and Transparency</A>
+<LI><A NAME="tex2html502"
+ HREF="node57.html">5.8 Practical Uses of Blending Modes</A>
+<UL>
+<LI><A NAME="tex2html503"
+ HREF="node57.html#SECTION001381000000000000000">5.8.1 Colorization</A>
+<LI><A NAME="tex2html504"
+ HREF="node57.html#SECTION001382000000000000000">5.8.2 Realistic Shadows and Highlights</A>
+</UL>
+<LI><A NAME="tex2html505"
+ HREF="node58.html">5.9 Common Problems and <BR>
+Frequently Asked Questions</A>
+</UL>
+<LI><A NAME="tex2html506"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<UL>
+<LI><A NAME="tex2html507"
+ HREF="node60.html">6.1 Improving Tonal Range</A>
+<UL>
+<LI><A NAME="tex2html508"
+ HREF="node60.html#SECTION001411000000000000000">6.1.1 Highlights and Shadows</A>
+<LI><A NAME="tex2html509"
+ HREF="node60.html#SECTION001412000000000000000">6.1.2 Using the <TT>Levels</TT> Tool</A>
+</UL>
+<LI><A NAME="tex2html510"
+ HREF="node61.html">6.2 Removing Color Casts</A>
+<UL>
+<LI><A NAME="tex2html511"
+ HREF="node61.html#SECTION001421000000000000000">6.2.1 The <TT>Curves</TT> Tool</A>
+<LI><A NAME="tex2html512"
+ HREF="node61.html#SECTION001422000000000000000">6.2.2 Color Correcting by Balancing the Neutrals</A>
+<LI><A NAME="tex2html513"
+ HREF="node61.html#SECTION001423000000000000000">6.2.3 Finding the Shadow, Midtone, and Highlight</A>
+<LI><A NAME="tex2html514"
+ HREF="node61.html#SECTION001424000000000000000">6.2.4 Other Colors We Know</A>
+<LI><A NAME="tex2html515"
+ HREF="node61.html#SECTION001425000000000000000">6.2.5 The Perturbation Technique</A>
+<LI><A NAME="tex2html516"
+ HREF="node61.html#SECTION001426000000000000000">6.2.6 Getting More Detail into the Subject</A>
+<LI><A NAME="tex2html517"
+ HREF="node61.html#SECTION001427000000000000000">6.2.7 Other Color Correcting Tools</A>
+<UL>
+<LI><A NAME="tex2html518"
+ HREF="node61.html#SECTION001427100000000000000">6.2.7.1 The <TT>Color Balance</TT> Tool</A>
+<LI><A NAME="tex2html519"
+ HREF="node61.html#SECTION001427200000000000000">6.2.7.2 The <TT>Brightness-Contrast</TT> Tool</A>
+<LI><A NAME="tex2html520"
+ HREF="node61.html#SECTION001427300000000000000">6.2.7.3 The <TT>Hue-Saturation</TT> Tool</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html521"
+ HREF="node62.html">6.3 Repairing Blemishes with the Clone Tool</A>
+<LI><A NAME="tex2html522"
+ HREF="node63.html">6.4 Sharpening</A>
+<UL>
+<LI><A NAME="tex2html523"
+ HREF="node63.html#SECTION001441000000000000000">6.4.1 The <TT>Unsharp Mask</TT> Concept</A>
+<LI><A NAME="tex2html524"
+ HREF="node63.html#SECTION001442000000000000000">6.4.2 A Simplified but Illustrative Example</A>
+<LI><A NAME="tex2html525"
+ HREF="node63.html#SECTION001443000000000000000">6.4.3 A Representative Example of
+Applying <BR>
+the <TT>Unsharp Mask</TT></A>
+<LI><A NAME="tex2html526"
+ HREF="node63.html#SECTION001444000000000000000">6.4.4 <TT>Unsharp Mask</TT> Pitfalls</A>
+</UL>
+<LI><A NAME="tex2html527"
+ HREF="node64.html">6.5 A Case Study</A>
+</UL>
+<LI><A NAME="tex2html528"
+ HREF="node65.html">7. Compositing</A>
+<UL>
+<LI><A NAME="tex2html529"
+ HREF="node66.html">7.1 Project 1: Fish on Holiday!</A>
+<LI><A NAME="tex2html530"
+ HREF="node67.html">7.2 Project 2: Through the Looking Glass</A>
+<LI><A NAME="tex2html531"
+ HREF="node68.html">7.3 Project 3: Destination Saturn</A>
+<LI><A NAME="tex2html532"
+ HREF="node69.html">7.4 Project 4: The Call of the Mermaid</A>
+<LI><A NAME="tex2html533"
+ HREF="node70.html">7.5 Project 5: Panoramas</A>
+<UL>
+<LI><A NAME="tex2html534"
+ HREF="node70.html#SECTION001551000000000000000">7.5.1 Correcting Geometric Distortions</A>
+<LI><A NAME="tex2html535"
+ HREF="node70.html#SECTION001552000000000000000">7.5.2 Color and Brightness Matching</A>
+<LI><A NAME="tex2html536"
+ HREF="node70.html#SECTION001553000000000000000">7.5.3 Blending</A>
+<LI><A NAME="tex2html537"
+ HREF="node70.html#SECTION001554000000000000000">7.5.4 Final Touches</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html538"
+ HREF="node71.html">8. Rendering Techniques</A>
+<UL>
+<LI><A NAME="tex2html539"
+ HREF="node72.html">8.1 The <TT>Bucket Fill</TT> Tool</A>
+<LI><A NAME="tex2html540"
+ HREF="node73.html">8.2 Gradient Rendering Techniques</A>
+<LI><A NAME="tex2html541"
+ HREF="node74.html">8.3 The <TT>Emboss</TT> and <TT>Bump map</TT> Filters</A>
+<LI><A NAME="tex2html542"
+ HREF="node75.html">8.4 Shadows</A>
+<LI><A NAME="tex2html543"
+ HREF="node76.html">8.5 Rendering Project I: Drop Shadow and Punchout</A>
+<LI><A NAME="tex2html544"
+ HREF="node77.html">8.6 Rendering Project II: A Carved Stencil</A>
+<LI><A NAME="tex2html545"
+ HREF="node78.html">8.7 Rendering Project III: Chiseled Text</A>
+</UL>
+<LI><A NAME="tex2html546"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<UL>
+<LI><A NAME="tex2html547"
+ HREF="node80.html">9.1 Web Animations</A>
+<UL>
+<LI><A NAME="tex2html548"
+ HREF="node80.html#SECTION001711000000000000000">9.1.1 Using GIF Files for Animation</A>
+<LI><A NAME="tex2html549"
+ HREF="node80.html#SECTION001712000000000000000">9.1.2 GIMP Layers Can Behave Like Animation Frames</A>
+<LI><A NAME="tex2html550"
+ HREF="node80.html#SECTION001713000000000000000">9.1.3 Saving Animations to GIF</A>
+<LI><A NAME="tex2html551"
+ HREF="node80.html#SECTION001714000000000000000">9.1.4 A Second Example of Creating a GIF Animation</A>
+<LI><A NAME="tex2html552"
+ HREF="node80.html#SECTION001715000000000000000">9.1.5 Animation Optimization</A>
+<LI><A NAME="tex2html553"
+ HREF="node80.html#SECTION001716000000000000000">9.1.6 IWarp</A>
+</UL>
+<LI><A NAME="tex2html554"
+ HREF="node81.html">9.2  Clickable Image Maps</A>
+<LI><A NAME="tex2html555"
+ HREF="node82.html">9.3 Type Effects</A>
+<LI><A NAME="tex2html556"
+ HREF="node83.html">9.4 Tileable Backgrounds</A>
+<LI><A NAME="tex2html557"
+ HREF="node84.html">9.5 Web-Safe Color</A>
+<UL>
+<LI><A NAME="tex2html558"
+ HREF="node84.html#SECTION001751000000000000000">9.5.1 Types of Color Distortion</A>
+<LI><A NAME="tex2html559"
+ HREF="node84.html#SECTION001752000000000000000">9.5.2 Low-Color Systems and Web Browser <BR>
+Color Palettes</A>
+<LI><A NAME="tex2html560"
+ HREF="node84.html#SECTION001753000000000000000">9.5.3 Converting to Indexed Color</A>
+<LI><A NAME="tex2html561"
+ HREF="node84.html#SECTION001754000000000000000">9.5.4 What Is the Best Choice?</A>
+</UL>
+<LI><A NAME="tex2html562"
+ HREF="node85.html">9.6 Semi-Transparency and Indexed Images</A>
+<LI><A NAME="tex2html563"
+ HREF="node86.html">9.7 Which Format GIF or JPEG?</A>
+</UL>
+<LI><A NAME="tex2html564"
+ HREF="node87.html">Bibliography</A>
+<LI><A NAME="tex2html565"
+ HREF="node88.html">10. GIMP Resources</A>
+<LI><A NAME="tex2html566"
+ HREF="node89.html">11. Keyboard Shortcuts</A>
+<LI><A NAME="tex2html567"
+ HREF="node90.html">Index</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html340"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif_gr.gif"> 
+<A NAME="tex2html338"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html339"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html341"
+ HREF="node1.html">Copyright Notice and Open</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

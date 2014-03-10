@@ -1,0 +1,679 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>4.3 Basic Tools for Working with Channel and Layer Masks</TITLE>
+<META NAME="description" CONTENT="4.3 Basic Tools for Working with Channel and Layer Masks">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node46.html">
+<LINK REL="previous" HREF="node44.html">
+<LINK REL="up" HREF="node42.html">
+<LINK REL="next" HREF="node46.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1504"
+ HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1500"
+ HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1494"
+ HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1502"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1503"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1505"
+ HREF="node46.html">4.4 Conversions of Selections,</A>
+<B> Up:</B> <A NAME="tex2html1501"
+ HREF="node42.html">4. Masks</A>
+<B> Previous:</B> <A NAME="tex2html1495"
+ HREF="node44.html">4.2 Layer Masks</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1506"
+ HREF="node45.html#SECTION001231000000000000000">4.3.1 Painting Tools</A>
+<LI><A NAME="tex2html1507"
+ HREF="node45.html#SECTION001232000000000000000">4.3.2 Selection Tools</A>
+<LI><A NAME="tex2html1508"
+ HREF="node45.html#SECTION001233000000000000000">4.3.3 Gradients</A>
+<LI><A NAME="tex2html1509"
+ HREF="node45.html#SECTION001234000000000000000">4.3.4 Transparency as a Tool for Editing Masks</A>
+<LI><A NAME="tex2html1510"
+ HREF="node45.html#SECTION001235000000000000000">4.3.5 Blurring of Masks and Other Effects</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001230000000000000000">&#160;</A>
+<A NAME="s4.mask-tools">&#160;</A><A NAME="5427">&#160;</A>
+<A NAME="5428">&#160;</A>
+<A NAME="5429">&#160;</A>
+<BR>
+4.3 Basic Tools for Working with Channel and Layer Masks
+</H1>
+
+<P>
+This section discusses techniques for editing channel and layer masks.
+Although, layer masks are used to edit a layer's alpha channel, and
+channel masks are used to store and edit selections, these two mask
+types behave similarly.  Thus, the techniques for editing and
+filtering them can be treated in a somewhat unified manner.
+
+<P>
+
+<H2><A NAME="SECTION001231000000000000000">&#160;</A>
+<A NAME="s4.paint-tools">&#160;</A><A NAME="5432">&#160;</A>
+<A NAME="5433">&#160;</A>
+<BR>
+4.3.1 Painting Tools
+</H2>
+
+<P>
+One of the most direct ways to modify masks is with the GIMP's
+painting tools.  The <TT>Paintbrush</TT>,<A NAME="5435">&#160;</A> <TT>Pencil</TT>,<A NAME="5437">&#160;</A> <TT>Airbrush</TT>,<A NAME="5439">&#160;</A> <TT>Eraser</TT>,<A NAME="5441">&#160;</A> <TT>Ink Pen</TT>,<A NAME="5443">&#160;</A> <TT>Dodge and Burn</TT>,<A NAME="5445">&#160;</A> <TT>Smudge</TT>,<A NAME="5447">&#160;</A> and <TT>Bucket Fill</TT><A NAME="5449">&#160;</A> tools can all be
+used.  The versatility of these tools allows masks to be created that
+could not be duplicated using the selection tools alone.  This is one
+of the reasons why masks are complementary to the selection tools.
+
+<P>
+Figure&nbsp;<A HREF="node45.html#f.masks.paint1">4.17</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.paint1">&#160;</A><A NAME="5452">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.17:</STRONG>
+Using Painting Tools on a Channel Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img114.gif"
+ALT="Figure 4.17"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the use of the <TT>Paintbrush</TT> tool to edit a channel
+mask.  As can be seen from Figure&nbsp;<A HREF="node45.html#f.masks.paint1">4.17</A>(a), the <TT>Paintbrush</TT> tool has been selected from the Toolbox, and white is the
+<TT>Active Foreground Color</TT>.  Furthermore, as shown in
+Figure&nbsp;<A HREF="node45.html#f.masks.paint1">4.17</A>(b), a medium hard brush has been selected
+from the <TT>Brush Selection</TT><A NAME="5462">&#160;</A> dialog.
+Figure&nbsp;<A HREF="node45.html#f.masks.paint1">4.17</A>(c) illustrates the Channels dialog, which
+shows that an active channel mask labeled Butterfly has been created.
+The mask's color is set to yellow, its opacity is 50%, and its Eye
+icon is toggled on, which means the the channel mask can be seen in
+the image window.  The effect of the mask in the image window is shown
+in Figure&nbsp;<A HREF="node45.html#f.masks.paint1">4.17</A>(d).
+
+<P>
+The partial transparency of the mask makes it easy to paint in the
+image window while following the butterfly's outline.  As already
+noted, the mask acts like digital tracing paper.  Some white strokes
+can be seen in the channel mask thumbnail shown in
+Figure&nbsp;<A HREF="node45.html#f.masks.paint1">4.17</A>(c).  These were created by painting with
+the <TT>Paintbrush</TT> tool in the image window.  Because the channel
+mask is active, the <TT>Paintbrush</TT> modifies the mask, not the image
+layer.  However, the effect in the image window is to reveal parts of
+the image layer, as can be seen in Figure&nbsp;<A HREF="node45.html#f.masks.paint1">4.17</A>(d).
+Regions that have been painted white can be repainted black, which
+restores the mask.  Note that although the mask appears yellow in the
+image window, it actually remains a grayscale image.  For this reason
+white, black, and grays are the only colors that should be used when
+painting in channel masks.
+
+<P>
+
+<H2><A NAME="SECTION001232000000000000000">&#160;</A>
+<A NAME="s4.masks-selections">&#160;</A><A NAME="5471">&#160;</A>
+<A NAME="5472">&#160;</A>
+<BR>
+4.3.2 Selection Tools
+</H2>
+
+<P>
+Selection tools can also be used to modify masks.  Cutting a selection
+while a mask is active fills the selected region of the mask with the
+current <TT>Active Background Color</TT>.  Like the painting tools, selections
+can be used to add or subtract parts of the mask.
+
+<P>
+Figure&nbsp;<A HREF="node45.html#f.masks.select2">4.18</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.select2">&#160;</A><A NAME="5476">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.18:</STRONG>
+Using Selection Tools on a Channel Mask: Addition</CAPTION>
+<TR><TD><IMG
+ SRC="img115.gif"
+ALT="Figure 4.18"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how a selection in the image window can be used to add white
+pixels to the mask and,
+consequently, add to the set of selected pixels represented by the
+mask.  Figure&nbsp;<A HREF="node45.html#f.masks.select2">4.18</A>(a) shows that a selection has been
+made in the image window, and Figure&nbsp;<A HREF="node45.html#f.masks.select2">4.18</A>(b)
+indicates that it was made using the <TT>Bezier Path</TT> tool.
+Figure&nbsp;<A HREF="node45.html#f.masks.select2">4.18</A>(b) also shows that the <TT>Active
+Background Color</TT> is white.  Cutting the selection while the channel
+mask is active produces the result shown in
+Figure&nbsp;<A HREF="node45.html#f.masks.select2">4.18</A>(c).  The selected part of the mask has
+been removed from the image window.  Furthermore, the corresponding
+part of the mask has been changed to white, as can be seen from the
+mask thumbnail shown in Figure&nbsp;<A HREF="node45.html#f.masks.select2">4.18</A>(d).
+
+<P>
+Alternatively, Figure&nbsp;<A HREF="node45.html#f.masks.select1">4.19</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.select1">&#160;</A><A NAME="5489">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.19:</STRONG>
+Using Selection Tools on a Channel Mask: Subtraction</CAPTION>
+<TR><TD><IMG
+ SRC="img116.gif"
+ALT="Figure 4.19"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how a selection can be used to add black pixels to the mask, thus subtracting from the
+set of selected pixels represented by the mask.
+Figure&nbsp;<A HREF="node45.html#f.masks.select1">4.19</A>(a) shows the selection in the image
+window and, as indicated by Figure&nbsp;<A HREF="node45.html#f.masks.select1">4.19</A>(b), the
+selection was made using the <TT>Rectangle Select</TT> tool.
+Figure&nbsp;<A HREF="node45.html#f.masks.select1">4.19</A>(b) also shows that the <TT>Active
+Background Color</TT> is set to black.  The result of cutting the
+selection using <TT>C-x</TT> is shown in Figure&nbsp;<A HREF="node45.html#f.masks.select1">4.19</A>(c).
+All the pixels in the interior of the rectangle selection have been
+filled with black, which results in the removal of these pixels from
+the set of selected pixels represented by the mask.
+
+<P>
+
+<H2><A NAME="SECTION001233000000000000000">&#160;</A>
+<A NAME="s4.masks.gradients">&#160;</A><A NAME="5502">&#160;</A>
+<A NAME="5503">&#160;</A>
+<BR>
+4.3.3 Gradients
+</H2>
+
+<P>
+When used in layer and channel masks, gradients are very useful
+blending tools.  Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft1">4.20</A> 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.spacecraft1">&#160;</A><A NAME="5506">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.20:</STRONG>
+Two Images</CAPTION>
+<TR><TD><IMG
+ SRC="img117.gif"
+ALT="Figure 4.20"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+is used to illustrate how two images can be blended together using a
+gradient in a layer mask.  To begin, a new transparent layer is
+created in the lunar module image
+(Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft1">4.20</A>(a)), and the space shuttle image
+(Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft1">4.20</A>(b)) is copied and pasted into it.
+The paste actually creates a floating selection that is subsequently
+positioned and anchored to the transparent layer.  The result of the
+paste is illustrated in Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft0">4.21</A>(a),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.spacecraft0">&#160;</A><A NAME="5514">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.21:</STRONG>
+Pasting and Positioning the Shuttle Over the Lunar Module</CAPTION>
+<TR><TD><IMG
+ SRC="img118.gif"
+ALT="Figure 4.21"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and the image's Layers dialog is shown in
+Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft0">4.21</A>(b).  It can be seen from the Layers
+dialog that the space shuttle is in the upper layer and that, in
+preparation for the next step, a layer mask has been created for it.
+
+<P>
+The blending of the two layers is performed by constructing a
+gradient<A NAME="5519">&#160;</A> in the layer mask.  The
+following steps are used to accomplish this:
+<DL COMPACT>
+<DT>1.
+<DD>The layer mask is made active by clicking on its thumbnail in
+the Layers dialog.
+<DT>2.
+<DD>The <TT>Gradient</TT> tool is chosen from the Toolbox, and the <TT>Active Foreground Color</TT> and the <TT>Active Background Color</TT> are set
+to black and white, respectively.
+<DT>3.
+<DD>The <TT>Tool Options</TT> dialog<A NAME="5525">&#160;</A> is opened by
+double-clicking on the <TT>Gradient</TT> icon in the Toolbox, and the
+Blend option is set to FG to BG (RGB).
+<DT>4.
+<DD>The gradient is applied by clicking and dragging in the image window
+starting at the leftmost edge of the space shuttle layer, and
+releasing slightly to the left of the left shuttle rocket.
+</DL>The resulting gradient can be seen in the layer mask's thumbnail, shown
+in Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft2">4.22</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.spacecraft2">&#160;</A><A NAME="5530">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.22:</STRONG>
+Two Images Blended Using a Gradient in a Layer Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img119.gif"
+ALT="Figure 4.22"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+Several points are worth noting here.  First, the gradient is created
+in the layer mask by clicking and dragging in the <EM>image</EM> window.
+The gradient is applied to the <EM>layer mask</EM> because it was made
+active in the first step of the preceding procedure.  Second, as seen
+in Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft2">4.22</A>(a), the gradient in the layer mask
+blends the upper layer with the lower one by creating a gradual
+transition from black to white in the mask.  The black pixels of the
+mask make the upper layer completely transparent.  The trend from the
+dark gray to light gray pixels in the mask gradually blends the upper
+layer into the lower until the mask is totally white, at which point
+the upper layer is totally opaque.  The width of the blend is
+controlled by the width of the gradient.
+
+<P>
+The blend made in Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft2">4.22</A> produces a
+straight, horizontally varying gradient, but what if a more
+complicated blending interface is desired?  This can be solved using
+the Mode<A NAME="5538">&#160;</A> menu found in the <TT>Brush
+Selection</TT><A NAME="5540">&#160;</A> dialog.
+Figure&nbsp;<A HREF="node45.html#f.masks.gradient-options">4.23</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.gradient-options">&#160;</A><A NAME="6018">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.23:</STRONG>
+The <TT> Brush Selection</TT> Dialog and the Mode Menu</CAPTION>
+<TR><TD><IMG
+ SRC="img120.gif"
+ALT="Figure 4.23"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Brush Selection</TT> dialog, and
+Figure&nbsp;<A HREF="node45.html#f.masks.gradient-options">4.23</A>(b) shows the mode menu's
+choices.
+
+<P>
+The Mode menu controls how the paint of the gradient combines with
+what is already active in the image window (whether that be an image
+layer, a channel mask, or a layer mask).  The <TT>Normal</TT> mode is the
+default, and this mode just replaces anything that was in the layer
+with the paint from the gradient.  The other modes combine the paint
+from the gradient in various ways, which are described in depth in
+Chapter&nbsp;<A HREF="node49.html#c5.colorspaces">5</A>.  For the moment, however, let's turn our
+attention to the <TT>Multiply</TT> and <TT>Screen</TT> modes.  These modes
+will permit us to create gradients with tailor-made interfaces.  To
+illustrate this, Figure&nbsp;<A HREF="node45.html#f.masks.gradient-options2">4.24</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.gradient-options2">&#160;</A><A NAME="5555">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.24:</STRONG>
+Using Blending Modes to Combine Gradients</CAPTION>
+<TR><TD><IMG
+ SRC="img121.gif"
+ALT="Figure 4.24"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows a horizontally varying gradient created by clicking and dragging
+with the mouse in the image window, beginning at the tail of the red
+arrow and releasing at its tip.  (Note that the red arrow is just for
+illustrative purposes and is not part of the image or the gradient.)
+
+<P>
+Choosing the <TT>Multiply</TT><A NAME="5560">&#160;</A> mode
+from the <TT>Brush Selection</TT> dialog's Mode menu and applying a
+second gradient to the first is shown in
+Figure&nbsp;<A HREF="node45.html#f.masks.gradient-options2">4.24</A>(b).  The direction of the
+applied gradient is indicated by the red arrow.  If the normal
+combining mode had been used, the second gradient would have replaced
+the first.  However, setting the blending mode to <TT>Multiply</TT> has
+produced a completely different effect.  The two gradients have been
+multiplied together.  What does it mean to multiply two gradients?
+Assigning a value of 0 to black, a value of 1 to white, and
+proportional values for grays provides us with a definition.  This
+numerical correspondence is used to create a gradient that is the
+product of the first two.  More precise definitions for the blending
+modes are given in Chapter&nbsp;<A HREF="node49.html#c5.colorspaces">5</A>.
+
+<P>
+Figure&nbsp;<A HREF="node45.html#f.masks.gradient-options2">4.24</A>(c) shows the result of using
+the <TT>Screen</TT><A NAME="5567">&#160;</A> mode, applied as shown by
+the red arrow in the figure.  This mode works in a manner similar to
+<TT>Multiply</TT> mode.  It performs a multiplication, except that it is
+white that is assigned the value of 0 and black the value of 1.  As
+can be seen in Figure&nbsp;<A HREF="node45.html#f.masks.gradient-options2">4.24</A>, the <TT>Multiply</TT> and <TT>Screen</TT> blending modes can be used to create custom
+gradient interfaces.  The <TT>Multiply</TT> mode can be used to make a
+black pivot around the point of application, and the <TT>Screen</TT> mode
+to make a white pivot.
+
+<P>
+Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft2">4.22</A> shows an example of using a gradient
+in a layer mask to blend two layers.  In the upper part of this
+figure, the blend seems too abrupt, because the black space of the
+lunar module image contrasts strongly with the gray-blue sky of the
+space shuttle launch.  This can be softened by making the gradient
+interface curve around the space shuttle image, letting more of the
+lunar module's black show through from below.  Using the <TT>Multiply</TT> and <TT>Screen</TT> blending modes to do this produces the
+effect shown in Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft-final">4.25</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.spacecraft-final">&#160;</A><A NAME="6021">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.25:</STRONG>
+Custom Blending in the Upper Portion of the Image by
+Combining Additional Gradients Using the <TT> Multiply</TT> and <TT>
+Screen</TT> Modes</CAPTION>
+<TR><TD><IMG
+ SRC="img122.gif"
+ALT="Figure 4.25"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The corresponding curved gradient interface can be seen in the layer
+mask thumbnail shown in Figure&nbsp;<A HREF="node45.html#f.masks.spacecraft-final">4.25</A>(b).
+
+<P>
+Effects similar to what were achieved with <TT>Multiply</TT> and <TT>Screen</TT> can be had using two other blending modes: <TT>Darken Only</TT>
+and <TT>Lighten Only</TT>.<A NAME="5589">&#160;</A>  The results
+are a little different from those obtained with <TT>Multiply</TT> and
+<TT>Screen</TT> because these two modes provide more angular, predictable
+results at the corners of intersection.  The result is more like a
+mitred picture frame than a fluid, smooth transition.
+Figures&nbsp;<A HREF="node45.html#f.masks.gradient-options4">4.26</A>(a), (b), and (c)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.gradient-options4">&#160;</A><A NAME="6023">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.26:</STRONG>
+Compare <TT> Darken Only</TT> and <TT> Lighten Only</TT> with <TT>
+Multiply</TT> and <TT> Screen</TT> in Figure&nbsp;<A HREF="node45.html#f.masks.gradient-options2">4.24</A></CAPTION>
+<TR><TD><IMG
+ SRC="img123.gif"
+ALT="Figure 4.26"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the application of the <TT>Darken Only</TT> and <TT>Lighten
+Only</TT> modes.  Compare them with the application of the <TT>Multiply</TT>
+and <TT>Screen</TT> modes, shown in
+Figure&nbsp;<A HREF="node45.html#f.masks.gradient-options2">4.24</A>.
+
+<P>
+Blending modes are discussed in more detail in
+Section&nbsp;<A HREF="node55.html#s5.blending-modes">5.6</A>. A sophisticated use of gradients
+and blending modes in layer masks is illustrated in
+Section&nbsp;<A HREF="node68.html#s7.compositing.proj3">7.3</A>.
+
+<P>
+
+<H2><A NAME="SECTION001234000000000000000">&#160;</A>
+<A NAME="5610">&#160;</A>
+<A NAME="5611">&#160;</A>
+<BR>
+4.3.4 Transparency as a Tool for Editing Masks
+</H2>
+
+<P>
+To effectively edit masks, the image layer must be partially visible
+behind the mask so that it can be used as a guide for editing.  The
+semi-transparency of channel masks was discussed in
+Section&nbsp;<A HREF="node45.html#s4.paint-tools">4.3.1</A>, but how is it done for layer
+masks?<A NAME="5613">&#160;</A> It is done by using the
+Opacity slider in the Layers dialog.  The following example
+demonstrates its use.
+
+<P>
+Figure&nbsp;<A HREF="node45.html#f.masks.trans1">4.27</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.trans1">&#160;</A><A NAME="5616">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.27:</STRONG>
+Image with Two Layers and a Layer Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img124.gif"
+ALT="Figure 4.27"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image consisting of two layers.  The Layers dialog
+shown in Figure&nbsp;<A HREF="node45.html#f.masks.trans1">4.27</A>(b) shows that the lower layer is
+a photo of a woods and the upper layer an image of a fish, on an
+otherwise transparent layer.  The upper layer also has a layer mask,
+which is to be used to edit the fish image.  
+
+<P>
+The goal is to make parts of the fish transparent to create the
+illusion that the fish is partially behind some of the trees in the
+woods.  This can be done with the layer mask by painting with black on
+the desired areas of the mask (see Section&nbsp;<A HREF="node45.html#s4.paint-tools">4.3.1</A>) or by
+cutting away parts of the mask with a selection (see
+Section&nbsp;<A HREF="node45.html#s4.masks-selections">4.3.2</A>).  However, to effectively edit the
+layer mask using either approach, you must be able to see the outline
+of the trees through the fish.  This is achieved by making the Fish
+layer active and, then, lowering the value of the Opacity slider.
+
+<P>
+Figure&nbsp;<A HREF="node45.html#f.masks.trans2">4.28</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.trans2">&#160;</A><A NAME="6026">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.28:</STRONG>
+Decreasing the Opacity of the Top Layer and the Selection
+Obtained Using the <TT> Bezier Path</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img125.gif"
+ALT="Figure 4.28"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the effect of lowering the Fish layer's opacity.  Because
+the trees can be perceived through the fish, it is easy now to edit
+the layer mask to achieve the desired effect.  The result of using the
+<TT>Bezier Path</TT> tool to make a selection is shown in
+Figure&nbsp;<A HREF="node45.html#f.masks.trans2">4.28</A>(b) (note that the opacity of the Fish
+layer has been reset to 100%).
+
+<P>
+Making sure that the <TT>Active Background Color</TT> in the Toolbox is set to
+black and that the layer mask is active in the Layers dialog, the
+selection is cut by typing <TT>C-x</TT> in the image window.  The result
+on the image is shown in Figure&nbsp;<A HREF="node45.html#f.masks.trans3">4.29</A>(a),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.trans3">&#160;</A><A NAME="5635">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.29:</STRONG>
+The Result of Editing the Layer Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img126.gif"
+ALT="Figure 4.29"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and the thumbnail of the resulting mask can be seen in
+Figure&nbsp;<A HREF="node45.html#f.masks.trans3">4.29</A>(b).
+
+<P>
+
+<H2><A NAME="SECTION001235000000000000000">&#160;</A>
+<A NAME="s4.masks.anti-alias_and_feathering">&#160;</A><A NAME="5642">&#160;</A>
+<A NAME="5643">&#160;</A>
+<BR>
+4.3.5 Blurring of Masks and Other Effects
+</H2>
+
+<P>
+Section&nbsp;<A HREF="node36.html#s3.anti-aliasing">3.1.2</A> discussed an edge-softening technique
+called antialiasing<A NAME="5645">&#160;</A> and an edge-blending technique
+called feathering.  Effects similar to antialiasing and feathering can
+be had by applying blur filters to masks.
+
+<P>
+White pixels in a mask correspond to selected pixels in an image
+layer, and black pixels in the mask correspond to unselected image
+pixels.  If there are no gray pixels between the black and white
+zones, this gives the selection edges represented by the mask the
+harsh edge already seen in the discussion on antialiasing.  Blurring a
+mask softens the sharp edges in the mask by creating a graded zone of
+gray between the regions of black and white pixels.  The width of the
+gray zone is controlled by the blur radius.  The gray zones correspond
+to partially selected pixels in the image layer, and this is what
+creates the antialiasing/feathering effect for masks.
+
+<P>
+Figure&nbsp;<A HREF="node45.html#f.masks.blur1">4.30</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.blur1">&#160;</A><A NAME="5648">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.30:</STRONG>
+An Image and a Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img127.gif"
+ALT="Figure 4.30"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+is used to illustrate the use of blur filters on masks.
+Figure&nbsp;<A HREF="node45.html#f.masks.blur1">4.30</A>(a) shows an image of a wood duck, and
+Figure&nbsp;<A HREF="node45.html#f.masks.blur1">4.30</A>(b) shows a channel mask representing a
+selection of it.  Figure&nbsp;<A HREF="node45.html#f.masks.blur1">4.30</A>(c) shows the associated
+Channels dialog.
+
+<P>
+A closer examination of the wood duck mask is shown in
+Figure&nbsp;<A HREF="node45.html#f.masks.blur2">4.31</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.blur2">&#160;</A><A NAME="5657">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.31:</STRONG>
+Aliased Mask Edge Softened Using Blur Filter</CAPTION>
+<TR><TD><IMG
+ SRC="img128.gif"
+ALT="Figure 4.31"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+As can be seen, the mask has an unpleasant, hard, and aliased edge.
+This can be softened by blurring the mask.
+Figure&nbsp;<A HREF="node45.html#f.masks.blur2">4.31</A>(c) shows the result of applying the <TT>Gaussian Blur (IIR)</TT><A NAME="5663">&#160;</A> filter to the
+mask.  The filter dialog is displayed in
+Figure&nbsp;<A HREF="node45.html#f.masks.blur2">4.31</A>(b), which shows the choice of blur radius.
+In general, a small radius produces an antialiasing effect, and a
+large blur radius creates a feathering effect.  A blur radius of 1 was
+used for this example.
+
+<P>
+Other interesting and artistic edge effects can be obtained by
+processing masks with one or more of the GIMP's large collection of
+filters, found in the <TT>Image:Filters</TT> menu.
+Figures&nbsp;<A HREF="node45.html#f.masks.filter1">4.32</A>, <A HREF="node45.html#f.masks.filter2">4.33</A>, and
+<A HREF="node45.html#f.masks.filter3">4.34</A> illustrate some examples.  
+
+<P>
+Figures&nbsp;<A HREF="node45.html#f.masks.filter1">4.32</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.filter1">&#160;</A><A NAME="6031">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.32:</STRONG>
+Applying the <TT> Waves</TT> Filter to the Wood Duck Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img129.gif"
+ALT="Figure 4.32"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the <TT>Waves</TT><A NAME="5676">&#160;</A><A NAME="5677">&#160;</A>
+filter dialog, found in the <TT>Image:Filters/Distorts</TT> menu.  The
+resulting effect on the wood duck mask is shown in
+Figures&nbsp;<A HREF="node45.html#f.masks.filter1">4.32</A>(b), and the result of applying this mask
+as a selection to cut away the image's background is shown in
+Figures&nbsp;<A HREF="node45.html#f.masks.filter1">4.32</A>(c).  Figure&nbsp;<A HREF="node45.html#f.masks.filter2">4.33</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.filter2">&#160;</A><A NAME="6033">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.33:</STRONG>
+Applying the <TT> Glass Tile</TT> Filter to the Wood Duck Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img130.gif"
+ALT="Figure 4.33"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Glass Tile</TT><A NAME="5688">&#160;</A><A NAME="5689">&#160;</A> filter dialog, found in the <TT>Image:Filters/Glass Effects</TT> menu.  Figures&nbsp;<A HREF="node45.html#f.masks.filter2">4.33</A>(b)
+and (c) show the effect of this filter on the mask and the image.
+Figure&nbsp;<A HREF="node45.html#f.masks.filter3">4.34</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.filter3">&#160;</A><A NAME="6035">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.34:</STRONG>
+Applying the <TT> Spread</TT> Filter to the Wood Duck Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img131.gif"
+ALT="Figure 4.34"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Spread</TT><A NAME="5699">&#160;</A><A NAME="5700">&#160;</A>
+filter dialog, found in the <TT>Image:Filters/Noise</TT> menu.
+Figures&nbsp;<A HREF="node45.html#f.masks.filter3">4.34</A>(b) and (c) show the effect of this
+filter on the mask and the image.
+
+<P>
+Many other interesting filter possibilities can be found.  Have fun!
+Experiment!
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1504"
+ HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1500"
+ HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1494"
+ HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1502"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1503"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1505"
+ HREF="node46.html">4.4 Conversions of Selections,</A>
+<B> Up:</B> <A NAME="tex2html1501"
+ HREF="node42.html">4. Masks</A>
+<B> Previous:</B> <A NAME="tex2html1495"
+ HREF="node44.html">4.2 Layer Masks</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

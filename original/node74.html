@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>8.3 The Emboss and Bump map Filters</TITLE>
+<META NAME="description" CONTENT="8.3 The Emboss and Bump map Filters">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node75.html">
+<LINK REL="previous" HREF="node73.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node75.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1935"
+ HREF="node75.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1931"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1925"
+ HREF="node73.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1933"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1934"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1936"
+ HREF="node75.html">8.4 Shadows</A>
+<B> Up:</B> <A NAME="tex2html1932"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1926"
+ HREF="node73.html">8.2 Gradient Rendering Techniques</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001630000000000000000">&#160;</A>
+<A NAME="11897">&#160;</A>
+<A NAME="11898">&#160;</A>
+<A NAME="11899">&#160;</A>
+<A NAME="11900">&#160;</A>
+<A NAME="11901">&#160;</A>
+<A NAME="11902">&#160;</A>
+<BR>
+8.3 The <TT>Emboss</TT> and <TT>Bump map</TT> Filters
+</H1>
+
+<P>
+There are two filters that are particularly useful for rendering.
+These are <TT>Emboss</TT> and <TT>Bump map</TT>.
+
+<P>
+The <TT>Emboss</TT> filter, found in <TT>Image:Filters/Distorts</TT>,
+creates the effect that an image is embossed into a thin metal plate.
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss1">8.9</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.emboss1">&#160;</A><A NAME="12382">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.9:</STRONG>
+The <TT> Emboss</TT> Filter Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img297.gif"
+ALT="Figure 8.9"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the use of the filter for a very simple case.
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss1">8.9</A>(a) shows an image that was created
+using a radial gradient, and Figure&nbsp;<A HREF="node74.html#f.rendering.emboss1">8.9</A>(b) shows
+the corresponding dialog for the <TT>Emboss</TT> filter.  The dialog
+consists of a preview, two radio buttons labeled Emboss and Bumpmap,
+and three sliders called Azimuth, Elevation, and Depth.
+
+<P>
+The three sliders in the filter dialog control the embossing effect,
+and Figure&nbsp;<A HREF="node74.html#f.rendering.emboss2">8.10</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.emboss2">&#160;</A><A NAME="12384">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.10:</STRONG>
+Geometric View of the <TT> Emboss</TT> Filter Options</CAPTION>
+<TR><TD><IMG
+ SRC="img298.gif"
+ALT="Figure 8.10"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows a 3D scene that defines the effect of each one.  In the scene
+there is a pyramid object illuminated by a light<A NAME="11922">&#160;</A> source.  Two angles, the Azimuth and Elevation,
+define the position of the light with respect to the pyramid.  The
+Azimuth describes the light source's angular position in the
+horizontal plane, similar to a compass bearing.  The Elevation is the
+angular measure of the source above the plane.
+
+<P>
+When the light source is on one side of the object, the other side
+must be in shadow, as shown in Figure&nbsp;<A HREF="node74.html#f.rendering.emboss2">8.10</A>.  When
+the Elevation is 90<SUP><I>o</I></SUP>, the light source is positioned vertically
+over the object, and all faces are equally well illuminated, which
+eliminates the shadow.  There is, however, more reflected light coming
+from surfaces that are perpendicular to the rays of light than from
+those that are oblique.  Thus, Azimuth and Elevation control the
+direction of light and shadow.
+
+<P>
+``Wait a minute!  That's fine for a 3D object,'' you might say. ``But
+we are working with flat images...how does <TT>Emboss</TT> determine
+the relative angles for something that, in reality, is completely
+flat?''  I was hoping you would ask.  Figure&nbsp;<A HREF="node74.html#f.rendering.emboss4">8.11</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.emboss4">&#160;</A><A NAME="12386">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.11:</STRONG>
+How <TT> Emboss</TT> is Applied to a 2D Image: Magnitudes of the Gradient Vectors</CAPTION>
+<TR><TD><IMG
+ SRC="img299.gif"
+ALT="Figure 8.11"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the radial gradient from Figure&nbsp;<A HREF="node74.html#f.rendering.emboss1">8.9</A>(a) in
+a 3D context.  That is, the image is 2D, but an imaginary light source
+is positioned over it at some azimuth and elevation.  The little red
+arrows shown in the image plane explain how the filter embosses the
+image.
+
+<P>
+The red arrows, called gradient vectors,<A NAME="11932">&#160;</A> are
+computed for each pixel in the image (only three are shown in
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss4">8.11</A>).  For each pixel, the gradient is
+drawn in the direction that pixel values decrease the fastest, and the
+length of the arrow is determined by the amplitude of that change.
+Thus, in Figure&nbsp;<A HREF="node74.html#f.rendering.emboss4">8.11</A>, there are two arrows each
+pointing from their pixels in the direction of greatest change, and
+one is longer than the other because its slope of change is greater.
+The third arrow is just a dot because it is located in a region where
+there is no change in pixel value.  Its length is zero.
+
+<P>
+The <TT>Emboss</TT> filter works by computing the amount each pixel's
+gradient vector projects along the vector from the pixel to the light
+source.  You can see that the gradient vector labeled <EM>a</EM> in
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss4a">8.12</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.emboss4a">&#160;</A><A NAME="12388">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.12:</STRONG>
+How <TT> Emboss</TT> is Applied to a 2D Image: Directions of the Gradient Vectors</CAPTION>
+<TR><TD><IMG
+ SRC="img300.gif"
+ALT="Figure 8.12"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+has a positive projection onto the vector pointing towards the light
+source.  Alternatively, the gradient vector labeled <EM>b</EM> has a negative
+projection because it points away from the light source.  Finally, the
+gradient vector labeled <EM>c</EM> has no component along the direction to the
+light source.  Its projection is zero.
+
+<P>
+Gradient arrows that have a large positive projection in the light
+source direction are mapped to lighter grays up to the maximum
+projection, which is mapped to white.  Gradient arrows that have
+negative projections are mapped to darker grays up to the maximum
+negative projection, which is mapped to black.  Pixels whose gradient
+arrows have no component in the light source direction are mapped to
+the midtone gray, 
+<!-- MATH: $127^R 127^G 127^B$ -->
+127<SUP><I>R</I></SUP> 127<SUP><I>G</I></SUP> 127<SUP><I>B</I></SUP>.  Exactly how much light or dark
+is used in the map depends on the third slider control, labeled Depth
+in the <TT>Emboss</TT> dialog (see Figures&nbsp;<A HREF="node74.html#f.rendering.emboss1">8.9</A>(b)
+and <A HREF="node74.html#f.rendering.emboss2">8.10</A>).  A Depth value of zero produces no
+shadow, and a large value produces a deep, well-defined one.
+
+<P>
+Referring back to Figure&nbsp;<A HREF="node74.html#f.rendering.emboss1">8.9</A>(a), the Azimuth
+slider is set to zero.  This means that the light source is positioned
+to the right of the image.  Furthermore, the Elevation slider is set
+to 45<SUP><I>o</I></SUP>, meaning that the left side of the image is in the shadow
+zone.  This agrees with the vector analysis given earlier.  The pixels
+on the left side of Figure&nbsp;<A HREF="node74.html#f.rendering.emboss1">8.9</A>(a) have gradient
+vectors that point away from the light source, and so these pixels are
+mapped to darker values.  The pixel values on the right side have
+gradient vectors pointing towards the light source, so their pixels
+are mapped to lighter values.  The result is the embossed image looks
+like a cone, which can be seen in the image preview area in
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss1">8.9</A>(b).
+
+<P>
+So much for the theory.  How about an example?  
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss3">8.13</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.emboss3">&#160;</A><A NAME="12390">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.13:</STRONG>
+Example of Using the <TT> Emboss</TT> Filter</CAPTION>
+<TR><TD><IMG
+ SRC="img301.gif"
+ALT="Figure 8.13"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the photo of a daisy, and
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss3">8.13</A>(c) shows the result of applying the
+<TT>Emboss</TT> filter to it.  The filter options are shown in
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss3">8.13</A>(b).  The result is impressive.
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss3">8.13</A>(c) shows a version of the daisy that
+appears to be embossed into a thin sheet of metal.
+
+<P>
+You should note that, although the result of the <TT>Emboss</TT> filter
+is a grayscale, it is still an RGB image.  Furthermore, it is
+important to know that <TT>Emboss</TT> does not work on images with an
+alpha channel.  The alpha channel must be removed by choosing <TT>Flatten Image</TT> from the Layers menu before the
+image can be embossed.  <TT>Flatten Image</TT> is described in more
+detail in Section&nbsp;<A HREF="node33.html#s2.flatten">2.7.2</A>.
+
+<P>
+A filter that works in a manner similar to <TT>Emboss</TT> is <TT>Bump
+map</TT>,<A NAME="11968">&#160;</A> which is located in the <TT>Image:Filters/Map</TT> menu.  The <TT>Bump map</TT> filter is more versatile
+than <TT>Emboss</TT>, and it is very useful for rendering (see
+Sections&nbsp;<A HREF="node77.html#s8.carved">8.6</A> and
+<A HREF="node78.html#s8.chiseled">8.7</A> for two interesting applications of bumpmapping).
+
+<P>
+The <TT>Bump map</TT> filter works by embossing one image and then
+multiplying the result with another image.  This creates the effect of
+embedding the texture of the first image into the second.  The
+filter's dialog has many options that control the final effect.
+
+<P>
+Figures&nbsp;<A HREF="node74.html#f.rendering.bumpmap1">8.14</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.bumpmap1">&#160;</A><A NAME="11977">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.14:</STRONG>
+Cape Cod from Space and a Pattern Texture</CAPTION>
+<TR><TD><IMG
+ SRC="img302.gif"
+ALT="Figure 8.14"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and <A HREF="node74.html#f.rendering.bumpmap2">8.15</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.bumpmap2">&#160;</A><A NAME="12393">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.15:</STRONG>
+Applying the <TT> Bump map</TT> Filter to Cape Cod</CAPTION>
+<TR><TD><IMG
+ SRC="img303.gif"
+ALT="Figure 8.15"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrate an example of using <TT>Bump map</TT>.
+Figure&nbsp;<A HREF="node74.html#f.rendering.bumpmap1">8.14</A>(a) shows a photo from space of Cape
+Cod in the great state of Massachusetts, and
+Figure&nbsp;<A HREF="node74.html#f.rendering.bumpmap1">8.14</A>(b) shows a small image created by
+filling with a pattern selected from the <TT>Pattern Selection</TT>
+dialog.  These two images are the raw materials used by <TT>Bump map</TT>
+in what follows.
+
+<P>
+Figure&nbsp;<A HREF="node74.html#f.rendering.bumpmap2">8.15</A>(a) shows the <TT>Bump map</TT> dialog,
+and Figure&nbsp;<A HREF="node74.html#f.rendering.bumpmap2">8.15</A>(b) shows the result of applying
+the filter to Figure&nbsp;<A HREF="node74.html#f.rendering.bumpmap1">8.14</A>(a) using the image in
+Figure&nbsp;<A HREF="node74.html#f.rendering.bumpmap1">8.14</A>(b) as the embossing map.  As you
+can see in Figure&nbsp;<A HREF="node74.html#f.rendering.bumpmap2">8.15</A>(a), the <TT>Bump map</TT>
+filter dialog has a few more options than the <TT>Emboss</TT> filter.
+The most important is the menu labeled Bump map (not to be confused
+with the filter name).  Clicking on this menu provides a list of all
+the layers in all open images, and the image layer chosen in this menu
+is the one that is used as the embossing map.  However, unlike the
+restriction of the <TT>Emboss</TT> filter, <TT>Bump map</TT> allows any
+layer, with or without an alpha channel, to be used.  The <TT>Bump
+map</TT> dialog also has all the usual options for embossing: Azimuth,
+Elevation, and Depth.
+
+<P>
+<TT>Bump map</TT> also has a number of additional options.  There are X
+Offset and Y Offset, which are useful for positioning the embossing
+image with respect to the embossed one.  There is also the Waterlevel
+option which is only useful if the embossing image has an alpha
+channel.  In this case, the embossing is applied as a function of the
+alpha and Waterlevel values.  Low values of alpha diminish the
+embossing effect, and high values increase it.  This is modulated by
+the value of Waterlevel.  High values of Waterlevel accentuate the
+alpha channel effect, and low values proportionally diminish it.
+
+<P>
+The Ambient<A NAME="12004">&#160;</A> option in
+the <TT>Bump map</TT> dialog controls the relative strength of the
+directional light source (refer back to
+Figure&nbsp;<A HREF="node74.html#f.rendering.emboss2">8.10</A>).  An ambient<A NAME="12007">&#160;</A>
+light source is one that shines equally from all directions.  This is
+the kind of illumination that is useful in a photography studio, where
+all shadows on a subject must be eliminated.  A strong ambient light
+source cancels the effect of a directional one.  A directional light
+source creates shadows because it illuminates a scene from a single
+direction, but the more ambient light there is, the weaker the shadow
+making effect of the directional light becomes.  Thus, you can use the
+Ambient option in the <TT>Bump map</TT> dialog to control the relative
+amount of directional light and, in so doing, control the strength of
+the shadows.
+
+<P>
+Multiplying an embossing map with an image produces a result that is
+darker than either of the first two.  This is a natural result of
+image multiplication (see the description of the <TT>Multiply</TT>
+blending mode in Section&nbsp;<A HREF="node55.html#s5.blending-modes">5.6</A>).  The Compensate for
+Darkening checkbox reduces this effect.  The Invert Bumpmap checkbox
+simply inverts the relationship of shadow and light in the embossing
+map.
+
+<P>
+Finally, there are three radio buttons that control the multiplication
+process.  These are labeled Linear Map, Spherical Map, and Sinusoidal
+Map.  The Linear Map option does a straight multiply of the embossing
+map with the image.  The Sinusoidal and Spherical Map options,
+however, act somewhat like the <TT>Curves</TT> tool (see
+Section&nbsp;<A HREF="node61.html#s6.curves">6.2.1</A>).  That is, the effect of the embossing map is
+warped according to a curve.  The sinusoidal curve provides more
+contrast to the midtone embossing values and the spherical curve more
+to the shadow and highlight values.  This may sound a little
+complicated, but it isn't.  Just play around with them, and you'll see
+right away what they do.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1935"
+ HREF="node75.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1931"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1925"
+ HREF="node73.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1933"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1934"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1936"
+ HREF="node75.html">8.4 Shadows</A>
+<B> Up:</B> <A NAME="tex2html1932"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1926"
+ HREF="node73.html">8.2 Gradient Rendering Techniques</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

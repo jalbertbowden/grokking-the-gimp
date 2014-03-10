@@ -1,0 +1,309 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>5.3 Relating HSV to RGB</TITLE>
+<META NAME="description" CONTENT="5.3 Relating HSV to RGB">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node53.html">
+<LINK REL="previous" HREF="node51.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node53.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1613"
+ HREF="node53.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1609"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1603"
+ HREF="node51.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1611"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1612"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1614"
+ HREF="node53.html">5.4 The Subtractive Color</A>
+<B> Up:</B> <A NAME="tex2html1610"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1604"
+ HREF="node51.html">5.2 The HSV Colorspace</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001330000000000000000">&#160;</A>
+<A NAME="s.colorspaces.hsv2rgb">&#160;</A><A NAME="7063">&#160;</A>
+<BR>
+5.3 Relating HSV to RGB
+</H1>
+
+<P>
+To better understand the HSV and RGB colorspaces, it helps to
+understand their relationship.  A very useful exercise is to identify
+the parts of the RGB cube that correspond to surfaces of constant hue,
+saturation, and value.
+
+<P>
+We begin by better defining
+brightness.<A NAME="7064">&#160;</A><A NAME="7065">&#160;</A>  This term was
+introduced in the previous section, and it is a measure of the visual
+perception of how much light an area is emitting.  A lamp with a
+variable control switch allows the level of brightness to be changed.
+Turning the lamp up increases our perception of brightness.  Note that
+the notion of brightness does not depend on the color of the light.
+It makes as much sense to talk about the brightness of a red lamp as
+it does a white one.
+
+<P>
+A color monitor is just a collection of thousands of lamps (that is,
+pixels) that emit red, green, and blue light.  Because each of the
+lamps can be independently controlled, the total brightness of an area
+on the monitor is the sum of brightness from each color.  Colors of
+equal brightness in the RGB cube, then, are those whose three color
+components sum to the same value.  For a particular level of
+brightness, this represents a plane perpendicular to the neutral axis
+(that is, 
+<!-- MATH: $R+G+B=\mbox{constant}$ -->
+<IMG
+ WIDTH="199" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img152.gif"
+ ALT="$R+G+B=\mbox{constant}$">).  Figure&nbsp;<A HREF="node52.html#f.colorspaces.val">5.5</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.val">&#160;</A><A NAME="7069">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.5:</STRONG>
+Planes of Constant Brightness in the RGB Cube</CAPTION>
+<TR><TD><IMG
+ SRC="img153.gif"
+ALT="Figure 5.5"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows three examples of planes perpendicular to the neutral axis in
+the RGB cube.  The cube in Figure&nbsp;<A HREF="node52.html#f.colorspaces.val">5.5</A>(a) shows the
+darkest plane, the cube in Figure&nbsp;<A HREF="node52.html#f.colorspaces.val">5.5</A>(c) the
+lightest, and the cube in Figure&nbsp;<A HREF="node52.html#f.colorspaces.val">5.5</A>(b) a plane of
+intermediate brightness.  Note how the colors in each plane seem about
+equally bright.  The three cubes in the figure show color planes at
+25, 50, and 75% brightness.  Pure white and pure black have a
+brightness of be 0% and 100%, respectively, and consist of single
+points in the cube.
+
+<P>
+There are many concepts closely related to brightness and that have
+various useful properties.  Brightness is formally defined to be
+(<I>R</I>+<I>G</I>+<I>B</I>)/3; it is a physical property of color and does not
+correspond well to human color perception.  For this reason,
+brightness is not actually used in the GIMP.  However, the GIMP does
+use
+<UL>
+<LI>
+lightness,
+
+<!-- MATH: $L=[\max(R,G,B)+\min(R,G,B)]/2$ -->
+<IMG
+ WIDTH="326" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img154.gif"
+ ALT="$L=[\max(R,G,B)+\min(R,G,B)]/2$">,
+<LI>
+value, 
+<!-- MATH: $V=\max(R,G,B)$ -->
+<IMG
+ WIDTH="163" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img155.gif"
+ ALT="$V=\max(R,G,B)$">,
+and
+<LI>
+luminance, 
+<!-- MATH: $Y=0.30 R + 0.59 G + 0.11
+B$ -->
+<I>Y</I>=0.30 <I>R</I> + 0.59 <I>G</I> + 0.11
+<I>B</I>.
+</UL>Luminance<A NAME="7078">&#160;</A><A NAME="7079">&#160;</A><A NAME="7080">&#160;</A><A NAME="7081">&#160;</A><A NAME="7082">&#160;</A><A NAME="7083">&#160;</A>
+is the representation of brightness that corresponds best to human
+perception because the weightings 0.30, 0.59, and 0.11 most closely
+match the sensitivity of the eye to red, green, and blue.
+
+<P>
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.proj2neutral">5.6</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.proj2neutral">&#160;</A><A NAME="7086">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.6:</STRONG>
+Different Projections Onto the Neutral Axis</CAPTION>
+<TR><TD><IMG
+ SRC="img156.gif"
+ALT="Figure 5.6"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how the different definitions for brightness project onto the
+neutral axis.  The figure shows the position in the RGB cube of a
+representative color, 
+<!-- MATH: $220^R 60^G 120^B$ -->
+220<SUP><I>R</I></SUP> 60<SUP><I>G</I></SUP> 120<SUP><I>B</I></SUP>, and the locations on the
+neutral axis corresponding to the value, <I>V</I>, the lightness, <I>L</I>, and
+the luminance, <I>Y</I>.  As can be seen from
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.proj2neutral">5.6</A>, value is the brightest.  The
+luminance and the lightness are variable and either one can be the
+darkest depending on the choice of the RGB triple.
+
+<P>
+Next, we define saturation.<A NAME="7091">&#160;</A><A NAME="7092">&#160;</A>
+The definition of saturation is related to that of brightness.
+Saturation is the relative colorfulness of an area with respect to its
+brightness.  What is colorfulness?  An answer can be given in the
+context of the RGB cube and the neutral axis.  As already noted, the
+neutral axis is the diagonal in the cube going from 
+<!-- MATH: $0^R 0^G 0^B$ -->
+0<SUP><I>R</I></SUP> 0<SUP><I>G</I></SUP> 0<SUP><I>B</I></SUP> to
+
+<!-- MATH: $255^R 255^G 255^B$ -->
+255<SUP><I>R</I></SUP> 255<SUP><I>G</I></SUP> 255<SUP><I>B</I></SUP>, and which consists of black, white, and the
+grayscale between them.  Thus, in the usual sense, this axis has no
+color (that is, hue).  The colorfulness of any point in the RGB cube,
+then, is proportional to its perpendicular distance to the neutral
+axis.  Points closer to the axis are less colorful (that is, closer to
+gray) and those that are further away are more colorful.  The
+saturation, then, of a point in the RGB cube is the ratio of its
+colorfulness to its brightness.
+
+<P>
+This means that surfaces of constant saturation in the RGB cube are
+cones centered around the neutral axis.
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.sat">5.7</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.sat">&#160;</A><A NAME="7095">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.7:</STRONG>
+Cones of Constant Saturation in the RGB Cube</CAPTION>
+<TR><TD><IMG
+ SRC="img157.gif"
+ALT="Figure 5.7"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows two instances of the RGB cube.  The cube in
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.sat">5.7</A>(a) shows the cone corresponding to 20%
+saturation and that in Figure&nbsp;<A HREF="node52.html#f.colorspaces.sat">5.7</A>(b) to 70%
+saturation.  Note that the colors on the rightmost cone seem more
+vivid because they are more saturated.  The colors of the leftmost
+cone are much paler because their colors are more relatively neutral.
+When a color is more neutral we call it
+pastel.
+
+<P>
+Finally, the definition of hue<A NAME="7101">&#160;</A><A NAME="7102">&#160;</A> is related
+to what we colloquially think of as color.  The hue of a point in the
+RGB cube is defined to be its angular position around the neutral
+axis.  Looking at the corners of the RGB cube shown in
+Figure&nbsp;<A HREF="node50.html#f.colorspaces.rgb_cube">5.2</A>, you can see that red, yellow,
+green, cyan, blue, and magenta are distributed equally in angle around
+the neutral axis.  Thus, the wedge defined by the neutral axis and any
+point on the surface of the cube is a plane of constant hue.
+
+<P>
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.hue">5.8</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.hue">&#160;</A><A NAME="7106">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.8:</STRONG>
+Wedges of Constant Hue in the RGB Cube</CAPTION>
+<TR><TD><IMG
+ SRC="img158.gif"
+ALT="Figure 5.8"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates three instances of the RGB cube with different wedges of
+constant hue.  Because hue is a function of angle, its range is from 0
+to 360 degrees.  The red corner of the cube is defined to be the hue
+at 0, which, forcibly, is also the hue at 360.  This hue is shown in
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.hue">5.8</A>(b).  The cube in
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.hue">5.8</A>(a) shows a hue of 330, which is purple,
+and that in Figure&nbsp;<A HREF="node52.html#f.colorspaces.hue">5.8</A>(c) a hue of 30, which is
+orange.  Note that although the hue of each wedge is constant, the
+brightness and saturation vary over the range of possible values.
+
+<P>
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.hsv_cube1">5.9</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.hsv_cube1">&#160;</A><A NAME="7115">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.9:</STRONG>
+The HSV Coordinates in the RGB Color Cube</CAPTION>
+<TR><TD><IMG
+ SRC="img159.gif"
+ALT="Figure 5.9"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+summarizes the relationship between RGB and HSV.  Although, the
+neutral axis represents brightness and not value, I will often abuse
+this notion and refer to it as the value axis.  The model shown in
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.hsv_cube1">5.9</A> will be useful for understanding
+the explanations of the color blending modes described later in this
+chapter.
+
+<P>
+With the HSV coordinate system in mind several observations can be
+made about regions of color in the RGB cube.  The first is that the
+cyan, magenta, and yellow vertices of the cube represent brighter
+colors than red, green, and blue because these latter project lower
+down onto the neutral axis.  Similarly, all colors in the pyramid
+defined by the C, Y, M, and W vertices correspond to lighter colors,
+and the pyramid defined by the origin and the R, G, and B vertices
+correspond to darker colors.  Colors near the neutral axis in the cube
+will have a more pastel or washed out look because they are less
+saturated, and colors further away from this axis will appear more
+vivid.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1613"
+ HREF="node53.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1609"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1603"
+ HREF="node51.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1611"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1612"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1614"
+ HREF="node53.html">5.4 The Subtractive Color</A>
+<B> Up:</B> <A NAME="tex2html1610"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1604"
+ HREF="node51.html">5.2 The HSV Colorspace</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

@@ -1,0 +1,952 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>2.6 Manipulating Layers</TITLE>
+<META NAME="description" CONTENT="2.6 Manipulating Layers">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node33.html">
+<LINK REL="previous" HREF="node31.html">
+<LINK REL="up" HREF="node26.html">
+<LINK REL="next" HREF="node33.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1215"
+ HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1211"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1205"
+ HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1213"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1214"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1216"
+ HREF="node33.html">2.7 Combining Layers</A>
+<B> Up:</B> <A NAME="tex2html1212"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1206"
+ HREF="node31.html">2.5 Floats</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1217"
+ HREF="node32.html#SECTION001061000000000000000">2.6.1 Positioning Layers</A>
+<UL>
+<LI><A NAME="tex2html1218"
+ HREF="node32.html#SECTION001061100000000000000">2.6.1.1 Moving Layers</A>
+<LI><A NAME="tex2html1219"
+ HREF="node32.html#SECTION001061200000000000000">2.6.1.2 Aligning Layers with Guides</A>
+<LI><A NAME="tex2html1220"
+ HREF="node32.html#SECTION001061300000000000000">2.6.1.3 Toggling the Layer Boundary</A>
+</UL>
+<LI><A NAME="tex2html1221"
+ HREF="node32.html#SECTION001062000000000000000">2.6.2 Resizing and Scaling</A>
+<UL>
+<LI><A NAME="tex2html1222"
+ HREF="node32.html#SECTION001062100000000000000">2.6.2.1 Image Scaling</A>
+<LI><A NAME="tex2html1223"
+ HREF="node32.html#SECTION001062200000000000000">2.6.2.2 Image Resizing</A>
+<LI><A NAME="tex2html1224"
+ HREF="node32.html#SECTION001062300000000000000">2.6.2.3 Layer Scaling</A>
+<LI><A NAME="tex2html1225"
+ HREF="node32.html#SECTION001062400000000000000">2.6.2.4 Layer Resizing</A>
+</UL>
+<LI><A NAME="tex2html1226"
+ HREF="node32.html#SECTION001063000000000000000">2.6.3 Flipping</A>
+<LI><A NAME="tex2html1227"
+ HREF="node32.html#SECTION001064000000000000000">2.6.4 Rotating in 90<SUP><I>o</I></SUP> Increments</A>
+<LI><A NAME="tex2html1228"
+ HREF="node32.html#SECTION001065000000000000000">2.6.5 The Transform Tool</A>
+<UL>
+<LI><A NAME="tex2html1229"
+ HREF="node32.html#SECTION001065010000000000000">2.6.5.0.1 Rotation</A>
+<LI><A NAME="tex2html1230"
+ HREF="node32.html#SECTION001065020000000000000">2.6.5.0.2 Scaling</A>
+<LI><A NAME="tex2html1231"
+ HREF="node32.html#SECTION001065030000000000000">2.6.5.0.3 Shearing</A>
+<LI><A NAME="tex2html1232"
+ HREF="node32.html#SECTION001065040000000000000">2.6.5.0.4 Perspective</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001060000000000000000">&#160;</A>
+<A NAME="s2.layers.manipulations">&#160;</A>
+<BR>
+2.6 Manipulating Layers
+</H1>
+
+<P>
+As already discussed, layers are the most important image components
+for image manipulation.  They are the basic raw materials you want to
+work with and combine.  In most every GIMP project, layers need to be
+moved, resized, positioned, transformed, cut, pasted, and so on.
+These types of layer operations are discussed in this section.
+
+<P>
+
+<H2><A NAME="SECTION001061000000000000000">&#160;</A>
+<A NAME="s2.layers.positioning">&#160;</A><A NAME="2135">&#160;</A>
+<A NAME="2136">&#160;</A>
+<BR>
+2.6.1 Positioning Layers
+</H2>
+
+<P>
+One of the most basic layer operations is positioning.  Compositing
+from a set of raw image materials requires that the various
+components, each on a separate layer, be appropriately positioned.
+This section describes several techniques for layer positioning.
+
+<P>
+
+<H3><A NAME="SECTION001061100000000000000">&#160;</A>
+<A NAME="s2.move-tool">&#160;</A><A NAME="2139">&#160;</A>
+<A NAME="2140">&#160;</A>
+<BR>
+2.6.1.1 Moving Layers
+</H3>
+
+<P>
+Moving a layer is accomplished using the <TT>Move</TT><A NAME="2142">&#160;</A>
+tool.  This tool is invoked by clicking on the Toolbox button
+displaying the four-way arrow icon.  Clicking on this tool changes the
+mouse cursor to a four-way arrow when it is in the image window.
+Clicking and dragging while the cursor is in the image window causes
+the layer underneath the mouse cursor to move.  The layer affected is
+the one that is highest in the layer stack and has pixels more than
+50% opaque under the mouse cursor (see
+Section&nbsp;<A HREF="node56.html#s5.opacity-transparency">5.7</A> for more on opacity and
+transparency).  This means that if the top layer is transparent at the
+mouse cursor position, it is not moved.  This also means that if the
+active layer is transparent at the mouse cursor position it is not
+moved.  Rather, it is the first layer from the top that has more than
+50% opaque pixels under the mouse cursor that is moved.
+Alternatively, the active layer can be forced to move by
+Shift-clicking and dragging.  This moves the active layer regardless
+of its visibility, degree of transparency, or position with respect to
+the cursor.
+
+<P>
+
+<H3><A NAME="SECTION001061200000000000000">&#160;</A>
+<A NAME="s2.guides">&#160;</A><A NAME="2146">&#160;</A>
+<A NAME="2147">&#160;</A>
+<A NAME="2148">&#160;</A>
+<BR>
+2.6.1.2 Aligning Layers with Guides
+</H3>
+
+<P>
+Sometimes a layer needs to be positioned more carefully than can be
+easily judged by eye.  Under these circumstances, it is often
+convenient to use guides to facilitate their placement.  Guides are
+useful because they have a snapping property<A NAME="2149">&#160;</A>.  A layer released sufficiently near a guide will jump to
+the guide position.  The snapping property of guides is controlled by
+the <TT>Snap to Guides</TT> checkbox in the <TT>Image:View</TT> menu.  The
+checkbox must be toggled on for the snapping property to work.
+
+<P>
+To illustrate how guides are useful for layer positioning, the three
+planet images shown in Figures&nbsp;<A HREF="node32.html#f.layers.guides1">2.13</A>(a), (b), and (c)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.guides1">&#160;</A><A NAME="2154">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.13:</STRONG>
+Images to be Aligned with Guides</CAPTION>
+<TR><TD><IMG
+ SRC="img49.gif"
+ALT="Figure 2.13"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+were each copied and pasted to new layers in a larger image window
+with a black background.  This is shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.guides2">2.14</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.guides2">&#160;</A><A NAME="2160">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.14:</STRONG>
+Images Aligned with Guides</CAPTION>
+<TR><TD><IMG
+ SRC="img50.gif"
+ALT="Figure 2.14"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+The objective is to organize the planets on a diagonal, but with a
+uniform black border between them and the window edge.  This was done
+by placing two horizontal and two vertical guides in the image window,
+each positioned exactly three ruler tick marks from the edge.  Where
+do the guides come from?  Well, they are hidden inside the rulers at
+the left and top edges of the image window.  Clicking on a ruler and
+then dragging the mouse into the image window drags a guide along with
+it.  Releasing the mouse button positions the guide.  Any number of
+guides can be created in this way.  Once the guides are positioned,
+their visibility can be toggled on or off with the <TT>Toggle
+Guides</TT><A NAME="2165">&#160;</A> function, found in the <TT>Image:View</TT> menu, or by typing <TT>C-S-t</TT> in the image window.
+
+<P>
+The guides can be seen in Figure&nbsp;<A HREF="node32.html#f.layers.guides2">2.14</A> as blue dashed
+lines.  The Jupiter and Earth layers were positioned with the <TT>Move</TT> tool so that their corners were aligned at the cross-hairs of
+the guides.  It can be seen that the active layer, designated by the
+yellow dashed boundaries shown in Figure&nbsp;<A HREF="node32.html#f.layers.guides2">2.14</A>, are
+perfectly aligned with the guides.  That the layers snapped to the
+guides simplified the positioning operation.  When no longer needed,
+the guides can be moved off the image by first activating the <TT>Move</TT> tool from the Toolbox and then using the mouse to drag the
+guides back into the rulers.
+
+<P>
+
+<H3><A NAME="SECTION001061300000000000000">&#160;</A>
+<A NAME="2173">&#160;</A>
+<A NAME="2174">&#160;</A>
+<BR>
+2.6.1.3 Toggling the Layer Boundary
+</H3>
+  
+Careful alignment or color matching between layers is often required
+for layer edges that are overlapping or abutting.  The layer
+boundaries of the active layer can be seen in the image window, even
+when the layer contents cannot be seen.  This boundary, consisting of
+a black-and-yellow dashed line, can impede the precision with which
+alignment and color matching work is performed.  Under these
+circumstances it is useful to visually toggle off the layer
+boundaries, which is easily done with the <TT>Toggle Selection</TT>
+function, found in the <TT>Image:View</TT> menu.  Alternatively, <TT>C-t</TT> can be typed in the image window.  The
+visibility of the layer boundaries is restored by toggling a second
+time.
+
+<P>
+
+<H2><A NAME="SECTION001062000000000000000">
+2.6.2 Resizing and Scaling</A>
+</H2>
+
+<P>
+As was seen in Figures&nbsp;<A HREF="node27.html#f.layers.layer-stack2">2.2</A> and
+<A HREF="node30.html#f.layers.copy-paste2">2.10</A>(a), the layers in an image need not all be
+the same size.  Furthermore, changing a layer's dimensions can be
+quite useful.  In the parlance of the GIMP, a layer can be <EM>resized</EM>, which means that its boundaries are shrunk or enlarged
+without changing the dimensions of the image's contents.
+Alternatively, a layer can be <EM>scaled</EM>, which means that the
+dimensions of the layer are changed and the image contents are
+stretched or squeezed to exactly fit within the new layer boundaries.
+Six functions in the GIMP resize or scale layers and images:
+<UL>
+<LI><TT>Layer Boundary Size</TT>, found in the Layers menu
+<LI><TT>Scale Layer</TT>, found in the Layers menu
+<LI><TT>Canvas Size</TT>, found in the <TT>Image:Image</TT> menu
+<LI><TT>Scale Image</TT>, found in the <TT>Image:Image</TT> menu
+<LI>The <TT>Crop</TT> tool from the Toolbox
+<LI>The <TT>Transform</TT> tool from the Toolbox
+</UL>Each of these are discussed and compared in the following sections.
+
+<P>
+
+<H3><A NAME="SECTION001062100000000000000">&#160;</A>
+<A NAME="s2.layers.image-scale">&#160;</A><A NAME="2195">&#160;</A>
+<A NAME="2196">&#160;</A>
+<BR>
+2.6.2.1 Image Scaling
+</H3>
+
+<P>
+Scaling an image results in changing the dimensions of all the layers
+at once, while simultaneously stretching or squeezing the image
+contents to fit.  The function <TT>Scale Image</TT><A NAME="2198">&#160;</A>, found in the <TT>Image:Image</TT> menu, is the tool that
+accomplishes this.  Figure&nbsp;<A HREF="node32.html#f.layers.scale-image">2.15</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.scale-image">&#160;</A><A NAME="2202">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.15:</STRONG>
+Image Scaling</CAPTION>
+<TR><TD><IMG
+ SRC="img51.gif"
+ALT="Figure 2.15"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows an example image, and Figure&nbsp;<A HREF="node32.html#f.layers.scale-image">2.15</A>(b) shows
+the <TT>Scale Image</TT><A NAME="2208">&#160;</A> dialog.  The new width
+and height of the image can be specified in pixels or as a percentage
+of the current dimensions.  The default is to scale the two dimensions
+proportionally, but this can be changed by toggling the chain icon
+next to the Ratio X and Y entry boxes.  The result of scaling down the
+image shown in Figure&nbsp;<A HREF="node32.html#f.layers.scale-image">2.15</A>(a) by 75% is shown
+in Figure&nbsp;<A HREF="node32.html#f.layers.scale-image">2.15</A>(c).  The result of scaling it up
+by 125% is shown in Figure&nbsp;<A HREF="node32.html#f.layers.scale-image">2.15</A>(d).
+
+<P>
+
+<H3><A NAME="SECTION001062200000000000000">&#160;</A>
+<A NAME="s2.layers.image-resize">&#160;</A><A NAME="2214">&#160;</A>
+<A NAME="2215">&#160;</A>
+<BR>
+2.6.2.2 Image Resizing
+</H3>
+
+<P>
+At first blush it would seem that the <TT>Canvas Size</TT><A NAME="2217">&#160;</A> function found in the <TT>Image:Image</TT> menu should
+work in a similar fashion to <TT>Scale Image</TT>.  However, there is an
+important difference between resizing an image and scaling it.
+Because the image contents do not change with the image boundaries,
+there is a non-unique choice in how they are positioned within the
+resized image window.  Thus, when resizing to a smaller image window,
+the position of the image within the new window depends on the values
+for the new width, height, and X and Y offsets.
+
+<P>
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-a">2.16</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.resize-image-smaller-a">&#160;</A><A NAME="2222">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.16:</STRONG>
+Image Resizing (Original Becomes Smaller)</CAPTION>
+<TR><TD><IMG
+ SRC="img52.gif"
+ALT="Figure 2.16"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates how using <TT>Canvas Size</TT> can give rise to an
+inconvenient problem.  Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-a">2.16</A>(a)
+shows the original image, and
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-a">2.16</A>(b) shows the <TT>Set
+Canvas Size</TT> dialog.  In the dialog the X and Y ratios have been set
+to 50% of the original image size.  The result is shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-a">2.16</A>(c).  As can be seen, the
+image is poorly positioned within the new window.  This can be
+compensated for by using the <TT>Move</TT> tool to reposition the image
+inside the window.  The result of doing this is shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-a">2.16</A>(d).  However, the result
+still leaves the image subject, the wolf's head, poorly framed.  The
+problem is that there is no easy way to enter numbers into the <TT>Set Canvas Size</TT><A NAME="2234">&#160;</A> dialog to obtain an
+aesthetically pleasing result.
+
+<P>
+A better solution is to resize the image interactively using the <TT>Crop</TT><A NAME="2236">&#160;</A><A NAME="2237">&#160;</A> tool.
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-b">2.17</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.resize-image-smaller-b">&#160;</A><A NAME="2548">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.17:</STRONG>
+Resizing Using the <TT> Crop</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img53.gif"
+ALT="Figure 2.17"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates how the original image can be resized smaller this way.
+The tool is applied by clicking on the <TT>Crop</TT> tool icon in the
+Toolbox and then clicking and dragging in the image window to create
+the crop rectangle.  Once drawn, the dimensions of the crop rectangle
+can be adjusted by clicking and dragging either the upper-left or
+lower-right corners of the rectangle.  The rectangle can also be
+repositioned by clicking and dragging the upper-right or lower-left
+corners.
+
+<P>
+The result of using the <TT>Crop</TT> tool to nicely frame the wolf's
+head is shown in Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-b">2.17</A>(a).
+When using this tool, the Crop dialog appears, as shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-b">2.17</A>(b).  It is possible to
+crop the image by clicking on the Crop button in the dialog or by
+simply clicking inside the crop rectangle in the image window.  This
+makes the image smaller and simultaneously discards the image parts
+outside of the window.  Alternatively, the image can be resized by
+clicking on the Resize button in the Crop dialog.  This makes the
+image window smaller <EM>without</EM> discarding the image parts outside
+the resulting window.
+
+<P>
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-b">2.17</A>(c) shows the result of
+cropping the image to the crop rectangle seen in
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-smaller-b">2.17</A>(a).  From the above
+discussion, it should be clear that there is really no reason to use
+<TT>Canvas Size</TT> to make an image window smaller.  It is simply more
+convenient to do it with the <TT>Crop</TT> tool.
+
+<P>
+Although <TT>Canvas Size</TT> is not optimum for making an image smaller,
+it is quite useful for making it larger.  This is especially valuable
+when compositing several raw images.  Typically you discover, after
+positioning various imported layers, that the resulting image window
+is not large enough to adequately frame the composition.  When this
+happens, <TT>Canvas Size</TT> is the tool that fixes the problem.
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-larger">2.18</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.resize-image-larger">&#160;</A><A NAME="2257">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.18:</STRONG>
+Image Resizing (Original Becomes Larger)</CAPTION>
+<TR><TD><IMG
+ SRC="img54.gif"
+ALT="Figure 2.18"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the result of resizing an image.
+
+<P>
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-larger">2.18</A>(a) shows the original image,
+and Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-larger">2.18</A>(b) shows the <TT>Set
+Canvas Size</TT> dialog box.  This time the X and Y ratios are scaled to
+125% of the original.  The result is shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.resize-image-larger">2.18</A>(c).  Once the image window
+has been resized it is possible to reposition the image layer or
+layers using the <TT>Move</TT> tool.
+
+<P>
+
+<H3><A NAME="SECTION001062300000000000000">&#160;</A>
+<A NAME="s2.layers.layer-scale">&#160;</A><A NAME="2268">&#160;</A>
+<A NAME="2269">&#160;</A>
+<BR>
+2.6.2.3 Layer Scaling
+</H3>
+
+<P>
+As has already been discussed in this section, it is possible to scale
+an entire image.  However, it is also possible to scale a single layer
+within an image.  There are two tools for doing this in the GIMP: the
+<TT>Scale Layer</TT><A NAME="2271">&#160;</A> function, found in the
+Layers menu, and the <TT>Transform</TT><A NAME="2273">&#160;</A> tool in the
+Toolbox.
+
+<P>
+As for entire images, a layer can be scaled either smaller or larger.
+The most typical use of layer scaling is to adjust the relative size
+of an image on one layer with respect to an image in another.  This is
+needed for almost every compositing project (for examples, see
+Chapter&nbsp;<A HREF="node65.html#c7.compositing">7</A>).  When it is necessary to scale a layer
+smaller, either the <TT>Scale Layer</TT> function or the scaling option
+of the <TT>Transform</TT> tool will do the trick.  However, the <TT>Transform</TT> tool might be preferable because it provides interactive
+control of the scaling process.  <TT>Scale Layer</TT> relies on entering
+numbers into entry boxes in a dialog.  It is difficult to choose the
+correct dimensions, which leads to repeatedly applying <TT>Scale
+Layer</TT> and <TT>Undo</TT> until the desired effect is achieved.
+
+<P>
+The problem of finding the right dimensions to scale a layer can
+sometimes be solved using the <TT>Measure</TT><A NAME="2282">&#160;</A> tool,
+which is discussed in more detail in
+Section&nbsp;<A HREF="node32.html#s2.layers.transformations">2.6.5</A>.  A good example of using the
+<TT>Measure</TT> tool to determine the appropriate amount to rescale a
+layer is given in Section&nbsp;<A HREF="node70.html#s7.panoramas">7.5</A>.  Alternatively, the <TT>Transform</TT> tool provides interactive visual feedback of the scaling
+process.  In addition, it can be used in conjunction with the <TT>Bezier Path</TT><A NAME="2288">&#160;</A> tool and the Transform
+Lock<A NAME="2289">&#160;</A> icon in the Paths dialog to get very
+fine, interactive scaling control.  The technique for this is
+discussed in Section&nbsp;<A HREF="node39.html#s3.path-palette">3.4.1</A>, and a relevant example is
+shown in Section&nbsp;<A HREF="node67.html#s7.compositing.proj2">7.2</A>.
+
+<P>
+Scaling a layer larger should be avoided if possible, because this
+operation requires the interpolation<A NAME="2292">&#160;</A> of
+pixel<A NAME="2293">&#160;</A> values.  Interpolation is
+an approximation process that creates pixels where there were none
+before and that, consequently, partially degrades the layer's image
+quality.  Thus, when adjusting the relative sizes of several image
+components on different layers, it is preferable to scale down the
+larger components to match the size of the smaller ones rather than
+vice versa.
+
+<P>
+In the event that it is necessary to scale a layer larger, it is
+important to know that a layer cannot be scaled to dimensions larger
+than those of the existing image boundaries.  To scale a layer to
+dimensions greater than these limits, the image window must first be
+resized larger using the function <TT>Canvas Size</TT>, previously
+discussed.
+
+<P>
+
+<H3><A NAME="SECTION001062400000000000000">&#160;</A>
+<A NAME="s2.layers.layer-resize">&#160;</A><A NAME="2297">&#160;</A>
+<A NAME="2298">&#160;</A>
+<BR>
+2.6.2.4 Layer Resizing
+</H3>
+
+<P>
+As with scaling, a layer can be resized smaller or larger.  This is
+done with <TT>Layer Boundary Size</TT>,<A NAME="2300">&#160;</A> found
+in the Layers menu.  Typically you resize a layer to a smaller
+dimension to eliminate undesirable parts.  However, resizing a layer
+smaller has the same problem as resizing an image.  That is, the
+subject matter of the layer must be properly positioned within the
+resulting layer boundaries.  For images, the positioning problem was
+solved using the <TT>Crop</TT> tool, but this will not work for resizing
+layers.  Fortunately there is a simple procedure that produces the
+same effect and allows for the interactive positioning of the layer
+contents within the smaller layer boundaries.
+
+<P>
+Figures&nbsp;<A HREF="node32.html#f.layers.resize1">2.19</A> and <A HREF="node32.html#f.layers.resize2">2.20</A> illustrate
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.resize1">&#160;</A><A NAME="2305">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.19:</STRONG>
+Resizing a Layer Smaller: Floating a Rectangular Selection</CAPTION>
+<TR><TD><IMG
+ SRC="img55.gif"
+ALT="Figure 2.19"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.resize2">&#160;</A><A NAME="2310">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.20:</STRONG>
+Resizing a Layer Smaller: Anchoring the Float to a New Layer and Deleting
+the Old Layer</CAPTION>
+<TR><TD><IMG
+ SRC="img56.gif"
+ALT="Figure 2.20"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+how this is done.  The method consists of a four-step procedure:
+<DL COMPACT>
+<DT>1.
+<DD>The region to be framed in the layer is selected with the <TT>Rectangle Select</TT><A NAME="2316">&#160;</A> tool (see
+Chapter&nbsp;<A HREF="node35.html#c3.selections">3</A> for more on selections).
+Figure&nbsp;<A HREF="node32.html#f.layers.resize1">2.19</A>(a) shows how a rectangular selection has
+been made in an image window.
+<DT>2.
+<DD>The selection is then converted to a floating selection using the
+function <TT>Float</TT><A NAME="2320">&#160;</A> from the <TT>Image:Select</TT>
+menu or by typing <TT>C-S-l</TT> in the image window.
+Figure&nbsp;<A HREF="node32.html#f.layers.resize1">2.19</A>(b) shows the Layers dialog after the
+selection has been converted to a float.
+<DT>3.
+<DD>The floating selection is then made into a new layer by choosing the
+<TT>New Layer</TT> function in the Layers menu or by clicking the <TT>New Layer</TT> button in the Layers dialog.
+Figure&nbsp;<A HREF="node32.html#f.layers.resize2">2.20</A>(a) shows the Layers dialog corresponding
+to this step.
+<DT>4.
+<DD>The old layer is made active, as shown by the Layers dialog in
+Figure&nbsp;<A HREF="node32.html#f.layers.resize2">2.20</A>(b), and is deleted by clicking on the
+trash can icon in the button bar.
+</DL>
+<P>
+The result of resizing the layer smaller is shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.resize3">2.21</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.resize3">&#160;</A><A NAME="2331">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.21:</STRONG>
+The Resulting Resized Layer</CAPTION>
+<TR><TD><IMG
+ SRC="img57.gif"
+ALT="Figure 2.21"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+In Figure&nbsp;<A HREF="node32.html#f.layers.resize3">2.21</A>(a) the layer has been resized
+smaller, which can be seen by the black-and-yellow dashed layer
+boundary.  Figure&nbsp;<A HREF="node32.html#f.layers.resize3">2.21</A>(b) shows the resulting Layers
+dialog.  The procedure, as described, allows the layer contents to be
+carefully positioned within the resized layer.
+
+<P>
+Although there are good reasons to resize an <EM>image</EM> larger, it is
+difficult to imagine a good reason for resizing a <EM>layer</EM> larger.
+However, due probably to a rationale of symmetry, a layer can be
+resized larger.  It should be noted that, as for layer scaling, the
+GIMP does not allow a layer to be resized to dimensions larger than
+the window boundaries of an image.  To resize a layer larger than the
+current image boundaries, the image must first be resized to
+accommodate it.
+
+<P>
+
+<H2><A NAME="SECTION001063000000000000000">&#160;</A>
+<A NAME="2340">&#160;</A>
+<A NAME="2341">&#160;</A>
+<BR>
+2.6.3 Flipping
+</H2>
+
+<P>
+The active layer can be flipped around its vertical or horizontal axes
+with the <TT>Flip</TT><A NAME="2343">&#160;</A> tool from the Toolbox.  A flip is
+performed by clicking on the <TT>Flip</TT> tool icon, represented by a
+two-way arrow in the Toolbox, and then by clicking in the image
+window.  When in the image window, the mouse cursor appears as a
+two-way arrow that is oriented horizontally for horizontal flips and
+vertically for vertical flips.
+
+<P>
+As an example of using the <TT>Flip</TT> tool,
+Figure&nbsp;<A HREF="node32.html#f.layers.flip">2.22</A>(a) 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.flip">&#160;</A><A NAME="2554">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.22:</STRONG>
+Using the <TT> Flip</TT> tool</CAPTION>
+<TR><TD><IMG
+ SRC="img58.gif"
+ALT="Figure 2.22"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows an image of a pelican and Figure&nbsp;<A HREF="node32.html#f.layers.flip">2.22</A>(b) shows
+the result after flipping the image horizontally.  Note that the
+Horizontal radio button is selected in the <TT>Tool Options</TT> dialog,
+as shown in Figure&nbsp;<A HREF="node32.html#f.layers.flip">2.22</A>(c).  Selecting the Vertical
+radio button, as shown in Figure&nbsp;<A HREF="node32.html#f.layers.flip">2.22</A>(e), produces the
+result in Figure&nbsp;<A HREF="node32.html#f.layers.flip">2.22</A>(d).
+
+<P>
+Note that if the Horizontal radio button is selected in the <TT>Tool
+Options</TT> dialog the flip option can be momentarily toggled to Vertical
+by Control-clicking in the image window.  Similarly, if the Vertical
+radio button is selected in the dialog, the option can be toggled to
+Horizontal option by Control-clicking in the image window.
+
+<P>
+
+<H2><A NAME="SECTION001064000000000000000">&#160;</A>
+<A NAME="2359">&#160;</A>
+<A NAME="2360">&#160;</A>
+<A NAME="2361">&#160;</A>
+<A NAME="2362">&#160;</A>
+<A NAME="2363">&#160;</A>
+<BR>
+2.6.4 Rotating in 90<SUP><I>o</I></SUP> Increments
+</H2>
+
+<P>
+An image or layer can be rotated in 90<SUP><I>o</I></SUP> increments using the <TT>Rotate</TT> menus.  For an image, use the <TT>Image:Image/Transforms/Rotate</TT> menu shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.rotate-menus">2.23</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.rotate-menus">&#160;</A><A NAME="2368">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.23:</STRONG>
+Image and Layer Rotate Menus</CAPTION>
+<TR><TD><IMG
+ SRC="img59.gif"
+ALT="Figure 2.23"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+For a layer, use the <TT>Image:Layers/Rotate</TT> menu shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.rotate-menus">2.23</A>(b).  As you can see, these menus
+can be used to rotate either the entire image or the active layer by
+by 90, 180, or 270<SUP><I>o</I></SUP>.
+
+<P>
+
+<H2><A NAME="SECTION001065000000000000000">&#160;</A>
+<A NAME="s2.layers.transformations">&#160;</A><A NAME="2376">&#160;</A>
+<A NAME="2377">&#160;</A>
+<BR>
+2.6.5 The Transform Tool
+</H2>
+
+<P>
+General transformations of a layer can be done using the <TT>Transform</TT> tool from the Toolbox.  This tool can perform rotation,
+scaling, shearing, and perspective transformations of the active
+layer.  As usual, care must be taken to specify the active layer
+before applying this tool.
+
+<P>
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1">2.24</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.transform1">&#160;</A><A NAME="2381">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.24:</STRONG>
+Transform Tool Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img60.gif"
+ALT="Figure 2.24"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image layer contained in a somewhat larger window.
+Shown in Figure&nbsp;<A HREF="node32.html#f.layers.transform1">2.24</A>(b) is the <TT>Tool Options</TT>
+dialog, which is obtained by double-clicking the <TT>Transform</TT> tool
+icon in the Toolbox window.  The four radio buttons in the Transform
+area of the dialog are used to select the desired transformation type,
+which can be Rotation, Scaling, Shearing, or Perspective.
+
+<P>
+Transforming a layer requires interpolation of pixel values, and
+this can introduce some jagged-edge artifacts into the result.  The
+toggle button labeled Smoothing diminishes this effect, which is why
+it is on by default.  It does tend to make the image a little less
+sharp, though (see Section&nbsp;<A HREF="node63.html#s6.unsharp-mask">6.4.1</A> for a discussion of
+how to recover some of the lost sharpness).
+
+<P>
+The Tool paradigm area of the dialog has two options.  The default is
+Traditional, which maps the image to a transformed grid (see
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-2">2.26</A>).  For those who like to go
+against the grain, the Corrective option maps the transformed grid to
+the image, thus producing an inverse transformation.  For example,
+rotating the transform grid in one direction with the Corrective
+option maps the grid back to the image, making the image itself rotate
+in the opposite direction.  Sound complicated?  It isn't.  Just try it
+yourself and you'll see.
+
+<P>
+
+<H4><A NAME="SECTION001065010000000000000">&#160;</A>
+<A NAME="2391">&#160;</A>
+<A NAME="2392">&#160;</A>
+<BR>
+2.6.5.0.1 Rotation
+</H4>
+
+<P>
+Figures&nbsp;<A HREF="node32.html#f.layers.transform1p2-1">2.25</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.transform1p2-1">&#160;</A><A NAME="2395">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.25:</STRONG>
+Initiating the Rotation Transformation</CAPTION>
+<TR><TD><IMG
+ SRC="img61.gif"
+ALT="Figure 2.25"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and <A HREF="node32.html#f.layers.transform1p2-2">2.26</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.transform1p2-2">&#160;</A><A NAME="2401">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.26:</STRONG>
+Finalizing the Rotation Transformation</CAPTION>
+<TR><TD><IMG
+ SRC="img62.gif"
+ALT="Figure 2.26"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrate the use of the Rotation option of the <TT>Transform</TT> tool.
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-1">2.25</A>(a) shows the image layer, and
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-1">2.25</A>(b) the <TT>Rotation
+Information</TT><A NAME="2409">&#160;</A> dialog that appears
+when the left mouse button is clicked in the image window.  The <TT>Rotation Information</TT> dialog has entry boxes that can be used to give
+a specific angle of rotation as well as the position of the point that
+will be the center of rotation.  By default, the center of rotation is
+the geometric center of the active layer.
+
+<P>
+For each of the Transform options, Rotation, Scaling, Shearing, or
+Perspective, the first mouse click on the image brings up a dialog
+specific to the chosen option.  This mouse click also displays a
+grid<A NAME="2411">&#160;</A> superimposed on the active
+layer in the image window.  The number of grid lines can be controlled
+from the <TT>Tool Options</TT> dialog (see
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1">2.24</A>(b)).  The grid lines can be seen in
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-1">2.25</A>(c).  Placing the mouse cursor
+within the active layer in the image window changes the cursor in
+accordance with the type of transformation to be performed.  The image
+outline and grid can then be transformed by clicking and dragging.
+The transformation of the <EM>grid</EM> can be adjusted as many times as
+desired because the transformation of the <EM>image</EM> is not initiated
+until the option transform button is clicked.  For example, the Rotate
+button in Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-2">2.26</A>(b) must be clicked to
+cause the actual rotation of the image.
+
+<P>
+As the grid is rotated for the Rotate option of the <TT>Transform</TT>
+tool, the angle is interactively reported in the <TT>Rotation
+Information</TT> dialog.  The rotated outline for an angle of 25<SUP><I>o</I></SUP> is
+shown in Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-2">2.26</A>(a).  As already stated,
+once the desired angle of rotation is found, the image itself is
+rotated by clicking on the Rotate button, seen in the dialog shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-2">2.26</A>(b).  The resulting rotated layer
+is shown in Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-2">2.26</A>(c).
+
+<P>
+As an alternative to interactively rotating the grid with the mouse,
+the rotation can also be performed by entering a value into the Angle
+entry box or by using the slider in the Rotation dialog.  Useful
+values of rotation can be determined with the <TT>Measure</TT><A NAME="2424">&#160;</A> tool.  An example of this is illustrated
+in Section&nbsp;<A HREF="node67.html#s7.compositing.proj2">7.2</A>.
+
+<P>
+
+<H4><A NAME="SECTION001065020000000000000">&#160;</A>
+<A NAME="2427">&#160;</A>
+<A NAME="2428">&#160;</A>
+<BR>
+2.6.5.0.2 Scaling
+</H4>
+
+<P>
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-3">2.27</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.transform1p2-3">&#160;</A><A NAME="2431">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.27:</STRONG>
+The Scaling Transformation</CAPTION>
+<TR><TD><IMG
+ SRC="img63.gif"
+ALT="Figure 2.27"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the Scaling option of the <TT>Transform</TT> tool.  Like for
+rotation, scaling can be performed interactively with the mouse or by
+entering values into the Width and Height entry boxes in the Scaling
+dialog.
+
+<P>
+Values can be entered into the Scaling dialog<A NAME="2436">&#160;</A> in
+a number of units, the default being pixels.  It is often convenient
+to perform scaling as a percentage of the original dimensions (which
+are shown at the top of the Scaling dialog as the Original Width and
+Height).  This can be done by choosing the % option from the
+pull-down menu in the dialog.  Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-3">2.27</A>(b)
+shows that this choice was used to scale the grid in
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-3">2.27</A>(a) by 50% in both dimensions.
+When the Scale button in the dialog is clicked, this produces the
+result shown in Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-3">2.27</A>(c).
+
+<P>
+It is useful to be able to constrain the X and Y scale ratio so as to
+maintain their aspect ratio when scaling a layer with the <TT>Transform</TT> tool.  This is done by pressing both the Control and Alt
+keys while using the mouse to scale the transform grid.  Useful values
+for scaling can be determined using the <TT>Measure</TT><A NAME="2442">&#160;</A> tool.  Section&nbsp;<A HREF="node70.html#s7.panoramas">7.5</A> illustrates an example of
+this.
+
+<P>
+
+<H4><A NAME="SECTION001065030000000000000">&#160;</A>
+<A NAME="2445">&#160;</A>
+<A NAME="2446">&#160;</A>
+<BR>
+2.6.5.0.3 Shearing
+</H4>
+
+<P>
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-4">2.28</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.transform1p2-4">&#160;</A><A NAME="2449">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.28:</STRONG>
+The Shear Transformation</CAPTION>
+<TR><TD><IMG
+ SRC="img64.gif"
+ALT="Figure 2.28"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the application of the Shearing option of the <TT>Transform</TT>
+tool.  As with the other options, shearing can be applied
+interactively with the mouse or by entering values into the <TT>Shear
+Information</TT> dialog.<A NAME="2455">&#160;</A>  Shearing can be
+applied either horizontally or vertically, but not in both directions
+simultaneously.  If applied using the mouse, the direction of shear is
+determined by the mouse's initial direction of movement.  Otherwise,
+it depends on the first entry box used in the dialog.
+
+<P>
+
+<H4><A NAME="SECTION001065040000000000000">&#160;</A>
+<A NAME="2457">&#160;</A>
+<A NAME="2458">&#160;</A>
+<BR>
+2.6.5.0.4 Perspective
+</H4>
+
+<P>
+Perspective is perhaps the most intriguing option of the <TT>Transform</TT> tool.  This option is illustrated in
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-5">2.29</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.transform1p2-5">&#160;</A><A NAME="2462">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.29:</STRONG>
+The Perspective Transformation</CAPTION>
+<TR><TD><IMG
+ SRC="img65.gif"
+ALT="Figure 2.29"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This is the only transform option where values cannot be directly
+entered into a dialog.  As shown in
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-5">2.29</A>(b), there is numerical feedback
+about how the Perspective transform option is applied to the image,
+but this is not particularly valuable because it is unclear how to
+reuse the information.  The consequence is that the Perspective option
+may only be applied interactively with the mouse.
+
+<P>
+Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-5">2.29</A>(a) shows that the grid line
+feature provides very useful feedback for this particular tool.  The
+lines help visualize the perspective warping that will take place once
+the Transform button is clicked in the <TT>Perspective Transform</TT>
+dialog.<A NAME="2469">&#160;</A>  The perspective transform
+allows each of the four corners of the layer to be independently
+repositioned.  The resulting image is warped to a general
+quadrilateral.  Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-5">2.29</A>(c) shows the
+result of applying the perspective transform specified by the grid
+shown in Figure&nbsp;<A HREF="node32.html#f.layers.transform1p2-5">2.29</A>(a).
+
+<P>
+It should be noted that all the transforms can be used in conjunction
+with the Transform Lock<A NAME="2472">&#160;</A> option of the Paths
+dialog.  This is extremely useful and is discussed in more detail in
+Section&nbsp;<A HREF="node39.html#s3.path-palette">3.4.1</A>.  A relevant example is shown in
+Section&nbsp;<A HREF="node67.html#s7.compositing.proj2">7.2</A>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1215"
+ HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1211"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1205"
+ HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1213"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1214"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1216"
+ HREF="node33.html">2.7 Combining Layers</A>
+<B> Up:</B> <A NAME="tex2html1212"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1206"
+ HREF="node31.html">2.5 Floats</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

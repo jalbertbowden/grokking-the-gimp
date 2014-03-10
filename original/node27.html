@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>2.1 Layers and the Role They Play in Images</TITLE>
+<META NAME="description" CONTENT="2.1 Layers and the Role They Play in Images">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node28.html">
+<LINK REL="previous" HREF="node26.html">
+<LINK REL="up" HREF="node26.html">
+<LINK REL="next" HREF="node28.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1144"
+ HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1140"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1134"
+ HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1142"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1143"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1145"
+ HREF="node28.html">2.2 Channels and Their</A>
+<B> Up:</B> <A NAME="tex2html1141"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1135"
+ HREF="node26.html">2. Review of Layers</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1146"
+ HREF="node27.html#SECTION001011000000000000000">2.1.1 The Layers Dialog</A>
+<LI><A NAME="tex2html1147"
+ HREF="node27.html#SECTION001012000000000000000">2.1.2 The Layers Menu</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001010000000000000000">&#160;</A>
+<A NAME="s2.layers.layer-dialog">&#160;</A><A NAME="1857">&#160;</A>
+<BR>
+2.1 Layers and the Role They Play in Images
+</H1>
+
+<P>
+Figure&nbsp;<A HREF="node27.html#f.layers.layer-stack1">2.1</A> will be used to describe some of
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.layer-stack1">&#160;</A><A NAME="1860">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.1:</STRONG>
+A Three-Layer Image</CAPTION>
+<TR><TD><IMG
+ SRC="img37.gif"
+ALT="Figure 2.1"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+the fundamental features of layers.  Although this image is
+constructed of three layers, this is not evident from looking at it in
+the image window.  To understand and work with the layer structure of
+an image you must use the Layers dialog.<A NAME="1864">&#160;</A><A NAME="1865">&#160;</A>  However, before describing this
+important tool, let's look at Figure&nbsp;<A HREF="node27.html#f.layers.layer-stack2">2.2</A>,
+which is a
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.layer-stack2">&#160;</A><A NAME="1868">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.2:</STRONG>
+Visualizing the Layer Stack in 3D</CAPTION>
+<TR><TD><IMG
+ SRC="img38.gif"
+ALT="Figure 2.2"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+useful illustration of how layers are used to make up images.
+
+<P>
+Figure&nbsp;<A HREF="node27.html#f.layers.layer-stack2">2.2</A> shows a 3D break-out of how the
+three-layer stack relates to the 2D image shown in
+Figure&nbsp;<A HREF="node27.html#f.layers.layer-stack1">2.1</A>.  The bottom layer is a picture of
+a gopher couple; this layer is fully opaque.  The middle layer has the
+same dimensions as the bottom layer and is completely transparent
+except for a small white rectangular region.  The white rectangle
+itself is partially transparent (thus, the bottom layer can be
+perceived through it).  Finally, the top layer's dimensions are
+smaller than either the bottom or middle layers.  The top layer is
+also transparent except for the text Prairie Pranks.  The vertical red
+dashed lines in Figure&nbsp;<A HREF="node27.html#f.layers.layer-stack2">2.2</A> show that the text
+in the top layer is positioned directly over the white rectangle in
+the middle layer.  The black frames shown in the figure have been
+drawn in to show the positions of the text and the white rectangle but
+are not actually part of the image (refer to
+Figure&nbsp;<A HREF="node27.html#f.layers.layer-stack1">2.1</A>).
+
+<P>
+The 3D layer stack shown in Figure&nbsp;<A HREF="node27.html#f.layers.layer-stack2">2.2</A> is a
+useful mental model for understanding how layers work in an image.  It
+also underscores the utility of having image components on layers.
+Because the text is on a layer, it can be positioned independently of
+the lowest layer.  Because the white rectangle is on a layer, its
+partial transparency can be adjusted without affecting the text.
+
+<P>
+
+<H2><A NAME="SECTION001011000000000000000">&#160;</A>
+<A NAME="s2.layers-dialog">&#160;</A><A NAME="1879">&#160;</A>
+<BR>
+2.1.1 The Layers Dialog
+</H2>
+
+<P>
+It is impossible to work with images without knowing their layer
+structure.  This information is provided by the Layers dialog, which
+is part of the <TT>Layers &amp; Channels</TT><A NAME="1881">&#160;</A> window.  The <TT>Layers &amp; Channels</TT> window can be found in
+the <TT>Image:Layers</TT> menu, the <TT>Image:Dialogs</TT> menu, or can be
+invoked by simply typing <TT>C-l</TT> in the image window.
+Figure&nbsp;<A HREF="node27.html#f.layers.layers-dialog">2.3</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.layers-dialog">&#160;</A><A NAME="1888">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.3:</STRONG>
+Layers Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img39.gif"
+ALT="Figure 2.3"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the multilayer image from Figure&nbsp;<A HREF="node27.html#f.layers.layer-stack1">2.1</A>,
+and Figure&nbsp;<A HREF="node27.html#f.layers.layers-dialog">2.3</A>(b) shows the associated Layers
+dialog.
+
+<P>
+The Layers dialog has many components.  Let's
+take a moment to briefly describe each one.
+Figure&nbsp;<A HREF="node27.html#f.layers.layers-dialog-detail">2.4</A> illustrates the dialog's
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.layers-dialog-detail">&#160;</A><A NAME="1896">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.4:</STRONG>
+Layers Dialog Detail</CAPTION>
+<TR><TD><IMG
+ SRC="img40.gif"
+ALT="Figure 2.4"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+various components.  The most important feature of the Layers dialog
+is the Layers Palette<A NAME="1900">&#160;</A><A NAME="1901">&#160;</A>.  This region of the dialog consists of horizontal strips,
+each representing a single layer in the image.  It can be seen from
+Figure&nbsp;<A HREF="node27.html#f.layers.layers-dialog-detail">2.4</A> that this is the Layers
+dialog for an image with three layers.  Note that each strip displays
+a thumbnail image of its layer's contents.  The strips are organized
+vertically in a stack, and this stack shows the 3D relationship of the
+layers in a 2D manner.  The top, middle, and bottom layers of the
+stack represent the layers analogously to the conceptual 3D view shown
+in Figure&nbsp;<A HREF="node27.html#f.layers.layer-stack2">2.2</A>.
+
+<P>
+In addition to showing the layer ordering structure of an image, the
+Layers Palette provides useful information and tools for working with
+the image.  As shown in Figure&nbsp;<A HREF="node27.html#f.layers.layers-dialog-detail">2.4</A>,
+the area to the far left of the Layer Thumbnail contains the Eye
+icon.<A NAME="1905">&#160;</A>  If this icon is visible, the
+corresponding layer is visible in the image window.  The Eye icon can
+be toggled off by clicking on it.  This makes the corresponding layer
+invisible in the image window.  Toggling it again brings the layer
+back.
+
+<P>
+The region of the strip just to the left of the thumbnail and to the
+right of the Eye icon is the position of the Layer Link icon.
+Clicking in this area makes a four-way arrow appear, as shown in two
+of Figure&nbsp;<A HREF="node27.html#f.layers.layers-dialog-detail">2.4</A>'s layer strips.  When
+this icon is activated for several layers at once, they are linked
+together with respect to the <TT>Move</TT><A NAME="1908">&#160;</A> tool.  These
+layers will now move together as a single unit (the <TT>Move</TT> tool is
+covered in Section&nbsp;<A HREF="node32.html#s2.move-tool">2.6.1</A>).
+
+<P>
+To the right of the thumbnail is the Layer Title
+Area, which, for a new image, is named
+Background by default.  The title can be changed by double-clicking in
+the Layer Title Area.  This brings up a dialog box where the new title
+can be entered.
+
+<P>
+The middle layer strip in Figure&nbsp;<A HREF="node27.html#f.layers.layers-dialog-detail">2.4</A>
+is highlighted in blue, indicating that it is the
+active.<A NAME="1912">&#160;</A> layer<A NAME="1913">&#160;</A>  GIMP tools
+applied to the image window are applied to this layer.  This is very
+important, so read these last two sentences again!  The GIMP tools and
+filters are applied to the <EM>active</EM> layer.  Not knowing which
+layer is active is a formula for confusion and frustration.  The
+identity of the active layer can only be reliably determined by having
+the Layers dialog open.  Any layer can be made active by clicking on
+its thumbnail or Title Area.  Only one layer can be active at a time.
+
+<P>
+Outside of the Layers Palette area are several other important
+features of the Layers dialog.  First, there are two pull-down menus
+labeled Image<A NAME="1915">&#160;</A> and Mode.<A NAME="1916">&#160;</A>  The Image
+menu is used to specify the context of the Layers dialog.  The GIMP
+can have many image windows open simultaneously.  When there is more
+than one image window open, this menu is used to select the one whose
+layers are displayed in the Layers Palette area.  If the Auto Context
+button is toggled on (which it is by default), any keystroke in an
+image window will change the Layers Palette context auto-magically to
+that window.  I like to use the space bar for this.
+
+<P>
+The Mode menu selects how the pixels of the active layer are visually
+blended with those beneath it.  Each layer has a blending mode context
+that is specified using this menu.  Blending modes are described in
+more detail in Chapter&nbsp;<A HREF="node49.html#c5.colorspaces">5</A>.
+
+<P>
+The remaining features of the Layers dialog consist of the Opacity
+slider, the Keep Trans. toggle button, and, at the bottom of the
+dialog, a row of function buttons that I call the button bar.  These
+are all discussed in more detail later.  However, of these features,
+the Opacity slider<A NAME="1918">&#160;</A> is of immediate interest
+because it is used in the example shown in
+Figure&nbsp;<A HREF="node27.html#f.layers.layers-dialog">2.3</A>.
+Figure&nbsp;<A HREF="node27.html#f.layers.layers-dialog">2.3</A>(b) shows that the the middle layer
+strip is highlighted, indicating that this layer, containing the small
+white rectangle, is active.  Careful examination of the Layers dialog
+shows that the Opacity slider is set to 60.0% for this layer.  This
+means that the layer below can be seen through the white rectangle
+because the rectangle's layer is only partially opaque.  Like for the
+blending modes, opacity can be independently set for each layer.
+
+<P>
+
+<H2><A NAME="SECTION001012000000000000000">&#160;</A>
+<A NAME="1922">&#160;</A>
+<A NAME="1923">&#160;</A>
+<BR>
+2.1.2 The Layers Menu
+</H2>
+
+<P>
+In addition to the features described in the previous section, the
+Layers dialog has a hidden menu.  This menu is displayed by right-clicking
+on the highlighted active layer in the Layers
+Palette.  This is called the Layers menu.
+Figure&nbsp;<A HREF="node27.html#f.layers.layers-menu">2.5</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.layers-menu">&#160;</A><A NAME="1926">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.5:</STRONG>
+Layers Menu</CAPTION>
+<TR><TD><IMG
+ SRC="img41.gif"
+ALT="Figure 2.5"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the Layers dialog, and the Layers menu is shown in
+Figure&nbsp;<A HREF="node27.html#f.layers.layers-menu">2.5</A>(b) and (c). The functions provided
+by the Layers menu are described shortly, but before covering them we
+need to take a slight detour to discuss another element of images:
+channels.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1144"
+ HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1140"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1134"
+ HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1142"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1143"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1145"
+ HREF="node28.html">2.2 Channels and Their</A>
+<B> Up:</B> <A NAME="tex2html1141"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1135"
+ HREF="node26.html">2. Review of Layers</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

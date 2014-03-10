@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>9.3 Type Effects</TITLE>
+<META NAME="description" CONTENT="9.3 Type Effects">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node83.html">
+<LINK REL="previous" HREF="node81.html">
+<LINK REL="up" HREF="node79.html">
+<LINK REL="next" HREF="node83.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html2052"
+ HREF="node83.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2048"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2042"
+ HREF="node81.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2050"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2051"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2053"
+ HREF="node83.html">9.4 Tileable Backgrounds</A>
+<B> Up:</B> <A NAME="tex2html2049"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2043"
+ HREF="node81.html">9.2 Clickable Image Maps</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001730000000000000000">&#160;</A>
+<A NAME="13383">&#160;</A>
+<A NAME="13384">&#160;</A>
+<BR>
+9.3 Type Effects
+</H1>
+
+<P>
+Type effects can give a Web page character.  They are a great way to
+make Web page logos and titles, and they introduce stylistic elements
+that say something about the content of your page.  The GIMP can
+produce great type effects, and the best news is that many effects
+have been automated with scripts,<A NAME="13385">&#160;</A> using a
+scripting language called Script-Fu.<A NAME="13386">&#160;</A>
+
+<P>
+Figure&nbsp;<A HREF="node82.html#f.web_centric.script-fu">9.19</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.script-fu">&#160;</A><A NAME="13389">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.19:</STRONG>
+The Collection of Script-Fu Text Effect Scripts</CAPTION>
+<TR><TD><IMG
+ SRC="img347.gif"
+ALT="Figure 9.19"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows that the scripts for creating type effects are contained in the
+<TT>Toolbox:Xtns/Script-Fu/Logos</TT> menu.  There are 27 different
+effects in the <TT>Logos</TT> menu.  This section presents one of them.
+
+<P>
+Figure&nbsp;<A HREF="node82.html#f.web_centric.script-fu2">9.20</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.script-fu2">&#160;</A><A NAME="13663">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.20:</STRONG>
+The <TT> 3D Outline</TT> Script and Helper Dialogs</CAPTION>
+<TR><TD><IMG
+ SRC="img348.gif"
+ALT="Figure 9.20"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the dialog for the <TT>3D Outline</TT><A NAME="13402">&#160;</A>
+script.  In this dialog, you can specify the text to be rendered, the
+font and size (in pixels) of the text, and an image pattern that is
+used to create the 3D outline.  The dialog contains defaults for each
+of these.  For this example, the text string default is The Gimp.
+
+<P>
+Figure&nbsp;<A HREF="node82.html#f.web_centric.script-fu2">9.20</A> shows how the defaults can be
+changed.  For example, the default font used in this example is
+Rootsheavy but other fonts can be chosen using the <TT>Text</TT> tool.
+As shown in Figure&nbsp;<A HREF="node82.html#f.web_centric.script-fu2">9.20</A>(b) the <TT>Text</TT>
+tool can be invoked directly from the <TT>3D-Outline</TT> dialog by
+clicking on the Font menu button.  The image pattern can also be
+changed interactively by clicking on the Pattern menu button (the
+button with the three dots).  This brings up the <TT>Pattern
+Selection</TT><A NAME="13409">&#160;</A> dialog shown in
+Figure&nbsp;<A HREF="node82.html#f.web_centric.script-fu2">9.20</A>(c).  The small image squares in
+the dialog are thumbnails of each available pattern.  To get a larger
+view of a pattern, use the mouse to click and hold on the pattern of
+interest.  This displays a larger thumbnail of the pattern, as shown
+in Figure&nbsp;<A HREF="node82.html#f.web_centric.script-fu2">9.20</A>(d).
+
+<P>
+The result of running the <TT>3D Outline</TT> script is shown in
+Figure&nbsp;<A HREF="node82.html#f.web_centric.script-fu3">9.21</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.script-fu3">&#160;</A><A NAME="13665">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.21:</STRONG>
+Result of Running the <TT> 3D Outline</TT> Script-Fu Script</CAPTION>
+<TR><TD><IMG
+ SRC="img349.gif"
+ALT="Figure 9.21"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Note that caution is required when using the Script-Fu scripts to
+generate text effects.  Typically, text effects are constructed of
+multiple layers, many with layer masks (for example, see
+Section&nbsp;<A HREF="node78.html#s8.chiseled">8.7</A>).  Before using a result obtained using the
+automated logo scripts, it is usually necessary to flatten the image
+before saving it to a JPEG or GIF file format.  This can be done by
+choosing <TT>Flatten Image</TT> from the Layers menu.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2052"
+ HREF="node83.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2048"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2042"
+ HREF="node81.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2050"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2051"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2053"
+ HREF="node83.html">9.4 Tileable Backgrounds</A>
+<B> Up:</B> <A NAME="tex2html2049"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2043"
+ HREF="node81.html">9.2 Clickable Image Maps</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>7. Compositing</TITLE>
+<META NAME="description" CONTENT="7. Compositing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node71.html">
+<LINK REL="previous" HREF="node59.html">
+<LINK REL="up" HREF="Grokking_the_GIMP.html">
+<LINK REL="next" HREF="node66.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1809"
+ HREF="node66.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1805"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1799"
+ HREF="node64.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1807"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1808"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1810"
+ HREF="node66.html">7.1 Project 1: Fish</A>
+<B> Up:</B> <A NAME="tex2html1806"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1800"
+ HREF="node64.html">6.5 A Case Study</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001500000000000000000">&#160;</A>
+<A NAME="c7.compositing">&#160;</A><A NAME="10366">&#160;</A>
+<A NAME="10367">&#160;</A>
+<BR>
+7. Compositing
+</H1>
+
+<P>
+Compositing means many things to many people.  Whole books have been
+written on this one topic.  Broadly speaking, compositing is the
+technique and the art of piecing together image parts collected from
+multiple sources to make a new single whole.  If the image is intended
+to be photo-realistic, a scene that could have really existed, the
+result is called photo-montage.<A NAME="10368">&#160;</A>  On the other
+hand, if the objective is to combine images whose juxtaposition
+communicates a new idea, the result is called collage.<A NAME="10369">&#160;</A>
+
+<P>
+The main differences between the two are that, for photo-montage,
+lighting and color matching are very important to the success of the
+composition.  Differences of saturation and value between image
+elements can ruin the illusion of a montage, as can obvious
+inconsistencies in lighting.  It is also important to pay attention to
+various other visual cues; however, the objective of this chapter is
+not to provide a complete discussion of these topics.  Rather, the
+goal is to demonstrate the use of the GIMP in several projects and
+show how the GIMP's tools can be used to solve collage and
+photo-montage problems.
+
+<P>
+Regardless of whether a project is photo-montage or collage, the main
+elements of compositing consist of selections, copy and paste
+operations, and positioning of image elements.  The finer aspects
+require blending, color matching, and general attention to detail.
+Thus, most of the GIMP skills needed for compositing have already been
+discussed in previous chapters.  Indeed, this chapter presumes the
+reader is familiar with concepts presented in earlier chapters.  The
+projects presented here are not described in minute detail.  Rather,
+when techniques that have been described in earlier chapters are
+required, the reader is referred to the appropriate section of the
+book.  Although this chapter is mostly project oriented, some new GIMP
+tools are also introduced.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1811"
+ HREF="node66.html">7.1 Project 1: Fish on Holiday!</A>
+<LI><A NAME="tex2html1812"
+ HREF="node67.html">7.2 Project 2: Through the Looking Glass</A>
+<LI><A NAME="tex2html1813"
+ HREF="node68.html">7.3 Project 3: Destination Saturn</A>
+<LI><A NAME="tex2html1814"
+ HREF="node69.html">7.4 Project 4: The Call of the Mermaid</A>
+<LI><A NAME="tex2html1815"
+ HREF="node70.html">7.5 Project 5: Panoramas</A>
+<UL>
+<LI><A NAME="tex2html1816"
+ HREF="node70.html#SECTION001551000000000000000">7.5.1 Correcting Geometric Distortions</A>
+<LI><A NAME="tex2html1817"
+ HREF="node70.html#SECTION001552000000000000000">7.5.2 Color and Brightness Matching</A>
+<LI><A NAME="tex2html1818"
+ HREF="node70.html#SECTION001553000000000000000">7.5.3 Blending</A>
+<LI><A NAME="tex2html1819"
+ HREF="node70.html#SECTION001554000000000000000">7.5.4 Final Touches</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1809"
+ HREF="node66.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1805"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1799"
+ HREF="node64.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1807"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1808"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1810"
+ HREF="node66.html">7.1 Project 1: Fish</A>
+<B> Up:</B> <A NAME="tex2html1806"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1800"
+ HREF="node64.html">6.5 A Case Study</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

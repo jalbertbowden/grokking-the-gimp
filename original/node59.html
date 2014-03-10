@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>6. Touchup and Enhancement</TITLE>
+<META NAME="description" CONTENT="6. Touchup and Enhancement">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node65.html">
+<LINK REL="previous" HREF="node49.html">
+<LINK REL="up" HREF="Grokking_the_GIMP.html">
+<LINK REL="next" HREF="node60.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1702"
+ HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1698"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1692"
+ HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1700"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1701"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1703"
+ HREF="node60.html">6.1 Improving Tonal Range</A>
+<B> Up:</B> <A NAME="tex2html1699"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1693"
+ HREF="node58.html">5.9 Common Problems and</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001400000000000000000">&#160;</A>
+<A NAME="c6.touchup">&#160;</A><A NAME="8748">&#160;</A>
+<A NAME="8749">&#160;</A>
+<A NAME="8750">&#160;</A>
+<A NAME="8751">&#160;</A>
+<A NAME="8752">&#160;</A>
+<BR>
+6. Touchup and Enhancement
+</H1>
+
+<P>
+Photos that are scanned or come from a PhotoCD or digital camera can
+suffer from both aesthetic and processing defects.  These defects can
+be due to problems of contrast, color casts, color saturation, tonal
+range, blur, scratches, and so on.  Furthermore, most photos, no
+matter how carefully composed, typically need some enhancement to
+achieve their full potential.  Ansel Adams,<A NAME="8753">&#160;</A> one of
+America's most renown photographers, spent as much time in the
+darkroom enhancing his negatives and prints as he did in composing and
+taking his shots.  Adams' books on working with the negative and the
+print are classics in photography [<A
+ HREF="node87.html#adams1">7</A>], [<A
+ HREF="node87.html#adams2">8</A>].
+
+<P>
+Photo touchup and enhancement is part science and part art, and the
+GIMP is an excellent tool for these on both counts.  This chapter
+describes the main ideas for aesthetically improving photos and
+explains how to use the GIMP to achieve terrific results.  Following
+are the topics addressed in this chapter:
+<UL>
+<LI>Improving tonal range.
+<LI>Removing color casts
+<LI>Repairing blemishes
+<LI>Sharpening
+</UL>Each of these subjects is described in detail in the following
+sections, and a case study is presented at the end of the chapter.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1704"
+ HREF="node60.html">6.1 Improving Tonal Range</A>
+<UL>
+<LI><A NAME="tex2html1705"
+ HREF="node60.html#SECTION001411000000000000000">6.1.1 Highlights and Shadows</A>
+<LI><A NAME="tex2html1706"
+ HREF="node60.html#SECTION001412000000000000000">6.1.2 Using the <TT>Levels</TT> Tool</A>
+</UL>
+<LI><A NAME="tex2html1707"
+ HREF="node61.html">6.2 Removing Color Casts</A>
+<UL>
+<LI><A NAME="tex2html1708"
+ HREF="node61.html#SECTION001421000000000000000">6.2.1 The <TT>Curves</TT> Tool</A>
+<LI><A NAME="tex2html1709"
+ HREF="node61.html#SECTION001422000000000000000">6.2.2 Color Correcting by Balancing the Neutrals</A>
+<LI><A NAME="tex2html1710"
+ HREF="node61.html#SECTION001423000000000000000">6.2.3 Finding the Shadow, Midtone, and Highlight</A>
+<LI><A NAME="tex2html1711"
+ HREF="node61.html#SECTION001424000000000000000">6.2.4 Other Colors We Know</A>
+<LI><A NAME="tex2html1712"
+ HREF="node61.html#SECTION001425000000000000000">6.2.5 The Perturbation Technique</A>
+<LI><A NAME="tex2html1713"
+ HREF="node61.html#SECTION001426000000000000000">6.2.6 Getting More Detail into the Subject</A>
+<LI><A NAME="tex2html1714"
+ HREF="node61.html#SECTION001427000000000000000">6.2.7 Other Color Correcting Tools</A>
+<UL>
+<LI><A NAME="tex2html1715"
+ HREF="node61.html#SECTION001427100000000000000">6.2.7.1 The <TT>Color Balance</TT> Tool</A>
+<LI><A NAME="tex2html1716"
+ HREF="node61.html#SECTION001427200000000000000">6.2.7.2 The <TT>Brightness-Contrast</TT> Tool</A>
+<LI><A NAME="tex2html1717"
+ HREF="node61.html#SECTION001427300000000000000">6.2.7.3 The <TT>Hue-Saturation</TT> Tool</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html1718"
+ HREF="node62.html">6.3 Repairing Blemishes with the Clone Tool</A>
+<LI><A NAME="tex2html1719"
+ HREF="node63.html">6.4 Sharpening</A>
+<UL>
+<LI><A NAME="tex2html1720"
+ HREF="node63.html#SECTION001441000000000000000">6.4.1 The <TT>Unsharp Mask</TT> Concept</A>
+<LI><A NAME="tex2html1721"
+ HREF="node63.html#SECTION001442000000000000000">6.4.2 A Simplified but Illustrative Example</A>
+<LI><A NAME="tex2html1722"
+ HREF="node63.html#SECTION001443000000000000000">6.4.3 A Representative Example of
+Applying <BR>
+the <TT>Unsharp Mask</TT></A>
+<LI><A NAME="tex2html1723"
+ HREF="node63.html#SECTION001444000000000000000">6.4.4 <TT>Unsharp Mask</TT> Pitfalls</A>
+</UL>
+<LI><A NAME="tex2html1724"
+ HREF="node64.html">6.5 A Case Study</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1702"
+ HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1698"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1692"
+ HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1700"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1701"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1703"
+ HREF="node60.html">6.1 Improving Tonal Range</A>
+<B> Up:</B> <A NAME="tex2html1699"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1693"
+ HREF="node58.html">5.9 Common Problems and</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

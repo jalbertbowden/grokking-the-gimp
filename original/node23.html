@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>1.8 Zoom and New View</TITLE>
+<META NAME="description" CONTENT="1.8 Zoom and New View">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node24.html">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1059"
+ HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1055"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1049"
+ HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1057"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1058"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1060"
+ HREF="node24.html">1.9 The Help System</A>
+<B> Up:</B> <A NAME="tex2html1056"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html1050"
+ HREF="node22.html">1.7 Copy, Cut, and</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1061"
+ HREF="node23.html#SECTION00981000000000000000">1.8.1 Zoom</A>
+<LI><A NAME="tex2html1062"
+ HREF="node23.html#SECTION00982000000000000000">1.8.2 New View</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00980000000000000000">
+1.8 Zoom and New View</A>
+</H1>
+
+<P>
+The functions <TT>Zoom</TT> and <TT>New View</TT> are for doing precision,
+pixel-scale work on an image.  This section describes these
+particularly useful functions.
+
+<P>
+
+<H2><A NAME="SECTION00981000000000000000">&#160;</A>
+<A NAME="s1.zoom">&#160;</A><A NAME="1190">&#160;</A>
+<A NAME="1191">&#160;</A>
+<BR>
+1.8.1 Zoom
+</H2>
+
+<P>
+Figure&nbsp;<A HREF="node23.html#f.basics.zoom1">1.16</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.zoom1">&#160;</A><A NAME="1194">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.16:</STRONG>
+Using Zoom</CAPTION>
+<TR><TD><IMG
+ SRC="img32.gif"
+ALT="Figure 1.16"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the use of <TT>Zoom</TT>.  The <TT>Zoom</TT>
+function, enabled by clicking on the magnifying glass icon in the
+Toolbox, has two modes of operation.  The first mode is used by
+clicking and dragging in the image window to frame a part of the
+image.  When the mouse button is released, the delineated region is
+zoomed.  Figure&nbsp;<A HREF="node23.html#f.basics.zoom1">1.16</A>(a) shows a zoom selection area
+created with the mouse, and Figure&nbsp;<A HREF="node23.html#f.basics.zoom1">1.16</A>(b) shows how
+this region is zoomed to fill the entire image window.  This is a
+convenient way to zoom into a specific region of your image.
+
+<P>
+The second mode of operation for the <TT>Zoom</TT> tool is accessed by
+simply clicking or Shift-clicking in the image window.  Each click
+zooms in a step and each Shift-click zooms out a step.  The image
+window can also be zoomed in or out with keyboard shortcuts.  Zooming
+in is performed by typing <TT>=</TT><A NAME="1204">&#160;</A> in the image
+window, and zooming out<A NAME="1205">&#160;</A> is performed by
+typing - (that is, the minus key).  Notice that the <TT>=</TT> is
+on the same key as the <TT>+</TT>, which should remind you that it adds
+or increases zoom.  By contrast, the - key subtracts or
+decreases zoom.  An advantage of the keyboard shortcuts is that they
+function without having to first click on the <TT>Zoom</TT> icon in the
+Toolbox.
+
+<P>
+The function <TT>Shrink Wrap</TT>,<A NAME="1212">&#160;</A> found in
+the <TT>Image:View</TT> menu, can be used to resize the window to
+encompass the entire image, but only within the limits of your
+monitor's screen.  <TT>Shrink Wrap</TT> can also be invoked by typing
+<TT>C-e</TT> in the image window.
+
+<P>
+Whenever a part of a zoomed image cannot be seen in the image window,
+the image panner, described in Section&nbsp;<A HREF="node16.html#s1.image-window">1.1.2</A>, can be
+used to pan to a desired image area.  There are also three other
+possibilities for panning<A NAME="1217">&#160;</A><A NAME="1218">&#160;</A> in a zoomed image.  There are the
+window's scroll bars, however, these probably aren't the most
+convenient method.  The second choice is to middle-click and drag in
+the image window.  This can work reasonably well if the image needs to
+be adjusted only incrementally.  If it is necessary to pan back and
+forth between many different regions of a zoomed image, the <TT>Navigation Window</TT><A NAME="1220">&#160;</A><A NAME="1221">&#160;</A> is probably the most convenient.
+
+<P>
+The use of the <TT>Navigation Window</TT>, found in the <TT>Image:View</TT>
+menu, is shown in Figure&nbsp;<A HREF="node23.html#f.basics.navwin1">1.17</A>.
+Figure&nbsp;<A HREF="node23.html#f.basics.navwin1">1.17</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.navwin1">&#160;</A><A NAME="1227">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.17:</STRONG>
+Using Zoom with the Navigation Window</CAPTION>
+<TR><TD><IMG
+ SRC="img33.gif"
+ALT="Figure 1.17"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image zoomed to 200%, and
+Figure&nbsp;<A HREF="node23.html#f.basics.navwin1">1.17</A>(b) shows the <TT>Navigation Window</TT>.
+This dialog allows the image to be panned in the image window by
+clicking and dragging on the view rectangle.  You can also use the
+<TT>Navigation Window</TT> to control the degree of zoom by clicking on
+the <TT>+</TT> and - buttons.
+
+<P>
+
+<H2><A NAME="SECTION00982000000000000000">&#160;</A>
+<A NAME="s1.new-view">&#160;</A><A NAME="1238">&#160;</A>
+<A NAME="1239">&#160;</A>
+<A NAME="1240">&#160;</A>
+<BR>
+1.8.2 New View
+</H2>
+
+<P>
+When performing detailed, pixel-scale operations on a zoomed image, it
+is useful to see what effect this is having on the image at normal
+scale, but it is inconvenient to zoom in and out after each operation.
+To solve this problem, there is the <TT>New View</TT>
+function, found in the <TT>Image:View</TT> menu.  This function creates a
+new image window, which is a dependent view of the exact same image.
+Thus, operations performed in one window are also shown in the other.
+The <TT>Zoom</TT> function is the only exception to this and can affect
+one window without affecting the other.  <TT>New View</TT> allows
+pixel-scale operations to be performed in one zoomed-in window while
+the same operations can be viewed in the other view window at normal
+scale.
+
+<P>
+Figure&nbsp;<A HREF="node23.html#f.basics.new-view">1.18</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.new-view">&#160;</A><A NAME="1247">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.18:</STRONG>
+Using New View</CAPTION>
+<TR><TD><IMG
+ SRC="img34.gif"
+ALT="Figure 1.18"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates how the <TT>New View</TT> function works.
+Figure&nbsp;<A HREF="node23.html#f.basics.new-view">1.18</A>(a) shows a zoomed view of a pinecone,
+while Figure&nbsp;<A HREF="node23.html#f.basics.new-view">1.18</A>(b) shows a view of the same image
+with no zoom.  As shown in Figure&nbsp;<A HREF="node23.html#f.basics.new-view">1.18</A>(a), red
+paint is being applied to a leaf of the pinecone with the <TT>Paintbrush</TT> tool.  Figure&nbsp;<A HREF="node23.html#f.basics.new-view">1.18</A>(b) shows that the
+red paint is also visible in the unzoomed window.  Note that the image
+and view numbers shown in the window title bars of
+Figures&nbsp;<A HREF="node23.html#f.basics.new-view">1.18</A>(a) and (b) are, respectively, 26.0 and
+26.1.  This indicates that these windows show views 0 and 1 of image
+26.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1059"
+ HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1055"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1049"
+ HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1057"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1058"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1060"
+ HREF="node24.html">1.9 The Help System</A>
+<B> Up:</B> <A NAME="tex2html1056"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html1050"
+ HREF="node22.html">1.7 Copy, Cut, and</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

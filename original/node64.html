@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>6.5 A Case Study</TITLE>
+<META NAME="description" CONTENT="6.5 A Case Study">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="previous" HREF="node63.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node65.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1797"
+ HREF="node65.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1793"
+ HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1789"
+ HREF="node63.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1795"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1796"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1798"
+ HREF="node65.html">7. Compositing</A>
+<B> Up:</B> <A NAME="tex2html1794"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<B> Previous:</B> <A NAME="tex2html1790"
+ HREF="node63.html">6.4 Sharpening</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001450000000000000000">&#160;</A>
+<A NAME="9357">&#160;</A>
+<BR>
+6.5 A Case Study
+</H1>
+
+<P>
+This chapter has covered many elements of photo touchup and
+enhancement.  To put all the elements into perspective, this section
+presents a case study to illustrate the work flow of a typical
+sequence of corrections.  The photo in
+Figure&nbsp;<A HREF="node64.html#f.touchup.case-study1">6.37</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.case-study1">&#160;</A><A NAME="9360">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.37:</STRONG>
+Original Image</CAPTION>
+<TR><TD><IMG
+ SRC="img239.gif"
+ALT="Figure 6.37"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+is the subject of the study; it is a difficult case because it has
+many defects.
+
+<P>
+Before we begin, several observations can be made concerning this
+photo:
+<UL>
+<LI>It is dark and clearly underexposed.
+<LI>The colors are muddy and there is an overall lack of sharpness.
+<LI>The photo has a green tinge or color cast to it.
+<LI>There is an unsightly bright green spot on the lefthand side of the
+photo that will blemish the final product if not removed.
+<LI>
+The subject matter, the cowboy roper with the children, is
+poorly separated from the background.
+</UL>In a nutshell, this photo needs a lot of help.  It will be
+significantly enhanced by the steps described in the rest of this
+section.
+
+<P>
+The first step, as described in Section&nbsp;<A HREF="node60.html#s6.tonal-range">6.1</A>, is to
+maximize the tonal range<A NAME="9367">&#160;</A> of the image.
+This is done by opening the <TT>Levels</TT> tool and choosing Auto
+Levels.  Figure&nbsp;<A HREF="node64.html#f.touchup.case-study2">6.38</A>(b)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.case-study2">&#160;</A><A NAME="9492">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.38:</STRONG>
+Tonal Range Maximized and Midtones Adjusted with the <TT>
+Levels</TT> Tool: (a) Original Image and (b) Result of <TT> Levels</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img240.gif"
+ALT="Figure 6.38"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the result.  Figure&nbsp;<A HREF="node64.html#f.touchup.case-study2">6.38</A>(a) shows the
+original image for comparison purposes.  In addition to selecting Auto
+Levels, the midtone slider control in the Value channel has been
+adjusted to lighten the result a bit.  Notice that the green color
+cast has been greatly diminished by the <TT>Levels</TT> tool adjustment,
+and the colors seem much clearer.
+
+<P>
+The second step is to correct for any remaining color
+casts.<A NAME="9378">&#160;</A>  As described in
+Section&nbsp;<A HREF="node61.html#s6.neutrals">6.2.2</A>, this is accomplished using the <TT>Color
+Picker</TT><A NAME="9381">&#160;</A> to measure neutral colors in the
+image.  The cowboy trick-roper and children are standing on a stone
+surface that appears to be granite.  It is reasonable to guess that
+this stone should be a neutral gray.
+
+<P>
+With the <TT>Color Picker</TT>, you can see that there are actually a
+range of values from shadows to midtones in this stone.  Measuring the
+image colors at several locations yields a representative shadow value
+of 
+<!-- MATH: $59^R 49^G 42^B$ -->
+59<SUP><I>R</I></SUP> 49<SUP><I>G</I></SUP> 42<SUP><I>B</I></SUP> in the dark stone just to the left of the roper's
+lower legs.  Similar measurements made in the lighter stone just
+beneath the little boy's feet yield a midtone value of 
+<!-- MATH: $119^R 120^G
+109^B$ -->
+119<SUP><I>R</I></SUP> 120<SUP><I>G</I></SUP>
+109<SUP><I>B</I></SUP>.  From these two measurements, it seems there is a brown/orange
+cast to the image.  As for a representative highlight value, the right
+rear part of the lasso loop should be neutral but is measured at
+
+<!-- MATH: $177^R 183^G 167^B$ -->
+177<SUP><I>R</I></SUP> 183<SUP><I>G</I></SUP> 167<SUP><I>B</I></SUP>.  This is a pale green.
+
+<P>
+To remove these color casts, the <TT>Curves</TT> tool is used as
+described in Section&nbsp;<A HREF="node61.html#s6.neutrals">6.2.2</A>.  For this case study, the
+shadow values of red at 59 and green at 49 are both moved to match the
+blue at 42.  The midtone values of green at 120 and blue at 109 are
+both matched to the red at 119.  Finally, the highlight values of green
+at 183 and blue at 167 are balanced to the red at 177.  The result is
+shown in Figure&nbsp;<A HREF="node64.html#f.touchup.case-study3">6.39</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.case-study3">&#160;</A><A NAME="9494">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.39:</STRONG>
+Color Cast Correction with <TT> Curves</TT>: (a) Previous and (b)
+Color Corrected Image</CAPTION>
+<TR><TD><IMG
+ SRC="img241.gif"
+ALT="Figure 6.39"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+In comparing this image to the previous one, shown again in
+Figure&nbsp;<A HREF="node64.html#f.touchup.case-study3">6.39</A>(a), the stone is now clearly a more
+neutral gray.  Also, you can see that the skin tones had a slight
+orange tinge, which has been removed.
+
+<P>
+The next step is to remove the green glint at the middle left side of
+the image.  This is done as described in Section&nbsp;<A HREF="node62.html#s6.clone-tool">6.3</A>
+using the <TT>Clone</TT> tool.  The image without this blemish is shown
+in Figure&nbsp;<A HREF="node64.html#f.touchup.case-study4">6.40</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.case-study4">&#160;</A><A NAME="9496">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.40:</STRONG>
+Blemish Removed with <TT> Clone Tool</TT></CAPTION>
+<TR><TD><IMG
+ SRC="img242.gif"
+ALT="Figure 6.40"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+At this point in the sequence of corrections, it should be clear that
+you cannot get additional subject detail using the methods from
+Section&nbsp;<A HREF="node61.html#s6.detail">6.2.6</A>.  The cowboy and children already fill the
+entire range of tonal values from the darkest shadows in the cowboy's
+shirt to the brightest highlights in the rope and the little girl's
+collar.  The only way to get more out of this image is to try and
+separate the subject from the background, which can only be
+accomplished by making a selection.<A NAME="9401">&#160;</A>
+
+<P>
+Figure&nbsp;<A HREF="node64.html#f.touchup.case-study5">6.41</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.case-study5">&#160;</A><A NAME="9404">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.41:</STRONG>
+Selection of Background</CAPTION>
+<TR><TD><IMG
+ SRC="img243.gif"
+ALT="Figure 6.41"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the selection that was made using the <TT>Bezier Path</TT> tool.
+The selection was made in several stages.  The main outline of the
+subject was made first. Three regions were then removed from this
+first selection by using the method for subtracting selections described
+in Section&nbsp;<A HREF="node37.html#s3-2.combining-selections">3.2</A>.  These regions are the two
+enclosures the rope makes with the roper's body and the small hole
+between the roper's and little girl's leg.
+
+<P>
+Inverting the selection by typing <TT>C-i</TT> in the image window, the
+background can be lightened by using the
+perturbation<A NAME="9411">&#160;</A> method described
+in Section&nbsp;<A HREF="node61.html#s6.perturbation-technique">6.2.5</A> to adjust the Value channel
+of the <TT>Curves</TT> tool.  As shown in
+Figure&nbsp;<A HREF="node64.html#f.touchup.case-study6">6.42</A>(b), the result produces a subject
+that
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.case-study6">&#160;</A><A NAME="9499">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.42:</STRONG>
+Background Lightened with <TT> Curves</TT>: (a) Before and (b) After</CAPTION>
+<TR><TD><IMG
+ SRC="img244.gif"
+ALT="Figure 6.42"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+is better defined against the background.  This is compared with the
+image from the previous step, which is shown again in
+Figure&nbsp;<A HREF="node64.html#f.touchup.case-study6">6.42</A>(a).
+
+<P>
+The final enhancement to the image is to sharpen the subject a bit.
+This is done using the <TT>Unsharp Mask</TT> as described in
+Section&nbsp;<A HREF="node63.html#s6.unsharp-mask">6.4.1</A>.  The <TT>Unsharp Mask</TT> parameters were
+chosen to be 3 for Radius and 0.5 for Amount.  The final
+result is shown in Figure&nbsp;<A HREF="node64.html#f.touchup.case-study7">6.43</A>(b),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.case-study7">&#160;</A><A NAME="9426">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.43:</STRONG>
+Comparison of Original and Enhanced Photos</CAPTION>
+<TR><TD><IMG
+ SRC="img245.gif"
+ALT="Figure 6.43"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and Figure&nbsp;<A HREF="node64.html#f.touchup.case-study7">6.43</A>(a) shows the initial image from
+Figure&nbsp;<A HREF="node64.html#f.touchup.case-study1">6.37</A>.  The comparison of the two images
+is dramatic.  The original seemed unretrievable, and, although the
+final result is perhaps unworthy of <EM>National Geographic</EM>
+magazine, it is, nevertheless, greatly improved.
+
+<P>
+The new image has several qualities worth noting.  First, the colors
+of the enhanced image are much sharper and better defined.  In
+comparison, the original image's colors are muddy.  This is due
+primarily to the enhancement to the tonal range.  Second, the green
+tinge seen in the original image has been eliminated; the subject of
+the enhanced image is also sharper and better defined against the
+background.  This is due to the <TT>Unsharp Mask</TT> and the
+reprocessing of the background with the help of selection tools and
+the <TT>Curves</TT> tool.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1797"
+ HREF="node65.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1793"
+ HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1789"
+ HREF="node63.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1795"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1796"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1798"
+ HREF="node65.html">7. Compositing</A>
+<B> Up:</B> <A NAME="tex2html1794"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<B> Previous:</B> <A NAME="tex2html1790"
+ HREF="node63.html">6.4 Sharpening</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

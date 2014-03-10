@@ -1,0 +1,538 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>9.5 Web-Safe Color</TITLE>
+<META NAME="description" CONTENT="9.5 Web-Safe Color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node85.html">
+<LINK REL="previous" HREF="node83.html">
+<LINK REL="up" HREF="node79.html">
+<LINK REL="next" HREF="node85.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html2076"
+ HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2072"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2066"
+ HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2074"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2075"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2077"
+ HREF="node85.html">9.6 Semi-Transparency and Indexed</A>
+<B> Up:</B> <A NAME="tex2html2073"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2067"
+ HREF="node83.html">9.4 Tileable Backgrounds</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html2078"
+ HREF="node84.html#SECTION001751000000000000000">9.5.1 Types of Color Distortion</A>
+<LI><A NAME="tex2html2079"
+ HREF="node84.html#SECTION001752000000000000000">9.5.2 Low-Color Systems and Web Browser <BR>
+Color Palettes</A>
+<LI><A NAME="tex2html2080"
+ HREF="node84.html#SECTION001753000000000000000">9.5.3 Converting to Indexed Color</A>
+<LI><A NAME="tex2html2081"
+ HREF="node84.html#SECTION001754000000000000000">9.5.4 What Is the Best Choice?</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001750000000000000000">&#160;</A>
+<A NAME="s9.webcentric.colorsafe">&#160;</A><A NAME="13449">&#160;</A>
+<A NAME="13450">&#160;</A>
+<A NAME="13451">&#160;</A>
+<BR>
+9.5 Web-Safe Color
+</H1>
+
+<P>
+A problem with the exchange of images on the Internet is that not all
+computers have the capability of displaying a large number of colors
+simultaneously.  For example, a computer using a display resolution of
+
+<!-- MATH: $1024\times 768$ -->
+<IMG
+ WIDTH="99" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.gif"
+ ALT="$1024\times 768$">
+and using 1 byte (8 bits)<A NAME="13452">&#160;</A> of color
+per pixel requires at least 0.786 Mb of RAM on the video adapter card.
+Such a system is capable of displaying only 2<SUP>8</SUP>=256 colors
+simultaneously.
+
+<P>
+Alternatively, a system that is using 2 bytes (16 bits)<A NAME="13453">&#160;</A> per pixel can display 
+<!-- MATH: $2^{16}=65,536$ -->
+2<SUP>16</SUP>=65,536 colors, and 3 bytes (24
+bits)<A NAME="13455">&#160;</A> per pixel can display 
+<!-- MATH: $2^{24}=16,777,216$ -->
+2<SUP>24</SUP>=16,777,216colors.  Thus, the available color palette grows significantly on a 16
+bits-per-pixel (bpp) system.  A 24 bpp system is known as a true or
+high color system.  However, the demands on the video adapter for
+these systems also grows.  A 16 bpp system on a 
+<!-- MATH: $1024\times 768$ -->
+<IMG
+ WIDTH="99" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.gif"
+ ALT="$1024\times 768$">
+pixel
+display requires about 1.6 Mb of video RAM and a 24 bpp system
+requires 2.4 Mb.
+
+<P>
+Many video adapter cards have only 1 Mb or less of RAM.  Although this
+is less and less common with current computers being delivered with up
+to 32 Mb of video RAM, there are still many legacy machines that have
+smaller quantities.  The consequence is that an image containing more
+than 256 colors cannot be faithfully displayed on machines with only
+an 8 bpp color depth.  Some of the original colors in the image will
+have to be replaced because of the lack of a sufficient number of
+available colors on the displaying system.  This replacement creates
+color distortion in the displayed image.
+
+<P>
+The GIMP uses 24 bits per pixel to represent color, 8 bits for each of
+the R, G, and B channels.  Thus, the GIMP can easily generate images
+that have color distortion when displayed on low color systems.  This
+is a concern for the Web designer who wants to ensure an accurate
+representation of color for his or her graphics.  This section
+discusses the issues of preparing web-safe color graphics and how to
+achieve this in the GIMP.
+
+<P>
+
+<H2><A NAME="SECTION001751000000000000000">&#160;</A>
+<A NAME="s9.color-distortion">&#160;</A><A NAME="13459">&#160;</A>
+<A NAME="13460">&#160;</A>
+<BR>
+9.5.1 Types of Color Distortion
+</H2>
+
+<P>
+Color distortion occurs when the monitor is already displaying all the
+colors it can, and a request for a new color is made.  The least
+sophisticated way of handling this request is by color
+clipping.<A NAME="13461">&#160;</A><A NAME="13462">&#160;</A>
+This approach displays new colors using the closest color from the
+palette already being displayed.  For images with subtle color
+shading, this can give rise to banding<A NAME="13463">&#160;</A>, which is also called posterization<A NAME="13464">&#160;</A>.  An example of this type of color distortion is
+shown in Figure&nbsp;<A HREF="node84.html#f.web_centric.color-distortion">9.23</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.color-distortion">&#160;</A><A NAME="13467">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.23:</STRONG>
+Clipping and Dithering Color Distortions</CAPTION>
+<TR><TD><IMG
+ SRC="img352.gif"
+ALT="Figure 9.23"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node84.html#f.web_centric.color-distortion">9.23</A>(a) shows the original
+image and Figure&nbsp;<A HREF="node84.html#f.web_centric.color-distortion">9.23</A>(b) the same
+image on a system with insufficient colors.
+You can plainly see the banding of colors in this image.
+
+<P>
+The other type of color distortion is called dithering<A NAME="13473">&#160;</A>.  Although dithering is a color distortion, this
+is not a bug, it's a feature!  Dithering is a technique used to
+simulate unavailable colors by spatially mixing the available ones as
+a mesh of small dots.  The idea is that color dithering is more
+visually acceptable than color banding.
+Figure&nbsp;<A HREF="node84.html#f.web_centric.color-distortion">9.23</A>(c) illustrates the effect
+of dithering.  Figure&nbsp;<A HREF="node84.html#f.web_centric.color-distortion">9.23</A>(f) shows a
+zoomed version of Figure&nbsp;<A HREF="node84.html#f.web_centric.color-distortion">9.23</A>(c) so
+that you can see the mix of small dots used to simulate unavailable
+colors.  Compare this zoomed image with the zooms of the original and
+color clipped images shown in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.color-distortion">9.23</A>(d) and (e), respectively.
+
+<P>
+Figure&nbsp;<A HREF="node84.html#f.web_centric.color-distortion">9.23</A> shows that dithering is a
+much more sophisticated approach to the problem of color distortion
+than is banding.  For continuous gradients of color, the rule seems to
+be that the dithering approach is superior.  However, there are
+caveats to this rule.  To see why, you need to understand how
+dithering works.  A simple illustration is shown in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.dithering">9.24</A>, where
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.dithering">&#160;</A><A NAME="13481">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.24:</STRONG>
+Illustration of Using Dithering to Simulate a Color</CAPTION>
+<TR><TD><IMG
+ SRC="img353.gif"
+ALT="Figure 9.24"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+a crude dithering scheme is employed using the <TT>Checkerboard</TT><A NAME="13486">&#160;</A><A NAME="13487">&#160;</A>
+plug-in (found in <TT>Image:Filters/Render/Pattern</TT> menu).  The <TT>Checkerboard</TT> dialog is shown in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.dithering">9.24</A>(b).  This plug-in creates a
+checkerboard pattern in the active layer using the colors specified by
+the <TT>Active Foreground Color</TT> and the <TT>Active Background
+Color</TT>.  Figure&nbsp;<A HREF="node84.html#f.web_centric.dithering">9.24</A>(a) shows that these
+colors have been set to red and green.
+
+<P>
+Figure&nbsp;<A HREF="node84.html#f.web_centric.dithering">9.24</A>(b) shows that a 1-pixel check
+size is being used by the <TT>Checkerboard</TT> plug-in.  The result is a
+simulated dither of the color yellow, as you can see in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.dithering">9.24</A>(c).  That the resulting dithered
+color is yellow follows from the discussions of the RGB colorspace in
+Section&nbsp;<A HREF="node50.html#s5.rgb-colorspace">5.1</A>.  The vector sum of red and green
+in the RGB cube yields yellow.
+
+<P>
+A zoomed version of Figure&nbsp;<A HREF="node84.html#f.web_centric.dithering">9.24</A>(c) is shown
+in Figure&nbsp;<A HREF="node84.html#f.web_centric.dithering">9.24</A>(d).  This plainly shows the
+red and green checks.  For comparison purposes, a pure yellow is shown
+in Figure&nbsp;<A HREF="node84.html#f.web_centric.dithering">9.24</A>(e).  The example shown in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.dithering">9.24</A> is exaggerated because it is
+never necessary to dither two colors as distant from each other in the
+color cube as are red and green.  However, it nicely illustrates how
+dithering works.
+
+<P>
+The dithering algorithms used in the GIMP are far more sophisticated
+than that illustrated in our checkerboard example.  In the GIMP,
+several dithering algorithms are available including the
+Floyd-Steinberg algorithm.<A NAME="13502">&#160;</A>
+The main feature of Floyd-Steinberg dithering is that it uses a
+pseudo-random spatial distribution of up to three colors to simulate
+an unavailable color.  Figure&nbsp;<A HREF="node84.html#f.web_centric.color-distortion">9.23</A>(f)
+clearly shows the pseudo-random nature of Floyd-Steinberg dithering.
+In many cases, it is this pseudo-random aspect of Floyd-Steinberg
+dithering that improves the overall perception of a dithered color
+image...but not always.  See Section&nbsp;<A HREF="node84.html#s9.best-choice">9.5.4</A> for more
+on this subject.
+
+<P>
+
+<H2><A NAME="SECTION001752000000000000000">&#160;</A>
+<A NAME="13506">&#160;</A>
+<A NAME="13507">&#160;</A>
+<BR>
+9.5.2 Low-Color Systems and Web Browser <BR>
+Color Palettes
+</H2>
+
+<P>
+A low color system provides only 8 bits of color per pixel, which
+allows only 256 colors to be simultaneously displayed.  When used on
+low-color systems, Web browsers must choose how to represent
+unavailable colors.  Browsers such as Netscape Navigator and Internet
+Explorer use color palette systems that are similar but not identical.
+The colors that these two browsers have in common are known as the
+web-safe color palette
+[<A
+ HREF="node87.html#weinman">12</A>].  Any designer that is concerned with avoiding color
+distortion must be aware of this special palette and how to use it.
+
+<P>
+The web-safe color palette consists of combinations of the six values
+0, 51, 102, 153, 204, 255 in each of the three colors red, green, and
+blue.  Thus, using notation introduced in
+Section&nbsp;<A HREF="node50.html#s5.rgb-colorspace">5.1</A>, 
+<!-- MATH: $51^R 204^G 153^B$ -->
+51<SUP><I>R</I></SUP> 204<SUP><I>G</I></SUP> 153<SUP><I>B</I></SUP> is a color from
+the web-safe color palette, and 
+<!-- MATH: $52^R 204^G 153^B$ -->
+52<SUP><I>R</I></SUP> 204<SUP><I>G</I></SUP> 153<SUP><I>B</I></SUP> is not. The total
+number of colors in the palette is 6<SUP>3</SUP>=216.  The reason six values
+are used is because seven would create too many colors for a low-color
+system (that is, 7<SUP>3</SUP>=343).  What happens to the remaining 40 colors
+available on a low color system?  They are used for system specific
+colors, and these uses differ for Mac and PC and for Netscape
+Navigator and Internet Explorer.  The bottom line is you can't rely on
+them.
+
+<P>
+If you are using the GIMP's drawing and painting tools to create
+graphics from scratch and you desire the result to be web-safe, it
+would be useful to have a palette of the 216 web-safe colors to work
+with.  You could use this palette to select the colors for your
+graphics, knowing that the result will be the same on most all
+systems, low color or not.  The GIMP has a variety of predefined color
+palettes available in the <TT>Color Palette</TT> dialog found in the <TT>Image:Dialogs/Palette</TT> menu or which can be obtained by typing <TT>C-p</TT> in the image or toolbox windows.
+
+<P>
+Of interest is the GIMP's Web color palette<A NAME="13513">&#160;</A> shown in Figure&nbsp;<A HREF="node84.html#f.web_centric.web-palette">9.25</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.web-palette">&#160;</A><A NAME="13516">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.25:</STRONG>
+Web-Safe Color Palette</CAPTION>
+<TR><TD><IMG
+ SRC="img354.gif"
+ALT="Figure 9.25"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The Web palette illustrates the 216 web-safe colors that can be used
+on low color systems without fear of color distortion.  However,
+because the colors are disorganized in this palette, it is of limited
+use as a tool for creative design.  A palette that organizes colors by
+hue, saturation, and value would be much more useful.
+
+<P>
+The VisiBone palettes at
+<A NAME="tex2html321"
+ HREF="http://www.visibone.com/swatches" target="new"><TT>http://www.visibone.com/swatches</TT></A>
+are just such tools.  The VisiBone2<A NAME="13522">&#160;</A><A NAME="13523">&#160;</A> palette is
+illustrated in Figure&nbsp;<A HREF="node84.html#f.web_centric.visibone">9.26</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.visibone">&#160;</A><A NAME="13526">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.26:</STRONG>
+The VisiBone2 Web-Safe Color Palette</CAPTION>
+<TR><TD><IMG
+ SRC="img355.gif"
+ALT="Figure 9.26"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The VisiBone2 palette has exactly the same web-safe colors as the
+GIMP's Web palette, but the advantage is that its colors are organized
+into a logical color wheel.  It is much easier to pick out colors of
+common hue, saturation, and value with the VisiBone2 palette than it
+is for the Web palette.
+
+<P>
+
+<H2><A NAME="SECTION001753000000000000000">&#160;</A>
+<A NAME="13531">&#160;</A>
+<A NAME="13532">&#160;</A>
+<A NAME="13533">&#160;</A>
+<BR>
+9.5.3 Converting to Indexed Color
+</H2>
+
+<P>
+For display on 8-bit (low-color) systems, the best way to control the
+color in an image is to convert it to Indexed format.
+Figure&nbsp;<A HREF="node84.html#f.web_centric.convert2indexed">9.27</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.convert2indexed">&#160;</A><A NAME="13536">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.27:</STRONG>
+The Indexed Color Conversion Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img356.gif"
+ALT="Figure 9.27"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the <TT>Indexed Color Conversion</TT> dialog which is invoked
+by the <TT>Indexed</TT><A NAME="13542">&#160;</A> function found in the
+<TT>Image:Image/Mode</TT> menu.
+
+<P>
+The dialog allows the choice of three types of palettes.  The first
+option, Generate Optimal Palette, is based on the colors actually in
+the image.  The number of colors used in this palette can be specified
+up to a maximum of 256.  
+
+<P>
+The second option, Use Custom Palette, allows you to select from a
+large collection of palettes including user-defined ones.  The names
+of the GIMP's standard palettes are shown in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.convert2indexed">9.27</A>(b) and (c).  The default
+custom palette, Web, is optimized for display on low-color systems
+using browsers such as Netscape Navigator or Internet Explorer.  This
+consists of the 216 color, web-safe color palette illustrated in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.web-palette">9.25</A>.  Choosing this option
+guarantees that the resulting indexed image will display with the same
+colors on almost all systems.
+
+<P>
+The final palette option choice, shown in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.convert2indexed">9.27</A>, is the Use Black/White
+(1-bit) Palette.  This option converts the image to a true black and
+white (no grays) Indexed format.
+
+<P>
+The second area in the <TT>Indexed Color Conversion</TT> dialog is for
+dithering options.  The following are the choices:
+<UL>
+<LI>No colour dithering
+<LI>Positioned colour dithering
+<LI>Floyd-Steinberg colour dithering (reduced colour bleeding)
+<LI>Floyd-Steinberg colour dithering (normal)
+</UL>Normal Floyd-Steinberg dithering is the default.  Some experimentation
+might be necessary to find the best conversion to Indexed, especially if
+the image consists of smooth color variations and large solid color
+regions.  Read on!
+
+<P>
+
+<H2><A NAME="SECTION001754000000000000000">&#160;</A>
+<A NAME="s9.best-choice">&#160;</A>
+<BR>
+9.5.4 What Is the Best Choice?
+</H2>
+
+<P>
+Given that the designer chooses to limit the color palette to one
+that is web-safe, converting to Indexed format still requires making
+choices about the type of color distortion that is acceptable when it
+can't be avoided.  Usually the choice depends on the type of image to
+be displayed.
+
+<P>
+If the image is a photograph, or one that has smooth color variations,
+chances are good that there are more than 256 colors in the image, and
+many will not be from the web-safe palette.  Normally the color
+distortion to photos on an 8-bit display is not noticeable, and it
+could be argued that it is fruitless to convert the image to an
+Indexed format under these conditions.  However, when photographs are
+mixed with other graphic materials the argument is no longer valid.
+Under these circumstances, the best choice is to dither.  This is
+illustrated in Figure&nbsp;<A HREF="node84.html#f.web_centric.choose">9.28</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.choose">&#160;</A><A NAME="13554">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.28:</STRONG>
+Choosing the Type of Color Distortion for Images with Smooth Color
+Variations</CAPTION>
+<TR><TD><IMG
+ SRC="img357.gif"
+ALT="Figure 9.28"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+Figure&nbsp;<A HREF="node84.html#f.web_centric.choose">9.28</A>(a) shows a splash screen used with
+version 1.0.4 of the GIMP.  A dithered version of the splash screen,
+obtained using the web-safe color palette, is shown in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.choose">9.28</A>(b).  A color clipped version of the
+splash screen using the same palette is shown in
+Figure&nbsp;<A HREF="node84.html#f.web_centric.choose">9.28</A>(c).  Due to the heavy banding seen
+in Figure&nbsp;<A HREF="node84.html#f.web_centric.choose">9.28</A>(c), the color distortion due to
+dithering, seen in Figure&nbsp;<A HREF="node84.html#f.web_centric.choose">9.28</A>(b), seems much
+more acceptable.  This example shows that for images with smoothly
+varying color, the dithered solution is better because
+clipping<A NAME="13563">&#160;</A><A NAME="13564">&#160;</A>
+gives rise to a strongly objectionable color distortion.
+
+<P>
+If the image is not a photograph and does not have smoothly varying
+variations in color but rather large regions of constant color, the
+strategy is completely different.  This is illustrated in 
+Figure&nbsp;<A HREF="node84.html#f.web_centric.fws150">9.29</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.fws150">&#160;</A><A NAME="13567">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.29:</STRONG>
+Choosing for Images with Large Uniform Color Regions</CAPTION>
+<TR><TD><IMG
+ SRC="img358.gif"
+ALT="Figure 9.29"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node84.html#f.web_centric.fws150">9.29</A>(a) shows a graphic design
+celebrating the 
+<!-- MATH: $150^{\mbox{th}}$ -->
+<IMG
+ WIDTH="54" HEIGHT="26" ALIGN="BOTTOM" BORDER="0"
+ SRC="img359.gif"
+ ALT="$150^{\mbox{th}}$">
+anniversary of the creation of the
+U.S. Department of the Interior.  This design is constructed of four
+main colors: black, white, a blue consisting of 
+<!-- MATH: $46^R 110^G 207^B$ -->
+46<SUP><I>R</I></SUP> 110<SUP><I>G</I></SUP> 207<SUP><I>B</I></SUP>,
+and a yellow consisting of 
+<!-- MATH: $241^R 214^G 47^B$ -->
+241<SUP><I>R</I></SUP> 214<SUP><I>G</I></SUP> 47<SUP><I>B</I></SUP>.  There are other colors
+in the image, but they are there for antialiasing<A NAME="13573">&#160;</A>
+(see Section&nbsp;<A HREF="node36.html#s3.anti-aliasing">3.1.2</A>) and sharpness (see
+Section&nbsp;<A HREF="node63.html#s6.unsharp-mask">6.4.1</A>).  From the previous discussion, you can
+see that the blue and the yellow are not from the web-safe palette,
+which only take RGB components from the set of values 
+<!-- MATH: $[0, 51, 102,
+153, 204, 255]$ -->
+[0, 51, 102,
+153, 204, 255].  This means that some color distortion will be
+introduced if the image is saved to Indexed format with the web-safe
+palette.  Indeed, Figure&nbsp;<A HREF="node84.html#f.web_centric.fws150">9.29</A>(b) shows the
+result of applying Floyd-Steinberg dithering, and
+Figure&nbsp;<A HREF="node84.html#f.web_centric.fws150">9.29</A>(c) shows the result of color
+clipping.
+
+<P>
+The dithering in Figure&nbsp;<A HREF="node84.html#f.web_centric.fws150">9.29</A>(b) produces a very
+undesirable effect.  The blue and yellow regions both suffer from
+unsightly color speckle.  On the other hand, the color clipped version
+in Figure&nbsp;<A HREF="node84.html#f.web_centric.fws150">9.29</A>(c) produces a blue and a yellow
+that are slightly different than those of the original.  Nevertheless,
+it is likely that this result is preferable because it preserves the
+homogeneity of the large, uniform color regions.
+
+<P>
+In conclusion, images that have a lot of detail and subtle color
+variations are better served by dithering than color clipping.
+Alternatively, images that have broad uniform color regions should
+avoid dithering and use color clipping.  For images that consist of a
+mix of the two conditions, some experimentation is necessary.
+Unfortunately there are sometimes no easy choices.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2076"
+ HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2072"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2066"
+ HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2074"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2075"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2077"
+ HREF="node85.html">9.6 Semi-Transparency and Indexed</A>
+<B> Up:</B> <A NAME="tex2html2073"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2067"
+ HREF="node83.html">9.4 Tileable Backgrounds</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

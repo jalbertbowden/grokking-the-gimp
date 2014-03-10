@@ -1,0 +1,383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>3.4 The Paths Dialog</TITLE>
+<META NAME="description" CONTENT="3.4 The Paths Dialog">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node40.html">
+<LINK REL="previous" HREF="node38.html">
+<LINK REL="up" HREF="node35.html">
+<LINK REL="next" HREF="node40.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1391"
+ HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1387"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1381"
+ HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1389"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1390"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1392"
+ HREF="node40.html">3.5 Using Selections Effectively</A>
+<B> Up:</B> <A NAME="tex2html1388"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1382"
+ HREF="node38.html">3.3 The Select Menu</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1393"
+ HREF="node39.html#SECTION001141000000000000000">3.4.1 The Paths Palette</A>
+<LI><A NAME="tex2html1394"
+ HREF="node39.html#SECTION001142000000000000000">3.4.2 The Control Point Mode Buttons</A>
+<LI><A NAME="tex2html1395"
+ HREF="node39.html#SECTION001143000000000000000">3.4.3 The Paths Menu</A>
+<LI><A NAME="tex2html1396"
+ HREF="node39.html#SECTION001144000000000000000">3.4.4 The Paths Button Bar</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001140000000000000000">&#160;</A>
+<A NAME="s3.paths-dialog">&#160;</A><A NAME="3857">&#160;</A>
+<A NAME="3858">&#160;</A>
+<BR>
+3.4 The Paths Dialog
+</H1>
+
+<P>
+Because Bezier paths are so useful, there is a special Paths dialog
+that allows multiple Bezier paths to be edited, managed, and saved.
+The Paths dialog, shown in Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog1">3.21</A>,
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.paths-dialog1">&#160;</A><A NAME="3861">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.21:</STRONG>
+The Bezier Paths Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img91.gif"
+ALT="Figure 3.21"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+is displayed by typing <TT>C-l</TT> in the image window to produce the
+<TT>Layers &amp; Channels</TT> window and, then, clicking on the Paths tab.
+The elements of the Paths dialog are described in this section.
+
+<P>
+
+<H2><A NAME="SECTION001141000000000000000">&#160;</A>
+<A NAME="s3.path-palette">&#160;</A><A NAME="3869">&#160;</A>
+<A NAME="3870">&#160;</A>
+<A NAME="3871">&#160;</A>
+<BR>
+3.4.1 The Paths Palette
+</H2>
+
+<P>
+The most important part of the Paths dialog is the Paths Palette.  The
+palette contains horizontal strips, where each strip represents a
+single path for the image.  Each strip contains a Path Thumbnail, a
+Path Title, and a Path Transform Lock.
+
+<P>
+Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog1">3.21</A> illustrates a Paths Palette
+containing three strips.  The top strip is highlighted in blue,
+indicating that it represents the active path.  Only the active path
+can be seen and manipulated in the image window.  Clicking on a path
+strip in the Paths Palette makes that path active and also makes it
+visible in the image window.
+Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog2">3.22</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.paths-dialog2">&#160;</A><A NAME="3875">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.22:</STRONG>
+Making a Path Visible in the Image Window and Changing a Path
+Title</CAPTION>
+<TR><TD><IMG
+ SRC="img92.gif"
+ALT="Figure 3.22"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image window where the path visibility has been toggled
+on by clicking on its strip in the Paths Palette.
+Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog2">3.22</A>(b) shows the associated Paths
+dialog.  To toggle off the path's visibility, it is necessary to click
+on a tool icon (other than the one for the <TT>Bezier Path</TT>) in the
+Toolbox window.
+
+<P>
+A path's title can be changed<A NAME="3881">&#160;</A><A NAME="3882">&#160;</A> by double-clicking in
+the title area.  This brings up a dialog where the text of the new
+title can be entered.  Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog2">3.22</A>(c)
+illustrates the dialog for changing the Path Title.
+
+<P>
+Finally, the Path Transform Lock<A NAME="3884">&#160;</A> can be
+toggled on and off by clicking to the left of the Path Thumbnail.
+When the icon is toggled on, the path's shape is locked to the active
+layer with respect to the <TT>Transform</TT> tool.  This means that any
+transform applied to the active layer is also applied to the path.
+
+<P>
+Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog3">3.23</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.paths-dialog3">&#160;</A><A NAME="3888">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.23:</STRONG>
+Applying the Transform Lock to a Path</CAPTION>
+<TR><TD><IMG
+ SRC="img93.gif"
+ALT="Figure 3.23"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an example of using the Path Transform Lock.
+Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog3">3.23</A>(a) shows the Path Transform
+Lock has been toggled on for the path in the top path strip.  This
+path corresponds to the outline of the blue shape in the image window
+shown in Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog3">3.23</A>(b).  The image window
+consists of two layers: a white background and the blue shape, the
+latter which is the active layer.  Because of the Path Transform Lock,
+applying the <TT>Transform</TT> tool will affect the blue shape and the
+path defining the shape's boundary.
+
+<P>
+Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog3">3.23</A>(c) shows the dialog for the
+<TT>Transform</TT> tool.  The Perspective radio button has been selected,
+and the Show path checkbox has been toggled on.  This last button
+makes the active path visible in the image window while it is being
+transformed.  Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog3">3.23</A>(d) shows the
+perspective transform of the grid and the active path.  When the
+transform is actually performed by clicking on the Transform button in
+the <TT>Perspective Transform</TT> dialog, the result is as shown in
+Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog3">3.23</A>(e).  The active layer
+containing the shape is transformed and the path associated with this
+shape is transformed along with it.
+
+<P>
+The ability to see a path superimposed on the transform grid while
+performing a transformation of a layer is a particularly useful
+capability.  There is no more precise way of warping one image to
+another than with this feature.  A concrete example of using the Path
+Transform Lock is illustrated in Section&nbsp;<A HREF="node67.html#s7.compositing.proj2">7.2</A>.
+
+<P>
+
+<H2><A NAME="SECTION001142000000000000000">&#160;</A>
+<A NAME="3902">&#160;</A>
+<A NAME="3903">&#160;</A>
+<BR>
+3.4.2 The Control Point Mode Buttons
+</H2>
+
+<P>
+The Control Point Mode Buttons are shown in
+Figure&nbsp;<A HREF="node39.html#f.selections.paths-dialog1">3.21</A>.  These consist of the New
+Point,<A NAME="3905">&#160;</A> Add Point<A NAME="3906">&#160;</A>, Delete Point<A NAME="3907">&#160;</A>, and Edit Point<A NAME="3908">&#160;</A> buttons.  These control the behavior, or mode,
+of mouse clicks in the image window when you're using the <TT>Bezier
+Path</TT> tool.
+
+<P>
+When using the <TT>Bezier Path</TT> tool with the New Point mode button
+selected in the Paths dialog, there are two behaviors for a mouse click
+in the image window.  The first behavior is associated to working on
+an open path.  In this case, clicking in the image window creates a
+new control point that is immediately connected to the last control
+point on the path by a path segment.  The last new control point on an
+open path is displayed as a circle outline.  All the other points on
+the path are displayed as solid circles.  
+
+<P>
+The second behavior of the New Point mode button is when there is no
+open path.  Then, a mouse click in the image window initializes a new
+path.  
+
+<P>
+When the Bezier path is in New Point mode, the mouse cursor appears in
+the image window as an arrow with a filled circle below it.  This
+indicates that the next mouse click will create a new control point.
+
+<P>
+The Add Point mode button is for adding a point to a path segment
+between two existing control points.  This is useful when a path has
+been created but doesn't have a sufficient number of points to
+properly follow the desired shape.  When the Add Point mode button is
+active, the mouse cursor changes to an arrow with a plus symbol below
+it whenever the cursor is close enough to a path segment to add a
+point.  If the mouse button is not released when the point is added,
+the point can immediately be edited.  In other words, if the mouse
+button remains pressed the control handles will appear when you drag
+the mouse, and the Shift and Control keys can be used to manipulate
+the control point and the control handles.  This is a handy feature
+because a control point can be added to a path and then immediately
+edited without having to return to the Paths menu.
+
+<P>
+The Delete Point mode button removes control points from a Bezier
+path.  This can be used to delete extraneous control points or those
+that were added accidentally.  When you use the Delete Point mode
+button, the mouse cursor changes to an arrow with a minus symbol below
+it whenever the cursor is close enough to a control point to delete it.
+If the Shift key is pressed while using the Delete Point mode button,
+the mouse click deletes the entire path.
+
+<P>
+Finally, the Edit Point mode button allows the control handles to be
+manipulated and the control points to be moved, as described in
+Section&nbsp;<A HREF="node36.html#s3.bezier-paths">3.1.1</A>.  That is, clicking and dragging on a
+control point moves the point's control handles in unison.
+Shift-clicking and dragging a control handle moves that handle
+independently of the other one.  Control-clicking and dragging the
+mouse on a control point makes the control point move, following the
+mouse.  Finally, Alt-clicking and dragging the mouse on a control
+point causes the entire path to follow the mouse.  When you're using
+the Edit Point mode button, the mouse cursor changes to an arrow with
+the outline of a square below it whenever the mouse cursor is close
+enough to a control point to edit it.
+
+<P>
+
+<H2><A NAME="SECTION001143000000000000000">&#160;</A>
+<A NAME="3913">&#160;</A>
+<A NAME="3914">&#160;</A>
+<BR>
+3.4.3 The Paths Menu
+</H2>
+
+<P>
+Like the Layers dialog and the Channels dialog, the Paths dialog also
+has a menu that can be displayed by right-clicking anywhere in the
+Paths Palette area.  Figure&nbsp;<A HREF="node39.html#f.selections.paths-menu">3.24</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.paths-menu">&#160;</A><A NAME="3917">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.24:</STRONG>
+The Paths Menu</CAPTION>
+<TR><TD><IMG
+ SRC="img94.gif"
+ALT="Figure 3.24"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the Paths dialog and Figure&nbsp;<A HREF="node39.html#f.selections.paths-menu">3.24</A>(b) the
+Paths menu.  As shown in the figure, many of the functions available
+in the Paths menu can be accessed from the button bar<A NAME="3922">&#160;</A>.  However, the functions Copy Path<A NAME="3923">&#160;</A>, Paste Path,<A NAME="3924">&#160;</A> Import Path, and
+Export Path are unique to the Paths menu.
+
+<P>
+The Copy Path function copies the path in the active path strip to a
+buffer.  This path can then be pasted into another path strip, either
+in the same image or in another, using the Paste Path function.  The
+Export Path<A NAME="3925">&#160;</A> function brings up a dialog
+allowing the active path to be saved to disk.  This saved path can
+later be recovered using the Import Path function<A NAME="3926">&#160;</A>.
+
+<P>
+Because the remaining functions are available in the button bar, they are
+described in the next section.
+
+<P>
+
+<H2><A NAME="SECTION001144000000000000000">
+3.4.4 The Paths Button Bar</A>
+</H2>
+
+<P>
+The Paths dialog button bar provides access to six functions: New
+Path, Duplicate Path, Path to Selection, Selection to Path, Stroke
+Path, and Delete Path.
+
+<P>
+New Path and Duplicate Path are self-evident.  The New Path button
+creates a new path, and the Duplicate Path button duplicates the
+current active path.
+
+<P>
+The Path to Selection button converts the active path to a selection.
+The path can also be converted to a selection by simply clicking
+inside the path in the image window.  In either case, this causes the
+selection's Marching Ants to appear in the image window but does not
+necessarily cause the visibility of the path to toggle off.  To toggle
+off the path's visibility, click on a tool icon, other than the one
+for <TT>Bezier Path</TT>, in the Toolbox.
+
+<P>
+The Selection to Path button is the same as the <TT>To Path</TT> function
+described in Section&nbsp;<A HREF="node38.html#s3.to-path">3.3.12</A>.  Using this button converts a
+selection visible in the image window to a new path in the Paths
+dialog.  This becomes the active path and can be seen in the image
+window.
+
+<P>
+The Stroke Path button is the same as the <TT>Stroke</TT> function
+described in Section&nbsp;<A HREF="node38.html#s3.stroke">3.3.15</A>.  It is applied to the active
+path using the active brush and the active foreground color.  In
+addition, the <TT>Stroke</TT> function in the Paths dialog will stroke
+the path using any painting tool selected from the Toolbox.  To
+specify the painting tool, you select its icon in the Toolbox just
+prior to clicking the Stroke Path button in the Paths dialog.  Using
+this technique the <TT>Airbrush</TT><A NAME="3935">&#160;</A> tool can be
+used, for example, to stroke the path.
+
+<P>
+Finally, the Delete Path button removes the active path from the Paths
+Palette.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1391"
+ HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1387"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1381"
+ HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1389"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1390"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1392"
+ HREF="node40.html">3.5 Using Selections Effectively</A>
+<B> Up:</B> <A NAME="tex2html1388"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1382"
+ HREF="node38.html">3.3 The Select Menu</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

@@ -1,0 +1,669 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>9.1 Web Animations</TITLE>
+<META NAME="description" CONTENT="9.1 Web Animations">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node81.html">
+<LINK REL="previous" HREF="node79.html">
+<LINK REL="up" HREF="node79.html">
+<LINK REL="next" HREF="node81.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html2022"
+ HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2018"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2012"
+ HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2020"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2021"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2023"
+ HREF="node81.html">9.2 Clickable Image Maps</A>
+<B> Up:</B> <A NAME="tex2html2019"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2013"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html2024"
+ HREF="node80.html#SECTION001711000000000000000">9.1.1 Using GIF Files for Animation</A>
+<LI><A NAME="tex2html2025"
+ HREF="node80.html#SECTION001712000000000000000">9.1.2 GIMP Layers Can Behave Like Animation Frames</A>
+<LI><A NAME="tex2html2026"
+ HREF="node80.html#SECTION001713000000000000000">9.1.3 Saving Animations to GIF</A>
+<LI><A NAME="tex2html2027"
+ HREF="node80.html#SECTION001714000000000000000">9.1.4 A Second Example of Creating a GIF Animation</A>
+<LI><A NAME="tex2html2028"
+ HREF="node80.html#SECTION001715000000000000000">9.1.5 Animation Optimization</A>
+<LI><A NAME="tex2html2029"
+ HREF="node80.html#SECTION001716000000000000000">9.1.6 IWarp</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001710000000000000000">&#160;</A>
+<A NAME="13116">&#160;</A>
+<A NAME="13117">&#160;</A>
+<BR>
+9.1 Web Animations
+</H1>
+
+<P>
+A graphic tool often seen on Web pages is the ubiquitous, animated
+GIF.<A NAME="13118">&#160;</A>  This is an image file
+format that can contain a sequence of frames combining text, images,
+and timing information to create a flip-book-like movie.  As you will
+see in this chapter animated GIFs are easy to create, edit, and view
+in the GIMP.
+
+<P>
+
+<H2><A NAME="SECTION001711000000000000000">
+9.1.1 Using GIF Files for Animation</A>
+</H2> 
+
+<P>
+The GIMP can save animations to several different file formats, but
+when making animations for the Web, the choice is limited to GIFs.
+GIF stands for Graphics Interchange Format<A NAME="13120">&#160;</A>, and GIF format files support a number of features that are
+particularly useful for Web graphics.
+
+<P>
+First, GIF is an eight-bit-per-pixel format, which means that with
+careful planning a GIF can be almost always properly displayed on
+systems providing only eight bits of color (see
+Section&nbsp;<A HREF="node84.html#s9.webcentric.colorsafe">9.5</A>).  Second, GIFs allow for
+transparency, a feature not supported by JPEG (Joint Photographic
+Experts Group), the other principle file format for
+images<A NAME="13122">&#160;</A> on the Web.  Third, GIFs support
+interlacing which may be of interest for the transmission of images
+over low bandwidth networks.  Finally, the GIF format supports layers
+and attached layer timing information.  This last feature is the one
+exploited for GIF animations.
+
+<P>
+
+<H2><A NAME="SECTION001712000000000000000">&#160;</A>
+<A NAME="13124">&#160;</A>
+<A NAME="13125">&#160;</A>
+<BR>
+9.1.2 GIMP Layers Can Behave Like Animation Frames
+</H2>
+
+<P>
+Animations are sequences of images that can be played according to
+timing information attached to each frame.  The GIMP has built-in
+support for animations because each layer in an image can be treated
+as an animation frame by the GIMP.  The GIMP supports this equivalence
+by allowing timing information to be attached to layers, by providing
+a tool for playing layered images as animations, and by supporting the
+conversion<A NAME="13126">&#160;</A><A NAME="13127">&#160;</A> of layered
+images to Indexed format and output as GIF files.
+
+<P>
+Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim1">9.1</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.first-anim1">&#160;</A><A NAME="13130">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.1:</STRONG>
+Example of Some GIMP Animation Features</CAPTION>
+<TR><TD><IMG
+ SRC="img328.gif"
+ALT="Figure 9.1"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates some of the GIMP's built in animation features.
+Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim1">9.1</A>(a) shows an image that consists
+of five layers.  The organization of the layers is seen in the Layers
+dialog shown in Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim1">9.1</A>(b).  This image
+is constructed by creating an image with a white background, and then
+adding four new layers, each one containing, in sequence, one of the
+four letters G, I, M, and P.  The letters were colored using the <TT>Bucket Fill</TT> tool.
+The animation sequence is illustrated here:
+
+<P>
+<DIV ALIGN="CENTER">
+<IMG
+  ALIGN="CENTER"
+ SRC="first-anim1.gif"
+ ALT="Animation"></DIV>
+
+<P>
+(Note: The animation can be turned off by clicking on the Stop
+button of your browser.)
+Notice that each layer is named and that the names contain timing
+information<A NAME="13138">&#160;</A> used for the
+frame animation.  The timing information is indicated by the text in
+the format (<EM>XXXX</EM>ms), where XXXX is a 1 to 4 digit number, and ms
+indicates that the units of the number are in milliseconds.  The
+parentheses are a required part of the format.  Thus, for this
+example, the Background layer appears empty for 1 second (1000ms)
+followed by the four letters appearing at intervals of 100ms, 400ms,
+600ms, and 800ms.  Name and timing information is added to each layer
+by double-clicking the layer title area to the right of the thumbnail
+as described in Section&nbsp;<A HREF="node27.html#s2.layers-dialog">2.1.1</A>.
+
+<P>
+The animation in Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim1">9.1</A>(a) can be
+viewed in the GIMP using the <TT>Animation Playback</TT> tool found in
+the <TT>Image:Filters/Animation</TT> menu.  As you can see in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim1">9.1</A>(c), the tool consists of a
+Play/Stop button, a Step button, which allows the animation to be
+stepped along a frame at a time, and a Rewind button, which can be
+used to set the animation back to the first frame.  This last button
+is particularly useful if the animation consists of a very large
+number of frames.  The <TT>Animation Playback</TT><A NAME="13146">&#160;</A> tool plays the animation associated to the image using
+the timing information as specified in the name of each layer.  Note
+that there is also a progress bar that shows the animation's current
+frame number.
+
+<P>
+By default, GIMP animations sequentially present frames using the
+Combine mode.<A NAME="13147">&#160;</A>  This means that as
+each new frame is displayed, it is stacked on the previous one.  Thus,
+if a new frame is partially transparent the previous frame can be seen
+through its transparent parts.  This is not the traditional movie
+paradigm for animation, which, instead of combining frames, replaces
+each frame with a new one.  Consequently, although the frames in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim1">9.1</A> all consist of single letters
+on a transparent field, the animation spells out the word GIMP a
+letter at a time on the white background of the first layer.
+
+<P>
+Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim2">9.2</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.first-anim2">&#160;</A><A NAME="13151">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.2:</STRONG>
+Example of Replace Mode</CAPTION>
+<TR><TD><IMG
+ SRC="img329.gif"
+ALT="Figure 9.2"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the same example as in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim1">9.1</A> except now each layer uses
+Replace<A NAME="13156">&#160;</A> instead of Combine mode
+in the animation sequence.  The Layers dialog in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim2">9.2</A>(b) shows that the Replace mode
+is specified by typing the text <TT>(replace)</TT> in the title field of
+each layer.  The <TT>Animation Playback</TT> tool shown in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim2">9.2</A>(c) shows the animation at the
+same point in the sequence as before.  However, now, due to Replace
+mode being used, the white background and the red letter G are not
+visible.  There is only the green letter I on a transparent
+background.  This is the traditional movie paradigm for animation.
+The new animation sequence is shown here:
+
+<P>
+<DIV ALIGN="CENTER">
+<IMG
+  ALIGN="CENTER"
+ SRC="first-anim2.gif"
+ ALT="Animation"></DIV>
+
+<P>
+(Note: The animation can be turned off by clicking on the Stop
+button of your browser.)
+The explicit use of Combine mode can be made by typing the text <TT>(combine)</TT> instead of <TT>(replace)</TT> in a layer title.  The two modes
+can be used together in an animation with some frames replacing and
+others combining.
+
+<P>
+
+<H2><A NAME="SECTION001713000000000000000">&#160;</A>
+<A NAME="13165">&#160;</A>
+<A NAME="13166">&#160;</A>
+<BR>
+9.1.3 Saving Animations to GIF
+</H2>
+
+<P>
+The GIMP allows animations to be made in RGB and Grayscale formats,
+but an animation must be converted to Indexed
+format<A NAME="13167">&#160;</A> before it can be
+saved as a GIF.  Trying to save to GIF without being in Indexed format
+generates an <TT>Export File</TT> dialog message that provides the user
+with information and options to correctly save the image.
+
+<P>
+Properly converting an image to Indexed format is accomplished with
+the function <TT>Indexed</TT><A NAME="13170">&#160;</A> found in the <TT>Image:Image/Mode</TT> menu.  This brings up the <TT>Indexed Color
+Conversion</TT> dialog<A NAME="13173">&#160;</A> shown in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.first-anim3">9.3</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.first-anim3">&#160;</A><A NAME="13176">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.3:</STRONG>
+Converting to Indexed</CAPTION>
+<TR><TD><IMG
+ SRC="img330.gif"
+ALT="Figure 9.3"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This dialog has two main option areas.  The first covers the Palette
+options and the second covers the Dither options.  The default options
+usually work fine, but if a particular conversion to Indexed format
+has problems, refer to Section&nbsp;<A HREF="node84.html#s9.webcentric.colorsafe">9.5</A>, which
+discusses web-safe color palettes and covers these dialog options in
+detail.
+
+<P>
+After an image has been converted to Indexed, it can be saved in GIF
+format.  This is accomplished by choosing <TT>Image:File/Save
+As</TT><A NAME="13182">&#160;</A> which brings up the <TT>Save Image</TT>
+dialog<A NAME="13184">&#160;</A> shown in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.gif-save">9.4</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.gif-save">&#160;</A><A NAME="13187">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.4:</STRONG>
+Saving an Animation as a GIF File</CAPTION>
+<TR><TD><IMG
+ SRC="img331.gif"
+ALT="Figure 9.4"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The GIMP automatically saves the file in GIF format if the name
+entered into the entry box at the bottom of the dialog ends with the
+<TT>.gif</TT> extension.  Alternatively, GIF can be selected from the
+Save Options menu.  This automatically attaches the <TT>.gif</TT>
+extension to whatever name has been typed into the entry box.
+
+<P>
+Clicking the OK button in the <TT>Save Image</TT> dialog brings up the
+<TT>Save as GIF</TT> options dialog<A NAME="13195">&#160;</A> shown in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.gif-save">9.4</A>(b).  Because the image to be saved
+is multi-layered, the Animated GIF Options are available.  These are
+not enabled for single layer images.  The first option specifies
+whether the animation will loop continuously or not.  Looping is the
+default.  The next option is an entry box that specifies the time per
+frame for frames that have not been explicitly specified.  The default
+is 100ms.  For the examples in Figures&nbsp;<A HREF="node80.html#f.web_centric.first-anim1">9.1</A>
+and
+<A HREF="node80.html#f.web_centric.first-anim2">9.2</A>,
+the timing information is given for each layer, so this option is
+irrelevant for these layers. Finally, the animation mode, either
+Replace or Combine, can be selected for all frames that have not been
+explicitly specified.  The I Don't Care option defaults to Combine
+mode.
+
+<P>
+
+<H2><A NAME="SECTION001714000000000000000">&#160;</A>
+<A NAME="s9.shuttle-animation">&#160;</A><A NAME="13201">&#160;</A>
+<BR>
+9.1.4 A Second Example of Creating a GIF Animation
+</H2>
+
+<P>
+The compositing techniques discussed in Chapter&nbsp;<A HREF="node65.html#c7.compositing">7</A>
+provide you with many tools for creating animated GIFs.  In this
+section, an example of creating an animation illustrates how you can
+use some simple techniques to generate sophisticated
+animations.
+
+<P>
+The animation scenario has the space shuttle flying from an earth
+orbit to a distant landing on the planet's surface.  The animation is
+created by compositing the four separate images shown in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.anim-raw">9.5</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.anim-raw">&#160;</A><A NAME="13205">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.5:</STRONG>
+Clockwise from the Top Left, Four Views of the Space Shuttle:
+(a) Rear, (b) 2/3 Profile, (c) 1/3 Profile, and (d) Full Profile</CAPTION>
+<TR><TD><IMG
+ SRC="img332.gif"
+ALT="Figure 9.5"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+on the background image shown in Figure&nbsp;<A HREF="node80.html#f.web_centric.anim-raw2">9.6</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.anim-raw2">&#160;</A><A NAME="13211">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.6:</STRONG>
+Image to Be Used as Background to Shuttle Landing</CAPTION>
+<TR><TD><IMG
+ SRC="img333.gif"
+ALT="Figure 9.6"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+The first step is to prepare the images in
+Figures&nbsp;<A HREF="node80.html#f.web_centric.anim-raw">9.5</A> and
+<A HREF="node80.html#f.web_centric.anim-raw2">9.6</A>.  The image in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.anim-raw2">9.6</A> is cropped to the desired size,
+and each of the shuttle images in Figure&nbsp;<A HREF="node80.html#f.web_centric.anim-raw">9.5</A>
+are selected from their backgrounds and placed into individual layers
+of a single image, as shown in Figure&nbsp;<A HREF="node80.html#f.web_centric.preparation2">9.7</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.preparation2">&#160;</A><A NAME="13640">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.7:</STRONG>
+Preparation of the Raw Shuttle Images and Creation of the
+Shuttle Image Clip Book<A NAME="13221">&#160;</A><A NAME="13222">&#160;</A></CAPTION>
+<TR><TD><IMG
+ SRC="img334.gif"
+ALT="Figure 9.7"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Placing the shuttle images into a single clip book is a technique also
+used in Section&nbsp;<A HREF="node66.html#s7.compositing.proj1">7.1</A>, and it is a convenient
+tool for organizing, using, and re-using a collection of images that
+are to be composited together.
+
+<P>
+The next step composites the shuttle images from
+Figure&nbsp;<A HREF="node80.html#f.web_centric.preparation2">9.7</A> into the cropped background
+image from Figure&nbsp;<A HREF="node80.html#f.web_centric.anim-raw2">9.6</A>.  The goal is to do
+this in a way that makes the shuttle look as if it is flying on a
+trajectory from its orbit in space to a landing point on the surface
+of the earth.  The approach is to show the shuttle at various aspects
+while it distances itself from the viewer.
+
+<P>
+The primary tools used to achieve the desired result are the <TT>Transform</TT> tool and the <TT>Move</TT> tool.  Figure&nbsp;<A HREF="node80.html#f.web_centric.animation-sequence1">9.8</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.animation-sequence1">&#160;</A><A NAME="13233">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.8:</STRONG>
+Sequence of Shuttle Layers Used to Make the Animation Sequence</CAPTION>
+<TR><TD><IMG
+ SRC="img335.gif"
+ALT="Figure 9.8"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how the shuttle images from
+Figure&nbsp;<A HREF="node80.html#f.web_centric.preparation2">9.7</A> are composited onto the
+background image.  Each of the seven shuttle images is obtained by
+copying and pasting from the shuttle picture clip book.  Each shuttle
+image is scaled to the appropriate size using the <TT>Transform</TT> tool
+and positioned with the <TT>Move</TT> tool.  In some cases, the <TT>Transform</TT> tool is also used to rotate the shuttle.  These operations
+are repeated until the desired composition is achieved.  Because each
+shuttle image is on a separate layer, I was able to fine-tune the
+positioning and scaling operations to my satisfaction.
+
+<P>
+To give the shuttle landing a final special effect, an additional
+layer showing a reflected glint of light is created.  This is intended
+to represent the shuttle entering the earth's atmosphere.  The effect
+is created by duplicating the background layer of the earth and
+running the <TT>SuperNova</TT><A NAME="13242">&#160;</A><A NAME="13243">&#160;</A> filter found in the <TT>Image:Filters/Light Effects</TT> menu.
+The dialog for this filter is shown in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.supernova">9.9</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.supernova">&#160;</A><A NAME="13643">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.9:</STRONG>
+Adding the <TT> SuperNova</TT> Light Effect</CAPTION>
+<TR><TD><IMG
+ SRC="img336.gif"
+ALT="Figure 9.9"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The dialog allows the choice of color for the SuperNova effect, which
+is set by entering numeric values for the red, green, and blue
+components.  The values shown in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.supernova">9.9</A>(b) produce a white flash with a
+radius of 5 pixels and 20 spokes or rays.  The filter allows the
+position of the effect to be interactively chosen, which is done by
+clicking and dragging the cross hairs in the image thumbnail to the
+desired location.  Alternatively, you can enter the position
+numerically in the X and Y entry boxes.  The result of using the
+filter is shown in Figure&nbsp;<A HREF="node80.html#f.web_centric.supernova">9.9</A>(a).
+
+<P>
+The animation is now almost complete.  One more step is necessary
+before it can be saved as a GIF file.  The current state of the
+animation consists of the background, a duplicate background with the
+SuperNova effect, and seven transparent layers with various shuttle
+images.  This is shown in Figure&nbsp;<A HREF="node80.html#f.web_centric.merge">9.10</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.merge">&#160;</A><A NAME="13255">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.10:</STRONG>
+Merging Each Shuttle Frame with a Background</CAPTION>
+<TR><TD><IMG
+ SRC="img337.gif"
+ALT="Figure 9.10"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+The problem with Figure&nbsp;<A HREF="node80.html#f.web_centric.merge">9.10</A>(a) is that neither
+the Replace nor Combine modes will create the desired animation with
+the layer frames as shown.  In Replace mode, the animation would show
+a frame of the earth, then a frame with the earth showing the
+SuperNova effect, and then seven frames, each empty except for the
+shuttle.  Alternatively, the animation obtained by using the Combine
+mode would show the earth, then a SuperNova effect on the earth,
+followed by a sequence of shuttles that appear one at a time but that
+only disappear at the end of the animation sequence.  Neither of these
+is what we want.
+
+<P>
+To produce an animation that runs correctly, it is necessary to give
+each layer frame a copy of the Earth layer.  This is done by
+duplicating the Earth layer seven times and then merging each copy
+with a shuttle frame.  Section&nbsp;<A HREF="node33.html#s2.merging">2.7.1</A> describes how to do
+this using the <TT>Merge Down</TT> function.
+The result of merging the seven background layers with the seven
+shuttle frames is shown in the Layers dialog illustrated in
+Figure&nbsp;<A HREF="node80.html#f.web_centric.merge">9.10</A>(b).  Also shown, the layer with the
+SuperNova effect has been moved to the top of the layer stack (the
+final animation frame), and the timing information of the layer at the
+bottom of the stack (the first animation frame) has been set to
+2000ms.  Thus, the final animation sequence remains in the bottom
+layer for 2 seconds, followed by a sequence of eight frames showing
+the shuttle's trajectory into the atmosphere, and, finally, showing
+the top frame, which displays the burst of light from the <TT>SuperNova</TT> effect.
+
+<P>
+The following figure illustrates the entire animation sequence:
+
+<P>
+<DIV ALIGN="CENTER">
+<IMG
+  ALIGN="CENTER"
+ SRC="shuttle-animation-opt.gif"
+ ALT="Animation"></DIV>
+
+<P>
+(Note: The animation can be turned off by clicking on the Stop
+button of your browser.)
+
+<H2><A NAME="SECTION001715000000000000000">&#160;</A>
+<A NAME="13266">&#160;</A>
+<A NAME="13267">&#160;</A>
+<A NAME="13268">&#160;</A>
+<A NAME="13269">&#160;</A>
+<BR>
+9.1.5 Animation Optimization
+</H2>
+
+<P>
+Saving an animation to GIF format can create large files, especially
+if the animation has many frames.  For example, the space shuttle
+animation discussed in the previous section consists of an image whose
+dimensions are 
+<!-- MATH: $476\times 182$ -->
+<IMG
+ WIDTH="89" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img338.gif"
+ ALT="$476\times 182$">
+pixels and has 9 frames.  This is an
+image consisting of 780 thousand pixels.  Due to compression built
+into the GIF image format, this saves to a 389 kilobyte file.
+However, the file size can still be significantly reduced by taking
+advantage of the high degree of redundancy in the image.
+
+<P>
+The redundancy is due to this animation changing very little from
+frame to frame.  In fact, the background is always the same, and only
+the position and shape of the shuttle is changing.  The function <TT>Animation Optimize</TT><A NAME="13271">&#160;</A> in the <TT>Image:Filters/Animation</TT> menu takes advantage of this and can greatly
+reduce the size of the resulting file.  It does this by differencing
+frames and only saving the non-zero values.  The original animation is
+reconstructed by adding the differenced frames back into the
+background.
+
+<P>
+For the space shuttle animation, the file is reduced from 389 to 163
+kilobytes if the <TT>Animation Optimize</TT> option is applied after
+conversion to Indexed format.  If it is applied to the image in RGB
+mode, before conversion to Indexed format, an additional savings is
+realized and the resulting file only occupies 106 kilobytes on the
+disk.  This improvement might not be general, and for projects where
+file size is important (as it is for low bandwidth network
+connections), it is advisable to experiment with the two methods.
+
+<P>
+
+<H2><A NAME="SECTION001716000000000000000">&#160;</A>
+<A NAME="13275">&#160;</A>
+<A NAME="13276">&#160;</A>
+<A NAME="13277">&#160;</A>
+<A NAME="13278">&#160;</A>
+<BR>
+9.1.6 IWarp
+</H2>
+
+<P>
+The <TT>IWarp</TT> filter, found in the
+<TT>Image:Filters/Distorts</TT> menu, can interactively warp parts of an
+image and then automatically generate an animation that
+morphs from the original image to the warped one.
+This can be useful for creating certain types of animations.
+
+<P>
+Figure&nbsp;<A HREF="node80.html#f.web_centric.iwarp1">9.11</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.iwarp1">&#160;</A><A NAME="13647">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.11:</STRONG>
+The <TT> IWarp</TT> Filter</CAPTION>
+<TR><TD><IMG
+ SRC="img339.gif"
+ALT="Figure 9.11"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image of Canadian geese, and
+Figure&nbsp;<A HREF="node80.html#f.web_centric.iwarp1">9.11</A>(b) shows the dialog for the <TT>IWarp</TT> filter.  The dialog opens in the Settings tab, which offers a
+number of options.  The Deform Radius and Deform Amount sliders
+control the size and intensity of the warping effect, and the type of
+warping is selected using one of the Move, Remove, Grow, Shrink, Swirl
+CCW, or Swirl CW radio buttons.  The warping is applied by clicking
+and dragging in the thumbnail of the image.  The selected warping mode
+is applied in the region around the mouse cursor; the size of the
+region of application is specified by the Radius slider.  In this
+example, the Move warping function is applied, and the mouse is
+clicked in the middle of the head of the central goose.  Dragging the
+mouse vertically upwards creates the distortion shown in the dialog's
+thumbnail in Figure&nbsp;<A HREF="node80.html#f.web_centric.iwarp1">9.11</A>(b).
+
+<P>
+To automatically convert the distortion into an animation, click on
+the Animate tab in the dialog.  The dialog corresponding to this tab
+is shown in Figure&nbsp;<A HREF="node80.html#f.web_centric.iwarp2">9.12</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.iwarp2">&#160;</A><A NAME="13649">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.12:</STRONG>
+Using the <TT> IWarp</TT> Automated Animation Feature</CAPTION>
+<TR><TD><IMG
+ SRC="img340.gif"
+ALT="Figure 9.12"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The animation is created by clicking the Animate checkbox and then
+using the slider to choose the number of frames to use.  This creates
+a sequence that morphs from the original image to the distorted one.
+If the Reverse radio button is clicked, the animation goes from the
+distorted image to the original.  If the Ping Pong radio button is
+chosen, the animation starts with the original image, animates to the
+distorted, and then returns to the original.  This last option
+generates twice the number of frames selected by the Number of Frames
+slider.  Choosing the Ping Pong animation option for the example with
+the Canadian goose produces an animation where the goose stretches its
+neck up, perhaps to get a better look around, before returning to its
+original state.
+The result is shown here:
+
+<P>
+<DIV ALIGN="CENTER">
+<IMG
+  ALIGN="CENTER"
+ SRC="iwarp.gif"
+ ALT="Animation"></DIV>
+
+<P>
+(Note: The animation can be turned off by clicking on the Stop
+button of your browser.)
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2022"
+ HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2018"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2012"
+ HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2020"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2021"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2023"
+ HREF="node81.html">9.2 Clickable Image Maps</A>
+<B> Up:</B> <A NAME="tex2html2019"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2013"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

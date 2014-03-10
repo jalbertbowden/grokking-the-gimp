@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>8.7 Rendering Project III: Chiseled Text</TITLE>
+<META NAME="description" CONTENT="8.7 Rendering Project III: Chiseled Text">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="previous" HREF="node77.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node79.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1981"
+ HREF="node79.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1977"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1973"
+ HREF="node77.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1979"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1980"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1982"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Up:</B> <A NAME="tex2html1978"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1974"
+ HREF="node77.html">8.6 Rendering Project II:</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001670000000000000000">&#160;</A>
+<A NAME="s8.chiseled">&#160;</A><A NAME="12295">&#160;</A>
+<A NAME="12296">&#160;</A>
+<A NAME="12297">&#160;</A>
+<A NAME="12298">&#160;</A>
+<BR>
+8.7 Rendering Project III: Chiseled Text
+</H1>
+
+<P>
+This project describes a nice rendering effect that creates the
+illusion of chiseling into stone.  The example is illustrated using
+text, however, it can be applied to any shape.  The chiseling effect
+is created using gradients, bumpmapping, and shadows--basically all
+the rendering tools discussed in this chapter.
+
+<P>
+The finished project will consist of three layers.  The background
+layer will contains an image pattern, in this case pink marble.  The
+top layer will contain text filled with the same image pattern and
+bumpmapped to make it look chiseled.  The middle layer will be a drop
+shadow for the text.
+
+<P>
+To begin, a new image of dimensions 
+<!-- MATH: $600\times 100$ -->
+<IMG
+ WIDTH="89" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img322.gif"
+ ALT="$600\times 100$">
+pixels is created.
+It is then filled, using the <TT>Bucket Fill</TT> tool, with the pink
+marble pattern from the <TT>Pattern Selection</TT> dialog.  This layer is
+labeled Marble Background in the Layers dialog and is shown in
+Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled1">8.34</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.chiseled1">&#160;</A><A NAME="12303">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.34:</STRONG>
+Creating the Background, Text, and Drop Shadow for the Chiseled Effect</CAPTION>
+<TR><TD><IMG
+ SRC="img323.gif"
+ALT="Figure 8.34"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The next step is to create some black text on a transparent layer
+above the Marble Background layer.  
+
+<P>
+The transparent layer is made by clicking on the <TT>New Layer</TT>
+button in the Layers dialog, and the text is created by, first,
+selecting black as the <TT>Active Foreground Color</TT>, and, then,
+invoking the <TT>Text</TT> tool.  The <TT>Text</TT> tool is used to place
+the word CHISELED, in the Engraver font, at a size of 72 pixels, into
+a floating selection.  Cutting and repasting the float perfectly
+centers the text in the image window.  It is then anchored to the
+transparent layer beneath it by clicking on the <TT>Anchor</TT> button in
+the Layers dialog.  This layer is labeled Text in the Layers dialog,
+and the resulting image is illustrated in
+Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled1">8.34</A>(b).
+
+<P>
+The drop shadow<A NAME="12313">&#160;</A> is created
+by duplicating the Text layer, blurring it with <TT>Gaussian Blur
+(IIR)</TT><A NAME="12315">&#160;</A> using a radius of 5 pixels,
+and then applying <TT>Offset</TT><A NAME="12317">&#160;</A> with the values
+of 3 pixels for both the X and Y directions.  This layer is then
+positioned between the Text and Marble Background layers using the
+positioning buttons in the Layers dialog button bar.  This layer is
+labeled Text Shadow in the Layers dialog.  The result is shown in
+Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled1">8.34</A>(c).
+
+<P>
+The next step is to fill the text in the Text layer with a shapeburst
+gradient.<A NAME="12319">&#160;</A>  For this, the layer
+is made active by clicking on its thumbnail in the Layers dialog, and
+the text is selected using the <TT>Alpha to Selection</TT><A NAME="12321">&#160;</A> function from the Layers menu.  Setting the <TT>Active Foreground Color</TT> and the <TT>Active Background Color</TT> to
+white and black, respectively, the <TT>Gradient</TT> tool is used to fill
+the text with a <TT>Shapeburst (angular)</TT> gradient.  The selection is
+then canceled by typing <TT>C-S-a</TT> in the image window, and the
+result is shown in Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled2">8.35</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.chiseled2">&#160;</A><A NAME="12329">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.35:</STRONG>
+Using the Shapeburst Gradient on the Text Layer</CAPTION>
+<TR><TD><IMG
+ SRC="img324.gif"
+ALT="Figure 8.35"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The associated Layers dialog is shown in
+Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled2">8.35</A>(b).
+
+<P>
+The project is now almost complete.  What remains is the application
+of the shapeburst filled text as an embossing map to the marble
+background layer.  This is done, of course, using <TT>Bump
+map</TT>.<A NAME="12335">&#160;</A><A NAME="12336">&#160;</A>  The Marble
+Background layer is made active by clicking on its thumbnail in the
+Layers dialog and the <TT>Bump map</TT> filter is invoked.  The filter
+dialog illustrated in Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled3">8.36</A>(b)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.chiseled3">&#160;</A><A NAME="12418">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.36:</STRONG>
+Creating the Chiseled Effect Using <TT> Bump map</TT></CAPTION>
+<TR><TD><IMG
+ SRC="img325.gif"
+ALT="Figure 8.36"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the parameters used and Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled3">8.36</A>(a)
+shows the resulting effect on the Marble Background layer.  Note that
+the visibility of the Text and Text Shadow layers has been toggled off
+so the chiseled text can be seen in the figure.
+
+<P>
+All that remains to complete this project is to move the chiseled text
+to the top layer of the stack.  This is done in the following steps:
+<DL COMPACT>
+<DT>1.
+<DD>Make the Text layer active by clicking on its thumbnail in the Layers
+dialog.
+<DT>2.
+<DD>Select the text using the <TT>Alpha to Selection</TT><A NAME="12347">&#160;</A> function from the Layers menu.
+<DT>3.
+<DD>Make the Marble Background layer active by clicking on its thumbnail
+in the Layers dialog, and copy the chiseled text into a buffer by
+typing <TT>C-c</TT> in the image window.  Due to the selection obtained
+in step (2) only the chiseled text is copied to the buffer.
+<DT>4.
+<DD>Cancel the selection by typing <TT>C-S-a</TT> in the image window.
+<DT>5.
+<DD>Make the Text layer active by clicking on its thumbnail in the Layers
+dialog, and paste the buffer contents to a floating selection by
+typing <TT>C-v</TT> in the image window.
+<DT>6.
+<DD>Anchor the float to the Text layer by clicking on the <TT>Anchor</TT>
+button in the Layers dialog.
+</DL>The result is shown in Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled4">8.37</A>(a),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.chiseled4">&#160;</A><A NAME="12355">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.37:</STRONG>
+Copying and Pasting the Chiseled Text to the Top Layer</CAPTION>
+<TR><TD><IMG
+ SRC="img326.gif"
+ALT="Figure 8.37"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and the Layers dialog is shown in
+Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled4">8.37</A>(b).
+
+<P>
+As a final flourish, the chiseled text is lightened somewhat to make
+it more prominent against the marble background.  This is done by
+making the Text layer active and, as shown in
+Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled5">8.38</A>(b), by adjusting the middle control
+of the input slider of the <TT>Levels</TT> tool dialog.
+Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled5">8.38</A>(b)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.chiseled5">&#160;</A><A NAME="12421">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.38:</STRONG>
+Lightening the Text with the <TT> Levels</TT> Tool to Produce the
+Final Chiseled Effect</CAPTION>
+<TR><TD><IMG
+ SRC="img327.gif"
+ALT="Figure 8.38"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the resulting settings in the <TT>Levels</TT> dialog, and
+Figure&nbsp;<A HREF="node78.html#f.rendering.chiseled5">8.38</A>(a) shows the final effect.
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1981"
+ HREF="node79.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1977"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1973"
+ HREF="node77.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1979"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1980"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1982"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Up:</B> <A NAME="tex2html1978"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1974"
+ HREF="node77.html">8.6 Rendering Project II:</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

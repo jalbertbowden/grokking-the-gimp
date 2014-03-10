@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>5.4 The Subtractive Color Systems CMY and CMYK</TITLE>
+<META NAME="description" CONTENT="5.4 The Subtractive Color Systems CMY and CMYK">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node54.html">
+<LINK REL="previous" HREF="node52.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node54.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1625"
+ HREF="node54.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1621"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1615"
+ HREF="node52.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1623"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1624"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1626"
+ HREF="node54.html">5.5 Conversion to Grayscale</A>
+<B> Up:</B> <A NAME="tex2html1622"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1616"
+ HREF="node52.html">5.3 Relating HSV to</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001340000000000000000">&#160;</A>
+<A NAME="s.colorspaces.cmyk">&#160;</A><A NAME="7122">&#160;</A>
+<A NAME="7123">&#160;</A>
+<A NAME="7124">&#160;</A>
+<A NAME="7125">&#160;</A>
+<BR>
+5.4 The Subtractive Color Systems CMY <BR>
+and CMYK
+</H1>
+
+<P>
+A color monitor emits light and consequently relies on the RGB
+colorspace, which is an additive color system.  Ink on paper, however,
+is a totally different story.  Ink absorbs light and the color we see
+from it is the light that was reflected and not absorbed.  If we shine
+a white light on an area and the color seen is cyan, it is because the
+red component of the white light was absorbed leaving only cyan to be
+reflected.  Similarly, magenta absorbs green, and yellow absorbs blue.
+Thus, the cyan, magenta, and yellow colors make a subtractive color
+space, which is the anti-space of RGB.  This colorspace is called
+CMY for cyan, magenta, and yellow.
+For a pixel that has R, G, and B components in the RGB colorspace, the
+corresponding C, M, and Y components are just (255-R), (255-G), and
+(255-B).
+
+<P>
+Due to the physical nature of colored inks, the CMY colorspace is
+perfect for working with printed images.  Or almost.  In principle,
+the addition of equal amounts of cyan, magenta, and yellow is like
+subtracting equal amounts of red, green, and blue.  We know that equal
+amounts of R, G, and B make a neutral color, so equal amounts of C, M,
+and Y do too.  Thus, adding large and equal amounts of cyan, magenta,
+and yellow makes black, and adding very small amounts makes a color
+that is close to white.  At least this is true when CMY is used to
+print on white paper.
+
+<P>
+In practice, due to imperfections in inks, adding equal amounts of
+cyan, magenta, and yellow does not make a deep dark black.  Rather, it
+produces a muddy brown.  To remedy this problem, printers subtract out
+some of the cyan, magenta, and yellow from an image and replace it
+with black.  This new colorspace is called
+CMYK, and it significantly improves
+the depth and tonal range of printed images.  Here, the K in CMYK
+stands for black.  
+
+<P>
+How much cyan, magenta, and yellow can be subtracted out and replaced
+by black?  Because neutral colors require equal amounts of cyan,
+magenta, and yellow, the most that can be subtracted out for a pixel
+is the minimum of its C, M, and Y components.  Thus, 
+<!-- MATH: $K=\min(C,M,Y)$ -->
+<IMG
+ WIDTH="165" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img160.gif"
+ ALT="$K=\min(C,M,Y)$">is the maximum black that can be extracted, and the resulting new
+values of C, M, and Y are just the old values less this value of K.
+Although choosing K to be the minimum of C, M, and Y is reasonable, it
+is not necessary; it can also be chosen to be less than this value.
+
+<P>
+In addition to CMYK's natural relationship to printing because its
+subtractive qualities mirrors that of inks, it also has another
+important, more pragmatic advantage.  Replacing equal amounts of three
+colored inks with a single black one can significantly reduce the
+amount of ink printed on the paper.  This means that the ink will dry
+faster and the printing presses can produce more copy in the same
+amount of time.
+
+<P>
+There are also significant advantages to CMYK when doing color
+correction on an image that will end up in a printed format (see, for
+example, [<A
+ HREF="node87.html#margulis">6</A>]).  The most significant is that the range of
+colors, known as the color gamut, that can be produced with inks is
+significantly smaller than what can be created on a color monitor.
+Thus, it isn't sensible to invest a lot of time working on an RGB
+image only to convert it to CMYK for printing at the end.  This will
+more than likely produce many out of gamut colors.  When the final
+result is a <EM>printed</EM> image it is more sensible to convert to CMYK
+before performing any color transformations.
+
+<P>
+Unfortunately, the GIMP provides very little support for working in
+CMYK.  There is the <TT>Decompose</TT><A NAME="7129">&#160;</A>
+function, found in the <TT>Image:Image/Mode</TT> menu, which offers a
+CMYK option in its dialog.  This is not terribly useful, though.  To
+make the GIMP truly pre-press capable, the following is needed:
+<UL>
+<LI>The ability to set K in the range 0 to 
+<!-- MATH: $\min(C,M,Y)$ -->
+<IMG
+ WIDTH="121" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img161.gif"
+ ALT="$\min(C,M,Y)$">.
+<LI>The ability to convert RGB to CMYK while applying color gamut
+limitations.
+<LI>The ability to work in CMYK space just like in RGB space.  This means
+a Channels dialog with C, M, Y, and K components and color editing
+functions and tools like <TT>Curves</TT>, <TT>Levels</TT>, <TT>Color
+Picker</TT>, and so on, which work in CMYK.
+</UL>
+<P>
+There is also the perception that spot colors are needed to make an
+effective pre-press image manipulation tool.  Although there is much
+pageantry about the colorimetry, device calibration, and Pantone ink
+systems available for Adobe's Photoshop, these are somewhat of a red
+herring.  Making these systems work is difficult and unreliable.
+Physical printing devices like presses tend to produce different
+results from day to day and even from run to run.  In the printing
+process, there are many problems that can change the color balance so
+carefully calibrated on the monitor.  The amounts of ink the printer
+uses, the capability of the press to apply the specified percentages
+of ink uniformly across the printing surface, and many other
+environmental and press health factors make for significant
+variability in the final result. No amount of calibration and
+proprietary ink systems can fix that.
+
+<P>
+Thus, the main hurdle to cross before the GIMP can become a viable
+pre-press tool is the functionality given in the preceding bulleted list.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1625"
+ HREF="node54.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1621"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1615"
+ HREF="node52.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1623"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1624"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1626"
+ HREF="node54.html">5.5 Conversion to Grayscale</A>
+<B> Up:</B> <A NAME="tex2html1622"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1616"
+ HREF="node52.html">5.3 Relating HSV to</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

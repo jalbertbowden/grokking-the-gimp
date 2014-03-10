@@ -1,0 +1,1124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>6.2 Removing Color Casts</TITLE>
+<META NAME="description" CONTENT="6.2 Removing Color Casts">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node60.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node62.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1749"
+ HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1745"
+ HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1739"
+ HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1747"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1748"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1750"
+ HREF="node62.html">6.3 Repairing Blemishes with</A>
+<B> Up:</B> <A NAME="tex2html1746"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<B> Previous:</B> <A NAME="tex2html1740"
+ HREF="node60.html">6.1 Improving Tonal Range</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1751"
+ HREF="node61.html#SECTION001421000000000000000">6.2.1 The <TT>Curves</TT> Tool</A>
+<LI><A NAME="tex2html1752"
+ HREF="node61.html#SECTION001422000000000000000">6.2.2 Color Correcting by Balancing the Neutrals</A>
+<LI><A NAME="tex2html1753"
+ HREF="node61.html#SECTION001423000000000000000">6.2.3 Finding the Shadow, Midtone, and Highlight</A>
+<LI><A NAME="tex2html1754"
+ HREF="node61.html#SECTION001424000000000000000">6.2.4 Other Colors We Know</A>
+<LI><A NAME="tex2html1755"
+ HREF="node61.html#SECTION001425000000000000000">6.2.5 The Perturbation Technique</A>
+<LI><A NAME="tex2html1756"
+ HREF="node61.html#SECTION001426000000000000000">6.2.6 Getting More Detail into the Subject</A>
+<LI><A NAME="tex2html1757"
+ HREF="node61.html#SECTION001427000000000000000">6.2.7 Other Color Correcting Tools</A>
+<UL>
+<LI><A NAME="tex2html1758"
+ HREF="node61.html#SECTION001427100000000000000">6.2.7.1 The <TT>Color Balance</TT> Tool</A>
+<LI><A NAME="tex2html1759"
+ HREF="node61.html#SECTION001427200000000000000">6.2.7.2 The <TT>Brightness-Contrast</TT> Tool</A>
+<LI><A NAME="tex2html1760"
+ HREF="node61.html#SECTION001427300000000000000">6.2.7.3 The <TT>Hue-Saturation</TT> Tool</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001420000000000000000">&#160;</A>
+<A NAME="s6.color-casts">&#160;</A><A NAME="8851">&#160;</A>
+<A NAME="8852">&#160;</A>
+<A NAME="8853">&#160;</A>
+<A NAME="8854">&#160;</A>
+<A NAME="8855">&#160;</A>
+<BR>
+6.2 Removing Color Casts
+</H1>
+
+<P>
+A color cast occurs when the Red, Green, and Blue channels of an image
+are not properly balanced.  The cast can be across the entire range of
+pixel values or can limit itself to the highlight, shadow, or midtones
+of the image.  Color casts are common in photographs.  They occur
+because, under certain circumstances, the sensitivity of film to color
+is different than the sensitivity of the human eye.  The film just
+doesn't record the same scene as your eye.
+
+<P>
+Removing color casts requires being able to identify where the color
+in an image has gone wrong.  I often have a hard time telling, simply
+by looking at an image, if it is suffering from a color cast.  This is
+due to many reasons.  First, color is a perceptual issue that is
+strongly affected by surrounding light conditions.  Second, the
+representation of color varies from one computer monitor to another
+because settings such as brightness, contrast, gamma, and color
+temperature can be quite different.  Furthermore, the ability of a
+monitor's phosphors to create levels of red, green, and blue light
+will differ from monitor to monitor and change over time as the
+monitor ages.
+
+<P>
+All this makes the perceptual evaluation of color casts difficult for
+the average person.  Fortunately, the GIMP provides some analytical
+and interactive tools for determining whether color casts exist and
+for correcting them.  There are several techniques for identifying,
+measuring, and correcting color casts.  Each approach uses the
+powerful <TT>Curves</TT> tool which is reviewed in the first part of this
+section.
+
+<P>
+
+<H2><A NAME="SECTION001421000000000000000">&#160;</A>
+<A NAME="s6.curves">&#160;</A><A NAME="8859">&#160;</A>
+<A NAME="8860">&#160;</A>
+<A NAME="8861">&#160;</A>
+<BR>
+6.2.1 The <TT>Curves</TT> Tool
+</H2>
+
+<P>
+The <TT>Curves</TT> tool is found in the <TT>Image:Image/Colors</TT> menu.
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves1">6.8</A> 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.curves1">&#160;</A><A NAME="9445">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.8:</STRONG>
+The <TT> Curves</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img210.gif"
+ALT="Figure 6.8"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the basic components of this tool.  As with the <TT>Levels</TT> tool, the <TT>Curves</TT> tool can be applied to any of five
+different channels; however, for removing color casts, we are mainly
+concerned with the Red, Green, and Blue channels.
+
+<P>
+The main elements of the tool consist of an <EM>input value
+domain</EM>,<A NAME="8873">&#160;</A> an <EM>output value
+range</EM>,<A NAME="8875">&#160;</A> and a <EM>control
+curve</EM><A NAME="8877">&#160;</A> drawn on a graph.  The graph has a grid
+divided into quarters, and the range of values is from 0 to 255.
+Thus, the value of each grid line, moving horizontally from left to
+right, is 0, 64, 128, 192, and 255.  The values moving vertically from
+bottom to top are the same.
+
+<P>
+The control curve represents a map of the input value domain to the
+output value range.  That sounds pretty abstract!  What good is
+mapping input to output values?  The executive, top-level answer is
+that curve mapping of input to output values is the most powerful
+color correcting tool in the GIMP, and learning how to use it is
+definitely worth your while.  More about mapping input to output
+values and what it's good for in a moment...
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves2">6.9</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.curves2">&#160;</A><A NAME="8880">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.9:</STRONG>
+Adding and Moving a Control Point</CAPTION>
+<TR><TD><IMG
+ SRC="img211.gif"
+ALT="Figure 6.9"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the main operation we will be performing with the <TT>Curves</TT> tool--that is, adding a <EM>control point</EM><A NAME="8886">&#160;</A> to the control curve as in
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves2">6.9</A>(a) and then moving it to a new position
+as in Figure&nbsp;<A HREF="node61.html#f.touchup.curves2">6.9</A>(b).  Control points can be added
+to the curve simply by clicking on the curve at the desired location.
+The point can be moved by clicking and dragging it.  If the mouse
+cursor is not on the curve when the mouse button is clicked, a control
+point is added to the curve at the position directly above (or below)
+the cursor.  This new point is then automatically positioned to the
+cursor location.
+
+<P>
+Every control curve has two default control points located at the
+curve's upper right and lower left.  These can be moved just like
+user-created control points.  All control points except the defaults
+can be removed by clicking on the Reset button in the dialog.  If many
+control points have been positioned and a single one needs to be
+removed you can remove it by dragging it with the mouse to the left or
+right edge of the dialog.  This pulls the control point right off the
+curve.
+
+<P>
+The <TT>Curves</TT> tool also has an Information Field that interactively
+indicates the X and Y positions of the mouse cursor whenever it is in
+the graph area of the dialog.  This field is located in the upper-left
+corner of the graph area, and, as you will see, this information is
+essential for performing precise color correction.  But first, it is
+important to get an intuitive feel for how the <TT>Curves</TT> tool
+works.  
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust1">6.10</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.curves-adjust1">&#160;</A><A NAME="8893">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.10:</STRONG>
+Image with Shadow-to-Midtone and Midtone-to-Highlight Gradients</CAPTION>
+<TR><TD><IMG
+ SRC="img212.gif"
+ALT="Figure 6.10"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates a special test case that will help you understand how the
+<TT>Curves</TT> tool affects an image.  The figure shows two gradients
+each using up half the tonal range of a grayscale.  The upper gradient
+has values from 0 to 127, and the lower gradient has values from 128
+to 255.
+
+<P>
+The following illustrates how the <TT>Curves</TT> tool is used to change
+the tonal range of these two gradients.
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust2">6.11</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.curves-adjust2">&#160;</A><A NAME="8901">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.11:</STRONG>
+Improving the Contrast of the Midtone-to-Highlight Gradient</CAPTION>
+<TR><TD><IMG
+ SRC="img213.gif"
+ALT="Figure 6.11"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the Value channel of the <TT>Curves</TT> tool.  A control point has
+been placed at the midpoint of the curve and pulled downward to a
+position one quarter of its original height.  Initially, when it is a
+straight line, the curve of the <TT>Curves</TT> tool maps each input
+value to the identical output value.  However, the curve shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust2">6.11</A> changes that map.  Now the input
+values from 0 to 128 are mapped to one quarter of the scale they were
+before.  That is, these values are now compressed into the range of 0
+to 32.  At the same time, the input values in the domain 128 to 255
+are stretched to the range of 32 to 255.  This is emphasized by the
+red dashed lines superimposed on the <TT>Curves</TT> dialog.
+
+<P>
+This means that all the pixels that had values in 0 to 128 in
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust1">6.10</A> are compressed to a new range of
+0 to 32.  Thus, much of the detail and contrast between neighboring
+pixel values in this range is lost.  This effect can clearly be seen
+in the upper gradient in Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust2">6.11</A>(b),
+which is the result of applying the curve in
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust2">6.11</A>(a) to the image in
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust1">6.10</A>.  Simultaneously, the pixel
+values in the domain 128 to 255 are stretched to a new range of 32 to
+255.  Consequently, the contrast of the detail of these pixels is
+increased,<A NAME="8913">&#160;</A> as you can see in the lower
+gradient in Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust2">6.11</A>(b).
+
+<P>
+A similar analysis can be made for
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust3">6.12</A>,
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.curves-adjust3">&#160;</A><A NAME="8917">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.12:</STRONG>
+Improving the Contrast of the Shadow-to-Midtone Gradient</CAPTION>
+<TR><TD><IMG
+ SRC="img214.gif"
+ALT="Figure 6.12"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+which illustrates the opposite effect.  Here, as shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust3">6.12</A>(a), the input value domain from
+0 to 128 is stretched and the input domain from 128 to 255 is
+compressed.  The effect on the gradients is shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.curves-adjust3">6.12</A>(b).  Although these two examples
+are illustrated using the Value channel, the same conclusions hold for
+the Red, Green, and Blue channels.
+
+<P>
+The conclusion that can be drawn from these two examples is that the
+<TT>Curves</TT> tool can be used for two things.  First, ranges of pixel
+values can be remapped.<A NAME="8924">&#160;</A><A NAME="8925">&#160;</A>  This is particularly
+valuable when a color channel is out of balance with the others.  When
+color imbalances occur, we will try to measure which range is out of
+balance, determine what the range should be, and use the <TT>Curves</TT>
+tool to remap one range to the other.  This approach is developed in
+detail in Section&nbsp;<A HREF="node61.html#s6.neutrals">6.2.2</A>.
+
+<P>
+The second use is to improve contrast where it is most needed.  Often
+an image has a subject that is much more important than the rest of
+the image.  When this is the case, it is desirable to give the subject
+the most detail and contrast possible.  From the examples, you can see
+that the <TT>Curves</TT> tool can be used to improve contrast.  Note,
+however, that in improving the contrast in one range of values, there
+must simultaneously be a loss of detail and contrast in the
+complementary range of values.  This was clearly demonstrated in
+Figures&nbsp;<A HREF="node61.html#f.touchup.curves-adjust2">6.11</A>(b) and
+<A HREF="node61.html#f.touchup.curves-adjust3">6.12</A>(b).  Fortunately, improving the
+contrast of the subject while simultaneously impoverishing the
+contrast of the background is typically what we want to do.  This
+draws the viewer's eye to the part of the image we most want to
+convey.  The idea of improving subject contrast is developed more in
+Section&nbsp;<A HREF="node61.html#s6.detail">6.2.6</A>.
+
+<P>
+
+<H2><A NAME="SECTION001422000000000000000">&#160;</A>
+<A NAME="s6.neutrals">&#160;</A><A NAME="8934">&#160;</A>
+<A NAME="8935">&#160;</A>
+<A NAME="8936">&#160;</A>
+<BR>
+6.2.2 Color Correcting by Balancing the Neutrals
+</H2>
+
+<P>
+A powerful method for identifying color casts is to measure the color
+of pixels that, in principle, should be neutral gray.  Neutrals must
+have equal components of red, green, and blue.  If they don't, that
+indicates the presence of a color cast, and you know that a color
+correction must be made.
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.neutral1">6.13</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.neutral1">&#160;</A><A NAME="8939">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.13:</STRONG>
+Image with a Color Cast?  The Measured Pixels Say Yes!</CAPTION>
+<TR><TD><IMG
+ SRC="img215.gif"
+ALT="Figure 6.13"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates a case where the identification of neutral pixels allows
+us to color correct the image.  In the image, the arcade of palm trees
+casts shadows over a white sand path and, in principle these shadows
+should be neutral in color.
+
+<P>
+There are a wide range of values for the shadow along the path, and it
+is possible to measure dark, mid-range, and light shadow values.  In
+Figure&nbsp;<A HREF="node61.html#f.touchup.neutral1">6.13</A>, these are referred to as shadow,
+midtone, and highlight neutrals, and their values, measured with the
+<TT>Color Picker</TT>,<A NAME="8945">&#160;</A> are shown at three
+different points.  (The <TT>Color Picker</TT> is located in the Toolbox
+and is represented by the eye-dropper icon.)  Measuring color in an
+image with the <TT>Color Picker</TT> displays the color in a rectangular
+patch in the <TT>Color Picker</TT> dialog and gives its R, G, and B
+values.  Measuring a color with the <TT>Color Picker</TT> also has the
+effect of setting the <TT>Active Foreground Color</TT> patch, in the
+Toolbox window, to the measured color.
+
+<P>
+For the three measured pixels shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.neutral1">6.13</A>, you can see that there is a distinct
+blue tinge for each one.  Not only do the color patches shown in the
+<TT>Color Picker</TT> dialog look blue, the measured R, G, and B values
+show that there is a significant deviation of the blue values from the
+red and green ones--too much for the color of these pixels to be
+neutral.  Using the color notation introduced in
+Section&nbsp;<A HREF="node50.html#s5.rgb-colorspace">5.1</A>, the color patches shown in the <TT>Color Picker</TT> dialogs have the values 
+<!-- MATH: $33^R 35^G 52^B$ -->
+33<SUP><I>R</I></SUP> 35<SUP><I>G</I></SUP> 52<SUP><I>B</I></SUP> for the shadow,
+
+<!-- MATH: $111^R 132^G 179^B$ -->
+111<SUP><I>R</I></SUP> 132<SUP><I>G</I></SUP> 179<SUP><I>B</I></SUP> for the midtone, and 
+<!-- MATH: $173^R 172^G 206^B$ -->
+173<SUP><I>R</I></SUP> 172<SUP><I>G</I></SUP> 206<SUP><I>B</I></SUP> for the
+highlight.  The measured R, G, and B values for each point clearly
+indicate that there is too much blue.
+
+<P>
+It is true that shadows sometimes appear blue.  However, this is
+usually true in winter away from the equator and is due to the natural
+filtering of the sun's rays by the earth's atmosphere.  The blue color
+cast measured in Figure&nbsp;<A HREF="node61.html#f.touchup.neutral1">6.13</A> is more likely due to
+the tendency of film, especially slide film, to produce blue casts
+when photographing under natural sky light.  In any case, at an
+equatorial location on the earth, we would expect the fuller spectrum
+of the sun's light to create neutral shadows when these are seen on a
+neutral background.
+
+<P>
+In addition to the blue cast, there may also be a slight red
+deficiency in the midtone range.  In the following discussion the blue
+color cast and the red midtone deficiency are corrected using the <TT>Curves</TT> tool.
+
+<P>
+Figures&nbsp;<A HREF="node61.html#f.touchup.neutral2">6.14</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.neutral2">&#160;</A><A NAME="8959">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.14:</STRONG>
+Using the Measured Pixel Values to Modify the Red Curve</CAPTION>
+<TR><TD><IMG
+ SRC="img216.gif"
+ALT="Figure 6.14"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and <A HREF="node61.html#f.touchup.neutral3">6.15</A> 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.neutral3">&#160;</A><A NAME="8965">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.15:</STRONG>
+Using the Measured Pixel Values to Modify the Blue Curve</CAPTION>
+<TR><TD><IMG
+ SRC="img217.gif"
+ALT="Figure 6.15"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrate how the <TT>Curves</TT> tool is used to correct these color
+problems.  Figure&nbsp;<A HREF="node61.html#f.touchup.neutral2">6.14</A> shows a modification to the
+red curve and Figure&nbsp;<A HREF="node61.html#f.touchup.neutral3">6.15</A> to the blue.  For each,
+the procedure is identical.  The red and blue components of the
+measured pixel values are used to place control points on their
+respective curves.  This is shown in part (a) of each figure.  The
+accurate placement of the points is facilitated by the Information
+Field found in the upper left corner of the graph area.  The control
+points are then moved vertically up or down to new positions, which
+remaps the ranges of pixel values between them and makes the measured
+pixels neutral in value.  The displaced control points are shown in
+part (b) of the figures.
+
+<P>
+Again, the goal in displacing the control points is to make each of
+the measured pixel values neutral.  This means making their red,
+green, and blue components equal.  In this example, this is
+accomplished by moving the red and blue control points so that their
+values are made equal to the measured green values.  The accurate
+repositioning of the points is made possible by the position
+Information Field displayed in the upper-left corner of the graph
+area.  Note that the numbers positioned near the control points in
+Figures&nbsp;<A HREF="node61.html#f.touchup.neutral2">6.14</A> and
+<A HREF="node61.html#f.touchup.neutral3">6.15</A> are not a feature of the <TT>Curves</TT> tool;
+they are placed there to clarify the procedure.
+
+<P>
+Thus, on the red control curve, the shadow, midtone, and highlight
+values are moved from 33, 111, and 173 to the measured green values of
+35, 132, and 172.  On the blue control curve, the shadow, midtone, and
+highlight values are moved from 52, 179, and 206, again, to the green
+values of 35, 132, and 172.  After the operation, the color values for
+the three measured pixels are 
+<!-- MATH: $35^R 35^G 35^B$ -->
+35<SUP><I>R</I></SUP> 35<SUP><I>G</I></SUP> 35<SUP><I>B</I></SUP> for the shadow, 
+<!-- MATH: $132^R
+132^G 132^B$ -->
+132<SUP><I>R</I></SUP>
+132<SUP><I>G</I></SUP> 132<SUP><I>B</I></SUP> for the midtone, and 
+<!-- MATH: $172^R 172^G 172^B$ -->
+172<SUP><I>R</I></SUP> 172<SUP><I>G</I></SUP> 172<SUP><I>B</I></SUP> for the
+highlight--all three neutral grays.
+
+<P>
+The result of color correcting the neutral pixel values is shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.neutral4">6.16</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.neutral4">&#160;</A><A NAME="8977">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.16:</STRONG>
+Comparison of the Original and Color Corrected Images</CAPTION>
+<TR><TD><IMG
+ SRC="img218.gif"
+ALT="Figure 6.16"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+For comparison, the original image is shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.neutral4">6.16</A>(a).  It is quite clear now that the
+original image did have a blue cast and that this has been eliminated
+in the corrected image.  Measuring the pixel values along the
+tree-lined path shows that, overall, the balance is much better and
+most of the tree shadow values are now neutral.  Furthermore, the rest
+of the image has taken on a much warmer look.  The trees are now
+bathed in a yellow light, corresponding better to what we might expect
+from a tropical sunlit scene.
+
+<P>
+There are some practical questions about the color correcting
+procedure just described.  The first is, why were the blue and red
+channels matched to the green?  For the three measured pixels there
+are a total of nine ways to make the three neutral.  However, in
+practice, it is typical that two of the channels are almost the same
+and that one is quite different.  When this is the case, as it is for
+the the measured shadow and highlight values in the preceding example,
+the choice is clear.  When it is not the case, some experimentation
+may be necessary.
+
+<P>
+The second question about the procedure is, why measure three points?
+The method doesn't require three points and, amazingly, often a single
+point can suffice to color correct the entire image.  However,
+matching a shadow, midtone, and highlight image point provides
+additional insurance that the color in each range is properly
+balanced.
+
+<P>
+The <TT>Curves</TT> tool has several features that facilitate the
+positioning of points on the control curves.  Clicking the mouse
+button in the image window produces a vertical bar in the graph area
+of the <TT>Curves</TT> tool.  The bar position corresponds to the pixel
+value the mouse cursor is over in the image window.  Clicking and
+dragging the mouse button interactively updates the position of the
+vertical bar.  In this way, it is possible to see where different
+pixel values in the image are located on the control curve and helps
+to discover the locations of shadow, midtone, and highlight pixels.
+In addition to input position information, Shift-clicking in the image
+window automatically creates a control point on the curve in the
+active channel of the <TT>Curves</TT> dialog.  Control-clicking on a
+point in the image window produces control points on each of the Red,
+Green, Blue, and Value control curves.
+
+<P>
+In addition to the <TT>Curves</TT> tool features, a very useful tool for
+exploring and discovering color problems in an image is the <TT>Info
+Window</TT><A NAME="8987">&#160;</A><A NAME="8988">&#160;</A> dialog.
+This dialog is found in the <TT>Image:View</TT> menu and can also be
+invoked by typing <TT>C-S-i</TT> in the image window.  The Extended tab
+of this dialog interactively reports the R, G, and B pixel-color
+components when the mouse is in the image window.  The advantage of
+the <TT>Info Window</TT> over the <TT>Color Picker</TT><A NAME="8993">&#160;</A> for measuring pixel values in the image window is it remains
+open while using the <TT>Curves</TT> tool.
+
+<P>
+There are two lessons to be learned from this section.  First, color
+correction can be very easy.  Measuring only a few pixel values across
+the shadow to highlight range can color correct an entire image in a
+few minutes time.  Second, the color correction obtained in this way
+not only fixes the individual measured pixels but usually corrects the
+entire image.  Third, the <TT>Curves</TT> tool is the only one which can
+be used to correct the image based on measured pixel values.  For
+these reasons, the <TT>Curves</TT> tool is the most precise and the most
+powerful tool for color correction in the GIMP.
+
+<P>
+
+<H2><A NAME="SECTION001423000000000000000">&#160;</A>
+<A NAME="s6.threshold">&#160;</A><A NAME="8999">&#160;</A>
+<A NAME="9000">&#160;</A>
+<A NAME="9001">&#160;</A>
+<A NAME="9002">&#160;</A>
+<A NAME="9003">&#160;</A>
+<BR>
+6.2.3 Finding the Shadow, Midtone, and Highlight
+</H2>
+
+<P>
+To do color correction using the techniques of the previous section,
+it is important to be able to identify shadow, midtone, and highlight
+colors.  To be frank, I sometimes have difficulties finding them for
+some images.  When this happens, the <TT>Threshold</TT> tool is useful
+because it can show where any range of values is hidden in an image.
+The <TT>Threshold</TT> tool is found in the <TT>Image:Image/Colors</TT>
+menu.  Figure&nbsp;<A HREF="node61.html#f.touchup.threshold">6.17</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.threshold">&#160;</A><A NAME="9455">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.17:</STRONG>
+Using the <TT> Threshold</TT> Tool to Find Shadows and Highlights: (a) Original
+Photo (b) Darkest Shadows (c) Lightest Highlights</CAPTION>
+<TR><TD><IMG
+ SRC="img219.gif"
+ALT="Figure 6.17"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how this tool can be used to help locate critical shadow and
+highlight values.
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.threshold">6.17</A>(a) illustrates an image and
+Figures&nbsp;<A HREF="node61.html#f.touchup.threshold">6.17</A>(b) and (c) show how to use the <TT>Threshold</TT> tool to identify its darkest shadows and lightest
+highlights.  The <TT>Threshold</TT> tool, which was introduced in
+Section&nbsp;<A HREF="node47.html#s4.threshold">4.5.3</A>, consists of a dialog that displays the
+histogram of the image's pixel values.  Clicking and dragging the
+mouse through a range of histogram values has the effect of mapping
+all the pixel values in the image to either black or white.  The image
+pixel values corresponding to the selected histogram range become
+white, and the rest become black.
+
+<P>
+In this way, it is easy to localize the pixel values we are searching
+for.  Starting with an image like the one in
+Figure&nbsp;<A HREF="node61.html#f.touchup.threshold">6.17</A>(a), a duplicate of the image is made
+by typing <TT>C-d</TT><A NAME="9020">&#160;</A> in the image window.
+Then, the <TT>Threshold</TT> tool is applied to the duplicate, and a
+range of shadow values is swept out with the mouse, as shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.threshold">6.17</A>(b).  The resulting white pixel values
+in the duplicated image window show the locations of the darkest
+shadows.  Using the duplicated image as a guide, the <TT>Color
+Picker</TT> can now be used in the original image window to measure pixel
+values at the appropriate locations.  A similar procedure is used to
+accurately find and measure the lightest highlights of the image using
+the duplicated image shown in Figure&nbsp;<A HREF="node61.html#f.touchup.threshold">6.17</A>(c).
+
+<P>
+Note that this procedure, using the <TT>Threshold</TT> tool to find value
+ranges in the image, can also be used on the image's individual RGB
+components.  The decomposition is made using the <TT>Decompose</TT>
+function, found in the <TT>Image:Image/Mode</TT> menu (see
+Section&nbsp;<A HREF="node47.html#s4.decompose_threshold">4.5.3</A>).  
+
+<P>
+
+<H2><A NAME="SECTION001424000000000000000">&#160;</A>
+<A NAME="9030">&#160;</A>
+<BR>
+6.2.4 Other Colors We Know
+</H2>
+
+<P>
+If there are identifiable colors other than neutrals in an image,
+these, too, can be used to perform color correction.  Examples are the
+colors of flags, logos, or certain animals.  A Canadian flag whose
+famous maple leaf emblem were not red would be a good point of
+reference for color correction.
+
+<P>
+Another important class of colors that can be found in many images are
+fleshtones.<A NAME="9031">&#160;</A><A NAME="9032">&#160;</A>  A medium
+Caucasian fleshtone has a green around 192, a red that is about 20%
+more (234), and a blue about 10% less (176).  Darker skinned people
+have skin colors with more blue and less red, and Asians have less
+blue.  Because of the variability of skin tones, relying on them as
+guides is more uncertain than using neutrals.  Nevertheless, for some
+images this may be the only point of reference available for color
+correction.
+
+<P>
+
+<H2><A NAME="SECTION001425000000000000000">&#160;</A>
+<A NAME="s6.perturbation-technique">&#160;</A><A NAME="9035">&#160;</A>
+<A NAME="9036">&#160;</A>
+<A NAME="9037">&#160;</A>
+<BR>
+6.2.5 The Perturbation Technique
+</H2>
+
+<P>
+Sometimes it is impossible to positively identify a color in an image
+but it seems clear that a color cast is present.  This means there are
+no color references that can be used to do color correction.  Under
+these conditions, an alternate approach is needed.  The method
+proposed here is what I call the perturbation technique.  It relies on
+the visual feedback that the preview checkbox in the <TT>Curves</TT>
+dialog provides.  In a nutshell, the method makes incremental
+perturbations to the shadow, midtone, and highlight regions for each
+of the red, green, and blue curves.  The perturbations that improve
+the image are kept and those that do not are discarded.
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.perturb0">6.18</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.perturb0">&#160;</A><A NAME="9041">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.18:</STRONG>
+Implementation of the Perturbation Technique: (a) Placing the
+Shadow, Midtone, and Highlight Region Control Points (b) Perturbation
+of the Midtone Control Point</CAPTION>
+<TR><TD><IMG
+ SRC="img220.gif"
+ALT="Figure 6.18"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the idea.  In Figure&nbsp;<A HREF="node61.html#f.touchup.perturb0">6.18</A>(a), the Red
+channel of the <TT>Curves</TT> tool is displayed, and three control
+points have been added to the curve at the quarter, half, and
+three-quarter positions.  The regions of the curve around these points
+roughly control the shadow, midtone, and highlight regions of the Red
+channel.  The perturbation technique works by moving the control
+points up or down and seeing whether the change improves the image.
+Figure&nbsp;<A HREF="node61.html#f.touchup.perturb0">6.18</A>(b) shows a perturbation of the midtone
+control point.
+
+<P>
+Note that, in moving the midtone control point, the only parts of the
+curve that move are those between the shadow and highlight control
+points.  The rest of the curve is constrained by the two other control
+points.  This is very useful because it allows the <TT>Curves</TT> tool
+to act on a select part of the image's tonal range.
+
+<P>
+The perturbation technique is not scientific and relies on the
+perceptual abilities of the user to see changes that improve or
+deteriorate an image.  Nevertheless, cycling among the nine control
+points, making only gradual changes to each, can often produce
+marvelous results.  The following example illustrates this approach.
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.perturb1">6.19</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.perturb1">&#160;</A><A NAME="9051">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.19:</STRONG>
+Image with a Color Cast.  Can you see it?</CAPTION>
+<TR><TD><IMG
+ SRC="img221.gif"
+ALT="Figure 6.19"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows an image of a tiger that has a problem (the image, not the
+tiger).  It has a subtle, overall green color cast.  The color cast is
+so subtle, at first, I didn't even recognize it.
+
+<P>
+The perturbation technique is an approach to color correction that
+requires experimentation.  Thus, the steps are difficult to present in
+book format.  The best that I can do is to show you the results.  For
+this, Figure&nbsp;<A HREF="node61.html#f.touchup.perturb2">6.20</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.perturb2">&#160;</A><A NAME="9057">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.20:</STRONG>
+The Three Adjusted Curves Using the Perturbation Technique</CAPTION>
+<TR><TD><IMG
+ SRC="img222.gif"
+ALT="Figure 6.20"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the final curves for the Red, Green, and Blue channels (shown in
+parts (a), (b), and (c), respectively).  The resulting effect on the
+image is shown in Figure&nbsp;<A HREF="node61.html#f.touchup.perturb3">6.21</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.perturb3">&#160;</A><A NAME="9063">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.21:</STRONG>
+The Color Corrected Image</CAPTION>
+<TR><TD><IMG
+ SRC="img223.gif"
+ALT="Figure 6.21"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Comparing Figure&nbsp;<A HREF="node61.html#f.touchup.perturb3">6.21</A> with
+Figure&nbsp;<A HREF="node61.html#f.touchup.perturb1">6.19</A> makes the green color cast in the
+original image readily apparent.  Furthermore, you can see that the
+application of the perturbation technique has simultaneously improved
+the contrast of the image's subject.  The tiger looks significantly
+enhanced.
+
+<P>
+There is an important caveat to the perturbation technique.  Because
+this method relies on the visual feedback you get from your monitor,
+the technique is highly dependent on the monitor's individual
+characteristics.  What looks great on your monitor might not look as
+great on another.  The method described earlier in this chapter that
+measures pixel values and then makes adjustments accordingly does not
+depend on the monitor.  The earlier method is the preferred approach
+whenever possible.
+
+<P>
+
+<H2><A NAME="SECTION001426000000000000000">&#160;</A>
+<A NAME="s6.detail">&#160;</A><A NAME="9071">&#160;</A>
+<A NAME="9072">&#160;</A>
+<A NAME="9073">&#160;</A>
+<BR>
+6.2.6 Getting More Detail into the Subject
+</H2>
+
+<P>
+Sometimes one part of an image is more important than the rest.  We
+often refer to this part of the image as the image subject.  It is
+typical to want the subject to have as much contrast as possible.
+This makes the subject stand out and look much more interesting.  As
+was discussed in Section&nbsp;<A HREF="node61.html#s6.curves">6.2.1</A>, the <TT>Curves</TT> tool can be
+used to improve the contrast of certain parts of the tonal range in an
+image.  This can be applied to the subject of the image by determining
+its lightest highlight and deepest shadow and then steepening the part
+of the control curves covering this range.
+
+<P>
+However, if a lot of work has already gone into maximizing tonal range
+and correcting color, you might be reticent to play with the curves to
+get additional contrast into the subject.  Clearly, manipulating a
+part of the curves in an attempt to improve contrast can damage the
+color balance obtained with much hard work.
+
+<P>
+Fortunately, there is a way to have your cake and eat it too.  Up to
+this point, the red, green, and blue control curves have monopolized
+our attention.  As you have already seen, modifying any of these
+changes the overall balance of color in the image.  However, the <TT>Curves</TT> tool can also be used to modify the image's Value
+channel.<A NAME="9077">&#160;</A>  As discussed in
+Section&nbsp;<A HREF="node52.html#s.colorspaces.hsv2rgb">5.3</A>, the Value channel has no effect
+on color; it only affects brightness.  This, then, is the perfect
+channel for improving contrast while preserving the image's color
+balance.
+
+<P>
+To illustrate the use of the Value channel to improve
+contrast,<A NAME="9079">&#160;</A>
+Figure&nbsp;<A HREF="node61.html#f.touchup.contrast1">6.22</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.contrast1">&#160;</A><A NAME="9082">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.22:</STRONG>
+Original and Color Corrected Images</CAPTION>
+<TR><TD><IMG
+ SRC="img224.gif"
+ALT="Figure 6.22"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows an original image that lacks tonal range and has a terrible
+yellow color cast.  Figure&nbsp;<A HREF="node61.html#f.touchup.contrast1">6.22</A>(b) shows the
+corrected image, which was obtained simply by applying the Auto Levels
+button of the <TT>Levels</TT> tool (see Section&nbsp;<A HREF="node60.html#s6.levels">6.1.2</A>).
+Although the image is much improved, it lacks detail in the eagle's
+white head feathers.  It would be nice to improve this part of the
+eagle to give it more visual depth.  This can be done by modifying the
+Value channel of the <TT>Curves</TT> tool.
+
+<P>
+To improve the contrast of the head feathers, it is necessary to
+determine the value range that this part of the image is contained
+in.  The <TT>Threshold</TT> tool is perfect for this (see
+Section&nbsp;<A HREF="node61.html#s6.threshold">6.2.3</A>). 
+Figure&nbsp;<A HREF="node61.html#f.touchup.contrast2">6.23</A> 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.contrast2">&#160;</A><A NAME="9462">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.23:</STRONG>
+Using <TT> Threshold</TT> to Find the Correct Value Range</CAPTION>
+<TR><TD><IMG
+ SRC="img225.gif"
+ALT="Figure 6.23"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the use of <TT>Threshold</TT> for determining an appropriate
+range of values.  Figure&nbsp;<A HREF="node61.html#f.touchup.contrast2">6.23</A>(a) shows the <TT>Threshold</TT> dialog applied to the color corrected image in
+Figure&nbsp;<A HREF="node61.html#f.touchup.contrast1">6.22</A>(b), and
+Figure&nbsp;<A HREF="node61.html#f.touchup.contrast2">6.23</A>(b) shows the result of having swept
+out the range [174,255] in the <TT>Threshold</TT> dialog.  This range,
+which was determined by experimentation, pretty much covers the part
+of the eagle image where we want to improve the contrast.
+
+<P>
+The value range determined with the <TT>Threshold</TT> tool is noted, and
+the tool is then canceled.  The next step is to invoke the <TT>Curves</TT> tool and to improve the contrast of the Value channel curve
+using the range determined using <TT>Threshold</TT>.
+Figure&nbsp;<A HREF="node61.html#f.touchup.contrast3">6.24</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.contrast3">&#160;</A><A NAME="9464">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.24:</STRONG>
+Using <TT> Curves</TT> to Improve Contrast in the Subject Value Range</CAPTION>
+<TR><TD><IMG
+ SRC="img226.gif"
+ALT="Figure 6.24"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the procedure.  Figure&nbsp;<A HREF="node61.html#f.touchup.contrast3">6.24</A>(a) shows
+the <TT>Curves</TT> dialog for the Value channel.  A control point has
+been added to the curve at the input value of 174, and this point has
+been moved to the output value of 140.  This has the effect of
+steepening the Value curve in the range [174,255], which is the range
+of values where we want to improve contrast.  From previous
+discussion, we know that steepening the Value curve in a range has the
+effect of improving this range's contrast.  
+
+<P>
+The result of applying the curve shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.contrast3">6.24</A>(a) is shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.contrast3">6.24</A>(b).  Comparing this result to the
+image in Figure&nbsp;<A HREF="node61.html#f.touchup.contrast1">6.22</A>(b) shows that the contrast
+of the eagle's head feathers has been significantly improved.  As a
+final, practical note, the amount that the Value curve is steepened is
+determined experimentally by moving the control points on the curve
+and evaluating the effect on the image.
+
+<P>
+
+<H2><A NAME="SECTION001427000000000000000">
+6.2.7 Other Color Correcting Tools</A>
+</H2>
+
+<P>
+The GIMP has several other color correcting tools.  These all live in
+the <TT>Image:Colors</TT> menu and their names are <TT>Color Balance</TT>,
+<TT>Brightness-Contrast</TT>, and <TT>Hue-Saturation</TT>.  In this book,
+these tools are not covered in detail, and for good reason.  Although
+they can be used for touchup and enhancement, these tools are like
+working with a dull knife, especially when compared to the <TT>Curves</TT> tool, which has the precision of a surgeon's scalpel.  Let's
+see why.
+
+<P>
+
+<H3><A NAME="SECTION001427100000000000000">&#160;</A>
+<A NAME="9125">&#160;</A>
+<A NAME="9126">&#160;</A>
+<A NAME="9127">&#160;</A>
+<BR>
+6.2.7.1 The <TT>Color Balance</TT> Tool
+</H3>
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.color-balance">6.25</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.color-balance">&#160;</A><A NAME="9467">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.25:</STRONG>
+Comparing <TT> Color Balance</TT> to the <TT> Curves</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img227.gif"
+ALT="Figure 6.25"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the dialog for the <TT>Color Balance</TT> tool.  This allows an
+image to be adjusted in the shadow, midtone, or highlight regions for
+the red-cyan, green-magenta, or blue-yellow balance.  <TT>Curves</TT>
+does exactly the same thing except with much greater precision.
+Raising a curve at a point adds more of the color it represents at the
+expense of the complementary color around that point.  Lowering the
+curve has the opposite effect, that of shifting the balance towards
+the complementary color.  
+
+<P>
+The <TT>Curves</TT> tool can do anything the <TT>Color Balance</TT> tool
+can, but better.  The reason <TT>Curves</TT> is more powerful is that the
+<TT>Color Picker</TT> can be used to identify exactly which input values
+need color balancing.  The <TT>Color Picker</TT><A NAME="9142">&#160;</A>
+is shown in Figure&nbsp;<A HREF="node61.html#f.touchup.color-balance">6.25</A>(b), and it is
+displaying a value for a measured pixel in an image.  This value can
+be precisely placed and manipulated in the <TT>Curves</TT> tool.
+Figure&nbsp;<A HREF="node61.html#f.touchup.color-balance">6.25</A>(c) shows how a control point,
+corresponding to the green component of the measured pixel, has been
+placed on the Green channel curve.  This placement of a control point,
+corresponding to a measured pixel value, permits the subsequent,
+precise correction of color balance at this point.  By comparison, the
+<TT>Color Balance</TT> tool only allows for the gross selection of input
+regions (shadow, midtone, and highlight) and is incapable of
+performing the precision color corrections described in detail in
+Section&nbsp;<A HREF="node61.html#s6.neutrals">6.2.2</A>.
+
+<P>
+The conclusion is that the <TT>Curves</TT> tool is much more precise and
+versatile than the <TT>Color Balance</TT> tool.
+
+<P>
+
+<H3><A NAME="SECTION001427200000000000000">&#160;</A>
+<A NAME="9151">&#160;</A>
+<A NAME="9152">&#160;</A>
+<A NAME="9153">&#160;</A>
+<BR>
+6.2.7.2 The <TT>Brightness-Contrast</TT> Tool
+</H3>
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.brightness-contrast">6.26</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.brightness-contrast">&#160;</A><A NAME="9470">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.26:</STRONG>
+Comparing <TT> Brightness-Contrast</TT> with the <TT> Curves</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img228.gif"
+ALT="Figure 6.26"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+displays the dialog for the <TT>Brightness-Contrast</TT> tool.  The way
+this tool functions can be fully simulated using the <TT>Curves</TT>
+tool.  Figure&nbsp;<A HREF="node61.html#f.touchup.brightness-contrast">6.26</A>(b) illustrates the
+Value channel of the <TT>Curves</TT> tool, showing that the curve has
+been displaced upward.  Moving the value curve up maps the input value
+domain to an output range that is uniformly brighter.  This
+modification to the value curve exactly simulates the action of the
+<TT>Brightness-Contrast</TT> tool when the Brightness slider in the
+dialog is moved to the right.  Moving the Brightness slider to the
+left corresponds to displacing the value curve downward.
+
+<P>
+Thus, brightening or darkening an image using the Brightness slider
+has the effect of diminishing tonal range because the result maps the
+input value domain to a smaller output range.  From the discussion in
+Section&nbsp;<A HREF="node60.html#s6.tonal-range">6.1</A>, this is clearly a disadvantage.  The
+<TT>Curves</TT> tool, on the other hand, can be used to increase or
+decrease brightness without loosing tonal range.  To brighten an image
+place a control point on the Value curve and displace the point
+upwards.  This brightens the image without losing tonal range.  To
+darken the image drag the point downwards.
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.brightness-contrast">6.26</A>(c) also shows the Value
+channel of the <TT>Curves</TT> tool.  Here, the curve has been rotated
+counter-clockwise around the center of the input-output dialog.  This
+has the effect of increasing contrast in the midtones of the image.
+However, it simultaneously eliminates detail in the shadow and
+highlight ranges.  This action is exactly what the <TT>Brightness-Contrast</TT> tool does when the Contrast slider of the dialog
+is moved to the right.  Moving the slider to the left corresponds to
+rotating the curve in the clockwise direction.
+
+<P>
+The conclusion is that the <TT>Curves</TT> tool performs much better than
+the <TT>Brightness-Contrast</TT> tool.
+
+<P>
+
+<H3><A NAME="SECTION001427300000000000000">&#160;</A>
+<A NAME="9174">&#160;</A>
+<A NAME="9175">&#160;</A>
+<BR>
+6.2.7.3 The <TT>Hue-Saturation</TT> Tool
+</H3>
+
+<P>
+The <TT>Hue-Saturation</TT> dialog is shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.hue-saturation">6.27</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.hue-saturation">&#160;</A><A NAME="9473">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.27:</STRONG>
+The <TT> Hue-Saturation</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img229.gif"
+ALT="Figure 6.27"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This tool is more complex than either the <TT>Color Balance</TT> or <TT>Brightness-Contrast</TT> tools, and its action cannot be simply reproduced
+using <TT>Curves</TT>.  Nevertheless, there is rarely any reason to use
+this tool for touchup or enhancement.  The <TT>Hue-Saturation</TT> tool
+allows hue, lightness, and saturation to be adjusted for an image.
+The adjustment can be made for the entire image or for any combination
+of the image's red, green, blue, cyan, magenta, or yellow components.
+
+<P>
+The reason <TT>Hue-Saturation</TT> is not useful for color correction is
+that it is difficult to know how to make adjustments with it to
+enhance an image.  With the <TT>Curves</TT> tool, the measurements made
+with the <TT>Color Picker</TT> can be used to make precise changes that
+will result in predictable improvements to an image.  By contrast,
+there is no way to measure what is wrong in an image in a way that can
+then be used to make precise corrections with the <TT>Hue-Saturation</TT>
+tool.  Furthermore, as has already been pointed out, color problems
+are rarely uniform over the shadow, midtone, and highlight regions.
+The <TT>Hue-Saturation</TT> tool has no capability for varying color
+components in different ranges of the image.
+
+<P>
+Thus, for color correction, the <TT>Hue-Saturation</TT> tool is of little
+use.  Nevertheless, unlike <TT>Color Balance</TT> and <TT>Brightness-Contrast</TT>, the <TT>Hue-Saturation</TT> tool <EM>can</EM> be used to do
+useful and interesting things that would be difficult to do with any
+other color tool.  Figure&nbsp;<A HREF="node61.html#f.touchup.hue-saturation2">6.28</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.hue-saturation2">&#160;</A><A NAME="9199">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.28:</STRONG>
+Hue-Saturation</CAPTION>
+<TR><TD><IMG
+ SRC="img230.gif"
+ALT="Figure 6.28"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an application of the <TT>Hue-Saturation</TT> tool which
+doesn't fit into the category of touchup or enhancement but is of
+considerable stylistic and artistic interest.
+
+<P>
+Figure&nbsp;<A HREF="node61.html#f.touchup.hue-saturation2">6.28</A>(a) displays a beach scene
+consisting of vivid colors, and
+Figure&nbsp;<A HREF="node61.html#f.touchup.hue-saturation2">6.28</A>(b) shows the <TT>Hue-Saturation</TT> dialog where the Saturation slider for the Cyan radio
+button has been adjusted to -100%.  The result, shown in
+Figure&nbsp;<A HREF="node61.html#f.touchup.hue-saturation2">6.28</A>(c), is to completely desaturate
+the sky and water, while leaving the color of the beach untouched.
+Similarly interesting modifications can be made with the Hue and
+Lightness sliders.  Try experimenting!
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1749"
+ HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1745"
+ HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1739"
+ HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1747"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1748"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1750"
+ HREF="node62.html">6.3 Repairing Blemishes with</A>
+<B> Up:</B> <A NAME="tex2html1746"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<B> Previous:</B> <A NAME="tex2html1740"
+ HREF="node60.html">6.1 Improving Tonal Range</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

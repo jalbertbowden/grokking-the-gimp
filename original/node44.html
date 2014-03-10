@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>4.2 Layer Masks</TITLE>
+<META NAME="description" CONTENT="4.2 Layer Masks">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node45.html">
+<LINK REL="previous" HREF="node43.html">
+<LINK REL="up" HREF="node42.html">
+<LINK REL="next" HREF="node45.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1490"
+ HREF="node45.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1486"
+ HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1480"
+ HREF="node43.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1488"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1489"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1491"
+ HREF="node45.html">4.3 Basic Tools for</A>
+<B> Up:</B> <A NAME="tex2html1487"
+ HREF="node42.html">4. Masks</A>
+<B> Previous:</B> <A NAME="tex2html1481"
+ HREF="node43.html">4.1 Channel Masks</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1492"
+ HREF="node44.html#SECTION001221000000000000000">4.2.1 Creating a Layer Mask</A>
+<LI><A NAME="tex2html1493"
+ HREF="node44.html#SECTION001222000000000000000">4.2.2 Manipulating the Layer Mask</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001220000000000000000">&#160;</A>
+<A NAME="s4.layer-masks">&#160;</A><A NAME="5337">&#160;</A>
+<A NAME="5338">&#160;</A>
+<BR>
+4.2 Layer Masks
+</H1>
+
+<P>
+Layer masks are special layers that are only 8 bits deep and that
+represent the alpha channel<A NAME="5339">&#160;</A>
+of an image layer.  The main difference between channel and layer
+masks is that the layer mask represents the alpha channel of the layer
+it is linked to, whereas channel masks represent selections and exist
+independently of any particular layer.  Nevertheless, as will be seen
+later in this chapter, there is an intimate relationship between alpha
+channels and selections and, by extension, between layer masks and
+channel masks.
+
+<P>
+The interpretation of white, black, and gray pixels in a layer mask is
+slightly different than that for a channel mask.  A layer mask
+represents an alpha channel, which, in turn, controls the transparency
+of a layer.  In this context, for the layer mask, white represents
+100% opacity, black 100% transparency, and gray an intermediate
+level of opacity/transparency. This section describes the basic
+operations that can be performed on layer masks.
+
+<P>
+
+<H2><A NAME="SECTION001221000000000000000">&#160;</A>
+<A NAME="s4.create-layer-mask">&#160;</A><A NAME="5342">&#160;</A>
+<BR>
+4.2.1 Creating a Layer Mask
+</H2>
+
+<P>
+To create a layer mask, make the desired layer active in the Layers
+dialog and choose <TT>Add Layer Mask</TT><A NAME="5344">&#160;</A>
+from the Layers menu.  This creates the layer mask, but only if the
+active layer already has an alpha channel.  If it does not have an
+alpha channel<A NAME="5345">&#160;</A> create one using <TT>Add
+Alpha Channel</TT><A NAME="5347">&#160;</A> from the Layers menu.
+
+<P>
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask0">4.11</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.layer-mask0">&#160;</A><A NAME="5350">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.11:</STRONG>
+The Layers Menu</CAPTION>
+<TR><TD><IMG
+ SRC="img108.gif"
+ALT="Figure 4.11"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the Layers dialog for an image consisting of an alpha-less
+background layer, and Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask0">4.11</A>(b) shows the
+associated Layers menu.  As can be seen, all the functions in the two
+lowest groups of the Layers menu, including <TT>Add Layer Mask</TT>, are
+grayed out except for the function <TT>Add Alpha Channel</TT>.  Selecting
+this function, adds the required alpha channel, and bringing up the
+Layers menu a second time now produces the Layers menu shown in
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask0">4.11</A>(c).  As can be seen, the function
+<TT>Add Layer Mask</TT> is now available.
+
+<P>
+Selecting the <TT>Add Layer Mask</TT> function from the Layers menu
+brings up the <TT>Add Mask Options</TT><A NAME="5361">&#160;</A>
+dialog.  This dialog allows a choice of three initial states for the
+new mask.  The default is White (Full Opacity), which is what you will
+choose most often.  This choice produces a layer mask that leaves the
+image layer fully opaque.  It can sometimes be useful to choose the
+second option, Black (Full Transparency), which creates a layer mask
+that makes the image layer fully transparent.  The final option is
+Layer's Alpha Channel,<A NAME="5362">&#160;</A>
+which loads the active layer's alpha channel into the layer mask.
+
+<P>
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask1">4.12</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.layer-mask1">&#160;</A><A NAME="5365">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.12:</STRONG>
+The Creation of a Layer Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img109.gif"
+ALT="Figure 4.12"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates a layer mask created using the White (Full Opacity)
+option.  Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask1">4.12</A>(a) shows the image window,
+and Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask1">4.12</A>(b) shows its associated Layers
+dialog.  The layer strip for the image shows the thumbnail of the
+image and, next to it, the thumbnail of the newly created white layer
+mask.  That a layer mask is associated with a single image layer is
+underscored by the fact that the mask's thumbnail appears in the same
+layer strip as the image layer's thumbnail.
+
+<P>
+
+<H2><A NAME="SECTION001222000000000000000">&#160;</A>
+<A NAME="s4.mask-manips">&#160;</A><A NAME="5373">&#160;</A>
+<A NAME="5374">&#160;</A>
+<BR>
+4.2.2 Manipulating the Layer Mask
+</H2>
+
+<P>
+As was first described in Section&nbsp;<A HREF="node27.html#s2.layers-dialog">2.1.1</A>, the active
+layer in the Layers dialog is highlighted in blue.  When the active
+layer consists of an image layer and a layer mask, only one of these
+two components can be active at a time.  Operations performed in the
+image window affect the active component of the layer, either the
+image or the layer mask.  The layer mask<A NAME="5376">&#160;</A><A NAME="5377">&#160;</A> is made active by clicking on the
+layer mask thumbnail.  The active focus is returned to the image by
+clicking on the image thumbnail.
+
+<P>
+You can determine whether the image or the layer mask is active by a
+white border drawn around the appropriate thumbnail in the layer
+strip.  However, if the layer mask is white, it may be difficult to
+tell that there is an additional white border around it.  Carefully
+examine Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask1">4.12</A>(b).  Here it can be seen that
+the image thumbnail does not have a white border and that the layer
+mask thumbnail looks a little taller than the image thumbnail.  This
+is a clue that the layer mask is active.  Changing the active focus
+from the layer mask to the image by clicking on the image thumbnail is
+shown in Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask2">4.13</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.layer-mask2">&#160;</A><A NAME="5381">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.13:</STRONG>
+Toggling from an Active Layer Mask to an Active Layer Image</CAPTION>
+<TR><TD><IMG
+ SRC="img110.gif"
+ALT="Figure 4.13"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+It can be seen that the image thumbnail now has the white border.
+
+<P>
+A layer mask is a direct way of editing an image layer's alpha
+channel.<A NAME="5385">&#160;</A>  Thus, performing
+edits on the layer mask changes the opacity of the corresponding image
+layer.  This is illustrated in Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask3">4.14</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.layer-mask3">&#160;</A><A NAME="6008">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.14:</STRONG>
+Editing a Layer Mask Edits the Image Layer's Alpha Channel<A NAME="5388">&#160;</A></CAPTION>
+<TR><TD><IMG
+ SRC="img111.gif"
+ALT="Figure 4.14"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask3">4.14</A>(b) shows that the image consists of a
+single layer with a layer mask.  The layer mask has been constructed
+so that the white part of the mask corresponds to the bird shown in
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask1">4.12</A>(a) and the black part corresponds to
+the rest of the image.
+
+<P>
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask3">4.14</A>(a) shows the effect of the layer
+mask; it makes the region around the bird's body completely
+transparent.  It is important to note that the background part of the
+image has not been destroyed;  it just can't be seen due to the
+modified values in the alpha channel.  Section&nbsp;<A HREF="node45.html#s4.mask-tools">4.3</A>
+describes in detail how a layer mask can be edited to produce a result
+like the one shown in Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask3">4.14</A>.  However,
+before doing that, several additional features of layer masks must be
+described.
+
+<P>
+It is often useful to be able to examine the layer mask without the
+visual interference of the image layer.  This can be accomplished by
+Alt-clicking<A NAME="5397">&#160;</A> on the
+thumbnail of the layer mask.  Doing this toggles off the visibility of
+the image layer in the image window, leaving just the layer mask.  In
+addition, the outline of the layer mask thumbnail in the Layers dialog
+becomes green.  This is illustrated in
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask4">4.15</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.layer-mask4">&#160;</A><A NAME="5400">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.15:</STRONG>
+Viewing Only the Mask in the Image Window</CAPTION>
+<TR><TD><IMG
+ SRC="img112.gif"
+ALT="Figure 4.15"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The mask seen in the image window is shown in
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask4">4.15</A>(a), and the green border around the
+layer mask thumbnail is shown in Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask4">4.15</A>(b).
+The effect can be toggled off by Alt-clicking on the thumbnail a
+second time.
+
+<P>
+Similarly, it can be useful to toggle off the visual effect the layer
+mask<A NAME="5406">&#160;</A><A NAME="5407">&#160;</A> has
+on the image.  This is done by Control-clicking on the layer mask
+thumbnail.  When this is done, the effect of the layer mask on the
+image is toggled off, and the border of the layer mask thumbnail
+becomes red.  Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask5">4.16</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.layer-mask5">&#160;</A><A NAME="5410">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.16:</STRONG>
+Suppressing the Effect of the Layer Mask in the Image Window</CAPTION>
+<TR><TD><IMG
+ SRC="img113.gif"
+ALT="Figure 4.16"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates this.  The full image can now be seen in
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask5">4.16</A>(a) and a red border can be seen
+around the layer mask thumbnail in
+Figure&nbsp;<A HREF="node44.html#f.masks.layer-mask5">4.16</A>(b).
+
+<P>
+A layer mask can be converted to the image layer's alpha channel by
+choosing the <TT>Apply Layer Mask</TT><A NAME="5417">&#160;</A><A NAME="5418">&#160;</A> function
+from the Layers menu.  This is not normally necessary, though, because
+the action of the mask is the same whether it remains a mask or is
+converted to the alpha channel.  However, the <TT>Apply Layer Mask</TT>
+dialog also permits the layer mask to be discarded.  This is the only
+way to remove a layer mask.  Applying a layer mask by converting it to
+an alpha channel destroys the mask and removes it from the Layers
+dialog.  It can be recovered, though, by choosing <TT>Add Layer Mask</TT>
+from the Layers menu and choosing Layer's Alpha Channel<A NAME="5421">&#160;</A> as the mask option.
+
+<P>
+Finally, a layer mask can be converted directly to a selection.  This
+is done by choosing <TT>Mask To Selection</TT><A NAME="5423">&#160;</A><A NAME="5424">&#160;</A> from the Layers
+menu.  This operation creates a selection by mapping the white pixels
+in the layer mask to selected pixels in the image window, black pixels
+in the layer mask to unselected pixels, and gray pixels in the layer
+mask to partially selected pixels.  Note that applying the mask as a
+selection does not destroy the mask.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1490"
+ HREF="node45.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1486"
+ HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1480"
+ HREF="node43.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1488"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1489"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1491"
+ HREF="node45.html">4.3 Basic Tools for</A>
+<B> Up:</B> <A NAME="tex2html1487"
+ HREF="node42.html">4. Masks</A>
+<B> Previous:</B> <A NAME="tex2html1481"
+ HREF="node43.html">4.1 Channel Masks</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

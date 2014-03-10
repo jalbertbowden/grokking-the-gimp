@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>7.3 Project 3: Destination Saturn</TITLE>
+<META NAME="description" CONTENT="7.3 Project 3: Destination Saturn">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node69.html">
+<LINK REL="previous" HREF="node67.html">
+<LINK REL="up" HREF="node65.html">
+<LINK REL="next" HREF="node69.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1854"
+ HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1850"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1844"
+ HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1852"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1853"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1855"
+ HREF="node69.html">7.4 Project 4: The</A>
+<B> Up:</B> <A NAME="tex2html1851"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1845"
+ HREF="node67.html">7.2 Project 2: Through</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001530000000000000000">&#160;</A>
+<A NAME="s7.compositing.proj3">&#160;</A><A NAME="10597">&#160;</A>
+<A NAME="10598">&#160;</A>
+<A NAME="10599">&#160;</A>
+<A NAME="10600">&#160;</A>
+<BR>
+7.3 Project 3: Destination Saturn
+</H1>
+
+<P>
+The third project creates a collage that blends together a terrific
+photo of the planet Saturn with a launch of the space shuttle.  This
+project illustrates a more sophisticated use of layer masks and blend
+modes.
+
+<P>
+The raw images for the project are shown in
+Figures&nbsp;<A HREF="node68.html#f.compositing.saturn">7.17</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.saturn">&#160;</A><A NAME="10603">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.17:</STRONG>
+Original Image of Saturn</CAPTION>
+<TR><TD><IMG
+ SRC="img263.gif"
+ALT="Figure 7.17"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and <A HREF="node68.html#f.compositing.shuttle-launch">7.18</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.shuttle-launch">&#160;</A><A NAME="10609">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.18:</STRONG>
+Original Image of Shuttle Launch</CAPTION>
+<TR><TD><IMG
+ SRC="img264.gif"
+ALT="Figure 7.18"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The objective is to depict the shuttle lifting off with Saturn sitting
+majestically in the background...perhaps as a final destination?
+Although the space shuttle was never conceived for travel to Saturn,
+the GIMP allows us to imagine, suggest, even portray the
+inconceivable.
+
+<P>
+The rough layout of the desired scene is to position the image of
+Saturn somewhat above and behind the shuttle lift-off.  The first step
+is to get the two images into the same window.  For this, a little
+planning is necessary.  The image of Saturn is wider than that of the
+shuttle.  However, the Saturn image has a large black margin that,
+when cropped, will make the result narrower than the shuttle.
+Cropping the Saturn image to remove the black margin produces an image
+that has a width of 527 pixels and a height of 489 pixels.  The raw
+space shuttle launch image has a width of 640 pixels and a height of
+636 pixels.
+
+<P>
+Considering the rough layout discussed earlier the width of the
+shuttle image must be cropped to that of the Saturn image, 527 pixels.
+Furthermore, I decided that the lower 130 pixels of the shuttle image
+won't be used, meaning that the height of the shuttle image after
+cropping will only be 506 pixels.  There needs to be some vertical
+overlap between the two layers in the composited image, so I chose a
+total vertical height of 750 pixels.  The <TT>Crop</TT> tool is used to
+nicely center the shuttle launch image while producing the desired
+dimensions.
+
+<P>
+The two raw images are now ready to be united into a single image.  A
+new window is created by typing <TT>C-n</TT> in the Saturn image window.
+When the <TT>New Image</TT> dialog appears, the default values for the
+width and height are those of the Saturn image, 527 by 489.  The value
+of 750 pixels is entered into the height field, and when the new
+window is created, it has the desired dimensions of 527 by 750.
+
+<P>
+The shuttle launch image is now copied and pasted into the new image
+window.  This is done by typing <TT>C-c</TT> in the shuttle launch window
+followed by <TT>C-v</TT> in the new window.  The result places the
+shuttle image into a floating selection that can be seen by opening
+the Layers dialog (that is, by typing <TT>C-l</TT> in the image window).
+The <TT>Move</TT><A NAME="10620">&#160;</A> tool is used to position the shuttle
+to the bottom of the window; it is then anchored to the background by
+clicking on the <TT>Anchor</TT> button in the Layers dialog.
+
+<P>
+Creating a new layer by clicking on the <TT>New Layer</TT> button in the
+Layers dialog, the image of Saturn is now copied to the new image
+window, slid to the top of the window using the <TT>Move</TT> tool, and
+finally anchored into the newly created layer.  Double-clicking on
+each layer in the Layers dialog allows us to name each one.  The top
+layer is named Saturn, and the lower layer is named Shuttle Launch.
+The result is shown in Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle1">7.19</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.saturn-shuttle1">&#160;</A><A NAME="10626">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.19:</STRONG>
+Assembling the Pieces</CAPTION>
+<TR><TD><IMG
+ SRC="img265.gif"
+ALT="Figure 7.19"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+which shows the Saturn layer half blocking the Shuttle Launch layer.
+The Layers dialog is shown in
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle1">7.19</A>(b).
+
+<P>
+Now that the two images are positioned, one approach for blending the
+two is to use the layer mask<A NAME="10631">&#160;</A> and gradient technique described in
+Section&nbsp;<A HREF="node45.html#s4.masks.gradients">4.3.3</A>.  The idea is to create a layer mask
+for the Saturn layer and to blend the two layers together by applying
+a gradient<A NAME="10633">&#160;</A> in the layer
+mask.  This produces the image shown in
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle2">7.20</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.saturn-shuttle2">&#160;</A><A NAME="10636">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.20:</STRONG>
+A First Attempt to Blend the Shuttle Launch and Saturn Layers</CAPTION>
+<TR><TD><IMG
+ SRC="img266.gif"
+ALT="Figure 7.20"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle2">7.20</A>(b) shows how a layer mask
+with a gradient has been added to the Saturn layer.
+
+<P>
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle2">7.20</A> is a blend of the two
+layers, but in many ways it misses the mark.  The blend of the two
+images shows the shuttle against the background of Saturn, however,
+the lower part of the ringed planet is covered by the blue sky
+background of the shuttle launch image.  This doesn't look natural,
+and it would be nice to keep the shuttle and launch vehicle equipment
+well defined while simultaneously blending the background into the
+Saturn image in a more delicate manner.  Fortunately, this can be
+accomplished using a very clever masking technique adapted from
+[<A
+ HREF="node87.html#haynes">10</A>].
+
+<P>
+The idea is to combine two masks into one using a blending mode.  The
+first mask is made from the shuttle and launch equipment, and the
+second mask is made from a gradient.  The two masks are combined using
+the <TT>Darken Only</TT> blending mode<A NAME="10644">&#160;</A>.  Read on!
+
+<P>
+The implementation of the idea requires a mask of the shuttle
+equipment.  The mask is made using the <TT>Decompose</TT> and <TT>Threshold</TT> technique described in
+Section&nbsp;<A HREF="node47.html#s4.decompose_threshold">4.5.3</A>.  The <TT>Decompose</TT> function with the HSV option is used
+to create a hue, saturation, and value decomposition of the Space
+Shuttle layer.  On inspection of the result, the Hue channel seems to
+have the most potential for a simple separation of the subject from
+its background.  The <TT>Threshold</TT> tool is used on
+the Hue channel, and when the best threshold range has been determined
+and some cleanup has been performed using the <TT>Lasso</TT> tool, the
+result is as shown in Figure&nbsp;<A HREF="node68.html#f.compositing.shuttle-mask">7.21</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.shuttle-mask">&#160;</A><A NAME="10653">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.21:</STRONG>
+Creating a Mask of the Space Shuttle Layer</CAPTION>
+<TR><TD><IMG
+ SRC="img267.gif"
+ALT="Figure 7.21"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This black and white image is not a perfect mask, but some of the
+defects will be removed in a moment, and the rest will not matter.
+
+<P>
+The next step is to copy and paste the grayscale image from
+Figure&nbsp;<A HREF="node68.html#f.compositing.shuttle-mask">7.21</A> into the layer mask of the
+Saturn layer in Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle2">7.20</A>.  This is
+done as follows:
+<DL COMPACT>
+<DT>1.
+<DD>The layer mask of the Saturn layer is made active by clicking on its
+thumbnail in the Layers dialog,
+<DT>2.
+<DD>The grayscale image in Figure&nbsp;<A HREF="node68.html#f.compositing.shuttle-mask">7.21</A> is
+copied into the default buffer by typing <TT>C-c</TT> in its image
+window.
+<DT>3.
+<DD>The contents of the buffer are then pasted into the image 
+of Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle2">7.20</A> by typing <TT>C-v</TT> in
+its image window.
+<DT>4.
+<DD>This creates a floating selection that is then dropped into the layer
+mask by clicking on the <TT>Anchor</TT> button in the Layers dialog.
+</DL>
+<P>
+At this point, the layer mask is cleaned up using the <TT>Airbrush</TT><A NAME="10667">&#160;</A> tool.  The technique is described in
+detail in Section&nbsp;<A HREF="node47.html#s4.refining">4.5.1</A> for a channel mask.  Here, the
+method is applied to a layer mask.  To facilitate the cleanup the
+opacity of the Saturn layer is adjusted using the Opacity slider in
+the Layers dialog.
+
+<P>
+The resulting layer mask allows the shuttle and launch equipment to be
+seen through the Saturn layer.  The state of the project is shown in
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle3">7.22</A>(a), and
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.saturn-shuttle3">&#160;</A><A NAME="10671">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.22:</STRONG>
+Application of the Space Shuttle and Launch Equipment Layer Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img268.gif"
+ALT="Figure 7.22"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle3">7.22</A>(b) shows the thumbnail of
+the resulting layer mask in the Layers dialog.
+
+<P>
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle3">7.22</A>(a) is almost what we're
+looking for.  To finish, the boundary between the two layers should be
+blended with a gradient similar to the one in
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle2">7.20</A>(a), but without disturbing
+any part of the masked shuttle and launch equipment.
+
+<P>
+This final touch is achieved by applying a gradient to the layer mask
+using the <TT>Darken Only</TT><A NAME="10679">&#160;</A> blending
+mode.  As described in Section&nbsp;<A HREF="node55.html#s5.darken-lighten-only">5.6.4</A>, this mode
+combines foreground and background pixels by retaining the darker of
+the two.  Thus, a gradient applied using the <TT>Darken Only</TT> mode
+only changes the layer mask where the gradient is darker than the
+mask.  This is just what we are looking for.  The shuttle and launch
+equipment will not be affected by the gradient because these parts of
+the mask are already black...can't get any darker than that!
+
+<P>
+Let's see how it works.  To apply the gradient to the layer mask, the
+following steps are used:
+<DL COMPACT>
+<DT>1.
+<DD>The layer mask of the Saturn layer is made active by clicking on its
+thumbnail in the Layers dialog.
+<DT>2.
+<DD>A linear FG to BG (RGB) gradient is chosen from the <TT>Gradient</TT>
+tool options dialog.
+<DT>3.
+<DD>The <TT>Active Foreground Color</TT> is set to black, and the <TT>Active
+Background Color</TT> is set to white by typing <TT>d</TT> in the image
+window.
+<DT>4.
+<DD>The blending mode is set to <TT>Darken Only</TT> in the <TT>Brush
+Selection</TT> dialog.
+<DT>5.
+<DD>A gradient is applied to the layer mask by clicking in the image
+window just above the lower edge of the Saturn layer 
+and dragging vertically to a point just a little higher up than
+the shuttle's wings, before releasing the mouse button.
+</DL>The result of this new mask is shown in
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle4">7.23</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.saturn-shuttle4">&#160;</A><A NAME="10692">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.23:</STRONG>
+The Final Blended Image</CAPTION>
+<TR><TD><IMG
+ SRC="img269.gif"
+ALT="Figure 7.23"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle4">7.23</A>(b) shows the corresponding
+Layers dialog, Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle4">7.23</A>(c) shows the
+<TT>Gradient</TT> tool's <TT>Tool Options</TT><A NAME="10700">&#160;</A>
+dialog, and Figure&nbsp;<A HREF="node68.html#f.compositing.saturn-shuttle4">7.23</A>(d) shows the
+<TT>Brush Selection</TT> dialog (notice the choice of the <TT>Darken
+Only</TT> blending mode).  This produces a lovely collage of the two
+original images.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1854"
+ HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1850"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1844"
+ HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1852"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1853"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1855"
+ HREF="node69.html">7.4 Project 4: The</A>
+<B> Up:</B> <A NAME="tex2html1851"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1845"
+ HREF="node67.html">7.2 Project 2: Through</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

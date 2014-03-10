@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>5. Colorspaces and Blending Modes</TITLE>
+<META NAME="description" CONTENT="5. Colorspaces and Blending Modes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node59.html">
+<LINK REL="previous" HREF="node42.html">
+<LINK REL="up" HREF="Grokking_the_GIMP.html">
+<LINK REL="next" HREF="node50.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1561"
+ HREF="node50.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1557"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1551"
+ HREF="node48.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1559"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1560"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1562"
+ HREF="node50.html">5.1 The RGB Colorspace</A>
+<B> Up:</B> <A NAME="tex2html1558"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1552"
+ HREF="node48.html">4.6 Common Problems and</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001300000000000000000">&#160;</A>
+<A NAME="c5.colorspaces">&#160;</A><A NAME="6990">&#160;</A>
+<BR>
+5. Colorspaces and Blending Modes
+</H1>
+
+<P>
+It is amazing that almost every color we see can be decomposed into a
+mixture of just three primary
+colors.<A NAME="6991">&#160;</A><A NAME="6992">&#160;</A>  Most children
+learn this at school and know that the primary colors are blue,
+yellow, and red.  Using finger paints, kids can experiment making the
+so-called secondary colors green, orange, and purple.  If hearing
+worked this way, every musical note could be decomposed into a sum of
+just three tones.  Three tones might make a nice guitar chord, but
+it's not enough to rock-and-roll.
+
+<P>
+This interesting fact, that three colors suffice, is due to the way
+human vision functions.  There are three different types of cones in
+the eye (red, green, and blue); this is what accounts for only three
+colors being needed.  The fact that all the colors can be reproduced
+by mixing only three is extremely useful.  It's like an alphabet.
+With a small collection of letters, any word can be made and any
+meaning can be conveyed.  The lesson is the same for color.  With only
+three color phosphors a computer monitor can, in principle, express
+any color; with only three color inks, in principle, a printer can
+print any color.
+
+<P>
+There are some practical limitations to the concept of reproducing all
+colors with only three primaries.  However, without going into more
+detail, it suffices to know that the set of colors that can be made by
+adding different amounts of three primaries is called a colorspace.
+The shape of the space defined in this way is a cube.<A NAME="6993">&#160;</A>
+
+<P>
+In principle, the three primaries used to produce a colorspace are not
+unique.  In theory, any triple of independent colors can be used to
+decompose a colorspace.  However, in practice, colorspaces created by
+two different sets of primaries are not identical.  Typically, there
+is a part of the color range of one space that cannot be reproduced by
+the other.
+
+<P>
+The best choice of primaries usually depends on the type of physical
+device used to create the color.  Monitors use red, green, and blue
+phosphors to create a colorspace called RGB.  Printers use cyan,
+magenta, and yellow inks and work in a colorspace called CMY.  It is
+the physical way colors are combined that explains the two spaces.
+Monitors <EM>emit</EM> light, whereas inks only <EM>reflect</EM> light.
+When we shine a white light on ink, what we see is the color component
+of the white light that is reflected and not absorbed by the ink.
+
+<P>
+Knowing about colorspaces is important in the GIMP for several
+reasons.  To effectively correct color in an image requires some
+notions about how colors interact.  Furthermore, looking at different
+color components of an image can often be quite useful for making
+selections and masks.
+
+<P>
+This chapter is composed of two main parts.  The first part begins
+with a tutorial on three colorspaces: RGB, HSV, and CMYK.  The RGB
+space is discussed in detail, and this is followed by a description of
+the relationship between the RGB and HSV spaces.  HSV is a more
+perceptually useful space than RGB and finds many uses in the GIMP.
+Although the GIMP is not CMYK-capable, this important pre-press
+colorspace is also discussed.  Its benefits and drawbacks are
+described and its importance to pre-press is explained.
+
+<P>
+The second part of the chapter presents transparency and the GIMP's 16
+blending modes from a colorspace perspective.  Blending modes are
+powerful tools for combining colors between layers.  You can also use
+them to control how the painting tools apply color.  The colorspace
+presentation in the first part of this chapter will be very useful in
+understanding how these modes work.  The final section of this chapter
+presents some practical uses of the blending modes.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1563"
+ HREF="node50.html">5.1 The RGB Colorspace</A>
+<LI><A NAME="tex2html1564"
+ HREF="node51.html">5.2 The HSV Colorspace</A>
+<LI><A NAME="tex2html1565"
+ HREF="node52.html">5.3 Relating HSV to RGB</A>
+<LI><A NAME="tex2html1566"
+ HREF="node53.html">5.4 The Subtractive Color Systems CMY <BR>
+and CMYK</A>
+<LI><A NAME="tex2html1567"
+ HREF="node54.html">5.5 Conversion to Grayscale</A>
+<LI><A NAME="tex2html1568"
+ HREF="node55.html">5.6 The Blending Modes</A>
+<UL>
+<LI><A NAME="tex2html1569"
+ HREF="node55.html#SECTION001361000000000000000">5.6.1 The <TT>Normal</TT>, <TT>Dissolve</TT>, and <TT>Behind</TT>
+Blending Modes</A>
+<LI><A NAME="tex2html1570"
+ HREF="node55.html#SECTION001362000000000000000">5.6.2 The <TT>Addition</TT>, <TT>Subtract</TT>, and <TT>Difference</TT>
+Blending Modes</A>
+<LI><A NAME="tex2html1571"
+ HREF="node55.html#SECTION001363000000000000000">5.6.3 The <TT>Multiply (Burn)</TT>, <TT>Divide (Dodge)</TT>, <TT>Screen</TT>,
+and <TT>Overlay</TT> Blending Modes</A>
+<LI><A NAME="tex2html1572"
+ HREF="node55.html#SECTION001364000000000000000">5.6.4 The <TT>Darken Only</TT> and <TT>Lighten Only</TT> Blending Modes</A>
+<LI><A NAME="tex2html1573"
+ HREF="node55.html#SECTION001365000000000000000">5.6.5 The <TT>Hue</TT>, <TT>Saturation</TT>, <TT>Value</TT>, and <TT>Color</TT> Blending Modes</A>
+</UL>
+<LI><A NAME="tex2html1574"
+ HREF="node56.html">5.7 Opacity and Transparency</A>
+<LI><A NAME="tex2html1575"
+ HREF="node57.html">5.8 Practical Uses of Blending Modes</A>
+<UL>
+<LI><A NAME="tex2html1576"
+ HREF="node57.html#SECTION001381000000000000000">5.8.1 Colorization</A>
+<LI><A NAME="tex2html1577"
+ HREF="node57.html#SECTION001382000000000000000">5.8.2 Realistic Shadows and Highlights</A>
+</UL>
+<LI><A NAME="tex2html1578"
+ HREF="node58.html">5.9 Common Problems and <BR>
+Frequently Asked Questions</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1561"
+ HREF="node50.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1557"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1551"
+ HREF="node48.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1559"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1560"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1562"
+ HREF="node50.html">5.1 The RGB Colorspace</A>
+<B> Up:</B> <A NAME="tex2html1558"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1552"
+ HREF="node48.html">4.6 Common Problems and</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

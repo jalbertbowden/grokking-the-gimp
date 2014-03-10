@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Setting up Your Computer to Get the Most from the GIMP</TITLE>
+<META NAME="description" CONTENT="Setting up Your Computer to Get the Most from the GIMP">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node13.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node8.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html904"
+ HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html900"
+ HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html894"
+ HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html902"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html903"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html905"
+ HREF="node13.html">Sources of Raw Image</A>
+<B> Up:</B> <A NAME="tex2html901"
+ HREF="node8.html">README</A>
+<B> Previous:</B> <A NAME="tex2html895"
+ HREF="node11.html">Function Names, Menus, and</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html906"
+ HREF="node12.html#SECTION00841000000000000000">Notes on RAM</A>
+<LI><A NAME="tex2html907"
+ HREF="node12.html#SECTION00842000000000000000">Notes on Video RAM</A>
+<LI><A NAME="tex2html908"
+ HREF="node12.html#SECTION00843000000000000000">Notes on Swap and GIMP Memory Management</A>
+<LI><A NAME="tex2html909"
+ HREF="node12.html#SECTION00844000000000000000">Loading Fonts</A>
+<LI><A NAME="tex2html910"
+ HREF="node12.html#SECTION00845000000000000000">Setting the X Window System to Run More Than 8 bpp</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00840000000000000000">&#160;</A>
+<A NAME="366">&#160;</A>
+<A NAME="367">&#160;</A>
+<A NAME="368">&#160;</A>
+<A NAME="369">&#160;</A>
+<A NAME="370">&#160;</A>
+<BR>
+Setting up Your Computer to Get the Most from the GIMP
+</H1>
+
+<P>
+This section describes how to optimize the hardware and software
+configuration of your computer to optimize the performance of the
+GIMP.
+
+<P>
+
+<H2><A NAME="SECTION00841000000000000000">&#160;</A>
+<A NAME="c0.ram">&#160;</A><A NAME="373">&#160;</A>
+<A NAME="374">&#160;</A>
+<A NAME="375">&#160;</A>
+<A NAME="376">&#160;</A>
+<A NAME="377">&#160;</A>
+<A NAME="378">&#160;</A>
+<BR>
+Notes on RAM
+</H2>
+
+<P>
+The GIMP executable is about 7 Mb; however, depending on the size of
+the GIMP data directories (patterns, palettes, brushes, and so on),
+the memory footprint can grow another 2-10 Mb.  In addition, the
+script-fu program that runs concurrently with the GIMP occupies about
+2.5 Mb.  Thus, the GIMP requires a minimum of about 11.5-19.5 Mb of
+RAM.
+
+<P>
+This is not all, though, because every image loaded into the GIMP also
+requires memory.  For example, loading an RGB format image will
+require at least three times the number of pixels in the image (one
+byte per RGB channel and perhaps a byte for the alpha channel) per
+layer.  Thus, an image with dimensions 
+<!-- MATH: $640\times 480$ -->
+<IMG
+ WIDTH="89" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.gif"
+ ALT="$640\times 480$">
+pixels
+containing three equal-sized layers requires from 2.8 to 3.7 Mb of
+memory.
+
+<P>
+In addition to the memory required to display the image, there is also
+the memory required for the undo cache.  This is what
+allows the GIMP to undo operations to an image being worked on.
+
+<P>
+The conclusion is that to work comfortably in the GIMP--to be able to
+open images, composite, touchup, and apply filters--32 Mb of memory
+should be considered a minimum.  Of course, the RAM required will be
+proportionally more for large images containing multiple layers.
+
+<P>
+
+<H2><A NAME="SECTION00842000000000000000">&#160;</A>
+<A NAME="380">&#160;</A>
+<A NAME="381">&#160;</A>
+<A NAME="382">&#160;</A>
+<A NAME="383">&#160;</A>
+<A NAME="384">&#160;</A>
+<A NAME="385">&#160;</A>
+<A NAME="386">&#160;</A>
+<BR>
+Notes on Video RAM
+</H2>
+
+<P>
+The ability to display large images on a video monitor depends on the
+amount of video RAM available on the video card.  For example, if the
+display resolution is 
+<!-- MATH: $1024\times 768$ -->
+<IMG
+ WIDTH="99" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.gif"
+ ALT="$1024\times 768$">
+with only 8 bits<A NAME="387">&#160;</A> (1 byte) of color per pixel, the minimum required amount of
+video RAM is 0.79 Mb.  However, working with only 8 bits per pixel is
+paltry, because it only allows for 256 simultaneous colors on the
+screen at one time.
+
+<P>
+Increasing the color depth to 16 bits<A NAME="388">&#160;</A> (2 bytes) at
+a resolution of 
+<!-- MATH: $1024\times 768$ -->
+<IMG
+ WIDTH="99" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.gif"
+ ALT="$1024\times 768$">
+doubles the required video RAM to
+1.57 Mb.  This is really the minimum video RAM required to get
+reasonable performance from the GIMP, and a higher-performance system
+might have a resolution of 
+<!-- MATH: $1600\times 1200$ -->
+<IMG
+ WIDTH="108" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.gif"
+ ALT="$1600\times 1200$">
+with 24 bits<A NAME="389">&#160;</A> (3 bytes) of color per pixel, requiring at least 5.76 Mb of
+video RAM.
+
+<P>
+
+<H2><A NAME="SECTION00843000000000000000">
+Notes on Swap and GIMP Memory Management</A>
+</H2>
+
+<P>
+The GIMP uses memory as specified by the <TT>Toolbox:File/Preferences</TT>
+dialog.  Figure&nbsp;<A HREF="node12.html#f.readme.swap">4</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.readme.swap">&#160;</A><A NAME="394">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4:</STRONG>
+Specifying GIMP Memory Usage</CAPTION>
+<TR><TD><IMG
+ SRC="img14.gif"
+ALT="Figure 4"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the Environment Settings branch of the <TT>Preferences</TT>
+dialog. As seen in the figure, the associated entry box for the tile
+cache<A NAME="399">&#160;</A><A NAME="400">&#160;</A> size has the default value of 10 Mb.
+The cache is a piece of RAM that the GIMP reserves for caching the
+images you are working on.  If you are working with large images or
+with many medium-sized ones, you can easily exceed this cache size.
+Under these circumstances, the additional required memory is obtained
+by creating a GIMP swap file in the user's <TT>.gimp</TT> directory.
+Since this memory is not necessarily located in RAM, this can
+significantly diminish the performance of the GIMP.  Thus, if the user
+has good RAM resources and is working with large images, it makes
+sense to increase the 10 Mb value of the cache.
+
+<P>
+For example, with 128 Mb of RAM and with the GIMP running as the
+primary application, perhaps a reasonable size for the cache is 50 to
+75 Mb.  This number can be tuned to the user's needs.  A useful tool
+for determining how much memory is required by your applications is
+the Linux/Unix command, <TT>top</TT>.  This command dynamically shows
+many of the characteristics of running processes on your machine.  In
+particular, the column <TT>%MEM</TT> gives the percentage memory used by
+each process.  Typing <TT>S-m</TT> (i.e., an uppercase M) makes <TT>top</TT>
+display the processes sorted by memory use.  The following is a
+truncated output from <TT>top</TT> on my Linux machine after sorting by
+memory use:
+
+<P><PRE>
+ 11:51am  up  2:31,  2 users,  load average: 0.00, 0.02, 0.05
+63 processes: 62 sleeping, 1 running, 0 zombie, 0 stopped
+CPU states:  1.3% user,  0.9% system,  0.0% nice, 97.6% idle
+Mem:  128012K av, 124096K used,   3916K free,  31492K shrd,  21908K buff
+Swap: 136040K av,   2612K used, 133428K free                 47028K cached
+
+  PID USER     PRI  NI  SIZE  RSS SHARE STAT  LIB %CPU %MEM   TIME COMMAND
+ 6253 cbunks     0   0 14888  14M  2908 S       0  0.0 11.6   0:01 gimp
+  653 root      14   0 14324  13M  1304 S       0  1.1 11.1   4:50 X
+  679 cbunks     0   0 13172  12M  4024 S       0  0.0 10.2   0:17 netscape
+  663 cbunks     3   0  5236 5236  2088 S       0  0.0  4.0   0:05 emacs
+ 6234 cbunks     0   0  5072 5072  1784 S       0  0.0  3.9   0:00 knews
+ 6269 cbunks     0   0  3252 3252  1964 S       0  0.0  2.5   0:00 xfig
+ 6254 cbunks     0   0  2360 2360   928 S       0  0.0  1.8   0:00 script-fu
+  555 xfs        0   0  2280 2280   244 S       0  0.0  1.7   0:00 xfs
+  673 cbunks     0   0  1532 1532   976 S       0  0.0  1.1   6:14 Xquote
+  607 news       0   0  1216 1216    76 S       0  0.0  0.9   0:00 innd
+  662 cbunks     3   0  1088 1088   676 S       0  0.3  0.8   0:00 xterm
+ 6287 cbunks    16   0  1056 1056   848 R       0  0.7  0.8   0:01 top
+</PRE>
+As can be seen from the display, there is 128 Mb of RAM, of which GIMP
+is occupying 11.6%.  In conjunction with the other processes,
+including X, Netscape, and Emacs, about 50% of the RAM is being used.
+The remaining 50% equals 64 Mb of RAM.  Thus, for my machine, it
+might be reasonable to set the GIMP cache to 50 Mb.  Of course, your
+mileage will vary.
+
+<P>
+
+<H2><A NAME="SECTION00844000000000000000">&#160;</A>
+<A NAME="s1.loading-fonts">&#160;</A><A NAME="411">&#160;</A>
+<A NAME="412">&#160;</A>
+<A NAME="413">&#160;</A>
+<A NAME="414">&#160;</A>
+<A NAME="415">&#160;</A>
+<A NAME="416">&#160;</A>
+<BR>
+Loading Fonts
+</H2>
+
+<P>
+The <TT>Text</TT><A NAME="418">&#160;</A> tool in the GIMP requires fonts served
+up by the X Window System.  Unfortunately, not every X Window System
+is delivered with all the cool fonts you'll want to have.  It is
+possible, though, to download a nice set of fonts from the Internet
+and to install them on your system.  This section describes how to do
+that.  Note that although the advice given here will work on many
+Linux and UNIX systems, it is not guaranteed to work on all of them.
+The goal of this section is to be helpful, but due to the variability
+of different systems, it would be impossible to cover all cases.
+
+<P>
+There are two widely used font collections for computers running the X
+Window System.  These collections are called <TT>freefonts</TT><A NAME="420">&#160;</A> and <TT>sharefonts</TT>.<A NAME="422">&#160;</A>  They can be found at many
+places around the web, but two places you might try are:<PRE>
+ ftp://ftp.gimp.org/pub/gimp/fonts/
+ftp://metalab.unc.edu/pub/linux/X11/fonts/
+</PRE>
+The files to download will be named something like <TT>freefonts-0.10.tar.gz</TT> and <TT>sharefonts-0.10.tar.gz</TT>.  The names
+may change to reflect updated version numbers.
+
+<P>
+Once downloaded, they must be installed in a font directory.  For
+RedHat Linux systems, fonts are typically installed in <TT>/usr/X11R6/lib/X11/fonts/</TT>.  However, this may be different for other
+systems running the X Window System.  It is not necessary to install
+the fonts in the system directory.  They can be installed anywhere
+that is convenient--even in the user's home directory.  This last
+option may be necessary for a user who wants to use great fonts but
+doesn't have root privilege.
+
+<P>
+The following instructions assume that the installation is being made
+to the user's directory called <TT>~/FONTS</TT>.  After downloading
+the two font packages and moving them to this directory, the
+instructions for installing the <TT>freefonts</TT> package are as
+follows: <PRE>
+% cd ~/FONTS
+% gzip -dc freefonts-0.10.tar.gz | tar xvf -
+</PRE> 
+This uncompresses and unpacks the font collection archive.  This is
+followed by the commands that tell the X Window System where the new
+fonts live: <PRE>
+% xset fp+ ~/FONTS/freefont
+% xset fp rehash
+</PRE>
+Follow the same instructions to install the <TT>sharefonts</TT> package
+and that's all there is to it!  The <TT>freefonts</TT> package contains
+79 fonts and the <TT>sharefonts</TT> package 22.  The next time the GIMP
+is run, these new fonts will be available to the <TT>Text</TT> tool.
+
+<P>
+If these fonts were not pre-installed in the usual system directory,
+you'll need to tell the X Window System where to find them each time you
+start up a new X session.  This can be automated by putting the
+last two commands above in your <TT>.xinitrc</TT> file.
+
+<P>
+
+<H2><A NAME="SECTION00845000000000000000">
+Setting the X Window System to Run More Than 8 bpp</A>
+</H2>
+
+<P>
+Using the GIMP is greatly enhanced by having a display with sufficient
+color depth<A NAME="440">&#160;</A> to display
+subtle color variations.  A display with only 8 bits per pixel (bpp)
+can represent only 256 colors simultaneously, which is insufficient
+for many photographs.  The result, as explained in
+Section&nbsp;<A HREF="node84.html#s9.color-distortion">9.5.1</A>, is a type of color distortion
+called dithering.
+ 
+If your video adapter has sufficient RAM, it is possible to display at
+16 or 24 bits per pixel, which will greatly enhance your viewing
+pleasure and your ability to work effectively with color.  For
+example, to run at 16 bits per pixel at a 
+<!-- MATH: $1024\times 768$ -->
+<IMG
+ WIDTH="99" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.gif"
+ ALT="$1024\times 768$">
+screen
+resolution, you'll need about 1.6 Mb of video RAM.  However, at a
+resolution of 
+<!-- MATH: $800\times 600$ -->
+<IMG
+ WIDTH="89" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.gif"
+ ALT="$800\times 600$">,
+you'll need less than 1 Mb.  Whether it
+is reasonable to use the lower resolution to get better color depth is
+up to the individual user to decide.
+
+<P>
+The X Window System on Linux machines typically defaults to only 8
+bpp.  If you are using XFree86, the following command can be used to
+run a higher color depth (for other X Window Systems, consult your man
+pages):<PRE>
+ 
+% startx -- -bpp 16
+</PRE>
+This command will run X at 16 bpp only if there is an appropriate
+section in the XF86Config file.  For Redhat Linux systems, this file
+is typically found in the directory <TT>/etc</TT> or <TT>/etc/X11</TT>.
+More details on how to configure the X Window System using XF86Config
+can be found in the XF86Config man page.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html904"
+ HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html900"
+ HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html894"
+ HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html902"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html903"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html905"
+ HREF="node13.html">Sources of Raw Image</A>
+<B> Up:</B> <A NAME="tex2html901"
+ HREF="node8.html">README</A>
+<B> Previous:</B> <A NAME="tex2html895"
+ HREF="node11.html">Function Names, Menus, and</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

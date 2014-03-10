@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>3.6 Common Problems and Frequently Asked Questions</TITLE>
+<META NAME="description" CONTENT="3.6 Common Problems and Frequently Asked Questions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="previous" HREF="node40.html">
+<LINK REL="up" HREF="node35.html">
+<LINK REL="next" HREF="node42.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1421"
+ HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1417"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1413"
+ HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1419"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1420"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1422"
+ HREF="node42.html">4. Masks</A>
+<B> Up:</B> <A NAME="tex2html1418"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1414"
+ HREF="node40.html">3.5 Using Selections Effectively</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001160000000000000000">&#160;</A>
+<A NAME="s3.problems">&#160;</A><A NAME="4055">&#160;</A>
+<A NAME="4056">&#160;</A>
+<BR>
+3.6 Common Problems and <BR>
+Frequently Asked Questions
+</H1>
+
+<P>
+There are some problems with selection tools that everyone is tripped
+up by sooner or later.  Here is a common list:
+<UL>
+<LI><B>I choose a selection tool from the Toolbox and try to make a
+selection, but the Marching Ants don't appear, and the selection
+doesn't seem to have been made.  What's wrong?</B><A NAME="4059">&#160;</A>
+
+<P>
+This is such a common problem!  It is due to the Marching Ants having
+been toggled off in some prior operation.  Toggle the Marching Ants
+back on by typing <TT>C-t</TT> in the image window or by clicking on the
+<TT>Toggle Selection</TT> checkbox in the <TT>Image:View</TT> menu.
+
+<P>
+<LI><B>I try to cut, paste, or filter a selection, but nothing happens.
+Why not?</B>
+
+<P>
+Your image contains multiple layers, and the active layer<A NAME="4064">&#160;</A> is not visible.  Operations in the GIMP are applied to the <EM>active</EM> layer (for more information, see Chapter&nbsp;<A HREF="node26.html#c2.layers">2</A>).
+Thus, the selection in your image may be visible, but the active layer
+may not be.  Open the Layers dialog and verify that the layer you are
+working on is active and is visible in the image window.
+
+<P>
+<LI><A NAME="4067">&#160;</A>
+<B>I've selected the <TT>Bezier Path</TT> tool from the Toolbox, but
+clicking in the image window with the mouse button doesn't produce any
+control points.  What's going on?</B>
+
+<P>
+Open the Paths dialog and verify that there is an active path in the
+Paths Palette.  If there isn't, create a new one by clicking on the
+<TT>New Path</TT> button.  Also, verify that the New Point mode button is
+toggled on.
+
+<P>
+</UL>
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1421"
+ HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1417"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1413"
+ HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1419"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1420"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1422"
+ HREF="node42.html">4. Masks</A>
+<B> Up:</B> <A NAME="tex2html1418"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1414"
+ HREF="node40.html">3.5 Using Selections Effectively</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

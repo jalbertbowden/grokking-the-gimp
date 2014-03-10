@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>8.5 Rendering Project I: Drop Shadow and Punchout</TITLE>
+<META NAME="description" CONTENT="8.5 Rendering Project I: Drop Shadow and Punchout">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node77.html">
+<LINK REL="previous" HREF="node75.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node77.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1959"
+ HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1955"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1949"
+ HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1957"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1958"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1960"
+ HREF="node77.html">8.6 Rendering Project II:</A>
+<B> Up:</B> <A NAME="tex2html1956"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1950"
+ HREF="node75.html">8.4 Shadows</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001650000000000000000">&#160;</A>
+<A NAME="s8.proj1">&#160;</A><A NAME="12147">&#160;</A>
+<A NAME="12148">&#160;</A>
+<A NAME="12149">&#160;</A>
+<A NAME="12150">&#160;</A>
+<A NAME="12151">&#160;</A>
+<BR>
+8.5 Rendering Project I: Drop Shadow and Punchout
+</H1>
+
+<P>
+To illustrate some of the techniques discussed in this chapter, let's
+apply them to a project using the image shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk1">8.23</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.space-walk1">&#160;</A><A NAME="12154">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.23:</STRONG>
+Original Image and Color Corrected Selection of Astronaut</CAPTION>
+<TR><TD><IMG
+ SRC="img311.gif"
+ALT="Figure 8.23"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The astronaut in this image is selected from its background using
+various methods from Chapters&nbsp;<A HREF="node35.html#c3.selections">3</A> and <A HREF="node42.html#c4.masks">4</A>.
+After the selection, methods described in Section&nbsp;<A HREF="node60.html#s6.tonal-range">6.1</A>
+are used to improve the tonal range, and the result is shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk1">8.23</A>(b).
+
+<P>
+This project uses a drop shadow and a punchout to create a composition
+with our astronaut.  The goal is to create the effect that he has
+extracted himself from the 2D plane and is wandering off on his own.
+To start, the selected astronaut is placed over a blue-gray layer.  The
+result of this is shown in Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk2">8.24</A>(a),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.space-walk2">&#160;</A><A NAME="12164">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.24:</STRONG>
+Making a Gray-Blue Background Layer and Creating a Channel
+Mask from the Astronaut's Alpha Channel</CAPTION>
+<TR><TD><IMG
+ SRC="img312.gif"
+ALT="Figure 8.24"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and the associated Layers dialog is shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk2">8.24</A>(b).
+
+<P>
+The most important element of the project is the outline of the
+astronaut because this is used to create both the shadow and the
+punchout effects.  Thus, the next step is to save the outline as a
+channel mask.  This is done by making the Astronaut layer active,
+applying the <TT>Alpha to Selection</TT><A NAME="12170">&#160;</A> function found in the Layers menu, and then using <TT>Save
+to Channel</TT><A NAME="12172">&#160;</A> from the <TT>Image:Select</TT> menu.  This creates the channel mask shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk2">8.24</A>(c).  After the save-to-channel
+operation, it is important to cancel the selection by typing <TT>C-S-a</TT> in the image window.
+
+<P>
+The punchout is made first.  This is begun by copying the astronaut
+mask and pasting it into a new layer.  This new layer, labeled Punchout,
+is positioned between the Blue Gray Background layer and the Astronaut
+layer as shown in Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk3">8.25</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.space-walk3">&#160;</A><A NAME="12178">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.25:</STRONG>
+Starting the Punchout</CAPTION>
+<TR><TD><IMG
+ SRC="img313.gif"
+ALT="Figure 8.25"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+To create the punchout, this new layer is copied into its own layer mask
+as shown in Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk3">8.25</A>(b).  
+
+<P>
+All that remains to finish the punchout effect is to blur the image in
+the Punchout layer and to offset it.
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk4">8.26</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.space-walk4">&#160;</A><A NAME="12185">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.26:</STRONG>
+Finishing the Punchout</CAPTION>
+<TR><TD><IMG
+ SRC="img314.gif"
+ALT="Figure 8.26"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows that a value of 20 is chosen in the <TT>Gaussian Blur (IIR)</TT>
+dialog, and Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk4">8.26</A>(b) shows that values
+of 8 and 4 have been chosen in the <TT>Offset</TT><A NAME="12192">&#160;</A>
+dialog.  The result is shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk4">8.26</A>(c).  Note that, for the punchout
+to be seen in Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk4">8.26</A>(c), the visibility
+of the Astronaut layer has been toggled off, as shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk4">8.26</A>(d).
+
+<P>
+Before moving to the next stage of the project, let's give the
+punchout a bit more pizzazz by inserting an interesting image pattern.
+To do this, the Punchout layer is duplicated by first clicking on its
+thumbnail in the Layers dialog, and then clicking on the Duplicate
+Layer button.  This creates a layer called Punchout Copy just above
+the original.  The image part of the Punchout layer is made active by
+clicking on its thumbnail. This layer is now filled with the pink
+marble pattern from the <TT>Pattern Selection</TT> dialog (see
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk5">8.27</A>(c)).  This is done using the <TT>Bucket Fill</TT> tool, where the fill type is set to Pattern Fill and the
+Threshold is set to 255.  Finally, the Mode menu for the Punchout Copy
+layer is set to <TT>Multiply</TT>, as shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk5">8.27</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.space-walk5">&#160;</A><A NAME="12202">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.27:</STRONG>
+Jazzing up the Punchout with a Pattern Image Background</CAPTION>
+<TR><TD><IMG
+ SRC="img315.gif"
+ALT="Figure 8.27"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This produces the result shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk5">8.27</A>(a), which makes it appear as if
+the wall behind the Background layer is made of pink marble.
+
+<P>
+The final step of this project is to rotate the astronaut, reposition
+him, and give him a drop shadow.  To do this, he is first made visible
+by clicking on the Eye icon of the Astronaut layer in the Layers
+dialog.  The rest is detailed in the following steps:
+<DL COMPACT>
+<DT>1.
+<DD>Rotate the astronaut using the <TT>Transform</TT> tool.
+<DT>2.
+<DD>Move the astronaut to a new position using the <TT>Move</TT> tool.
+<DT>3.
+<DD>Duplicate the Astronaut layer, creating a layer labeled Astronaut
+Copy.
+<DT>4.
+<DD>Set the threshold of the <TT>Bucket Fill</TT> tool to 255 and use it to
+fill the Astronaut layer with black.
+<DT>5.
+<DD>Blur the Astronaut layer with <TT>Gaussian Blur (IIR)</TT>.
+<DT>6.
+<DD>Offset the Astronaut layer an appropriate amount.
+</DL>The final result is shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk-final">8.28</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.space-walk-final">&#160;</A><A NAME="12215">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.28:</STRONG>
+The Final Rendered Image</CAPTION>
+<TR><TD><IMG
+ SRC="img316.gif"
+ALT="Figure 8.28"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The resulting Layers dialog is shown in
+Figure&nbsp;<A HREF="node76.html#f.rendering.space-walk-final">8.28</A>(b).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1959"
+ HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1955"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1949"
+ HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1957"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1958"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1960"
+ HREF="node77.html">8.6 Rendering Project II:</A>
+<B> Up:</B> <A NAME="tex2html1956"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1950"
+ HREF="node75.html">8.4 Shadows</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

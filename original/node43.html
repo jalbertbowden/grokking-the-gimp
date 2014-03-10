@@ -1,0 +1,540 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>4.1 Channel Masks</TITLE>
+<META NAME="description" CONTENT="4.1 Channel Masks">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node44.html">
+<LINK REL="previous" HREF="node42.html">
+<LINK REL="up" HREF="node42.html">
+<LINK REL="next" HREF="node44.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1471"
+ HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1467"
+ HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1461"
+ HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1469"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1470"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1472"
+ HREF="node44.html">4.2 Layer Masks</A>
+<B> Up:</B> <A NAME="tex2html1468"
+ HREF="node42.html">4. Masks</A>
+<B> Previous:</B> <A NAME="tex2html1462"
+ HREF="node42.html">4. Masks</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1473"
+ HREF="node43.html#SECTION001211000000000000000">4.1.1 The Channels Dialog</A>
+<LI><A NAME="tex2html1474"
+ HREF="node43.html#SECTION001212000000000000000">4.1.2 Saving Selections to Channel Masks</A>
+<LI><A NAME="tex2html1475"
+ HREF="node43.html#SECTION001213000000000000000">4.1.3 Making Channel Masks Visible</A>
+<LI><A NAME="tex2html1476"
+ HREF="node43.html#SECTION001214000000000000000">4.1.4 Setting a Channel Mask's Color, Transparency, and Title</A>
+<LI><A NAME="tex2html1477"
+ HREF="node43.html#SECTION001215000000000000000">4.1.5 The Channels Menu</A>
+<LI><A NAME="tex2html1478"
+ HREF="node43.html#SECTION001216000000000000000">4.1.6 Combining Channels</A>
+<LI><A NAME="tex2html1479"
+ HREF="node43.html#SECTION001217000000000000000">4.1.7 Partially Selected Pixels</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001210000000000000000">&#160;</A>
+<A NAME="s4.channel-masks">&#160;</A><A NAME="5177">&#160;</A>
+<A NAME="5178">&#160;</A>
+<BR>
+4.1 Channel Masks
+</H1>
+
+<P>
+A channel mask is a special grayscale layer only 8 bits deep and is
+used to store and edit selections.  This section describes the
+Channels dialog, how to save selections to channel masks, how to
+convert channel masks to selections, and the other GIMP functions used
+for organizing masks and operating on them.
+
+<P>
+
+<H2><A NAME="SECTION001211000000000000000">&#160;</A>
+<A NAME="s4.channels-dialog">&#160;</A><A NAME="5181">&#160;</A>
+<A NAME="5182">&#160;</A>
+<BR>
+4.1.1 The Channels Dialog
+</H2>
+
+<P>
+As an image can have any number of layers, it can also have any number
+of channel masks.  Thus, analogous to the Layers dialog, the Channels
+dialog is the the tool for organizing and working with channels.  The
+Channels dialog is obtained by typing <TT>C-l</TT> in the image window
+and clicking on the Channels tab in the resulting <TT>Layers &amp;
+Channels</TT> window.  Figure&nbsp;<A HREF="node43.html#f.masks.channels-dialogX">4.1</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.channels-dialogX">&#160;</A><A NAME="5187">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.1:</STRONG>
+The Channels Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img98.gif"
+ALT="Figure 4.1"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the various elements of the Channels dialog.
+
+<P>
+The most important feature of the Channels dialog is the Channels
+Palette.<A NAME="5191">&#160;</A><A NAME="5192">&#160;</A>
+This region of the dialog consists of horizontal strips where the top
+three entries are always the Red, Green, and Blue channels of the
+image, already described in Section&nbsp;<A HREF="node28.html#s2.layers.channel-dialog">2.2.1</A>.
+The rest of the strips are channel masks.
+Figure&nbsp;<A HREF="node43.html#f.masks.channels-dialogX">4.1</A> shows a single channel mask.
+The channel mask strip displays a thumbnail image of the mask's
+contents, and the area to the left of the thumbnail contains an Eye
+icon.  Analogous to layer strips in the Layers dialog, the
+visibility<A NAME="5195">&#160;</A><A NAME="5196">&#160;</A> of the Eye icon for channel strips can be toggled on and off,
+making the channel mask either visible or invisible in the image
+window.
+
+<P>
+To the right of the thumbnail is the Channel Title
+Area.  In
+Figure&nbsp;<A HREF="node43.html#f.masks.channels-dialogX">4.1</A> the channel is named A Channel
+Mask.  The title can be changed by double-clicking in the Channel
+Title Area.  This brings up a dialog where the new title can be
+entered.
+
+<P>
+The channel strip in Figure&nbsp;<A HREF="node43.html#f.masks.channels-dialogX">4.1</A> is
+highlighted in blue, indicating that it is the active
+channel.<A NAME="5199">&#160;</A>  A channel mask is made active by
+clicking on its thumbnail or Title Area.  Only a single channel mask
+can be active at a time, and, when a channel mask is active, none of
+the image layers can be active.  Because GIMP tools applied to the
+image window are applied to the active layer<A NAME="5200">&#160;</A> or
+the active channel,<A NAME="5201">&#160;</A> this can sometimes be a
+source of confusion.  After working on a channel mask, to work on a
+layer it is necessary to explicitly switch to the Layers dialog and to
+make the layer active.
+
+<P>
+The remaining elements of the Channels dialog are the Channels menu
+and the button bar.  These are described in more detail shortly.
+
+<P>
+
+<H2><A NAME="SECTION001212000000000000000">
+4.1.2 Saving Selections to Channel Masks</A>
+</H2>
+
+<P>
+One of the primary uses you will make of channel masks is to save
+selections.  Why should you save a selection to a channel?  There are
+many reasons.  The first is that saving the selection protects your
+work, which is particularly important if you are making an involved
+and difficult selection.  Second, it allows you to make your
+selections in parts.  This helps divide and simplify the work.  Third,
+it allows you to reuse a selection for several purposes.  This is
+useful for all sorts of rendering operations, such as making drop
+shadows, highlights, and special textures (for example, see
+Section&nbsp;<A HREF="node76.html#s8.proj1">8.5</A>).  Fourth, it allows you to refine your
+selections in ways that would otherwise be impossible.  Finally, many
+special effects can be had using filter plug-ins on masks.  As you can
+see, saving a selection to a channel mask really has a very broad
+range of benefits.
+
+<P>
+After making a selection with any of the tools described in
+Chapter&nbsp;<A HREF="node35.html#c3.selections">3</A>, we can save the selection to a channel
+mask using the <TT>Save To Channel</TT><A NAME="5206">&#160;</A> function, found in the <TT>Image:Select</TT> menu.
+Figure&nbsp;<A HREF="node43.html#f.masks.select2channel">4.2</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.select2channel">&#160;</A><A NAME="5210">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.2:</STRONG>
+Saving a Selection to a Channel Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img99.gif"
+ALT="Figure 4.2"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image of a selected falcon, and
+Figure&nbsp;<A HREF="node43.html#f.masks.select2channel">4.2</A>(b) shows the Channels dialog after
+having used the <TT>Save to Channel</TT><A NAME="5216">&#160;</A>
+function.  The thumbnail appears as a grayscale image, where white
+corresponds to fully selected, gray to partially<A NAME="5217">&#160;</A> selected, and black to unselected
+pixels.  As seen in Figure&nbsp;<A HREF="node43.html#f.masks.select2channel">4.2</A>(b), the
+default channel mask title is Selection Mask copy.
+
+<P>
+After using <TT>Save to Channel</TT>, the active focus changes from the
+Layers dialog to the newly created channel in the Channels dialog.
+Nevertheless, the selection in the image window remains active.  This
+has several important consequences.  First, since the new channel is
+active, all ensuing filtering or painting operations are applied only
+to this channel.  Furthermore, since the original selection is still
+active, the only parts of the new channel that can be affected are
+those inside the selection area.  For example, trying to paint outside
+the selection will have absolutely no effect.
+
+<P>
+Thus, if the objective is to work on the newly created channel, the
+selection must be canceled by typing <TT>C-S-a</TT> in the image window,
+and the channel must be made visible by toggling on its Eye icon in
+the Channels dialog.  If the objective is to save the selection as a
+channel and to move onto other image operations, the selection
+must be canceled, and the appropriate layer in the Layers dialog must
+be made active.
+
+<P>
+
+<H2><A NAME="SECTION001213000000000000000">
+4.1.3 Making Channel Masks Visible</A>
+</H2>
+
+<P>
+A channel mask's visibility can be toggled on or off by clicking on
+its Eye icon.  Looking again at
+Figure&nbsp;<A HREF="node43.html#f.masks.select2channel">4.2</A>(b), the Eye icon is not visible.
+Toggling it on, as shown in Figure&nbsp;<A HREF="node43.html#f.masks.channel-mask">4.3</A>(b), and
+toggling off the image layer's visibility produces the result shown in
+Figure&nbsp;<A HREF="node43.html#f.masks.channel-mask">4.3</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.channel-mask">&#160;</A><A NAME="5226">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.3:</STRONG>
+Viewing a Raw Channel Mask in the Image Window</CAPTION>
+<TR><TD><IMG
+ SRC="img100.gif"
+ALT="Figure 4.3"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This figure shows that the channel mask is now visible in the image
+window.  
+
+<P>
+If the Eye icon of the image layer is toggled back on, as shown in
+Figure&nbsp;<A HREF="node43.html#f.masks.channel-mask-x0">4.4</A>(b), the resulting view in the
+image window is Figure&nbsp;<A HREF="node43.html#f.masks.channel-mask-x0">4.4</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.channel-mask-x0">&#160;</A><A NAME="5233">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.4:</STRONG>
+Viewing an Image Layer Through the Channel Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img101.gif"
+ALT="Figure 4.4"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The image layer can now be seen through the channel mask.  The parts
+of the image corresponding to the white region of the mask appear
+clearly, but the parts in the black region appear covered by a dark,
+semi-transparent film.  This demonstrates why these channels are
+called masks; they allow the selected parts of the image to be clearly
+seen while ``masking out'' the unselected parts.
+
+<P>
+Being able to see the image through the filmy parts of the channel
+mask, as illustrated in Figure&nbsp;<A HREF="node43.html#f.masks.channel-mask-x0">4.4</A>(a), makes
+it possible to edit the mask according to the features of the image
+behind it.  In this way, the channel mask is like a piece of digital
+tracing paper placed over the image.  
+
+<P>
+
+<H2><A NAME="SECTION001214000000000000000">&#160;</A>
+<A NAME="s4.channel-name-color-trans">&#160;</A><A NAME="5240">&#160;</A>
+<A NAME="5241">&#160;</A>
+<A NAME="5242">&#160;</A>
+<BR>
+4.1.4 Setting a Channel Mask's Color, Transparency, and Title
+</H2>
+
+<P>
+Double-clicking in the channel mask title area brings up the <TT>Channel Options</TT><A NAME="5244">&#160;</A><A NAME="5245">&#160;</A> dialog, shown in
+Figure&nbsp;<A HREF="node43.html#f.masks.channel-mask-y">4.5</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.channel-mask-y">&#160;</A><A NAME="5248">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.5:</STRONG>
+Changing a Channel Mask's Color, Opacity, and Title</CAPTION>
+<TR><TD><IMG
+ SRC="img102.gif"
+ALT="Figure 4.5"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This dialog allows three mask attributes to be set: the Channel name,
+the Fill Opacity, and the mask color.  Setting the name is
+self-explanatory, but the other two attributes merit some discussion.
+
+<P>
+The <TT>Fill Opacity</TT> slider sets the degree to which the image layer
+is visible through the filmy parts of the mask.  The slider's units
+are in percent so if the opacity is set to 100, the only parts of the
+image that are visible are those that correspond to the white part of
+the mask, and the parts of the image corresponding to the black parts
+of the mask cannot be seen.  Alternatively, if the opacity is set to
+0, the image layer is completely visible, and the mask cannot be seen.
+An intermediate opacity setting allows the masked-out regions of the
+image to be seen through the black part of the mask.  Adjusting the
+Fill Opacity slider allows an optimum working level to be set for the
+mask.
+
+<P>
+If some of the image pixels seen behind the semi-opacity of the mask
+are dark, it will be difficult to see the details of these pixels.
+This may impede your ability to make useful edits to the mask,
+regardless of the Fill Opacity slider's setting.  This is why the
+color of the mask can be changed.  Changing the mask's color is done
+by clicking in the color patch of the <TT>Channel Options</TT> dialog.
+This brings up the <TT>Color Selection</TT> dialog, from which any color
+can be chosen.  A good choice, of course, is one that contrasts well
+with the image layer pixels.  Closing the <TT>Color Selection</TT> dialog
+changes the color in the <TT>Channel Options</TT> color rectangle.
+Closing the <TT>Channel Options</TT> dialog makes this color appear at
+the chosen opacity level in the image window.  This is shown in
+Figure&nbsp;<A HREF="node43.html#f.masks.channel-mask-y">4.5</A>(a), where a 50%-transparent red
+has been chosen for the mask color.
+
+<P>
+
+<H2><A NAME="SECTION001215000000000000000">&#160;</A>
+<A NAME="s4.channels-menu">&#160;</A><A NAME="5261">&#160;</A>
+<A NAME="5262">&#160;</A>
+<BR>
+4.1.5 The Channels Menu
+</H2>
+
+<P>
+The Channels dialog, like the Layers dialog, has a hidden menu that
+can be displayed by right-clicking in the title area
+of the Channels Palette.  This menu is shown in
+Figure&nbsp;<A HREF="node43.html#f.masks.channel-menu">4.6</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.channel-menu">&#160;</A><A NAME="5265">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.6:</STRONG>
+The Channels Menu</CAPTION>
+<TR><TD><IMG
+ SRC="img103.gif"
+ALT="Figure 4.6"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+As shown by the red arrows, many of the operations available in the
+Channels menu are directly accessible from the button bar.  Most of
+the functions in the menu are organizational: <TT>New Channel</TT>, <TT>Raise Channel</TT>, <TT>Lower Channel</TT>, <TT>Duplicate Channel</TT>, and <TT>Delete Channel</TT> are all self-explanatory.  Of particular importance is
+the <TT>Channel to Selection</TT> function, which is the inverse of the
+<TT>Save to Channel</TT><A NAME="5276">&#160;</A>
+function.  <TT>Channel to Selection</TT><A NAME="5278">&#160;</A><A NAME="5279">&#160;</A> creates a
+selection in the image window corresponding to the active mask in the
+Channels dialog.
+
+<P>
+The remaining functions in the Channels menu, <TT>Add to
+Selection</TT>,<A NAME="5281">&#160;</A> <TT>Subtract From
+Selection</TT>,<A NAME="5283">&#160;</A> and <TT>Intersect
+With Selection</TT><A NAME="5285">&#160;</A> are described
+in the following section.
+
+<P>
+
+<H2><A NAME="SECTION001216000000000000000">&#160;</A>
+<A NAME="s4.combine_channels">&#160;</A><A NAME="5288">&#160;</A>
+<A NAME="5289">&#160;</A>
+<BR>
+4.1.6 Combining Channels
+</H2>
+
+<P>
+Section&nbsp;<A HREF="node37.html#s3-2.combining-selections">3.2</A> describes how selections can
+be combined; selections can be added, subtracted, and intersected.
+These operations are useful because they allow the results from
+different selection tools to be combined and because they also allow
+the work to be performed incrementally.  This can be particularly
+important when selecting from a large image or when making a
+complicated selection.
+
+<P>
+Channel masks can also be combined.  This is done by converting the
+masks to selections and then saving the combined result back to a
+mask.  Figure&nbsp;<A HREF="node43.html#f.masks.combine1">4.7</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.combine1">&#160;</A><A NAME="5293">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.7:</STRONG>
+Two Channel Masks</CAPTION>
+<TR><TD><IMG
+ SRC="img104.gif"
+ALT="Figure 4.7"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the procedure.  Figure&nbsp;<A HREF="node43.html#f.masks.combine1">4.7</A>(a) shows an
+underwater scene for which two selections have been previously made
+and saved to channel masks.  The channels strips for the two masks,
+labeled Fish and Rock, can be seen in the Channels dialog, shown in
+Figure&nbsp;<A HREF="node43.html#f.masks.combine1">4.7</A>(b).
+
+<P>
+After making the channel labeled Rock the active channel, it is
+converted to a selection by clicking on the <TT>Channel to Selection</TT>
+button (represented by the dashed circle icon) in the button bar.  The
+active channel can be seen in Figure&nbsp;<A HREF="node43.html#f.masks.combine2">4.8</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.combine2">&#160;</A><A NAME="5302">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.8:</STRONG>
+Converting the First Mask to a Selection</CAPTION>
+<TR><TD><IMG
+ SRC="img105.gif"
+ALT="Figure 4.8"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node43.html#f.masks.combine2">4.8</A>(a) shows the resulting selection in
+the image window.  Note that it was not necessary nor useful to toggle
+on the visibility of the channel mask to do this.
+
+<P>
+A similar operation is performed with the channel mask labeled Fish.
+The mask is made active and then converted to a selection.  Normally
+the conversion of a mask to a selection replaces any selection already
+active in the image window.  However, the selection represented by the
+mask can also be added to the active selection.  This is accomplished
+by choosing the <TT>Add to Selection</TT><A NAME="5308">&#160;</A> function from the Channels menu, shown in
+Figure&nbsp;<A HREF="node43.html#f.masks.channel-menu">4.6</A>(b).  The <TT>Add to Selection</TT>
+function can also be invoked by Shift-clicking the <TT>Channel to
+Selection</TT> button in the button bar.  The result of adding the
+selection is shown in Figure&nbsp;<A HREF="node43.html#f.masks.combine3">4.9</A>(a),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.combine3">&#160;</A><A NAME="5314">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.9:</STRONG>
+Converting the Second Mask to a Selection and Adding it to the First</CAPTION>
+<TR><TD><IMG
+ SRC="img106.gif"
+ALT="Figure 4.9"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+which shows the combined selection in the image window.
+
+<P>
+Two other combining modes are also available in the Channels menu.
+These are the <TT>Subtract From Selection</TT> and the <TT>Intersect
+With Selection</TT> functions.  These can both be used from the <TT>Channel to Selection</TT> button in the button bar.  Control-clicking the
+button produces a subtraction and Control-Shift-clicking produces an
+intersection.
+
+<P>
+The final step to obtain a channel mask of the combined selection is
+performed by using <TT>Save to Channel</TT> from the <TT>Image:Select</TT>
+menu.  The procedure is illustrated in Figure&nbsp;<A HREF="node43.html#f.masks.combine4">4.10</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.combine4">&#160;</A><A NAME="5325">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.10:</STRONG>
+Creating the Combined Channel Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img107.gif"
+ALT="Figure 4.10"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The resulting channel mask, which has been labeled Rock+Fish, is shown
+in Figure&nbsp;<A HREF="node43.html#f.masks.combine4">4.10</A>(b).
+
+<P>
+
+<H2><A NAME="SECTION001217000000000000000">&#160;</A>
+<A NAME="s4.partially-selected">&#160;</A><A NAME="5332">&#160;</A>
+<BR>
+4.1.7 Partially Selected Pixels
+</H2>
+
+<P>
+Partially selected pixels are especially important at selection edges
+because they allow the selection to blend more smoothly with other
+image layers.  The subject of partially selected pixels has already
+been discussed to some extent in Section&nbsp;<A HREF="node36.html#s3-5.tool-options">3.1.2</A>,
+which presented the concepts antialiasing and feathering.
+
+<P>
+A powerful feature of masks is that they provide an easy way to create
+and to work with partially selected pixels.  As has already been
+discussed, a white pixel in a channel mask represents a fully selected
+pixel in the image window, a black pixel fully unselected, and a gray
+pixel partially selected.  Thus, channel masks allow for partially
+selected pixels, and, moreover, provide a framework on which any of
+the GIMP's filters and functions can be applied.  This makes channel
+masks a particularly flexible and versatile medium for working with
+partial selections.  Some examples of using GIMP filters on masks are
+illustrated in Section&nbsp;<A HREF="node45.html#s4.masks.anti-alias_and_feathering">4.3.5</A>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1471"
+ HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1467"
+ HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1461"
+ HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1469"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1470"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1472"
+ HREF="node44.html">4.2 Layer Masks</A>
+<B> Up:</B> <A NAME="tex2html1468"
+ HREF="node42.html">4. Masks</A>
+<B> Previous:</B> <A NAME="tex2html1462"
+ HREF="node42.html">4. Masks</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

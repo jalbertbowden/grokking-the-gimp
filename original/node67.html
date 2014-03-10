@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>7.2 Project 2: Through the Looking Glass</TITLE>
+<META NAME="description" CONTENT="7.2 Project 2: Through the Looking Glass">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node68.html">
+<LINK REL="previous" HREF="node66.html">
+<LINK REL="up" HREF="node65.html">
+<LINK REL="next" HREF="node68.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1842"
+ HREF="node68.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1838"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1832"
+ HREF="node66.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1840"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1841"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1843"
+ HREF="node68.html">7.3 Project 3: Destination</A>
+<B> Up:</B> <A NAME="tex2html1839"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1833"
+ HREF="node66.html">7.1 Project 1: Fish</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001520000000000000000">&#160;</A>
+<A NAME="s7.compositing.proj2">&#160;</A><A NAME="10468">&#160;</A>
+<A NAME="10469">&#160;</A>
+<A NAME="10470">&#160;</A>
+<BR>
+7.2 Project 2: Through the Looking Glass
+</H1>
+
+<P>
+Blending modes, discussed in Chapter&nbsp;<A HREF="node49.html#c5.colorspaces">5</A>, are very
+useful tools for compositing.  They can be used to give the illusion
+of one image element not just being delimited by another but of being
+fused right into it.  This is a very powerful device because it allows
+the artist to convey a message about the relationship of the fused
+images, which simple juxtaposition does not.  The objective of the
+project in this section is to illustrate this type of effect.
+
+<P>
+The images shown in Figures&nbsp;<A HREF="node67.html#f.compositing.looking-glass1">7.7</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass1">&#160;</A><A NAME="10474">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.7:</STRONG>
+A Tin Can Discarded as Trash</CAPTION>
+<TR><TD><IMG
+ SRC="img252.gif"
+ALT="Figure 7.7"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and <A HREF="node67.html#f.compositing.looking-glass2">7.8</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass2">&#160;</A><A NAME="10480">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.8:</STRONG>
+A Flower and a Visiting Friend</CAPTION>
+<TR><TD><IMG
+ SRC="img253.gif"
+ALT="Figure 7.8"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+are the raw materials for this project.  They will be fused together
+to make the tin can seem to reflect the flower and insect.  A summary
+of the procedure used to achieve the effect is as follows:
+<DL COMPACT>
+<DT>1.
+<DD>Place the flower image into a new layer above the layer of the tin can
+image.
+<DT>2.
+<DD>Position, scale, and orient the flower layer to juxtapose it with the can
+in the desired manner.
+<DT>3.
+<DD>Mask the upper layer to the limits of the tin can's borders.
+<DT>4.
+<DD>Apply an appropriate blending mode to the upper layer.
+<DT>5.
+<DD>Adjust the upper layer's brightness using the <TT>Curves</TT> tool.
+</DL>
+<P>
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass3">7.9</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass3">&#160;</A><A NAME="10489">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.9:</STRONG>
+The Flower Layer Pasted and Oriented over the Tin Can Layer</CAPTION>
+<TR><TD><IMG
+ SRC="img254.gif"
+ALT="Figure 7.9"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the flower copied and pasted into a layer over the tin can
+image.  As the Layers dialog in
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass3">7.9</A>(a) indicates, the flower
+layer is in a floating selection where it will stay until it is
+positioned, scaled, and oriented.  The Opacity slider in the Layers
+dialog has been set to 60%, which allows the tin can to be seen
+through this floating selection.  
+
+<P>
+The <TT>Transform</TT> tool is used to rotate the flower layer.  The
+flower image is aligned with the longitudinal axis of the tin can,
+which requires 59<SUP><I>o</I></SUP> of rotation.  The partial transparency of the
+floating selection is invaluable, while using the <TT>Move</TT><A NAME="10496">&#160;</A> tool, for correctly positioning the flower
+layer over the tin can.  This is the stage of the project seen in
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass3">7.9</A>(b).
+
+<P>
+Before moving to the next stage of the project, let's discuss how the
+rotation value of -59.00, shown in
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass3">7.9</A>(c), was determined.  This
+angle was computed using the <TT>Measure</TT><A NAME="10500">&#160;</A> tool,
+as is illustrated in Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass0">7.10</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass0">&#160;</A><A NAME="10999">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.10:</STRONG>
+Using the <TT> Measure</TT> Tool to Compute the Correct Angle of Rotation</CAPTION>
+<TR><TD><IMG
+ SRC="img255.gif"
+ALT="Figure 7.10"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass0">7.10</A>(a) shows how the angle of
+the longitudinal axis of the insect's back is measured, and
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass0">7.10</A>(b) does the same for the
+lateral axis of the tin can.  As shown in the two figures, the
+insect's back measures 68.43<SUP><I>o</I></SUP> with respect to the horizontal axis,
+and the tin can measures 9.40<SUP><I>o</I></SUP>.  To make the insect align with the
+can after rotation requires 
+<!-- MATH: $(9.40^o-68.43^o) \approx -59^o$ -->
+<IMG
+ WIDTH="209" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img256.gif"
+ ALT="$(9.40^o-68.43^o) \approx -59^o$">.
+
+<P>
+An alternative technique to using the <TT>Measure</TT> tool to get an
+accurate estimate of the amount of rotation needed is to make use of
+the Path Transform Lock in the Paths dialog (see
+Section&nbsp;<A HREF="node39.html#s3.path-palette">3.4.1</A>).  This feature locks a path to the
+active layer so that when the layer is transformed with the <TT>Transform</TT> tool, the path is too.
+Figures&nbsp;<A HREF="node67.html#f.compositing.looking-glass7a">7.11</A> and
+<A HREF="node67.html#f.compositing.looking-glass7b">7.12</A> illustrate how this helps.
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass7a">7.11</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass7a">&#160;</A><A NAME="10516">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.11:</STRONG>
+Using a Bezier Path to Delineate the Insect's Outline, and
+Toggling On the Path Transform Lock</CAPTION>
+<TR><TD><IMG
+ SRC="img257.gif"
+ALT="Figure 7.11"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows a Bezier path outlining the insect, and
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass7a">7.11</A>(b) shows that the Path
+Transform Lock for this path is toggled on.  In addition, the insect's
+layer has been made partially transparent, allowing the tin can to be
+seen through it from behind.
+
+<P>
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass7b">7.12</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass7b">&#160;</A><A NAME="10523">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.12:</STRONG>
+Bezier Path Outline Rotating with Transform Grid</CAPTION>
+<TR><TD><IMG
+ SRC="img258.gif"
+ALT="Figure 7.12"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Tool Options</TT><A NAME="10528">&#160;</A> window for the
+<TT>Transform</TT> tool.  The Rotation radio button is shown checked,
+and, take note, the Show Path checkbox is toggled on.  This means that
+the locked Bezier path will be shown with the transform grid lines
+when the mouse is first clicked in the image window.  An accurate
+transformation of the insect layer can now be performed because the
+locked path moves visibly with the grid lines as they are transformed
+by the mouse.
+
+<P>
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass7b">7.12</A>(b) shows the result of
+rotating the grid lines, and it can be seen that the insect's outline
+is also rotated.  This is a very powerful technique for getting
+accurate transforms.  In particular, it is the only technique for
+effectively visualizing how to warp one object to another when using
+the Perspective option of the <TT>Transform</TT> tool.
+
+<P>
+Picking up the project from where we left off, the rotated floating
+selection is now anchored to a new layer by clicking on the <TT>New
+Layer</TT> button in the Layers dialog, and the Opacity slider is set back
+to 100%.  Before the next step, which is to mask the tin can, the
+flower layer is merged into a transparent layer that has the same size
+as that of the tin can.  This is done as follows:
+<DL COMPACT>
+<DT>1.
+<DD>In the Layers dialog the <TT>New Layer</TT> button is clicked and the
+Transparent layer option is chosen in the <TT>New Layer Options</TT>
+dialog.
+<DT>2.
+<DD>The resulting layer is positioned in the layer stack just below
+the Flower layer.
+<DT>3.
+<DD>With the flower layer active, the function <TT>Merge Down</TT> is
+selected from the Layers menu (or <TT>C-S-m</TT> is typed in the Layers
+dialog window).  This merges the flower into the transparent layer.
+</DL>At this point, it is useful to name the two layers in the Layers dialog.
+Let's label them Flower and Tin Can.
+
+<P>
+The next step in the process is to create a mask of the tin can.  This
+is done by making a selection of the can, which is then converted to a
+layer mask.  To facilitate the selection, the visibility of the Flower
+layer is toggled off.  The selection is made using the <TT>Bezier
+Path</TT> tool and is illustrated in 
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass4">7.13</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass4">&#160;</A><A NAME="10542">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.13:</STRONG>
+Making a Selection of the Tin Can</CAPTION>
+<TR><TD><IMG
+ SRC="img259.gif"
+ALT="Figure 7.13"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+After toggling the visibility of the Flower layer back on and making
+it active, the procedure for creating the layer mask from the
+selection is performed using these steps:
+<DL COMPACT>
+<DT>1.
+<DD>Make the Flower layer active by clicking on its thumbnail in the
+Layers dialog.
+<DT>2.
+<DD>Create a layer mask for the Flower layer using the <TT>Add Layer
+Mask</TT><A NAME="10548">&#160;</A> function from the Layers menu,
+choosing the White (Full Opacity) option.
+<DT>3.
+<DD>Invert the selection by typing <TT>C-i</TT> in the image window.
+<DT>4.
+<DD>Make the <TT>Active Background Color</TT> black by typing <TT>d</TT> and
+then <TT>x</TT> in the image window.
+<DT>5.
+<DD>Making sure the layer mask is active in the Layers dialog by clicking
+on its thumbnail, and cut the selection by typing <TT>C-x</TT> in the
+image window.
+</DL>Cutting the selection makes the the layer mask black outside the tin
+can's boundaries.  Note that although the selection was made in the
+Tin Can layer, the cut is applied to the layer mask.  This illustrates
+the important rule that regardless of where a selection is made, its
+effect is only applied to the active layer.
+
+<P>
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass5">7.14</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass5">&#160;</A><A NAME="10557">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.14:</STRONG>
+Flower Layer Masked by Tin Can</CAPTION>
+<TR><TD><IMG
+ SRC="img260.gif"
+ALT="Figure 7.14"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the result of creating the layer mask.  The thumbnail of the
+mask can be seen in Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass5">7.14</A>(a), and
+its effect can be seen in
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass5">7.14</A>(b).  Notice that the parts
+of the Flower layer extending outside of the boundaries of the tin can
+have been masked off.
+
+<P>
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass5">7.14</A>(b) is almost what we are
+looking for except that the flower image now looks is if it is pasted
+onto the outer surface of the can.  The effect we are looking for is
+different.  We want to make the flower look fused into the can, as if
+it is an integral part of it.  For example, it would be interesting
+for the insect and flower to appear as if they were reflected off the
+can's shiny surface.  To achieve this effect, we use a blending mode.
+
+<P>
+The blending mode used in this example is <TT>Multiply
+(Burn)</TT>.<A NAME="10565">&#160;</A>  It
+is applied by making the Flower layer active and then selecting it
+from the Mode menu in the Layers dialog.  You can see the choice of
+mode in Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass6">7.15</A>(a),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass6">&#160;</A><A NAME="11005">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.15:</STRONG>
+Using the <TT> Multiply</TT> Blending Mode on the Flower Layer</CAPTION>
+<TR><TD><IMG
+ SRC="img261.gif"
+ALT="Figure 7.15"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and you can see the result on the image in
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass6">7.15</A>(b).  This mode multiplies
+the pixel values of the two layers, but only where the Flower layer is
+not transparent.  Thus, the lighting variations of the tin can are
+impressed onto the flower and insect, making them look as if they are
+truly a part of the can.  The overall result, however, is a little
+dark.
+
+<P>
+The final step, then, is to lighten the dark result in
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass6">7.15</A>.  This is done by applying
+the perturbation technique<A NAME="10574">&#160;</A> described in
+Section&nbsp;<A HREF="node61.html#s6.perturbation-technique">6.2.5</A> to the Flower layer using the
+Value channel of the <TT>Curves</TT> tool.  The Value channel is selected
+because we do not want to affect the colors, just the lightness of the
+image.  Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass-final">7.16</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.looking-glass-final">&#160;</A><A NAME="10579">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.16:</STRONG>
+Final Composition</CAPTION>
+<TR><TD><IMG
+ SRC="img262.gif"
+ALT="Figure 7.16"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Curves</TT> dialog after using the perturbation technique.
+The resulting effect on the final composition is shown in
+Figure&nbsp;<A HREF="node67.html#f.compositing.looking-glass-final">7.16</A>(b).  Using the
+perturbation technique, it was determined that it was the highlight
+part of the value range that needed to be lightened to obtain the best
+result.  Thus, this effect could not have been achieved using the <TT>Levels</TT> or <TT>Brightness-Contrast</TT> tools.
+
+<P>
+To summarize, this project illustrates the use of blending modes and
+the <TT>Curves</TT> tool for compositing.  Note that the use of the <TT>Multiply</TT> blending mode is not primordial to the technique.  Other
+possibilities could have been <TT>Screen</TT>, <TT>Overlay</TT>, <TT>Lighten Only</TT>, <TT>Darken Only</TT>, and <TT>Color</TT>.  It is important to
+experiment with the different modes and to do so in conjunction with
+the Opacity slider and the <TT>Curves</TT> tool.  The final choice will
+depend on your aesthetic sensibilities.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1842"
+ HREF="node68.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1838"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1832"
+ HREF="node66.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1840"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1841"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1843"
+ HREF="node68.html">7.3 Project 3: Destination</A>
+<B> Up:</B> <A NAME="tex2html1839"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1833"
+ HREF="node66.html">7.1 Project 1: Fish</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

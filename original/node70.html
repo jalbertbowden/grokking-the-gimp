@@ -1,0 +1,496 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>7.5 Project 5: Panoramas</TITLE>
+<META NAME="description" CONTENT="7.5 Project 5: Panoramas">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="previous" HREF="node69.html">
+<LINK REL="up" HREF="node65.html">
+<LINK REL="next" HREF="node71.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1876"
+ HREF="node71.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1872"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1868"
+ HREF="node69.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1874"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1875"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1877"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Up:</B> <A NAME="tex2html1873"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1869"
+ HREF="node69.html">7.4 Project 4: The</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1878"
+ HREF="node70.html#SECTION001551000000000000000">7.5.1 Correcting Geometric Distortions</A>
+<LI><A NAME="tex2html1879"
+ HREF="node70.html#SECTION001552000000000000000">7.5.2 Color and Brightness Matching</A>
+<LI><A NAME="tex2html1880"
+ HREF="node70.html#SECTION001553000000000000000">7.5.3 Blending</A>
+<LI><A NAME="tex2html1881"
+ HREF="node70.html#SECTION001554000000000000000">7.5.4 Final Touches</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001550000000000000000">&#160;</A>
+<A NAME="s7.panoramas">&#160;</A><A NAME="10877">&#160;</A>
+<A NAME="10878">&#160;</A>
+<A NAME="10879">&#160;</A>
+<A NAME="10880">&#160;</A>
+<BR>
+7.5 Project 5: Panoramas
+</H1>
+
+<P>
+By piecing together a series of normal photographs, panoramic and wide
+angle views can be created in the GIMP.  The approach of piecing
+together a group of images to create a panorama instead of using
+special purpose camera lenses gives rise to a number of photo
+inconsistencies among the individual pieces of the image.
+Nevertheless, the GIMP is perfectly capable of correcting these
+problems and creating a well integrated whole.  This chapter
+describes the problems involved in creating panoramas from collections
+of individual images and how to overcome them in the GIMP.
+
+<P>
+To create a panorama from a collection of photos, the steps are well
+defined.  First, the photos have to be grouped together into a single
+image, each placed into a separate layer.  The procedure for this has
+been explained many times already in this book.  In particular,
+Section&nbsp;<A HREF="node30.html#s2.layers.cut-paste">2.4</A> describes the copying and pasting of
+images into layers, and Section&nbsp;<A HREF="node32.html#s2.layers.positioning">2.6.1</A> explains
+how to position layers within an image.
+
+<P>
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-set">7.35</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.panoramas.image-set">&#160;</A><A NAME="10885">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.35:</STRONG>
+Collection of Positioned Images</CAPTION>
+<TR><TD><IMG
+ SRC="img281.gif"
+ALT="Figure 7.35"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates a set of images, each taken with about 50% overlap, using
+a digital camera.  They were stored in JPEG file format and then
+individually loaded into the GIMP.  Each was then copied and pasted
+into a separate layer in a single image.  Each layer was then
+positioned using the <TT>Move</TT><A NAME="10890">&#160;</A> tool.  The Opacity
+slider in the Layers dialog was used to facilitate the positioning of
+each layer.
+
+<P>
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-set">7.35</A>(a) shows the result after
+positioning the layers as well as possible, and
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-set">7.35</A>(b) shows the organization of the
+layers in the Layers dialog.  The layers are named with the letters of
+the alphabet, A through E, where A corresponds to the rightmost layer
+and E to the leftmost.
+
+<P>
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-set">7.35</A> illustrates the primary problems
+that must be overcome to achieve a consistent looking panorama.  As
+shown, these problems are geometric distortion, color matching, and
+brightness matching.  Each of these is addressed in the following
+sections.
+
+<P>
+
+<H2><A NAME="SECTION001551000000000000000">&#160;</A>
+<A NAME="10895">&#160;</A>
+<A NAME="10896">&#160;</A>
+<A NAME="10897">&#160;</A>
+<BR>
+7.5.1 Correcting Geometric Distortions
+</H2>
+
+<P>
+The first step after the initial positioning of the individual layers
+is to remove, as much as possible, the geometric distortions.
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-set">7.35</A>(a) has distortions that can be seen
+in several places.  The two most flagrant problems are the molding
+around the ceiling of the room and the alignment of the grain in the
+hardwood floor, especially on the left side of the image.  However,
+there are also many other small details in the image that are slightly
+off kilter.  Also, there are several places where elements of the
+images do not line up properly.
+
+<P>
+The first step is to correct for the misalignment problems.  Using the
+Scale option of the <TT>Transform</TT> tool, some
+of the layers are squeezed in an effort to make them more consistent
+with the others.  A very important guideline, however, is that there
+are limits to what can be done without introducing other serious
+mismatches.  The goal is to adjust, but with a light hand.
+
+<P>
+Referring again to Figure&nbsp;<A HREF="node70.html#f.panoramas.image-set">7.35</A>(a), perhaps the
+biggest inconsistency is that the vertical scale of the image in layer
+C seems to be larger than the others.  This explains the lack of
+registration of the ceiling molding and the fireplace mantle for this
+layer.  The remaining details might be acceptable defects.  This will
+be reevaluated after the most important corrections are made.
+
+<P>
+Before you begin, it is worthwhile to point out that, of all the <TT>Transform</TT> tool options, Scaling introduces the fewest artifacts.
+This is especially true when care is taken to maintain the aspect
+ratio between the horizontal and vertical dimensions.  The Scaling
+option of the <TT>Transform</TT> tool can be constrained to preserve
+aspect ratio by pressing the Control and Alt keys together while
+scaling.
+
+<P>
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-transform1">7.36</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.panoramas.image-transform1">&#160;</A><A NAME="10905">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.36:</STRONG>
+Initial Geometric Distortion Corrections</CAPTION>
+<TR><TD><IMG
+ SRC="img282.gif"
+ALT="Figure 7.36"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the result of using the <TT>Transform</TT> tool to adjust
+layer C.  As shown in Figure&nbsp;<A HREF="node70.html#f.panoramas.image-transform1">7.36</A>(b),
+the tool is used with the <TT>Scaling</TT> option.  The upper-right
+corner of layer C was adjusted until both the X and Y Scale Ratios
+shown in the <TT>Scaling Information</TT> dialog became 0.95.
+
+<P>
+How was the value 0.95 determined?  The answer depends on whether you
+are challenged by ratios.  If not, the swiftest way is to use the <TT>Measure</TT><A NAME="10914">&#160;</A> tool to determine that the height of the
+molding at the left edge of layer C is 271 pixels from layer C's
+bottom edge, and that the height of the molding in layer D at layer
+C's left edge is 258 pixels.  This makes the ratio 
+<!-- MATH: $258/271 = 0.95$ -->
+258/271 = 0.95.
+If you don't like ratios, a simple trial-and-error approach does not
+take much more time.  Just choose a scaling factor and use <TT>C-z</TT>
+to perform an undo if the scale isn't correct.  The result of the
+scaling operation aligns the molding on the ceiling between layers C
+and D.
+
+<P>
+As already noted, the upper right corner of layer C was used to
+perform the scale.  Thus, layer C has shrunk horizontally by 5%,
+shifting its right edge to the left.  This means that to properly
+register with layer C, layers A and B must now be repositioned to the
+left.
+
+<P>
+
+<H2><A NAME="SECTION001552000000000000000">&#160;</A>
+<A NAME="10917">&#160;</A>
+<A NAME="10918">&#160;</A>
+<A NAME="10919">&#160;</A>
+<BR>
+7.5.2 Color and Brightness Matching
+</H2>
+
+<P>
+You can see that there is significant brightness variation from layer
+to layer in Figure&nbsp;<A HREF="node70.html#f.panoramas.image-set">7.35</A>.  This is normal for
+photos taken with most consumer digital and regular film cameras.
+These cameras typically auto-expose scenes according to average
+lighting conditions and do not offer user controls for exposure.  For
+the image in layer A of Figure&nbsp;<A HREF="node70.html#f.panoramas.image-set">7.35</A> the light,
+coming from the windows is very bright which, due to the average light
+metering of the camera, causes the features of the room's interior to
+be underexposed.  Thus, the room features in this layer are quite a
+bit darker than in the other layers.  Otherwise, the brightness of the
+other layers are more or less consistent with each other.
+
+<P>
+In addition to the brightness mismatch between layers you can also see
+from Figure&nbsp;<A HREF="node70.html#f.panoramas.image-set">7.35</A> that there is a color balance
+mismatch from layer to layer.  The combination of color and brightness
+variations means that the layer boundaries are plainly visible instead
+of presenting a smooth and imperceptible transition across the
+panorama.
+
+<P>
+The strategy for correcting the differences in brightness and color is
+to use the <TT>Curves</TT> tool.  The idea is to match color at
+boundaries between layers using a method similar to that described in
+Section&nbsp;<A HREF="node61.html#s6.neutrals">6.2.2</A>.  The method measures pixel values on both
+sides of a layer boundary using the <TT>Color Picker</TT><A NAME="10926">&#160;</A> tool.  The <TT>Curves</TT> tool is then used to match the
+values.  This procedure corrects for both color and brightness
+mismatch simultaneously.
+
+<P>
+Matching the color and brightness of two layers has a chain reaction
+effect in a panorama project.  Matching layer B to its neighbor A,
+means that subsequently layer C must be matched to B, and so on.
+Thus, some care must be taken to avoid blowing out the available tonal
+range.  Typically, the wisest decision is to choose the layer of
+average brightness and to match the other layers working away from
+this one.  However, for this panorama project, it is layer E that is
+chosen as the reference because its lighting for the room seems the
+most natural.  The work flow, then, is from the leftmost layer to the
+rightmost, from layer E to layer A.
+
+<P>
+Starting with the boundary between layers E and D, a pixel value was
+measured on the white wall just above the wood wainscoting.  The
+measured values are 
+<!-- MATH: $177^R 183^G 194^B$ -->
+177<SUP><I>R</I></SUP> 183<SUP><I>G</I></SUP> 194<SUP><I>B</I></SUP> to the left of the boundary
+and 
+<!-- MATH: $153^R 156^G 171^B$ -->
+153<SUP><I>R</I></SUP> 156<SUP><I>G</I></SUP> 171<SUP><I>B</I></SUP> to the right.  Using this information, the <TT>Curves</TT> tool is used on layer D to match the pixel values measured in
+D to those of layer E.  Representative pixels are then measured across
+the boundary between layer D and layer C.  Here, the measured pixel
+values are located at the midway point between the hanging picture
+and the ceiling molding.  The values are found to be 
+<!-- MATH: $179^R 175^G
+185^B$ -->
+179<SUP><I>R</I></SUP> 175<SUP><I>G</I></SUP>
+185<SUP><I>B</I></SUP> to the left of the boundary and 
+<!-- MATH: $112^R 119^G 139^B$ -->
+112<SUP><I>R</I></SUP> 119<SUP><I>G</I></SUP> 139<SUP><I>B</I></SUP> to the
+right.  The <TT>Curves</TT> tool is employed again, this time on
+layer C, matching C's pixel values to those of D's.
+
+<P>
+Continuing with the boundary between layers C and B, the measured pixel
+values at a point midway between the mantle and the molding are 
+<!-- MATH: $201^R
+197^G 211^B$ -->
+201<SUP><I>R</I></SUP>
+197<SUP><I>G</I></SUP> 211<SUP><I>B</I></SUP> to the left and 
+<!-- MATH: $101^R 99^G 112^B$ -->
+101<SUP><I>R</I></SUP> 99<SUP><I>G</I></SUP> 112<SUP><I>B</I></SUP> to the right.  The
+final boundary is between layers B and A.  Here the pixels are
+measured at the midpoint between the plant and the molding.  The
+values found are 
+<!-- MATH: $199^R 198^G 208^B$ -->
+199<SUP><I>R</I></SUP> 198<SUP><I>G</I></SUP> 208<SUP><I>B</I></SUP> and 
+<!-- MATH: $86^R 75^G 81^B$ -->
+86<SUP><I>R</I></SUP> 75<SUP><I>G</I></SUP> 81<SUP><I>B</I></SUP>.  The <TT>Curves</TT> tool is applied for each of these boundaries, as it was for
+the first two.
+
+<P>
+The results of the color and brightness matching operations are shown
+in Figure&nbsp;<A HREF="node70.html#f.panoramas.image-colormatch">7.37</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.panoramas.image-colormatch">&#160;</A><A NAME="10933">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.37:</STRONG>
+Initial Color and Brightness Matching</CAPTION>
+<TR><TD><IMG
+ SRC="img283.gif"
+ALT="Figure 7.37"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The overall color and brightness of the images in the layers are now
+much more consistent.  However, there continues to be sufficient
+mismatch between the layers to perceive the layer boundaries.
+Fortunately, this visual defect can be corrected using a layer
+mask<A NAME="10937">&#160;</A> blending technique described
+in the next section.
+
+<P>
+
+<H2><A NAME="SECTION001553000000000000000">&#160;</A>
+<A NAME="s7.blending">&#160;</A><A NAME="10940">&#160;</A>
+<A NAME="10941">&#160;</A>
+<A NAME="10942">&#160;</A>
+<BR>
+7.5.3 Blending
+</H2>
+
+<P>
+The remaining color mismatches at layer edges can be corrected using
+layer masks.  The idea is to blend the edges by using a gradient in a
+layer mask.  The technique of layer blending using a gradient in a
+layer mask is discussed in Section&nbsp;<A HREF="node45.html#s4.masks.gradients">4.3.3</A>.
+
+<P>
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-blend1">7.38</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.panoramas.image-blend1">&#160;</A><A NAME="10946">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.38:</STRONG>
+Construction of a Gradient in a Layer Mask to Blend
+Away the Boundary Between Two Layers</CAPTION>
+<TR><TD><IMG
+ SRC="img284.gif"
+ALT="Figure 7.38"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the remaining color mismatch at the edge between layers A and B.
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-blend1">7.38</A>(b) shows a layer mask created
+for layer A.  This mask is a black to white gradient where the black
+point is placed at the left edge of the mask and the white point
+slightly to the right of this.  This layer mask has the effect of
+making the left side of layer A's boundary semi-transparent, letting
+layer B show through.  The end result is the two layers are blended in
+this small band removing the visibility of the boundary.
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-blend1">7.38</A>(c) illustrates the Layers
+dialog showing that four of the five layers have had layer masks
+added.  This makes one layer mask for each boundary.  
+
+<P>
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-blend2">7.39</A>(a) 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.panoramas.image-blend2">&#160;</A><A NAME="10954">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.39:</STRONG>
+The Result of Blending Two Layers</CAPTION>
+<TR><TD><IMG
+ SRC="img285.gif"
+ALT="Figure 7.39"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows, again, the boundary between layers A and B before blending.
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-blend2">7.39</A>(b) shows the result after
+blending.  As you can see, the technique is very effective.  However,
+some experimentation was necessary to find the correct width for the
+gradient blend.
+
+<P>
+Although the gradient blending trick works well in most cases, there
+are times when it is not appropriate for the entire boundary between
+two layers.  In this case, parts of the boundary can be targeted for a
+blending gradient by using the <TT>Rectangle Select</TT> tool.  This is necessary, for example, for the blend of layers
+D and E.  Here, separate selections are made at layer D's left edge
+for the regions corresponding to the hardwood floor, the wainscoting,
+and upper wall areas.  Separate gradient blends are produced for each
+one.
+
+<P>
+The layer mask produced by these separate gradients is shown in
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-blend3">7.40</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.panoramas.image-blend3">&#160;</A><A NAME="11034">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.40:</STRONG>
+Using the <TT> Rectangle Select</TT> Tool to Create a Custom
+Gradient Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img286.gif"
+ALT="Figure 7.40"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-blend3">7.40</A>(b) shows the associated Layers
+dialog.
+
+<P>
+
+<H2><A NAME="SECTION001554000000000000000">
+7.5.4 Final Touches</A>
+</H2>
+
+<P>
+At this point in the creation of the panorama, the image can be
+cropped and the various layers merged<A NAME="10968">&#160;</A>.  Using the <TT>Crop</TT><A NAME="10970">&#160;</A><A NAME="10971">&#160;</A> tool to retain only the regions
+corresponding to a complete rectangular image produces
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-cropped">7.41</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.panoramas.image-cropped">&#160;</A><A NAME="10974">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.41:</STRONG>
+The Cropped and Layer Merged Panorama</CAPTION>
+<TR><TD><IMG
+ SRC="img287.gif"
+ALT="Figure 7.41"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+In addition to the crop, the layers are also merged by typing <TT>C-m</TT> in either the Layers dialog or the image window.
+
+<P>
+There is a remaining defect that still seems important in the image:
+the molding along the ceiling in what was layer E before the merge.
+This piece of molding is not properly aligned with that of what was
+layer D.  The <TT>Clone</TT><A NAME="10980">&#160;</A><A NAME="10981">&#160;</A> tool described in
+Section&nbsp;<A HREF="node62.html#s6.clone-tool">6.3</A> can be used to repair this defect.  You
+can repair the molding by cloning the lower edge of the old layer E's
+visible molding to the top edge.  This makes it vertically align with
+the molding in the segment from the old layer D.  After the top edge
+has been reconstructed in this way, you can eliminate the lower edge
+by cloning the unadorned part of the wall just below it and using this
+to cover it up.  The resulting final panorama is shown in
+Figure&nbsp;<A HREF="node70.html#f.panoramas.image-final">7.42</A>,
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.panoramas.image-final">&#160;</A><A NAME="10985">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.42:</STRONG>
+The Molding Corrected and Final Panorama</CAPTION>
+<TR><TD><IMG
+ SRC="img288.gif"
+ALT="Figure 7.42"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+ready for an online version of <EM>Better Homes and Gardens</EM>
+magazine.
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1876"
+ HREF="node71.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1872"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1868"
+ HREF="node69.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1874"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1875"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1877"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Up:</B> <A NAME="tex2html1873"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1869"
+ HREF="node69.html">7.4 Project 4: The</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

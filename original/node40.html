@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>3.5 Using Selections Effectively</TITLE>
+<META NAME="description" CONTENT="3.5 Using Selections Effectively">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node41.html">
+<LINK REL="previous" HREF="node39.html">
+<LINK REL="up" HREF="node35.html">
+<LINK REL="next" HREF="node41.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1407"
+ HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1403"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1397"
+ HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1405"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1406"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1408"
+ HREF="node41.html">3.6 Common Problems and</A>
+<B> Up:</B> <A NAME="tex2html1404"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1398"
+ HREF="node39.html">3.4 The Paths Dialog</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1409"
+ HREF="node40.html#SECTION001151000000000000000">3.5.1 General Selection Tool Guidelines</A>
+<LI><A NAME="tex2html1410"
+ HREF="node40.html#SECTION001152000000000000000">3.5.2 Tool Conjugation</A>
+<LI><A NAME="tex2html1411"
+ HREF="node40.html#SECTION001153000000000000000">3.5.3 Using <TT>Zoom</TT></A>
+<LI><A NAME="tex2html1412"
+ HREF="node40.html#SECTION001154000000000000000">3.5.4 Selections and Guides</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001150000000000000000">&#160;</A>
+<A NAME="s3.effective">&#160;</A>
+<BR>
+3.5 Using Selections Effectively
+</H1>
+
+<P>
+This section begins the discussion of how to effectively use the
+selection tools presented in this chapter.  The full story, however,
+won't be completed until we cover masks in Chapter&nbsp;<A HREF="node42.html#c4.masks">4</A>.
+
+<P>
+
+<H2><A NAME="SECTION001151000000000000000">&#160;</A>
+<A NAME="s3.guidelines">&#160;</A><A NAME="3941">&#160;</A>
+<BR>
+3.5.1 General Selection Tool Guidelines
+</H2>
+
+<P>
+This chapter has presented the six selection tools from the Toolbox as
+well as the <TT>By Color</TT> selection tool.  This leaves you with
+quite a few choices.  So, the question naturally arises, ``Which is
+the best tool to use?''  This section summarizes the tools discussed
+so far and describes their strengths and weaknesses.
+
+<P>
+The order of the summary is from the most useful selection tool to the
+least:
+<UL>
+<LI><TT>Bezier Path</TT><A NAME="3945">&#160;</A>: Of the seven choices, this
+is the most useful selection tool because it is the most flexible and
+the most versatile.  Combined with the associated tools available in
+the Paths dialog, this is the selection tool that will usually get the
+job done in the least amount of time.
+
+<P>
+The <TT>Bezier Path</TT> selection tool is not, however, a panacea.  When
+the selection subject's boundary is not smooth, it is impractical to
+use the <TT>Bezier Path</TT> tool.  Examples of difficult selections with
+this tool would be the image of a leafy tree or one of a woman's hair
+blowing in the breeze.  For these types of selections, other
+approaches are necessary (see Chapter&nbsp;<A HREF="node42.html#c4.masks">4</A>).
+
+<P>
+<LI><TT>Lasso</TT><A NAME="3950">&#160;</A><A NAME="3951">&#160;</A>:
+Although this tool is not useful for precision selection work, it is
+probably still the next most useful selection tool.  The <TT>Lasso</TT>
+is the best selection tool when only a rough selection is needed.
+Good examples of using the <TT>Lasso</TT> to separate image elements is
+illustrated in Sections&nbsp;<A HREF="node47.html#s4.threshold">4.5.3</A> and
+<A HREF="node69.html#s7.compositing.proj4">7.4</A>.
+
+<P>
+<LI><TT>Rectangle Select</TT><A NAME="3957">&#160;</A>: This selection
+tool is about as useful as the <TT>Lasso</TT>.  However, it is used for
+very different reasons.  This tool is valuable for framing (see
+Section&nbsp;<A HREF="node32.html#s2.layers.layer-resize">2.6.2</A>) and for the selective
+application of filters and gradients to layer edges (see, for example,
+Section&nbsp;<A HREF="node70.html#s7.blending">7.5.3</A>).
+
+<P>
+<LI><TT>By Color</TT><A NAME="3962">&#160;</A>: This selection tool is
+most useful for making selections in images that have several regions
+that consist of an almost uniform color.  Examples of this would be
+trying to select a large-font, solid-color text on a photographic
+image background or a complicated bitmapped image.  See
+Section&nbsp;<A HREF="node77.html#s8.carved">8.6</A> for a practical example.
+
+<P>
+<LI><TT>Ellipse Select</TT><A NAME="3965">&#160;</A>: This tool, like <TT>Rectangle Select</TT>, is also used for framing.  An example of using <TT>Ellipse Select</TT> in this way is shown in Section&nbsp;<A HREF="node36.html#s3.feathering">3.1.2</A>.
+It is also occasionally useful for selecting shapes that are known to
+be elliptical or circular, such as the clock illustrated in
+Section&nbsp;<A HREF="node40.html#s3.guides">3.5.4</A>.  This tool, however, is used less often than
+<TT>Rectangle Select</TT>.
+
+<P>
+<LI><TT>Magic Wand</TT><A NAME="3972">&#160;</A><A NAME="3973">&#160;</A>: This
+tool is based on a great concept but is difficult to use in practice.
+Fortunately, there is another technique based on almost the same idea
+but producing results with much greater control and flexibility.  This
+technique is based on the <TT>Threshold</TT> tool, which is described in
+more detail in Section&nbsp;<A HREF="node47.html#s4.threshold">4.5.3</A>.
+
+<P>
+<LI><TT>Intelligent Scissors</TT><A NAME="3977">&#160;</A>: In principle
+this tool should be good at selecting shapes that do not have smooth
+outlines, the shapes that are difficult for the <TT>Bezier Path</TT>
+tool.  Unfortunately, the performance of this tool is poor and I,
+personally, never use it.  I rank this tool as the least useful for
+making selections.
+
+<P>
+</UL>
+<P>
+
+<H2><A NAME="SECTION001152000000000000000">&#160;</A>
+<A NAME="3981">&#160;</A>
+<A NAME="3982">&#160;</A>
+<BR>
+3.5.2 Tool Conjugation
+</H2>
+
+<P>
+Often a selection is most efficiently made using a combination of
+tools.  For example, beginning a selection with the <TT>Magic
+Wand</TT><A NAME="3984">&#160;</A><A NAME="3985">&#160;</A> or with <TT>By
+Color</TT> can produce a result that is almost right but may be missing a
+component or may have included an unwanted element.  When this
+happens, the <TT>Lasso</TT> can often be used to correct the problem.
+
+<P>
+Figure&nbsp;<A HREF="node40.html#f.selections.conjugate">3.25</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.conjugate">&#160;</A><A NAME="3990">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.25:</STRONG>
+Selection Tool Teamwork</CAPTION>
+<TR><TD><IMG
+ SRC="img95.gif"
+ALT="Figure 3.25"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the selection of a flower made with the <TT>Magic Wand</TT>.  As
+can be seen, the flower has been almost completely selected.  However,
+it was impossible to include the central region of the flower by
+interactively adjusting the threshold without also including more of
+the background.  The value of the threshold used in
+Figure&nbsp;<A HREF="node40.html#f.selections.conjugate">3.25</A>(a) is seen in the <TT>Tool
+Options</TT> dialog for the <TT>Magic Wand</TT>, shown in
+Figure&nbsp;<A HREF="node40.html#f.selections.conjugate">3.25</A>(b).  The value of 59.9 seen in the
+dialog is just at the point where parts of the background started to
+be included in the selection.
+
+<P>
+Although the <TT>Magic Wand</TT> could not select all the desired parts
+of the flower, the remainder can be added to the selection using the
+<TT>Lasso</TT>.  Figure&nbsp;<A HREF="node40.html#f.selections.conjugate">3.25</A>(c) shows the process
+of making a selection with the <TT>Lasso</TT>.  Pressing the Shift key
+before clicking and dragging in the image window causes the new
+selection to be added to the one created by the <TT>Magic Wand</TT>.  The
+Shift key needs to be released before the selection is finished.
+Adding selections was described in
+Section&nbsp;<A HREF="node37.html#s3-2.combining-selections">3.2</A>.  Notice that under these
+circumstances the selection made with the <TT>Lasso</TT> need not be
+precise, which corresponds to the guidelines given for the <TT>Lasso</TT>
+in Section&nbsp;<A HREF="node40.html#s3.guidelines">3.5.1</A>.
+
+<P>
+The example of conjugating tools presented here is a little contrived
+because it is not often that the <TT>Magic Wand</TT> can be used
+practically in this way.  But it is illustrative of how the tools can
+be used together.  We will see much more of this in
+Chapters&nbsp;<A HREF="node42.html#c4.masks">4</A> and <A HREF="node65.html#c7.compositing">7</A> where the <TT>Threshold</TT> tool takes the place of the <TT>Magic Wand</TT>.
+
+<P>
+
+<H2><A NAME="SECTION001153000000000000000">&#160;</A>
+<A NAME="4014">&#160;</A>
+<A NAME="4015">&#160;</A>
+<BR>
+3.5.3 Using <TT>Zoom</TT>
+</H2>
+
+<P>
+One of the most useful tools that can be used in conjunction with the
+<TT>Bezier Path</TT> selection tool is the <TT>Zoom</TT> tool, found in the
+Toolbox and in the <TT>Image:View</TT> menu.  This tool was covered in
+some detail in Section&nbsp;<A HREF="node23.html#s1.zoom">1.8.1</A>; however, its value for aiding
+selections is emphasized here.
+
+<P>
+When attempting to perform a precise selection of a subject, it is
+essential to get in close to the pixels.
+Figure&nbsp;<A HREF="node40.html#f.selections.zoom1">3.26</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.zoom1">&#160;</A><A NAME="4022">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.26:</STRONG>
+Using Zoom to Aid with Selections</CAPTION>
+<TR><TD><IMG
+ SRC="img96.gif"
+ALT="Figure 3.26"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows a Bezier path of an airplane that is to be converted to a
+selection.  However, prior to the conversion it is desirable to
+examine the path to verify its accuracy.
+
+<P>
+Figure&nbsp;<A HREF="node40.html#f.selections.zoom1">3.26</A>(b) is a 400% zoom of
+Figure&nbsp;<A HREF="node40.html#f.selections.zoom1">3.26</A>(a).  As can be seen the control point
+of the Bezier path located at the junction of the right wing and the
+fuselage is not quite correctly positioned.  It is only through the
+use of <TT>Zoom</TT> that such a careful examination of the selection can
+be made.  It is quite easy to improve the positioning of the control
+point using the Edit Point mode button in the Paths dialog.
+
+<P>
+Although the <TT>Zoom</TT> tool was used in
+Figure&nbsp;<A HREF="node40.html#f.selections.zoom1">3.26</A>(b) to verify a Bezier path, it is
+often a good strategy to draw the path from the start in a zoomed
+window.  A useful tool for helping with this is the <TT>Navigation
+Window</TT>,<A NAME="4032">&#160;</A> found in the <TT>Image:View</TT> menu.
+Figure&nbsp;<A HREF="node40.html#f.selections.zoom1">3.26</A>(c) illustrates this tool, which
+consists of a thumbnail of the image with a panning rectangle
+superimposed on it.  This panning rectangle shows the part of the
+image that can be viewed in the zoomed image window.  The panning
+rectangle can be dragged with the left mouse button, and this makes
+the image in the zoomed window move in tandem with it.  In addition to
+the panning function of the <TT>Navigation Window</TT> it also contains +
+and - buttons, which can control the amount of zoom applied to the
+image window.
+
+<P>
+
+<H2><A NAME="SECTION001154000000000000000">&#160;</A>
+<A NAME="s3.guides">&#160;</A><A NAME="4038">&#160;</A>
+<A NAME="4039">&#160;</A>
+<A NAME="4040">&#160;</A>
+<BR>
+3.5.4 Selections and Guides
+</H2>
+
+<P>
+The image window guides (see Section&nbsp;<A HREF="node32.html#s2.guides">2.6.1</A>) can be used to
+accurately positioning a selection made with the <TT>Ellipse Select</TT>
+or <TT>Rectangle Select</TT> tools.  An example of the former is
+illustrated in Figure&nbsp;<A HREF="node40.html#f.selections.guides">3.27</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.guides">&#160;</A><A NAME="4046">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.27:</STRONG>
+Positioning an Elliptical Selection Using the Guides</CAPTION>
+<TR><TD><IMG
+ SRC="img97.gif"
+ALT="Figure 3.27"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The figure shows a clock and also shows horizontal and vertical
+guides that have been
+positioned tangent to the perimeter of the clock's upper and left
+edges.
+
+<P>
+Choosing the <TT>Ellipse Select</TT> tool from the Toolbox, the selection
+is begun by clicking and dragging from the intersection of the two
+guides.  If the <TT>Snap to Guides</TT> checkbox in the <TT>Image:View</TT>
+menu is toggled on, the initial point for the selection snaps to the
+guides' intersection.  Because the guides are tangent to the clock's
+perimeter, dragging the mouse until the selection touches the two
+tangent points perfectly completes the selection.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1407"
+ HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1403"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1397"
+ HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1405"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1406"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1408"
+ HREF="node41.html">3.6 Common Problems and</A>
+<B> Up:</B> <A NAME="tex2html1404"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1398"
+ HREF="node39.html">3.4 The Paths Dialog</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

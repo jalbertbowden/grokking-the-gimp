@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>6.1 Improving Tonal Range</TITLE>
+<META NAME="description" CONTENT="6.1 Improving Tonal Range">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node61.html">
+<LINK REL="previous" HREF="node59.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node61.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1735"
+ HREF="node61.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1731"
+ HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1725"
+ HREF="node59.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1733"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1734"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1736"
+ HREF="node61.html">6.2 Removing Color Casts</A>
+<B> Up:</B> <A NAME="tex2html1732"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<B> Previous:</B> <A NAME="tex2html1726"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1737"
+ HREF="node60.html#SECTION001411000000000000000">6.1.1 Highlights and Shadows</A>
+<LI><A NAME="tex2html1738"
+ HREF="node60.html#SECTION001412000000000000000">6.1.2 Using the <TT>Levels</TT> Tool</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001410000000000000000">&#160;</A>
+<A NAME="s6.tonal-range">&#160;</A><A NAME="8760">&#160;</A>
+<A NAME="8761">&#160;</A>
+<A NAME="8762">&#160;</A>
+<A NAME="8763">&#160;</A>
+<BR>
+6.1 Improving Tonal Range
+</H1>
+
+<P>
+Improving the tonal range of an image is the first step that should be
+taken in almost every effort to touch up and enhance a photo.  
+To do this, it is necessary to understand the basic elements
+of tonal range and the tools the GIMP provides to measure and
+affect it.
+
+<P>
+
+<H2><A NAME="SECTION001411000000000000000">&#160;</A>
+<A NAME="8765">&#160;</A>
+<A NAME="8766">&#160;</A>
+<A NAME="8767">&#160;</A>
+<BR>
+6.1.1 Highlights and Shadows
+</H2>
+
+<P>
+What is tonal range?  To answer this question, let's look at the
+grayscale photo shown in Figure&nbsp;<A HREF="node60.html#f.touchup.grayscale">6.1</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.grayscale">&#160;</A><A NAME="8770">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.1:</STRONG>
+Highlights and Shadows in a Grayscale Image</CAPTION>
+<TR><TD><IMG
+ SRC="img203.gif"
+ALT="Figure 6.1"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The figure shows a tiger image consisting of a complete range of
+grayscale values from 0, or completely black, to 255, fully white.
+Furthermore, from the histogram<A NAME="8774">&#160;</A> shown
+in Figure&nbsp;<A HREF="node60.html#f.touchup.grayscale">6.1</A>(b), you can see that the
+distribution of pixel values in the image smoothly covers the entire
+available range.  The histogram shown in
+Figure&nbsp;<A HREF="node60.html#f.touchup.grayscale">6.1</A>(b) is part of the <TT>Levels</TT> tool,
+which is discussed in detail in the next section.
+
+<P>
+The lightest part of an image is called the <EM>highlight</EM> and the
+darkest is called the <EM>shadow</EM>.  It is important to note that not
+all images will have the maximum highlight of 255 and/or the minimum
+shadow of 0.  Thus, the tonal range of an image is just the numeric
+difference between the image's maximum highlight and its minimum
+shadow.  You will see shortly that measuring highlight and shadow
+values is useful for performing image enhancement, but before
+developing this idea, let's examine why tonal range is so important.
+
+<P>
+Having a full tonal range is generally a good thing.  A full tonal
+range means that the image has, in a general sense, the fullest
+possible contrast.  To illustrate this idea, the tonal range of the
+image in Figure&nbsp;<A HREF="node60.html#f.touchup.grayscale">6.1</A>(a) can be synthetically
+diminished by setting the output sliders of the <TT>Levels</TT> tool to
+values well inside the range of 0 to 255.  This adjustment is shown
+Figure&nbsp;<A HREF="node60.html#f.touchup.grayscale2">6.2</A>(b),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.grayscale2">&#160;</A><A NAME="8784">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.2:</STRONG>
+Limited Tonal Range</CAPTION>
+<TR><TD><IMG
+ SRC="img204.gif"
+ALT="Figure 6.2"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and the result on the image is shown in
+Figure&nbsp;<A HREF="node60.html#f.touchup.grayscale2">6.2</A>(c).  Here, you can see the effect of
+compressing the tonal range.  Figure&nbsp;<A HREF="node60.html#f.touchup.grayscale2">6.2</A>(b)
+shows the settings of the <TT>Levels</TT> tool used to limit the tonal
+range.  Notice that the resulting contrast of the image in
+Figure&nbsp;<A HREF="node60.html#f.touchup.grayscale2">6.2</A>(c) is much poorer than the contrast
+in Figure&nbsp;<A HREF="node60.html#f.touchup.grayscale2">6.2</A>(a).  The image with the smaller
+tonal range looks muddy and washed out in comparison to the original.
+
+<P>
+This example is based on a grayscale image whose tonal range has been
+synthetically impoverished.  Nevertheless, the conclusions that can be
+drawn from it are general.  That is, maximizing tonal range is usually
+a great way to enhance an image.  However, sometimes it is better not
+to maximize the tonal range.  An image of white lace gloves on a white
+linen tablecloth background is such an example.  Under these
+circumstances, there is a subtle interplay of whites and off-whites in
+the image, and a deep black shadow is most likely undesirable.  In
+most cases, however, getting the most tonal range out of an image
+improves contrast, which in turn significantly enhances the image.
+
+<P>
+
+<H2><A NAME="SECTION001412000000000000000">&#160;</A>
+<A NAME="s6.levels">&#160;</A><A NAME="8795">&#160;</A>
+<A NAME="8796">&#160;</A>
+<BR>
+6.1.2 Using the <TT>Levels</TT> Tool
+</H2>
+
+<P>
+The <TT>Levels</TT> tool is found in the <TT>Image:Image/Colors</TT> menu,
+and it was used in the previous section to examine the tonal range of
+a grayscale image.  The features of this tool and how it can be
+applied to color images is discussed in detail here.
+
+<P>
+Figure&nbsp;<A HREF="node60.html#f.touchup.levels0">6.3</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.levels0">&#160;</A><A NAME="9438">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.3:</STRONG>
+The <TT> Levels</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img205.gif"
+ALT="Figure 6.3"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the <TT>Levels</TT> dialog.  Note that the Channels menu is
+open in the figure, showing five different channels that can be
+displayed and modified.  Because we are interested in color
+correction, only the Red, Green, and Blue channels apply in this
+section.
+
+<P>
+The histogram is a very important feature of the <TT>Levels</TT> tool
+because it immediately shows whether a channel occupies its entire
+tonal range or not.  Just below the histogram is a grayscale called
+the <EM>input value domain</EM>.<A NAME="8808">&#160;</A>  In this
+grayscale, black represents pixel values of 0 and white values of 255.
+Thus, for the Green channel shown in Figure&nbsp;<A HREF="node60.html#f.touchup.levels0">6.3</A>,
+the black of the input value domain represents dark values of green
+and the white represents bright values of green.  Having no histogram
+over a part of the input value range means that there are no pixels in
+the image having these values.  Thus, in
+Figure&nbsp;<A HREF="node60.html#f.touchup.levels0">6.3</A>, you can see that there is a lack of
+tonal range because there are significant parts of the upper and lower
+input value range that have no histogram values over them.
+
+<P>
+The remaining features of the <TT>Levels</TT> dialog are for adjusting
+the distribution of the histogram.  The leftmost and rightmost arrows
+of the <EM>input control slider</EM><A NAME="8813">&#160;</A> are used
+for stretching the tonal range of the image; the middle arrow can be
+used to warp the range.  The leftmost arrow is called the shadow
+control arrow, the rightmost is the highlight control arrow, and the
+middle is the midtone control arrow.  The arrows of the <EM>output
+control slider</EM><A NAME="8815">&#160;</A> are used for shrinking
+the tonal range.  Adjustments to the control arrows can be made
+interactively by clicking and dragging them.  The arrows can also be
+controlled numerically by entering values for the min, gamma, and max
+input levels or for the min and max output levels.
+
+<P>
+The following example shows how the adjustment features of the <TT>Levels</TT> tool function.  Figure&nbsp;<A HREF="node60.html#f.touchup.levels1">6.4</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.levels1">&#160;</A><A NAME="8819">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.4:</STRONG>
+Image of Deep Sea Turtle Having Compressed Tonal Range</CAPTION>
+<TR><TD><IMG
+ SRC="img206.gif"
+ALT="Figure 6.4"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows an image that has a severely compressed tonal range.  This can
+be seen by looking at the distribution of pixel values in the Red,
+Green, and Blue channels shown in Figures&nbsp;<A HREF="node60.html#f.touchup.levels2">6.5</A>(a),
+(b), and (c), respectively.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.levels2">&#160;</A><A NAME="8825">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.5:</STRONG>
+Levels for R, G, and B Channels</CAPTION>
+<TR><TD><IMG
+ SRC="img207.gif"
+ALT="Figure 6.5"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The figure shows that the Red channel has the poorest tonal range.
+The Green and Blue channels, which are similar to each other, have
+tonal ranges that are hardly much better.
+
+<P>
+Figure&nbsp;<A HREF="node60.html#f.touchup.levels3">6.6</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.levels3">&#160;</A><A NAME="8831">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.6:</STRONG>
+Levels for R, G, and B Channels with Adjusted Input Control Arrows</CAPTION>
+<TR><TD><IMG
+ SRC="img208.gif"
+ALT="Figure 6.6"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how the input shadows and highlights have been set for each of
+the channels, and the resulting image is shown in
+Figure&nbsp;<A HREF="node60.html#f.touchup.levels4">6.7</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.levels4">&#160;</A><A NAME="8837">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.7:</STRONG>
+Deep Sea Turtle with Maximized Tonal Range</CAPTION>
+<TR><TD><IMG
+ SRC="img209.gif"
+ALT="Figure 6.7"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+which shows that this simple readjustment of levels, producing a
+maximum tonal range, has greatly improved the image.  The turtle now
+seems to pop right off the page, and the depth of field seems almost
+three dimensional.  In comparison, the turtle in
+Figure&nbsp;<A HREF="node60.html#f.touchup.levels1">6.4</A> seems flat, the colors are muddy, and
+the image lacks life.
+
+<P>
+The maximization of an image's tonal range using the <TT>Levels</TT> tool
+can introduce color casts (see Section&nbsp;<A HREF="node61.html#s6.color-casts">6.2</A> for a
+definition of color casts).  In fact, the turtle in
+Figure&nbsp;<A HREF="node60.html#f.touchup.levels4">6.7</A> appears to have a slight magenta cast.
+But don't worry!  Color casts introduced using the <TT>Levels</TT> tool
+can be corrected using the <TT>Curves</TT> tool, which is treated in the
+next section.
+
+<P>
+A final note before leaving this section is appropriate.  The <TT>Levels</TT> dialog shown in Figure&nbsp;<A HREF="node60.html#f.touchup.levels0">6.3</A> shows a button
+labeled Auto Levels.  This button pretty much automates what has been
+described in this section.  That is, it maximizes the tonal range in
+the Red, Green, and Blue channels.  In fact, it moves the shadow and
+highlight input control sliders for each channel to about the 5% and
+95% points of the histogram.  After applying Auto Levels, any of the
+Red, Green, or Blue channels can be reviewed and modified.  
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1735"
+ HREF="node61.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1731"
+ HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1725"
+ HREF="node59.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1733"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1734"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1736"
+ HREF="node61.html">6.2 Removing Color Casts</A>
+<B> Up:</B> <A NAME="tex2html1732"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<B> Previous:</B> <A NAME="tex2html1726"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

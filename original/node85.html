@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>9.6 Semi-Transparency and Indexed Images</TITLE>
+<META NAME="description" CONTENT="9.6 Semi-Transparency and Indexed Images">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node86.html">
+<LINK REL="previous" HREF="node84.html">
+<LINK REL="up" HREF="node79.html">
+<LINK REL="next" HREF="node86.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html2092"
+ HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2088"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2082"
+ HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2090"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2091"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2093"
+ HREF="node86.html">9.7 Which Format GIF</A>
+<B> Up:</B> <A NAME="tex2html2089"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2083"
+ HREF="node84.html">9.5 Web-Safe Color</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001760000000000000000">&#160;</A>
+<A NAME="13581">&#160;</A>
+<A NAME="13582">&#160;</A>
+<A NAME="13583">&#160;</A>
+<A NAME="13584">&#160;</A>
+<BR>
+9.6 Semi-Transparency and Indexed Images
+</H1>
+
+<P>
+Semi-transparency presents a particularly knotty problem when
+converting an image to Indexed format.  This is a problem for indexed
+images because they only support alpha values of 0 (fully transparent)
+and 255 (fully opaque).  When converting to Indexed format, partially
+transparent pixels (that is, with alpha values in the range 1 to 254)
+have their alpha values forced to 0 or 255.  This is a problem for
+antialiasing<A NAME="13585">&#160;</A> (see Section&nbsp;<A HREF="node36.html#s3.anti-aliasing">3.1.2</A>)
+and for the general use of transparency in indexed images.
+
+<P>
+Fortunately, there is a solution.  The <TT>Semi-Flatten</TT><A NAME="13588">&#160;</A><A NAME="13589">&#160;</A><A NAME="13590">&#160;</A> plug-in is a work-around for the
+problem of semi-transparency in indexed images.  This filter, found in
+the <TT>Image:Filters/Colors</TT> menu, requires knowing the background
+color that will be used beneath the semi-transparent image.  If you
+can't determine the background color in advance, the <TT>Semi-Flatten</TT> filter cannot help you.
+
+<P>
+To use the <TT>Semi-Flatten</TT> filter, you must determine the color
+that will be behind the semi-transparent image and you must specify it
+in the <TT>Active Background Color</TT> patch in the Toolbox window.  The
+<TT>Color Picker</TT><A NAME="13596">&#160;</A> tool can be useful for
+determining colors, and although the <TT>Color Picker</TT> automatically
+sets the <TT>Active Foreground Color</TT> you can easily toggle this
+color to the background by clicking on the <TT>Switch Colors</TT> icon
+(the two-headed arrow above the foreground/background color patches in
+the Toolbox).  The semi-flattening process combines the <TT>Active
+Background Color</TT> with the layer colors in proportion to the layer's
+alpha values.
+
+<P>
+As an example, Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat1">9.30</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.semi-flat1">&#160;</A><A NAME="13603">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.30:</STRONG>
+Antialiased Text After Conversion to Indexed...Yeeeks!</CAPTION>
+<TR><TD><IMG
+ SRC="img360.gif"
+ALT="Figure 9.30"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates how a conversion to Indexed format ruins the antialiasing
+of some text.  Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat1">9.30</A>(a) shows a
+transparent layer containing the letter K from the Comicscartoon font
+at a size of 275 pixels.  Antialiasing was turned on when the text was
+created; however, when this image is converted to indexed format the
+antialiasing is lost, as can be more plainly seen when the letter is
+placed over a yellow background.  This is shown in
+Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat1">9.30</A>(b).  The jagged staircase effect
+is clearly visible at the edges of the letter.
+Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat1">9.30</A>(c) shows the disposition of the
+two layers in the Layers dialog.
+	
+Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat2">9.31</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.semi-flat2">&#160;</A><A NAME="13679">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.31:</STRONG>
+Using <TT> Semi-Flatten</TT> to Preserve the Effect of Semi-Transparency</CAPTION>
+<TR><TD><IMG
+ SRC="img361.gif"
+ALT="Figure 9.31"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how using <TT>Semi-Flatten</TT> resolves the antialiasing problem.
+Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat2">9.31</A>(a) displays the Toolbox window,
+which shows that the <TT>Active Background Color</TT> patch has been set
+to the yellow color seen in Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat1">9.30</A>(b).
+Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat2">9.31</A>(b) shows a zoomed version of the
+result after applying <TT>Semi-Flatten</TT> to
+Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat1">9.30</A>(a).  The edges of the letter K
+now show that the semi-transparent pixels that were used for
+antialiasing have taken on color values between the black of the
+letter and the yellow of the <TT>Active Background Color</TT>.  Pixels
+that were fully transparent have remained so.  The result of placing
+this layer over a yellow background layer is shown in
+Figure&nbsp;<A HREF="node85.html#f.web_centric.semi-flat2">9.31</A>(c).  You can see that the
+antialiasing effect has been conserved.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2092"
+ HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2088"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2082"
+ HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2090"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2091"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2093"
+ HREF="node86.html">9.7 Which Format GIF</A>
+<B> Up:</B> <A NAME="tex2html2089"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2083"
+ HREF="node84.html">9.5 Web-Safe Color</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

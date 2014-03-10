@@ -1,0 +1,679 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>4.5 Masks and Selections</TITLE>
+<META NAME="description" CONTENT="4.5 Masks and Selections">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node48.html">
+<LINK REL="previous" HREF="node46.html">
+<LINK REL="up" HREF="node42.html">
+<LINK REL="next" HREF="node48.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1533"
+ HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1529"
+ HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1523"
+ HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1531"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1532"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1534"
+ HREF="node48.html">4.6 Common Problems and</A>
+<B> Up:</B> <A NAME="tex2html1530"
+ HREF="node42.html">4. Masks</A>
+<B> Previous:</B> <A NAME="tex2html1524"
+ HREF="node46.html">4.4 Conversions of Selections,</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1535"
+ HREF="node47.html#SECTION001251000000000000000">4.5.1 Using Masks to Refine Selections</A>
+<LI><A NAME="tex2html1536"
+ HREF="node47.html#SECTION001252000000000000000">4.5.2 The Quick Mask</A>
+<LI><A NAME="tex2html1537"
+ HREF="node47.html#SECTION001253000000000000000">4.5.3 Finding the Natural Mask</A>
+<UL>
+<LI><A NAME="tex2html1538"
+ HREF="node47.html#SECTION001253100000000000000">4.5.3.1 Working with the <TT>Threshold</TT> Tool</A>
+<LI><A NAME="tex2html1539"
+ HREF="node47.html#SECTION001253200000000000000">4.5.3.2 The <TT>Threshold</TT> Tool Versus the <TT>Magic Wand</TT></A>
+<LI><A NAME="tex2html1540"
+ HREF="node47.html#SECTION001253300000000000000">4.5.3.3 Threshold and Decompose</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001250000000000000000">
+4.5 Masks and Selections</A>
+</H1>
+
+<P>
+Chapter&nbsp;<A HREF="node35.html#c3.selections">3</A> described in detail the use of the GIMP's
+selection tools; however, that discussion is incomplete.  A full
+understanding of how to effectively work with selections requires a
+discussion on how to integrate masks.  This section shows how masks
+are complementary to the selection tools and illustrates why the
+combination of selections and masks is so powerful.
+
+<P>
+
+<H2><A NAME="SECTION001251000000000000000">&#160;</A>
+<A NAME="s4.refining">&#160;</A><A NAME="5722">&#160;</A>
+<A NAME="5723">&#160;</A>
+<A NAME="5724">&#160;</A>
+<A NAME="5725">&#160;</A>
+<BR>
+4.5.1 Using Masks to Refine Selections
+</H2>
+
+<P>
+Masks are terrific tools for refining selections.  A careful
+examination of a mask can often reveal several problems.
+Figure&nbsp;<A HREF="node47.html#f.masks.refine1">4.36</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.refine1">&#160;</A><A NAME="5728">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.36:</STRONG>
+Image Illustrating a Selection</CAPTION>
+<TR><TD><IMG
+ SRC="img133.gif"
+ALT="Figure 4.36"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates a selection made with the <TT>Bezier Path</TT> tool.  As will
+be seen in a moment, this selection exhibits the three basic types of
+selection problems.  To better examine these problems, the selection
+is converted to a channel mask, and the selection itself is canceled.
+
+<P>
+The resulting channel mask is shown in Figure&nbsp;<A HREF="node47.html#f.masks.refine2">4.37</A>(a),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.refine2">&#160;</A><A NAME="5735">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.37:</STRONG>
+A Mask Converted from the Selection</CAPTION>
+<TR><TD><IMG
+ SRC="img134.gif"
+ALT="Figure 4.37"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and Figure&nbsp;<A HREF="node47.html#f.masks.refine2">4.37</A>(b) shows the associated Channels
+dialog.  Because it is difficult to make out the light blue water
+background through a 50% transparent, black channel mask, the color
+of the mask has been changed to yellow, as shown in
+Figure&nbsp;<A HREF="node47.html#f.masks.refine2">4.37</A>(c).
+
+<P>
+To see the problems associated with the selection, the <TT>Zoom</TT><A NAME="5742">&#160;</A> tool is used to magnify the image window.  This
+produces the result shown in Figure&nbsp;<A HREF="node47.html#f.masks.refine3">4.38</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.refine3">&#160;</A><A NAME="5745">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.38:</STRONG>
+Illustrating the Three Basic Selection Problems</CAPTION>
+<TR><TD><IMG
+ SRC="img135.gif"
+ALT="Figure 4.38"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This figure shows that in several regions the light blue color of the
+background is showing through from around the edges of the yellow
+mask.  This means that these pixels have been erroneously included as
+part of the selection.
+
+<P>
+Figure&nbsp;<A HREF="node47.html#f.masks.refine3">4.38</A>(b) shows the same image as in
+Figure&nbsp;<A HREF="node47.html#f.masks.refine3">4.38</A>(a), but with the colors of the mask
+inverted.  The color inversion is done by making the channel mask
+active and then using the <TT>Invert</TT><A NAME="5752">&#160;</A><A NAME="5753">&#160;</A><A NAME="5754">&#160;</A> function found in the <TT>Image:Image/Colors</TT> menu.
+Inverting the colors inverts the regions of the mask that correspond
+to selected and unselected pixels in the image.  Now it can be seen
+that in some places, the dark pixels from the subject are showing
+through around the mask edges.  This means that they are mistakenly
+not included in the set of selected pixels.
+
+<P>
+Finally, in both Figures&nbsp;<A HREF="node47.html#f.masks.refine3">4.38</A>(a) and (b) a
+rough-edge, aliasing effect can be seen.
+
+<P>
+Each of these three problems can be solved by refining the mask.  This
+can be accomplished using several different methods, but for this type
+of fine work near a mask edge, the best choice is the <TT>Airbrush</TT><A NAME="5758">&#160;</A> tool from the Toolbox.  The <TT>Airbrush</TT>
+can apply a very light coat of paint, so it is a great touch-up tool.
+Working near the edge requires some blending of the background with
+the subject to avoid aliasing.  When used with a light pressure the
+<TT>Airbrush</TT> is perfect for this.  
+
+<P>
+Figure&nbsp;<A HREF="node47.html#f.masks.airbrush">4.39</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.airbrush">&#160;</A><A NAME="6041">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.39:</STRONG>
+Introducing the <TT> Airbrush</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img136.gif"
+ALT="Figure 4.39"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Tool Options</TT> dialog<A NAME="5768">&#160;</A> for the
+<TT>Airbrush</TT>.  It is the Pressure option that interests us here.
+The Pressure slider is in units of percent, and the default value of
+10% is shown in Figure&nbsp;<A HREF="node47.html#f.masks.airbrush">4.39</A>(a).  The effect of
+using 10% pressure in conjunction with the soft brush chosen in
+Figure&nbsp;<A HREF="node47.html#f.masks.airbrush">4.39</A>(b) produces the top line painted in
+Figure&nbsp;<A HREF="node47.html#f.masks.airbrush">4.39</A>(c).  Each of the other lines is painted
+with the Pressure value labeled to the right of the line.  This figure
+shows that, for low pressures, the <TT>Airbrush</TT> tool produces a very
+light layer of paint, great for touching up imperfect and aliased
+edges like the ones seen in Figure&nbsp;<A HREF="node47.html#f.masks.refine3">4.38</A>.
+
+<P>
+Using the <TT>Airbrush</TT> tool on the problem pixels shown in
+Figure&nbsp;<A HREF="node47.html#f.masks.refine3">4.38</A> produces the results shown in
+Figure&nbsp;<A HREF="node47.html#f.masks.refine4">4.40</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.refine4">&#160;</A><A NAME="6043">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.40:</STRONG>
+Solving the Three Basic Selection Problems with the <TT> Airbrush</TT> Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img137.gif"
+ALT="Figure 4.40"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The technique used in applying the <TT>Airbrush</TT> tool is as follows:
+<DL COMPACT>
+<DT>1.
+<DD>Make the channel mask active.
+<DT>2.
+<DD>Use the <TT>Zoom</TT> tool to magnify the image to a sufficient
+resolution so that the paint can be applied to the problem edge areas
+with precision.
+<DT>3.
+<DD>Set the <TT>Active Foreground Color</TT> to black by typing <TT>d</TT> in
+the image window.<A NAME="5788">&#160;</A>
+<DT>4.
+<DD>Lightly apply black paint to the problem areas with the <TT>Airbrush</TT>
+tool.  The black paint is useful for removing pixels which should not
+be part of the selection.
+<DT>5.
+<DD>Invert the mask colors using <TT>Invert</TT> from the <TT>Image:Image/Colors</TT> menu, and work the new problem areas.  Because of
+the inversion of color, now the black paint is useful for including
+pixels that should be part of the selection.
+<DT>6.
+<DD>Evaluate the precision of the applied paint, and correct for mistakes
+by making liberal use of the <TT>Undo</TT> (<TT>C-z</TT>) and <TT>Redo</TT>
+(<TT>C-r</TT>) functions.
+</DL>
+<P>
+
+<H2><A NAME="SECTION001252000000000000000">&#160;</A>
+<A NAME="s4.quick-mask">&#160;</A><A NAME="5799">&#160;</A>
+<BR>
+4.5.2 The Quick Mask
+</H2>
+
+<P>
+The previous section showed you how a channel mask could be used
+to refine a selection.  This is so useful that the GIMP has a special
+pair of function buttons on the image window allowing a selection to
+be quickly converted to a channel mask and vice versa.  These are
+called the <TT>Quick Mask</TT> buttons.  
+
+<P>
+Figure&nbsp;<A HREF="node47.html#f.masks.quick-mask1">4.41</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.quick-mask1">&#160;</A><A NAME="5803">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.41:</STRONG>
+Using the Quick Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img138.gif"
+ALT="Figure 4.41"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image with a selection.  It also shows a button circled
+at the lower-left side of the image window containing a red square
+icon.  This is the <TT>Quick Mask</TT> button.  Clicking on it 
+converts the selection to a mask, as shown in
+Figure&nbsp;<A HREF="node47.html#f.masks.quick-mask1">4.41</A>(b).  The button shown circled in
+Figure&nbsp;<A HREF="node47.html#f.masks.quick-mask1">4.41</A>(b) contains an icon showing a square
+drawn in a dashed line and resembling the Marching Ants.  Clicking on
+this button reverts the quick mask to a selection.  Thus, the <TT>Quick Mask</TT> buttons can be used to quickly convert a selection to a
+mask that can then be edited, as described in
+Section&nbsp;<A HREF="node47.html#s4.refining">4.5.1</A>, before being converted back to a selection.
+
+<P>
+Figure&nbsp;<A HREF="node47.html#f.masks.quick-mask2">4.42</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.quick-mask2">&#160;</A><A NAME="5814">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.42:</STRONG>
+Quick Mask Options</CAPTION>
+<TR><TD><IMG
+ SRC="img139.gif"
+ALT="Figure 4.42"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows two features of the <TT>Quick Mask</TT> buttons.  Double-clicking
+either of the buttons brings up the <TT>Edit Qmask
+Attributes</TT><A NAME="5820">&#160;</A> dialog.  This dialog,
+shown in Figure&nbsp;<A HREF="node47.html#f.masks.quick-mask2">4.42</A>(a), permits the default
+opacity and color of the mask to be modified.  The second feature of
+the quick mask is shown in Figure&nbsp;<A HREF="node47.html#f.masks.quick-mask2">4.42</A>(b).  When
+the quick mask is created, it also appears in the Channels dialog with
+the label Qmask in the Channel Title area.  This channel exists only
+as long as the quick mask and disappears as soon as the mask is
+reverted to a selection.
+
+<P>
+
+<H2><A NAME="SECTION001253000000000000000">&#160;</A>
+<A NAME="5824">&#160;</A>
+<A NAME="5825">&#160;</A>
+<A NAME="5826">&#160;</A>
+<A NAME="5827">&#160;</A>
+<BR>
+4.5.3 Finding the Natural Mask
+</H2>
+
+<P>
+Performing a selection requires separating the subject, the part of
+the image that interests us, from the background.  Often the subject
+has colorspace features that differentiate it from the background, and
+the goal of this section is to explain how to exploit this fact.
+Since the techniques described in this section depend on using an
+image's natural color features to make the selection, I call this <EM>finding the natural mask</EM>.  The methods are based on using two primary
+tools: <TT>Threshold</TT>, found in the <TT>Image:Image/Colors</TT> menu,
+and <TT>Decompose</TT>, found in <TT>Image:Image/Mode</TT>.  The natural
+mask approach often allows the subject to be extracted in a single,
+bold operation.
+
+<P>
+
+<H3><A NAME="SECTION001253100000000000000">&#160;</A>
+<A NAME="s4.threshold">&#160;</A>
+<BR>
+4.5.3.1 Working with the <TT>Threshold</TT> Tool
+</H3>
+
+<P>
+The <TT>Threshold</TT> tool allows you to specify a range of values in an
+image.  All the pixels that are in the range of the selected values
+are mapped to white, and the rest are mapped to black.  <TT>Threshold</TT> is a powerful tool for automatically creating masks.  This
+is illustrated in the following example.
+
+<P>
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold0">4.43</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.threshold0">&#160;</A><A NAME="5839">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.43:</STRONG>
+Pasting the Image into Its Own Channel Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img140.gif"
+ALT="Figure 4.43"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the first step of using <TT>Threshold</TT> to create a
+natural mask.  In the example, we want to make a selection of the
+partially blooming flower in Figure&nbsp;<A HREF="node47.html#f.masks.threshold0">4.43</A>(a).  We
+begin by copying the image in Figure&nbsp;<A HREF="node47.html#f.masks.threshold0">4.43</A>(a) into
+a channel mask.  This is done by creating a new channel mask in the
+Channels dialog, and then copying and pasting the image layer to the
+mask using <TT>C-c</TT> and <TT>C-v</TT> (see
+Section&nbsp;<A HREF="node30.html#s2.layers.cut-paste">2.4</A>).
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold0">4.43</A>(b) shows the resulting Channels
+dialog, and Figure&nbsp;<A HREF="node47.html#f.masks.threshold0">4.43</A>(c) shows that yellow is
+chosen as the mask color.  This color was chosen to contrast against
+the dark background of Figure&nbsp;<A HREF="node47.html#f.masks.threshold0">4.43</A>(a).  Since a
+channel mask is only 8 bits deep, pasting the color image into the
+channel mask immediately converts it to a grayscale.  This can be seen
+in Figure&nbsp;<A HREF="node47.html#f.masks.threshold0">4.43</A>(d), which was obtained by toggling
+on the channel mask's Eye icon and toggling off the image layer's Eye
+icon.
+
+<P>
+The <TT>Threshold</TT> dialog works by clicking and dragging out a part
+of the range of values in the histogram.  The range of values in the
+histogram is in [0,255], and, as can be seen in
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold00">4.44</A>(b),
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.threshold00">&#160;</A><A NAME="6049">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.44:</STRONG>
+Applying <TT> Threshold</TT> to the Channel Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img141.gif"
+ALT="Figure 4.44"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+the range that has been selected is from 72 to 253.  Sweeping out
+values in the <TT>Threshold</TT> dialog's histogram immediately maps to
+white the pixels in the active layer (here the channel mask) having
+these values.  The pixels having values outside the swept range are
+mapped to black.  Thus, the channel mask that was a continuously
+varying grayscale image is converted to a binary black-and-white one.
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold00">4.44</A>(a) shows the channel mask before the
+application of <TT>Threshold</TT>, and
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold00">4.44</A>(c) shows the channel mask after the
+application of <TT>Threshold</TT>.
+
+<P>
+Toggling the image layer's Eye icon back on allows the channel mask to
+be seen over the image, as illustrated in
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold1">4.45</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.threshold1">&#160;</A><A NAME="5867">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.45:</STRONG>
+The Resulting Mask Defects as Seen in the Image Window</CAPTION>
+<TR><TD><IMG
+ SRC="img142.gif"
+ALT="Figure 4.45"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The parts of the image layer corresponding to the white parts of the
+channel mask can be seen clearly in the image window.  The parts of
+the image corresponding to black parts of the channel mask are masked
+by a partially transparent yellow film.  
+
+<P>
+As shown in Figure&nbsp;<A HREF="node47.html#f.masks.threshold1">4.45</A>, the result of using <TT>Threshold</TT> produces an almost perfect mask for the flower.  However,
+several defect regions remain.  There are certain parts of the image
+that should be masked but aren't, and there are parts that are masked
+but that shouldn't be.  These regions are easily removed using the
+<TT>Lasso</TT> and the <TT>Paintbrush</TT> tool.
+
+<P>
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold2">4.46</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.threshold2">&#160;</A><A NAME="6052">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.46:</STRONG>
+Using the <TT> Lasso</TT> Tool to Remove Defect Regions</CAPTION>
+<TR><TD><IMG
+ SRC="img143.gif"
+ALT="Figure 4.46"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how the <TT>Lasso</TT><A NAME="5882">&#160;</A><A NAME="5883">&#160;</A> has been used to select parts of the image that should be
+masked but aren't.  Because there are several offending regions, their
+selections have been combined using the methods described in
+Section&nbsp;<A HREF="node37.html#s3-2.combining-selections">3.2</A>.  The parts of the channel
+mask that are in the selected regions are repaired (that is, converted
+to black) in three steps.  The channel mask is made active by clicking
+on its thumbnail in the Channels dialog, the <TT>Active Background
+Color</TT> is set to black, as shown in
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold2">4.46</A>(b), and the selections are cut by
+typing <TT>C-x</TT> in the image window.  The result is shown in
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold2">4.46</A>(c).
+
+<P>
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold3">4.47</A> shows how the stalk of the flower,
+which was not included in the mask, is restored using the <TT>Paintbrush</TT><A NAME="5891">&#160;</A> tool.
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold3">4.47</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.threshold3">&#160;</A><A NAME="6054">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.47:</STRONG>
+Using the <TT> Paintbrush</TT> Tool to Fill in Missing Regions</CAPTION>
+<TR><TD><IMG
+ SRC="img144.gif"
+ALT="Figure 4.47"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the stalk of the flower zoomed by 300%, and
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold3">4.47</A>(b) and (c) show that white is chosen
+as the <TT>Active Foreground Color</TT> and that a small hard brush has been
+chosen from the <TT>Brush Selection</TT> dialog.  The <TT>Paintbrush</TT>
+cursor can be seen applying white paint to the mask over the region of
+the flower stalk in Figure&nbsp;<A HREF="node47.html#f.masks.threshold3">4.47</A>(a).  The
+semi-transparency of the mask facilitates the painting process.
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold3">4.47</A>(d) shows the result of having fully
+restored the flower stalk.
+
+<P>
+For the final step in this example, Figure&nbsp;<A HREF="node47.html#f.masks.threshold4">4.48</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.threshold4">&#160;</A><A NAME="5906">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.48:</STRONG>
+Converting the Mask to a Selection</CAPTION>
+<TR><TD><IMG
+ SRC="img145.gif"
+ALT="Figure 4.48"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how the <TT>Channel to Selection</TT> function is applied by
+clicking on its icon in the Channel dialog's button bar.  Turning off
+the visibility of the channel mask, the resulting selection is seen in
+Figure&nbsp;<A HREF="node47.html#f.masks.threshold4">4.48</A>(b).
+
+<P>
+This example shows how using <TT>Threshold</TT> can produce a selection
+much more quickly than would have been possible with the <TT>Bezier
+Path</TT> tool.  Making a Bezier path would have required placing and
+refining a large number of control points.  In contrast, the procedure
+employed with the <TT>Threshold</TT> tool required some experimentation
+with values in the tool's dialog, followed by some rough selections
+with the <TT>Lasso</TT> and some painting with the <TT>Paintbrush</TT>.
+
+<P>
+A key element to making the <TT>Threshold</TT> tool work efficiently is
+finding a reasonable range of values in the tool dialog's histogram.
+The example used in this section shows that it is not necessary to
+find a perfect mask.  Rather, the goal is to find a mask that
+separates the subject from the background enough so that tools such as
+the <TT>Lasso</TT> and the <TT>Paintbrush</TT> can be used to easily clean
+up the defects.
+
+<P>
+The range of values used to create the mask in this example is shown
+in Figure&nbsp;<A HREF="node47.html#f.masks.threshold00">4.44</A>(b).  It is important to understand
+that this result was obtained by using a trial-and-error, experimental
+approach.  Several contiguous regions of the histogram were swept out
+by the mouse, and, each time, the parts of the image that mapped to
+white and black were observed.  A tip for finding useful regions is to
+examine the ranges of values supporting the main bumps in the
+histogram.  These are usually associated with major image features,
+and it is often the case that one of these bumps is the solution to
+our search.  When a reasonable range has been discovered, the data
+entry boxes can be used to refine the end points of the range.
+
+<P>
+Although the <TT>Threshold</TT> tool is not a panacea and isn't
+guaranteed to work, it is often successful.  It is worth trying to
+apply the <TT>Threshold</TT> tool before launching into a long selection
+process with the <TT>Bezier Path</TT> tool.  Some good examples of using
+<TT>Threshold</TT> to make selection masks are illustrated in
+Sections&nbsp;<A HREF="node68.html#s7.compositing.proj3">7.3</A> and
+<A HREF="node69.html#s7.compositing.proj4">7.4</A>.
+
+<P>
+
+<H3><A NAME="SECTION001253200000000000000">&#160;</A>
+<A NAME="5929">&#160;</A><A NAME="5930">&#160;</A>
+<A NAME="5931">&#160;</A>
+<BR>
+4.5.3.2 The <TT>Threshold</TT> Tool Versus the <TT>Magic Wand</TT>
+</H3>
+
+<P>
+The <TT>Magic Wand</TT>, presented in Section&nbsp;<A HREF="node36.html#s3.magic-wand">3.1.1</A>, is
+very similar in principle to <TT>Threshold</TT> but not nearly as
+effective.  As already described, the <TT>Magic Wand</TT> works by
+choosing a seed pixel in the image and interactively setting a
+threshold that controls how many pixels around the seed are included
+in the selection.  Thus, if the value of the pixel at the seed is <I>S</I>,
+and the value of the threshold is <I>T</I>, then the range of pixel values
+that are included in the selection is [<I>S</I>-<I>T</I>,<I>S</I>+<I>T</I>].
+
+<P>
+Now suppose that the range of pixel values that separates the subject
+from the background is [<I>R</I><SUB>1</SUB>,<I>R</I><SUB>2</SUB>].  To make the <TT>Magic Wand</TT> work
+on this image, the threshold must have the value 
+<!-- MATH: $T=(R_2-R_1)/2$ -->
+<I>T</I>=(<I>R</I><SUB>2</SUB>-<I>R</I><SUB>1</SUB>)/2 and
+the seed must have the value 
+<!-- MATH: $S=(R_1+R_2)/2$ -->
+<I>S</I>=(<I>R</I><SUB>1</SUB>+<I>R</I><SUB>2</SUB>)/2.  The problem, then, is
+finding a pixel in the subject having the correct seed value that,
+when experimenting with threshold values, will produce an acceptable
+result.  This is impractical for several reasons, the main difficulty
+being that there is no way to use the visual feedback from several
+tries of the <TT>Magic Wand</TT> to discover a more refined solution.
+
+<P>
+On the other hand, <TT>Threshold</TT> requires only that the end points
+of the range be specified, so it's much better adapted to
+experimentation.  It is easy to try several contiguous value-regions,
+and the visual feedback from this is very useful for improving the
+search.  In addition, the histogram in the <TT>Threshold</TT> dialog
+provides important clues as to which regions may be most useful.
+
+<P>
+Finally, the algorithm used by the <TT>Magic Wand</TT> is slow, because
+for each change in the threshold value, it must recursively grow the
+selected region around the seed.  In comparison, the algorithm for
+<TT>Threshold</TT> is very fast, because it must only compare each pixel in
+the image with a threshold.
+
+<P>
+
+<H3><A NAME="SECTION001253300000000000000">&#160;</A>
+<A NAME="s4.decompose_threshold">&#160;</A><A NAME="5944">&#160;</A>
+<BR>
+4.5.3.3 Threshold and Decompose
+</H3>
+
+<P>
+In the previous sections, <TT>Threshold</TT> was applied directly to the
+image.  However, this tool can often be more effective when applied to
+an image color component.  The function <TT>Decompose</TT>, found in the
+<TT>Image:Image/Mode</TT> menu, can be used to separate an image into
+its RGB and HSV components.  When the decomposition is RGB, <TT>Decompose</TT> creates three grayscale images containing the red, green,
+and blue channels of the image.  For HSV, three grayscales are also
+created, but now they represent the hue, saturation, and value
+components of the image.  (See Chapter&nbsp;<A HREF="node49.html#c5.colorspaces">5</A> for an
+in-depth discussion of the relationship between an image and its RGB
+and HSV color components.)
+
+<P>
+Figure&nbsp;<A HREF="node47.html#f.masks.decompose1">4.49</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.decompose1">&#160;</A><A NAME="6058">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.49:</STRONG>
+A Flower Image and the <TT> Decompose</TT> dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img146.gif"
+ALT="Figure 4.49"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image of a flower, and
+Figure&nbsp;<A HREF="node47.html#f.masks.decompose1">4.49</A>(b) shows the <TT>Decompose</TT> dialog.
+Either an RGB or HSV decomposition of the image can be performed by
+clicking on the appropriate radio button.  The CMY<A NAME="5958">&#160;</A> decomposition is not useful, because it produces results
+that are identical to RGB when used with the <TT>Threshold</TT> tool.
+CMYK<A NAME="5960">&#160;</A> may produce interesting results, but only
+RGB and HSV are discussed here.
+
+<P>
+Figure&nbsp;<A HREF="node47.html#f.masks.decompose2">4.50</A>(a), (b), and (c) 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.masks.decompose2">&#160;</A><A NAME="5963">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 4.50:</STRONG>
+The RGB and HSV Decompositions of the Flower</CAPTION>
+<TR><TD><IMG
+ SRC="img147.gif"
+ALT="Figure 4.50"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+show the red, green, and blue components of the flower shown in
+Figure&nbsp;<A HREF="node47.html#f.masks.decompose1">4.49</A>(a).
+Figure&nbsp;<A HREF="node47.html#f.masks.decompose2">4.50</A>(d), (e), and (f) show the hue,
+saturation, and value components.  Note that for each of the
+components, the relationship between the flower and its background is
+different.  For example, the flower in both the red component and the
+saturation component seems to be better separated from the background
+than for the other components.  Because the flower is a brightly
+saturated orange-red, this should not be a surprise.  However, the
+point of using the <TT>Decompose</TT> tool is that it gives the <TT>Threshold</TT> tool an advantage that can be exploited when trying to
+extract a natural mask.  Examples of using this technique can be found
+in Sections&nbsp;<A HREF="node68.html#s7.compositing.proj3">7.3</A> and <A HREF="node69.html#s7.compositing.proj4">7.4</A>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1533"
+ HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1529"
+ HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1523"
+ HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1531"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1532"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1534"
+ HREF="node48.html">4.6 Common Problems and</A>
+<B> Up:</B> <A NAME="tex2html1530"
+ HREF="node42.html">4. Masks</A>
+<B> Previous:</B> <A NAME="tex2html1524"
+ HREF="node46.html">4.4 Conversions of Selections,</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

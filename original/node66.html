@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>7.1 Project 1: Fish on Holiday!</TITLE>
+<META NAME="description" CONTENT="7.1 Project 1: Fish on Holiday!">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node67.html">
+<LINK REL="previous" HREF="node65.html">
+<LINK REL="up" HREF="node65.html">
+<LINK REL="next" HREF="node67.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1830"
+ HREF="node67.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1826"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1820"
+ HREF="node65.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1828"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1829"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1831"
+ HREF="node67.html">7.2 Project 2: Through</A>
+<B> Up:</B> <A NAME="tex2html1827"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1821"
+ HREF="node65.html">7. Compositing</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001510000000000000000">&#160;</A>
+<A NAME="s7.compositing.proj1">&#160;</A><A NAME="10372">&#160;</A>
+<A NAME="10373">&#160;</A>
+<A NAME="10374">&#160;</A>
+<BR>
+7.1 Project 1: Fish on Holiday!
+</H1>
+
+<P>
+A primary component of compositing is the assembling of different
+image elements and the subsequent positioning and scaling required to
+achieve the final desired composition.  Assembling the image
+components consists of selecting them from their respective images.
+The selections are made using combinations of techniques from
+Chapters&nbsp;<A HREF="node35.html#c3.selections">3</A> and <A HREF="node42.html#c4.masks">4</A>.
+
+<P>
+Because I'm often not sure exactly how I'll use selected image
+components in a project, I first like to assemble all of them into a
+kind of clip book.<A NAME="10377">&#160;</A><A NAME="10378">&#160;</A>  A
+clip book is just a single image consisting of a layer for each image
+component.  This makes an image palette from which the various
+components can be copied and then pasted into the target composition.
+
+<P>
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club">7.1</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.fish-club">&#160;</A><A NAME="10381">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.1:</STRONG>
+Collection of Selected Sea Creatures</CAPTION>
+<TR><TD><IMG
+ SRC="img246.gif"
+ALT="Figure 7.1"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the image clip book used in this project.  Each sea creature was
+obtained from a separate image source using a combination of selection
+and masking techniques.  The Layers dialog in
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club">7.1</A>(b) shows that each of the six
+separate images is contained in a separate layer.  The project goal is
+to use these reef inhabitants to populate an eco-system not normally
+their own.  The composition places our denizens of the deep among the
+palms of a tropical island beach scene.  Sometimes even fish need a
+holiday...
+
+<P>
+The background image is shown in
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club2">7.2</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.fish-club2">&#160;</A><A NAME="10388">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.2:</STRONG>
+Pasting an Image Component into the Holiday Scene Background</CAPTION>
+<TR><TD><IMG
+ SRC="img247.gif"
+ALT="Figure 7.2"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This scene will receive all the other image elements.  The first
+element is the angel fish, which has been copied from
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club">7.1</A> and pasted into this one.  The
+following procedure is used to accomplish this:
+<DL COMPACT>
+<DT>1.
+<DD>Make the Angel Fish layer active by clicking on its thumbnail in the
+Layers dialog shown in Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club">7.1</A> (see
+Section&nbsp;<A HREF="node27.html#s2.layers-dialog">2.1.1</A> for more on active layers).
+<DT>2.
+<DD>Copy the Angel Fish layer to the default buffer by typing <TT>C-c</TT><A NAME="10397">&#160;</A> in the image window shown in
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club">7.1</A>.
+<DT>3.
+<DD>Paste the Angel Fish layer into the target image by typing <TT>C-v</TT>
+in the image window shown in Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club2">7.2</A>.
+This loads the Angel Fish layer into a floating selection.
+<DT>4.
+<DD>Make the float into a new layer by clicking on the <TT>New Layer</TT>
+button in the Layers dialog.
+</DL>
+<P>
+There are two features worth noting in
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club2">7.2</A>.  First, the Layers dialog shows
+that the new layer has been named Angel Fish to more easily identify
+it later.  Second, the Angel Fish layer's boundaries (the yellow and
+black dashed line) are visible in the image window because it is the
+active layer in the image.  The layer's boundaries can be toggled off
+by typing <TT>C-t</TT> in the image window.
+ 
+With respect to our composition, the first thing you might notice is
+that the angel fish seems too large for the background.  This can be
+fixed by shrinking the angel fish or by enlarging the background.  As
+already noted in Section&nbsp;<A HREF="node32.html#s2.layers.layer-scale">2.6.2</A>, it is almost
+always preferable to shrink an image element that is too large rather
+than to enlarge the element that is too small.  This is because
+enlarging an image requires interpolating pixel values, which
+introduces unpleasant image artifacts.  Always avoid this--unless, of
+course, the artifacts are desirable as an artistic device.
+
+<P>
+Thus, our first task is to scale the Angel Fish layer to a more
+fitting size for our scene.  This can be done in two ways, either with
+the <TT>Transform</TT> tool from the Toolbox or the <TT>Scale
+Layer</TT><A NAME="10408">&#160;</A> command found in the Layers menu.
+Section&nbsp;<A HREF="node32.html#s2.layers.layer-scale">2.6.2</A> describes both.  The <TT>Transform</TT> tool is used here because it is interactive and gives some
+visual feedback to the scaling process.  The Scaling option of the
+<TT>Transform</TT> tool is invoked by double-clicking on the <TT>Transform</TT> tool icon in the Toolbox, which brings up the <TT>Tool
+Options</TT> dialog.  The Scaling option can then be selected from the
+dialog, as shown in Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club3">7.3</A>(b).
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club3">7.3</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.fish-club3">&#160;</A><A NAME="10417">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.3:</STRONG>
+Scaling the Angel Fish</CAPTION>
+<TR><TD><IMG
+ SRC="img248.gif"
+ALT="Figure 7.3"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the result of using the <TT>Transform</TT> tool to scale the Angel
+Fish layer.
+
+<P>
+In scaling the Angel Fish layer, the aspect ratio has been preserved.
+This prevents the scaled layer from looking distorted.  The aspect
+ratio can be maintained manually by watching the <TT>Scaling
+Information</TT> dialog<A NAME="10423">&#160;</A> and keeping it
+manually adjusted during the scaling process.  The <TT>Scaling
+Information</TT> dialog provides interactive feedback about the X and Y
+Scale Ratios while the transform is being performed.  The aspect ratio
+is preserved by keeping the X Scale Ratio equal to the Y Scale Ratio.
+Alternatively, the Scaling option of the <TT>Transform</TT> tool can be
+constrained to preserve aspect ratio by pressing the Control and Alt
+keys while scaling.  In this example, the angel fish has been scaled
+to 60% of her original dimensions.  In the compositing process,
+however, this might be undone an redone several times to achieve the
+desired effect in the final result.
+
+<P>
+When the scaling of the angel fish is complete, she can be
+positioned<A NAME="10426">&#160;</A> using the <TT>Move</TT><A NAME="10428">&#160;</A> tool.  Her final location for this project is seen in
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club4">7.4</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.fish-club4">&#160;</A><A NAME="10431">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.4:</STRONG>
+The Beginnings of a Composition</CAPTION>
+<TR><TD><IMG
+ SRC="img249.gif"
+ALT="Figure 7.4"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Also seen in this figure is the result of repeating the preceding
+operations for each of the angel fish's friends.  Notice that it is
+not necessary for the repositioned image elements to be inside the
+boundaries of the background image window.  In fact, having layers
+that extend partially outside the boundaries can create more interest
+in their subject elements.
+
+<P>
+The final procedure performed in this project adds an element of depth
+to our composition.  The idea is to make the sea horse's tail look as
+if it is wrapped around a tree and to make the little red fish appear
+as if it is peaking out from behind another.  This is done with layer
+masks (see Section&nbsp;<A HREF="node44.html#s4.layer-masks">4.2</A>).  The
+elements of the procedure are shown in
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club5">7.5</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.fish-club5">&#160;</A><A NAME="10438">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.5:</STRONG>
+Using a Layer Mask to Create the Illusion of Depth</CAPTION>
+<TR><TD><IMG
+ SRC="img250.gif"
+ALT="Figure 7.5"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club5">7.5</A>(a) shows a zoom of the image
+centered around the sea horse.  As you can see from
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club5">7.5</A>(b), a layer mask<A NAME="10444">&#160;</A> has been added to the Sea Horse layer
+in the Layers dialog, and the Opacity slider has been set to 50%.
+This allows the tree in the background image to be seen through the
+Sea Horse layer.  In setting the Opacity slider, the goal is to be
+able to see the tree's boundaries through the sea horse.
+
+<P>
+Because the tree's boundaries can be seen, the <TT>Paintbrush</TT> tool
+can be used to paint away parts of the Sea Horse mask making the tree
+fully visible from behind.  Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club5">7.5</A>(a)
+shows that this process has been started using a brush from the <TT>Brush Selection</TT> dialog and shown in
+Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club5">7.5</A>(c).  The whole procedure is
+summarized in the following steps:
+<DL COMPACT>
+<DT>1.
+<DD>A layer mask is added to the Sea Horse layer.
+<DT>2.
+<DD>The layer mask is made active by clicking on its thumbnail in the
+Layers dialog.
+<DT>3.
+<DD>The Opacity slider is set so that the tree can be seen through
+the Sea Horse layer.
+<DT>4.
+<DD>The <TT>Active Foreground Color</TT> is set to black by typing <TT>d</TT> in
+the image window.
+<DT>5.
+<DD>An appropriate brush type and size is selected.  Here a small hard
+brush is chosen.
+<DT>6.
+<DD>Painting tools, such as the <TT>Paintbrush</TT> and the <TT>Airbrush</TT>,
+are used to reveal the tree from behind the sea horse by painting away
+the appropriate parts of the layer mask.
+</DL>
+<P>
+If too much of the layer mask is removed while painting, you can
+recover it by changing the <TT>Active Foreground Color</TT> to white by
+typing <TT>x</TT> in the image window and by painting over the
+erroneously removed parts of the mask.  Close to the edge of the tree,
+it is probably worthwhile working with a smaller brush size in
+conjunction with the <TT>Airbrush</TT> tool, which is more effective at
+applying graded amounts of paint.  See Section&nbsp;<A HREF="node47.html#s4.refining">4.5.1</A> for
+more details.
+
+<P>
+The result of applying layer masks to both the Sea Horse and the Red
+Fish layers is shown in Figure&nbsp;<A HREF="node66.html#f.compositing.fish-club-final">7.6</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.fish-club-final">&#160;</A><A NAME="10461">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.6:</STRONG>
+The Final Composition</CAPTION>
+<TR><TD><IMG
+ SRC="img251.gif"
+ALT="Figure 7.6"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The sea horse now seems to be well anchored, with its tail securely
+wrapped around the tree, against unforeseen, rapid air currents.  The
+little red fish, surprisingly coy given its bright coloring, is
+peaking out from behind another.
+
+<P>
+The effects obtained with layer masks could have also been
+accomplished with selections applied in the image window.  However,
+this would have required permanently cutting away parts of the Sea Horse
+and Red Fish layers.  Alternatively, the layer masks used in
+conjunction with the painting tools simplified the work and produced a
+more robust solution.  Because of the layer masks, nothing has been
+irrevocably lost in either the Sea Horse or Red Fish layers.  Thus,
+these layers can be repositioned if need be--only the layer masks
+need be re-edited.  This flexibility with positioning adjustments is
+not possible when using selections because the cut-away components are
+gone.
+
+<P>
+To summarize, this project reviewed cutting, pasting, scaling, and the
+positioning of layers for compositing.  In addition, a simple
+application of layer masks was used to give our composition some
+illusion of depth.  The next compositing project is more complicated
+because it makes use of the blending modes and the <TT>Curves</TT> tool.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1830"
+ HREF="node67.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1826"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1820"
+ HREF="node65.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1828"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1829"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1831"
+ HREF="node67.html">7.2 Project 2: Through</A>
+<B> Up:</B> <A NAME="tex2html1827"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1821"
+ HREF="node65.html">7. Compositing</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

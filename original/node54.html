@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>5.5 Conversion to Grayscale</TITLE>
+<META NAME="description" CONTENT="5.5 Conversion to Grayscale">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node55.html">
+<LINK REL="previous" HREF="node53.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node55.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1637"
+ HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1633"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1627"
+ HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1635"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1636"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1638"
+ HREF="node55.html">5.6 The Blending Modes</A>
+<B> Up:</B> <A NAME="tex2html1634"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1628"
+ HREF="node53.html">5.4 The Subtractive Color</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001350000000000000000">&#160;</A>
+<A NAME="7137">&#160;</A>
+<A NAME="7138">&#160;</A>
+<A NAME="7139">&#160;</A>
+<BR>
+5.5 Conversion to Grayscale
+</H1>
+
+<P>
+From the previous discussions, it is clear that every color image has
+a grayscale component that can be separated out from the hue and
+saturation components.  There are actually three different functions
+in the GIMP for converting an image to grayscale.  These are the <TT>Grayscale</TT> function, the <TT>Desaturate</TT> function, and the value
+component of the HSV option of the <TT>Decompose</TT> function.  To
+illustrate these functions, each one is applied to the color image
+shown in Figure&nbsp;<A HREF="node54.html#f.colorspaces.conv2gray">5.10</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.conv2gray">&#160;</A><A NAME="7145">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.10:</STRONG>
+The Three Methods for Converting to Grayscale</CAPTION>
+<TR><TD><IMG
+ SRC="img162.gif"
+ALT="Figure 5.10"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+To begin, the most obvious choice for converting a color image to
+grayscale is to use the <TT>Grayscale</TT><A NAME="7150">&#160;</A>
+function found in the <TT>Image:Image/Mode</TT> menu.  This function
+transforms a 24-bit, three-channel, color image to an 8-bit,
+single-channel grayscale image by forming a weighted sum of the red,
+green, and blue components.  The formula used in the GIMP is 
+<!-- MATH: $Y = 0.3R
++ 0.59G + 0.11B$ -->
+<I>Y</I> = 0.3<I>R</I>
++ 0.59<I>G</I> + 0.11<I>B</I>; this result is known as luminance (see
+[<A
+ HREF="node87.html#poynton">4</A>] or
+[<A
+ HREF="node87.html#pratt">5</A>]).  The weights used to compute luminance are related to
+the monitor's phosphors.  The explanation for these weights is due to
+the fact that for equal amounts of color the eye is most sensitive to
+green, then red, and then blue.  This means that for equal amounts of
+green and blue light the green will, nevertheless, seem much brighter.
+Thus, the image obtained by the normal averaging of an image's three
+color components produces a grayscale brightness that is not
+perceptually equivalent to the brightness of the original color image.
+The weighted sum that defines <I>Y</I>, however, does.
+
+<P>
+The result of converting the color image of
+Figure&nbsp;<A HREF="node54.html#f.colorspaces.conv2gray">5.10</A>(a) using the <TT>Grayscale</TT>
+function is shown in Figure&nbsp;<A HREF="node54.html#f.colorspaces.conv2gray">5.10</A>(b).  When
+you compare it to the two other grayscale images, the <TT>Grayscale</TT>
+function does seem the most representative of the color image's
+brightness.
+
+<P>
+From previous discussion, the removal of the saturation from an image
+should also produces a grayscale.  One way to desaturate an image is
+to replace the RGB value for each pixel with that of the closest point
+on the neutral axis.  This point on the neutral axis is illustrated in
+Figure&nbsp;<A HREF="node52.html#f.colorspaces.proj2neutral">5.6</A>.  In the GIMP, the <TT>Desaturate</TT><A NAME="7160">&#160;</A> function, found in the <TT>Image:Image/Colors</TT> menu, does something like this.  Actually, it uses
+an approximation to this idea; it chooses the point on the neutral
+axis determined by computing 
+<!-- MATH: $L=\{\max(R, G, B) +
+\min(R, G, B)\} / 2$ -->
+<IMG
+ WIDTH="335" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img163.gif"
+ ALT="$L=\{\max(R, G, B) +
+\min(R, G, B)\} / 2$">,
+which corresponds to the definition of 
+lightness.  After
+applying <TT>Desaturate</TT>, the image remains in RGB space and
+continues to have three color channels, but now the channels have
+identical values, which is why the image appears as a grayscale.
+
+<P>
+The result of applying <TT>Desaturate</TT> to the color image in
+Figure&nbsp;<A HREF="node54.html#f.colorspaces.conv2gray">5.10</A>(a) is shown in
+Figure&nbsp;<A HREF="node54.html#f.colorspaces.conv2gray">5.10</A>(c).  Of the three methods for
+converting an image to grayscale, this one produces the flattest (that
+is, with the least contrast) and the darkest conversion.
+
+<P>
+Finally, it is possible to get a slightly different grayscale
+conversion by using the HSV option of the <TT>Decompose</TT><A NAME="7167">&#160;</A> function.  This decomposes the
+original image into three new images, each an 8-bit grayscale image
+representing the hue, saturation, and value components of the image.
+The value component is a conversion to grayscale that is based on
+moving to the neutral axis by selecting the maximum RGB component.
+Thus, 
+<!-- MATH: $V = \max(R, G, B)$ -->
+<IMG
+ WIDTH="163" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img155.gif"
+ ALT="$V=\max(R,G,B)$">.
+
+<P>
+Figure&nbsp;<A HREF="node54.html#f.colorspaces.conv2gray">5.10</A>(d) shows the value component of
+the HSV decomposition for Figure&nbsp;<A HREF="node54.html#f.colorspaces.conv2gray">5.10</A>(a).
+This grayscale is clearly the brightest of the three, which makes
+sense because the value is defined as the maximum of the R, G, and B
+components (see Figure&nbsp;<A HREF="node52.html#f.colorspaces.proj2neutral">5.6</A>).
+
+<P>
+So, which conversion to grayscale is best?  I'm tempted to say that
+<TT>Grayscale</TT> is best because it produces the result whose
+brightness is the most perceptually similar to the brightness of the
+original color image.  However, the answer must depend on what <EM>you</EM> want to do with the image.  Furthermore, the two other methods
+for converting to grayscale are useful, and, in particular, the value
+component of the <TT>Decompose</TT> HSV function is used for many
+operations in the GIMP (for examples, see Sections&nbsp;<A HREF="node61.html#s6.detail">6.2.6</A> and
+<A HREF="node63.html#s6.unsharp-mask-pitfalls">6.4.4</A>).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1637"
+ HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1633"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1627"
+ HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1635"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1636"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1638"
+ HREF="node55.html">5.6 The Blending Modes</A>
+<B> Up:</B> <A NAME="tex2html1634"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1628"
+ HREF="node53.html">5.4 The Subtractive Color</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>2.4 Layer Export and Import</TITLE>
+<META NAME="description" CONTENT="2.4 Layer Export and Import">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node31.html">
+<LINK REL="previous" HREF="node29.html">
+<LINK REL="up" HREF="node26.html">
+<LINK REL="next" HREF="node31.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1188"
+ HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1184"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1178"
+ HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1186"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1187"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1189"
+ HREF="node31.html">2.5 Floats</A>
+<B> Up:</B> <A NAME="tex2html1185"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1179"
+ HREF="node29.html">2.3 Layer Creation, Deletion,</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001040000000000000000">&#160;</A>
+<A NAME="s2.layers.cut-paste">&#160;</A><A NAME="2007">&#160;</A>
+<A NAME="2008">&#160;</A>
+<A NAME="2009">&#160;</A>
+<A NAME="2010">&#160;</A>
+<A NAME="2011">&#160;</A>
+<A NAME="2012">&#160;</A>
+<A NAME="2013">&#160;</A>
+<BR>
+2.4 Layer Export and Import
+</H1>
+
+<P>
+Collecting separate, raw image elements into a single image window is
+one of the most-used layer operations in this book.  This is a
+fundamental component of compositing, a subject discussed in great
+depth in Chapter&nbsp;<A HREF="node65.html#c7.compositing">7</A>.  However, it is also useful for
+a wide range of core and advanced techniques in the GIMP.
+
+<P>
+The importation of layers into an image is accomplished using the <TT>Copy</TT><A NAME="2016">&#160;</A>, <TT>Cut</TT>,<A NAME="2018">&#160;</A> and <TT>Paste</TT><A NAME="2020">&#160;</A> editing functions (see
+Section&nbsp;<A HREF="node22.html#s1.copy-paste">1.7</A>).  The technique for importing a layer is
+so important that this section develops an example in detail to
+illustrate the methodology.  Study it well, because this technique is
+used often in this book.
+
+<P>
+To illustrate the process, we begin with the two images shown in
+Figure&nbsp;<A HREF="node30.html#f.layers.two-images">2.8</A>.  Each image consists of a
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.two-images">&#160;</A><A NAME="2538">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.8:</STRONG>
+Two Images to Illustrate the Use of <TT> Copy</TT> and <TT> Paste</TT></CAPTION>
+<TR><TD><IMG
+ SRC="img44.gif"
+ALT="Figure 2.8"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+single layer, and each will be imported into a third image that, on
+completion of the procedure, will contain three layers.
+
+<P>
+To begin, a new image is created that has width and height sufficient
+to accommodate the two single-layer images.  Once open, the eagle
+image in Figure&nbsp;<A HREF="node30.html#f.layers.two-images">2.8</A>(a) is
+copied<A NAME="2030">&#160;</A> and pasted into it.  This is accomplished
+by moving the mouse cursor into the eagle image window and selecting
+the <TT>Copy</TT><A NAME="2032">&#160;</A> function from the <TT>Image:Edit</TT>
+menu. This can also be accomplished by simply typing <TT>C-c</TT> in the
+image window.  This copies the active layer of the eagle image into
+the default buffer.<A NAME="2035">&#160;</A><A NAME="2036">&#160;</A>  Note
+that for multiple-layer images, it is the active layer that is copied
+into the buffer.  Thus, it would be prudent to verify which layer is
+active by inspecting the Layers dialog before copying.  The whole
+procedure could also be performed by cutting the image instead of
+copying.  Cutting puts a copy of the layer in the buffer and then
+deletes it from the image window.  To cut the image, use the <TT>Cut</TT><A NAME="2038">&#160;</A> function from the <TT>Image:Edit</TT> menu.
+This function can be more easily employed by typing <TT>C-x</TT> in the
+image window.
+
+<P>
+Now that the eagle image is in the buffer, it can be pasted into the
+new image.  This is done by moving the mouse cursor into the new image
+window and using the <TT>Paste</TT> function found in the <TT>Image:Edit</TT> menu, which can be more expeditiously accomplished by
+typing <TT>C-v</TT> in the image window.  The result of the paste is
+shown in Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste1">2.9</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.copy-paste1">&#160;</A><A NAME="2046">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.9:</STRONG>
+Importing the First Pasted Image</CAPTION>
+<TR><TD><IMG
+ SRC="img45.gif"
+ALT="Figure 2.9"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The Layers dialog for this image is shown in
+Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste1">2.9</A>(b), and it shows that the pasted
+layer appears as a floating selection.  The Background layer, the only
+other layer in the dialog, is grayed out, meaning that it cannot be
+selected as the active layer.
+
+<P>
+The pasted layer appears in Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste1">2.9</A>(a) as a
+selection with a moving dashed line around it.  These moving dashes
+are referred to as the <EM>Marching Ants</EM>.<A NAME="2053">&#160;</A><A NAME="2054">&#160;</A>  This floating
+selection can be positioned in the new image with the <TT>Move</TT><A NAME="2056">&#160;</A><A NAME="2057">&#160;</A> tool from the Toolbox.
+
+<P>
+Once the layer is positioned, it can be anchored to the underlying
+layer by bringing up the Layers menu and selecting the <TT>Anchor
+Layer</TT><A NAME="2059">&#160;</A> function from the
+Layers menu or by typing <TT>C-h</TT> in either
+the <TT>Layers &amp; Channels</TT> or image windows.  It is also possible to
+simply click on the Anchor button in the Layers dialog.  For this
+example, however, the layer is not anchored to the layer below it.
+Rather, it is converted into a new layer.  This is done by using the
+<TT>New Layer</TT> function
+found in the Layers menu.  Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste2">2.10</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.copy-paste2">&#160;</A><A NAME="2065">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.10:</STRONG>
+Creation of New Layer</CAPTION>
+<TR><TD><IMG
+ SRC="img46.gif"
+ALT="Figure 2.10"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the result of the conversion.
+Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste2">2.10</A>(a) shows how the converted layer is
+smaller than the image window.  Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste2">2.10</A>(b)
+illustrates the corresponding Layers dialog showing that the float was
+converted to a layer.  A floating selection can also be converted to a
+new layer by typing <TT>C-n</TT> in the <TT>Layers
+&amp; Channels</TT> window or by clicking on the New Layer icon in the button
+bar.
+
+<P>
+The sequence just described for importing the eagle image is used so
+often that it deserves to be memorized.  Let's concisely recap the
+steps required...then bookmark this page!  The following list of
+steps slightly generalizes the procedure by assuming that there is
+a multilayer source image window containing a layer to be exported
+and another multilayered destination image that will import
+it:<A NAME="import-formula">&#160;</A><DL COMPACT>
+<DT>1.
+<DD>In the source image window, type <TT>C-l</TT> to bring up the Layers
+dialog.
+<DT>2.
+<DD>In the Layers dialog, make the source layer active by
+clicking on its thumbnail in the Layers Palette.
+<DT>3.
+<DD>Back in the source image window, type <TT>C-c</TT> to copy the
+active layer to the default buffer.
+<DT>4.
+<DD>In the destination image window, type <TT>C-v</TT> to paste the
+buffer contents into a floating selection. (Note that the context of
+the Layers dialog automatically changes to the destination image
+window when <TT>C-v</TT> is typed there.)
+<DT>5.
+<DD>Position the floating selection as desired with the <TT>Move</TT>
+tool.
+<DT>6.
+<DD>Type <TT>C-n</TT> in the Layers dialog (or click on the New Layer
+button) to anchor the float to a new layer.  Otherwise, type <TT>C-h</TT>
+or click the Anchor button to anchor it to the last active layer of
+the destination image.
+</DL>
+<P>
+By the way, when the floating selection is converted to a new layer,
+the resulting dimensions of the layer are just large enough to contain
+the contents of the pasted layer.  As shown in
+Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste2">2.10</A>(a) the resulting pasted eagle image
+layer is smaller than the image window.  It is easy to put the pasted
+image into a separate layer having the same dimensions as the
+destination image window.  Just create a new layer in the destination
+image before pasting from the buffer.  After pasting, anchor the
+floating selection to this new layer by clicking the anchor icon in
+the button bar. 
+
+<P>
+Repeating the import procedure for the airplane in
+Figure&nbsp;<A HREF="node30.html#f.layers.two-images">2.8</A>(b) produces the result shown in
+Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste3">2.11</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.layers.copy-paste3">&#160;</A><A NAME="2087">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 2.11:</STRONG>
+Importing the Second Pasted Image</CAPTION>
+<TR><TD><IMG
+ SRC="img47.gif"
+ALT="Figure 2.11"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+Note that the boundary<A NAME="2091">&#160;</A> of the active layer in
+Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste3">2.11</A>(a) is visible as a black-and-yellow
+dashed line.  Typically we are not aware of layer boundaries because
+often all the layers have the same dimensions.  When this is the case,
+the layer boundary is coincident with the window edge.  However, for
+the case illustrated in Figure&nbsp;<A HREF="node30.html#f.layers.copy-paste3">2.11</A>(a), the
+layer boundary is apparent because the pasted layer is smaller than
+the image window.
+
+<P>
+The visible boundary of a layer can be a problem, especially when
+you're trying to adjust the relative position of two layers or when
+you're trying to carefully match colors at layer edges (for a
+particularly good example of this problem, see
+Section&nbsp;<A HREF="node70.html#s7.panoramas">7.5</A>).  When it is desirable to suppress the
+layer boundary, its visibility can be turned off with the function
+<TT>Toggle Selection</TT>,
+found in the <TT>Image:View</TT> menu or by typing <TT>C-t</TT> in the image window.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1188"
+ HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1184"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1178"
+ HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1186"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1187"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1189"
+ HREF="node31.html">2.5 Floats</A>
+<B> Up:</B> <A NAME="tex2html1185"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1179"
+ HREF="node29.html">2.3 Layer Creation, Deletion,</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

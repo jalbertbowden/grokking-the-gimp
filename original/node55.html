@@ -1,0 +1,989 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>5.6 The Blending Modes</TITLE>
+<META NAME="description" CONTENT="5.6 The Blending Modes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node56.html">
+<LINK REL="previous" HREF="node54.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node56.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1649"
+ HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1645"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1639"
+ HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1647"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1648"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1650"
+ HREF="node56.html">5.7 Opacity and Transparency</A>
+<B> Up:</B> <A NAME="tex2html1646"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1640"
+ HREF="node54.html">5.5 Conversion to Grayscale</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1651"
+ HREF="node55.html#SECTION001361000000000000000">5.6.1 The <TT>Normal</TT>, <TT>Dissolve</TT>, and <TT>Behind</TT>
+Blending Modes</A>
+<LI><A NAME="tex2html1652"
+ HREF="node55.html#SECTION001362000000000000000">5.6.2 The <TT>Addition</TT>, <TT>Subtract</TT>, and <TT>Difference</TT>
+Blending Modes</A>
+<LI><A NAME="tex2html1653"
+ HREF="node55.html#SECTION001363000000000000000">5.6.3 The <TT>Multiply (Burn)</TT>, <TT>Divide (Dodge)</TT>, <TT>Screen</TT>,
+and <TT>Overlay</TT> Blending Modes</A>
+<LI><A NAME="tex2html1654"
+ HREF="node55.html#SECTION001364000000000000000">5.6.4 The <TT>Darken Only</TT> and <TT>Lighten Only</TT> Blending Modes</A>
+<LI><A NAME="tex2html1655"
+ HREF="node55.html#SECTION001365000000000000000">5.6.5 The <TT>Hue</TT>, <TT>Saturation</TT>, <TT>Value</TT>, and <TT>Color</TT> Blending Modes</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001360000000000000000">&#160;</A>
+<A NAME="s5.blending-modes">&#160;</A><A NAME="7178">&#160;</A>
+<A NAME="7179">&#160;</A>
+<A NAME="7180">&#160;</A>
+<BR>
+5.6 The Blending Modes
+</H1>
+
+<P>
+Usually layers are opaque, which means that upper layers cover and
+visually block lower ones.  Blending modes change this behavior and
+allow some color features of a layer to be combined with the colors of
+layers below it.  Blending modes can also be used to affect how color
+from a painting tool combines with the layer the paint is applied to.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.blend1">5.11</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.blend1">&#160;</A><A NAME="7183">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.11:</STRONG>
+The Blending Mode Menus</CAPTION>
+<TR><TD><IMG
+ SRC="img164.gif"
+ALT="Figure 5.11"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the blending mode menu for layers, which is found in the
+Layers dialog.  Figure&nbsp;<A HREF="node55.html#f.colorspaces.blend1">5.11</A>(b) shows the
+blending mode menu for painting tools<A NAME="7188">&#160;</A>, which is found in the <TT>Brush Selection</TT><A NAME="7190">&#160;</A> dialog.<A NAME="tex2html147"
+ HREF="footnode.html#foot7649"><SUP>5.1</SUP></A>  The menu in the
+<TT>Brush Selection</TT> dialog applies the selected blending mode to all
+the paint tools: the <TT>Pencil</TT>, <TT>Paintbrush</TT>, <TT>Airbrush</TT>,
+<TT>Ink Pen</TT>, and <TT>Xinput Airbrush</TT> tools.  In addition, this
+menu controls the way the <TT>Bucket Fill</TT>, <TT>Gradient</TT>, and <TT>Clone</TT> tools apply their paint.
+
+<P>
+The different blending modes are described in this section, and their
+practical uses and applications are described in the next.  The GIMP
+has 16 different blending modes.  They are listed in the following
+five logical groups:
+<UL>
+<LI><TT>Normal</TT>, <TT>Dissolve</TT>, and <TT>Behind</TT> (available in paint mode only)
+<LI><TT>Difference</TT>, <TT>Addition</TT>, and <TT>Subtract</TT>
+<LI><TT>Multiply (Burn)</TT>, <TT>Divide (Dodge)</TT>, <TT>Screen</TT>, and <TT>Overlay</TT>
+<LI><TT>Darken Only</TT> and <TT>Lighten Only</TT>
+<LI><TT>Hue</TT>, <TT>Saturation</TT>, <TT>Color</TT>, and <TT>Value</TT>
+</UL>
+<P>
+In the following descriptions of the blending modes, the pixels of the
+upper layer (or of the applied paint) are referred to as the
+foreground pixels and those of the lower layer or layers as the
+background pixels.  The notations <I>F</I> and <I>B</I> are used to represent
+their respective values.  Blending the foreground pixel value <I>F</I> with
+the background value <I>B</I> yields the resultant pixel value <I>R</I>.
+
+<P>
+
+<H2><A NAME="SECTION001361000000000000000">&#160;</A>
+<A NAME="7223">&#160;</A>
+<A NAME="7224">&#160;</A>
+<A NAME="7225">&#160;</A>
+<BR>
+5.6.1 The <TT>Normal</TT>, <TT>Dissolve</TT>, and <TT>Behind</TT>
+Blending Modes
+</H2>
+
+<P>
+<TT>Normal</TT>, <TT>Dissolve</TT>, and <TT>Behind</TT> are pseudo-blending
+modes because they don't really combine the foreground and background
+pixel values of the image.
+
+<P>
+<TT>Normal</TT> mode is the default GIMP behavior where the foreground
+pixels are visible and the background pixels are not.  Of course, this
+can be changed by adjusting the opacity slider in the Layers dialog
+(more on opacity and transparency is discussed in
+Section&nbsp;<A HREF="node56.html#s5.opacity-transparency">5.7</A>).
+
+<P>
+<TT>Dissolve</TT> mode works by allowing a percentage of background
+pixels to be seen through the foreground.  It does this by making some
+parts of the foreground partially transparent and the rest fully
+transparent.  These two sets are intermingled in a random way.  For
+the <TT>Dissolve</TT> mode to have an effect, the foreground layer must
+have an alpha channel with values less than 255.  The alpha channel
+for a layer can be modified with a layer mask.  The details of working
+with layer masks are discussed in Section&nbsp;<A HREF="node44.html#s4.layer-masks">4.2</A>.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.dissolve">5.12</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.dissolve">&#160;</A><A NAME="7651">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.12:</STRONG>
+The <TT> Dissolve</TT> Blending Mode</CAPTION>
+<TR><TD><IMG
+ SRC="img165.gif"
+ALT="Figure 5.12"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the use of <TT>Dissolve</TT>.
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.dissolve">5.12</A>(a) shows the Layers dialog which
+illustrates how this example is constructed.  The image consists of
+two layers: a red background and a white foreground.  The foreground
+has a uniform alpha channel set to a value of 191 (about 75% opaque).
+The Mode menu in Figure&nbsp;<A HREF="node55.html#f.colorspaces.dissolve">5.12</A>(a) shows that the
+<TT>Dissolve</TT> mode has been chosen for the foreground.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.dissolve">5.12</A>(b) shows the result of the <TT>Dissolve</TT> blending mode.  Due to the value of the foreground's alpha
+channel the result is that 75% of the white pixels are 75% opaque
+and 25% are fully opaque.  The details of the effect can be more
+clearly seen in the small region framed by the black box shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.dissolve">5.12</A>(b).  This region is zoomed 900%
+and redisplayed in Figure&nbsp;<A HREF="node55.html#f.colorspaces.dissolve">5.12</A>(c), which makes
+the relationship of the red and white pixels more apparent.
+
+<P>
+Unlike all the other blend modes in the GIMP, the <TT>Behind</TT> mode
+only works with painting tools.  It is not available as a blending
+mode for layers.  To understand how it works, imagine a pane of glass
+that has something painted on the front surface but there are some
+parts of the pane that are bare, or have only a partially transparent
+paint on it.  Painting on the back surface of the pane lets the color
+from this new paint show through to the front wherever the front is
+not fully opaque.  Figure&nbsp;<A HREF="node55.html#f.colorspaces.behind">5.13</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.behind">&#160;</A><A NAME="7653">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.13:</STRONG>
+The <TT> Behind</TT> Blending Mode</CAPTION>
+<TR><TD><IMG
+ SRC="img166.gif"
+ALT="Figure 5.13"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates this effect.  
+
+<P>
+In Figure&nbsp;<A HREF="node55.html#f.colorspaces.behind">5.13</A>(a), a single-layer image with a
+centered red circle is displayed.  The rest of the layer is
+transparent.  The <TT>Brush Selection</TT> dialog, shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.behind">5.13</A>(b), has been used to choose a large,
+hard brush and to set the blending mode to <TT>Behind</TT>.  The figure
+shows the result of painting a bright green stripe, using the <TT>Paintbrush</TT> tool, through the red circle.  In <TT>Behind</TT> mode,
+however, the green is only seen through the transparent parts of the
+layer.  This mode only works for layers with alpha channels.
+
+<P>
+
+<H2><A NAME="SECTION001362000000000000000">&#160;</A>
+<A NAME="7264">&#160;</A>
+<A NAME="7265">&#160;</A>
+<A NAME="7266">&#160;</A>
+<BR>
+5.6.2 The <TT>Addition</TT>, <TT>Subtract</TT>, and <TT>Difference</TT>
+Blending Modes
+</H2>
+
+<P>
+<TT>Addition</TT>, <TT>Subtract</TT>, and <TT>Difference</TT> are blending
+modes that add and subtract foreground and background pixel values in
+RGB colorspace.  Figure&nbsp;<A HREF="node55.html#f.colorspaces.add_sub_diff">5.14</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.add_sub_diff">&#160;</A><A NAME="7272">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.14:</STRONG>
+Addition and Subtraction in the RGB Cube</CAPTION>
+<TR><TD><IMG
+ SRC="img167.gif"
+ALT="Figure 5.14"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the effect of addition and subtraction for two pixels in the
+RGB cube.  
+
+<P>
+The <TT>Addition</TT> blending mode works as follows.  Given a foreground
+and background pixel, represented by the RGB vectors 
+<!-- MATH: $F=[r_1,g_1,b_1]$ -->
+<I>F</I>=[<I>r</I><SUB>1</SUB>,<I>g</I><SUB>1</SUB>,<I>b</I><SUB>1</SUB>]and 
+<!-- MATH: $B=[r_2,g_2,b_2]$ -->
+<I>B</I>=[<I>r</I><SUB>2</SUB>,<I>g</I><SUB>2</SUB>,<I>b</I><SUB>2</SUB>], the pixel obtained from the <TT>Addition</TT>
+blending mode is 
+<!-- MATH: $R=F+B=[r_1+r_2,g_1+g_2,b_1+b_2]$ -->
+<I>R</I>=<I>F</I>+<I>B</I>=[<I>r</I><SUB>1</SUB>+<I>r</I><SUB>2</SUB>,<I>g</I><SUB>1</SUB>+<I>g</I><SUB>2</SUB>,<I>b</I><SUB>1</SUB>+<I>b</I><SUB>2</SUB>].  Thus, in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.add_sub_diff">5.14</A>(a), the two blue arrows
+represent a foreground and background pixel, and the red arrow is the
+vector sum of the two.  Addition always produces a resultant color
+that is as light or lighter than either the foreground or background
+colors.  This is because the vector sum must have a projection onto
+the neutral axis that is closer to white than the projection for
+either the background or foreground colors.
+
+<P>
+In the event that the vector sum produces a result outside of the
+color cube (that is, by producing any RGB component greater than 255),
+its value is clipped to the surface of the cube.  The equation
+describing the <TT>Addition</TT> blending mode is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=\min \{F+B,W\}
+\end{displaymath} -->
+
+
+<IMG
+ SRC="img168.gif"
+ ALT="\begin{displaymath}R=\min \{F+B,W\}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <I>W</I> is the vector 
+<!-- MATH: $[255,255,255]$ -->
+[255,255,255] and the <IMG
+ WIDTH="38" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img169.gif"
+ ALT="$\min$">
+function
+performs component-wise minimization of the two vectors.
+
+<P>
+Cyan, magenta, and yellow are the sums of green and blue, red and
+blue, and red and green, respectively.  Thus, cyan, magenta, and
+yellow appear lighter than red, green, or blue because they project
+higher up onto the neutral axis.  Furthermore, any of these secondary
+colors (cyan, magenta, yellow) summed with the complementary primary
+color (red, green, blue) produces white, the lightest color of all.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.addition">&#160;</A><A NAME="7657">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.15:</STRONG>
+Using the <TT> Addition</TT> Blending Mode</CAPTION>
+<TR><TD><IMG
+ SRC="img170.gif"
+ALT="Figure 5.15"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an application of the <TT>Addition</TT> blending mode.
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a) displays the image of a flower,
+and Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(b), showing the associated
+Layers dialog, indicates that this image consists of two-layers.  The
+upper layer is the flower image, and the lower layer is filled with a
+medium gray whose pixel values are uniformly 
+<!-- MATH: $127^R 127^G 127^B$ -->
+127<SUP><I>R</I></SUP> 127<SUP><I>G</I></SUP> 127<SUP><I>B</I></SUP>.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a) shows the flower image for the
+<TT>Normal</TT> blending mode.  Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(c)
+shows the same image when the blending mode of the upper layer is
+changed to <TT>Addition</TT>.  This has the effect of adding 
+<!-- MATH: $127^R 127^G
+127^B$ -->
+127<SUP><I>R</I></SUP> 127<SUP><I>G</I></SUP>
+127<SUP><I>B</I></SUP> to every pixel in the flower layer, which lightens the entire
+image considerably.  In fact, some parts of the image are completely
+blown out to white.
+
+<P>
+The effect of the <TT>Subtract</TT> blending mode is illustrated in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.add_sub_diff">5.14</A>(b).  This blending mode works
+as follows.  Given a foreground and background pixel, we'll again
+represent each as an RGB vector 
+<!-- MATH: $F=[r_1,g_1,b_1]$ -->
+<I>F</I>=[<I>r</I><SUB>1</SUB>,<I>g</I><SUB>1</SUB>,<I>b</I><SUB>1</SUB>] and
+
+<!-- MATH: $B=[r_2,g_2,b_2]$ -->
+<I>B</I>=[<I>r</I><SUB>2</SUB>,<I>g</I><SUB>2</SUB>,<I>b</I><SUB>2</SUB>].  The pixel obtained from the <TT>Subtract</TT>
+blending mode is 
+<!-- MATH: $R=B-F=[r_2-r_1,g_2-g_1,b_2-b_1]$ -->
+<I>R</I>=<I>B</I>-<I>F</I>=[<I>r</I><SUB>2</SUB>-<I>r</I><SUB>1</SUB>,<I>g</I><SUB>2</SUB>-<I>g</I><SUB>1</SUB>,<I>b</I><SUB>2</SUB>-<I>b</I><SUB>1</SUB>].  Thus, for the two
+blue arrows labeled <I>F</I> and <I>B</I> in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.add_sub_diff">5.14</A>(b), the result of subtracting
+the foreground from the background is given by the red arrow labeled
+<I>R</I>.  
+
+<P>
+Unlike the <TT>Addition</TT> blending mode, <TT>Subtract</TT> is not
+symmetrical (that is, subtracting <I>F</I> from <I>B</I> is not the same as
+subtracting <I>B</I> from <I>F</I>).  The result of subtracting the foreground
+from the background can produce negative values.  If a component of
+the resulting RGB vector is less than zero, it is clipped to the
+surface of the cube.  Thus, the equation representing the <TT>Subtract</TT> blending mode is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=\max \{B-F,0\}
+\end{displaymath} -->
+
+
+<IMG
+ SRC="img171.gif"
+ ALT="\begin{displaymath}R=\max \{B-F,0\}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where 0 represents the color 
+<!-- MATH: $0^R 0^G 0^B$ -->
+0<SUP><I>R</I></SUP> 0<SUP><I>G</I></SUP> 0<SUP><I>B</I></SUP> and <IMG
+ WIDTH="42" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img172.gif"
+ ALT="$\max$">
+is the
+function that performs component-wise maximization of the two vectors.
+Because the foreground color is always a positive number, the result
+is always darker than the background (unless either the foreground or
+background are black, and then there is no change).
+
+<P>
+The <TT>Difference</TT> blending mode is like <TT>Subtract</TT>, but the
+result is symmetrical between the foreground and the background.  <TT>Difference</TT> is symmetrical because it applies an absolute value to the
+difference of the foreground and background values.  Thus, if one of
+the RGB components is negative after subtraction, its sign is reversed
+to make it positive.  The resulting mathematical expression for the
+<TT>Difference</TT> blending mode is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=|F-B|
+\end{displaymath} -->
+
+
+<I>R</I>=|<I>F</I>-<I>B</I>|
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where the vertical bars in the equation represent the absolute value
+function.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.subtract-difference">5.16</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.subtract-difference">&#160;</A><A NAME="7659">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.16:</STRONG>
+Using the <TT> Subtract</TT> and <TT> Difference</TT> Blending Modes</CAPTION>
+<TR><TD><IMG
+ SRC="img173.gif"
+ALT="Figure 5.16"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the application of the <TT>Subtract</TT> and <TT>Difference</TT>
+blending modes.  The modes are applied to the image from
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a), which consists of the flower
+in the upper layer and a medium gray in the lower layer.  You can see
+that the result of using <TT>Subtract</TT>, shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.subtract-difference">5.16</A>(a), has regions that
+are totally black.  This is where the difference between the
+foreground and background creates negative values that are clipped to
+zero.  <TT>Difference</TT>, shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.subtract-difference">5.16</A>(b), however, has no
+clipped values because it employs the absolute value of the
+difference.  Note that for both the <TT>Subtract</TT> and <TT>Difference</TT> modes, the results are darker than the original flower
+image.
+
+<P>
+
+<H2><A NAME="SECTION001363000000000000000">&#160;</A>
+<A NAME="7324">&#160;</A>
+<A NAME="7325">&#160;</A>
+<A NAME="7326">&#160;</A>
+<A NAME="7327">&#160;</A>
+<BR>
+5.6.3 The <TT>Multiply (Burn)</TT>, <TT>Divide (Dodge)</TT>, <TT>Screen</TT>,
+and <TT>Overlay</TT> Blending Modes
+</H2>
+
+<P>
+<TT>Multiply</TT>, <TT>Divide</TT>, <TT>Screen</TT>, and <TT>Overlay</TT> are all
+multiplicative blending modes.  The resulting pixel values are the
+product or a function of the product of the foreground and background
+pixels.
+
+<P>
+The actions of the <TT>Multiply</TT> and <TT>Screen</TT> modes on pixels
+represented in the RGB cube are illustrated in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult_scr">5.17</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.mult_scr">&#160;</A><A NAME="7662">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.17:</STRONG>
+The <TT> Multiply</TT> and <TT> Screen</TT> Modes in the RGB Cube</CAPTION>
+<TR><TD><IMG
+ SRC="img174.gif"
+ALT="Figure 5.17"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+For a foreground pixel whose position in the RGB cube is
+
+<!-- MATH: $[r_1,g_1,b_1]$ -->
+[<I>r</I><SUB>1</SUB>,<I>g</I><SUB>1</SUB>,<I>b</I><SUB>1</SUB>] and a background pixel whose position is
+
+<!-- MATH: $[r_2,g_2,b_2]$ -->
+[<I>r</I><SUB>2</SUB>,<I>g</I><SUB>2</SUB>,<I>b</I><SUB>2</SUB>], the resultant pixel for <TT>Multiply</TT> mode is the
+component-by-component product of the two, or
+
+<!-- MATH: $[r_1r_2/255,g_1g_2/255,b_1b_2/255]$ -->
+[<I>r</I><SUB>1</SUB><I>r</I><SUB>2</SUB>/255,<I>g</I><SUB>1</SUB><I>g</I><SUB>2</SUB>/255,<I>b</I><SUB>1</SUB><I>b</I><SUB>2</SUB>/255], where the division by 255 is
+necessary to normalize the result back into the RGB cube.  This can be
+succinctly expressed by the equation
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=\frac{1}{255}(F\times B)
+\end{displaymath} -->
+
+
+<IMG
+ SRC="img175.gif"
+ ALT="\begin{displaymath}R=\frac{1}{255}(F\times B)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where the <IMG
+ WIDTH="21" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img176.gif"
+ ALT="$\times$">
+symbol means component-wise multiplication.
+
+<P>
+Due to the scale factor of 255, the component values of one RGB vector
+are normalized to the range [0,1].  Thus, <I>R</I> is component-wise
+smaller than either <I>F</I> or <I>B</I>.  From previous discussions, you know
+that smaller means darker because the projection onto the neutral axis
+is closer to the origin.  This is illustrated in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult_scr">5.17</A>(a) which shows two blue arrows
+representing the foreground and background pixel positions and a red
+arrow representing the component-wise product.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult-scr-ovrly">5.18</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.mult-scr-ovrly">&#160;</A><A NAME="7664">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.18:</STRONG>
+An Example of <TT> Multiply</TT>, <TT> Divide</TT>, <TT> Screen</TT>, and
+<TT> Overlay</TT> Modes</CAPTION>
+<TR><TD><IMG
+ SRC="img177.gif"
+ALT="Figure 5.18"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an example of applying <TT>Multiply</TT> mode to the flower
+image from Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a).  As before, the
+lower layer of this image is a uniform gray equal to 
+<!-- MATH: $127^R 127^G
+127^B$ -->
+127<SUP><I>R</I></SUP> 127<SUP><I>G</I></SUP>
+127<SUP><I>B</I></SUP>.  The result, shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult-scr-ovrly">5.18</A>(a), is the image has been
+made uniformly darker.  In fact, because the lower layer is a medium
+gray, the pixels values in the flower layer have been scaled by
+
+<!-- MATH: $127/255\approx 1/2$ -->
+<IMG
+ WIDTH="130" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img178.gif"
+ ALT="$127/255\approx 1/2$">
+everywhere.
+
+<P>
+For a foreground pixel whose position in the RGB cube is
+
+<!-- MATH: $[r_1,g_1,b_1]$ -->
+[<I>r</I><SUB>1</SUB>,<I>g</I><SUB>1</SUB>,<I>b</I><SUB>1</SUB>] and a background pixel whose position is
+
+<!-- MATH: $[r_2,g_2,b_2]$ -->
+[<I>r</I><SUB>2</SUB>,<I>g</I><SUB>2</SUB>,<I>b</I><SUB>2</SUB>], you might imagine that the resultant pixel for the
+<TT>Divide</TT> blending mode would be analogous to that for the <TT>Multiply</TT> mode.  This would suggest something like
+
+<!-- MATH: $[255r_2/r_1,255g_2/g_1,255b_2/b_1]$ -->
+[255<I>r</I><SUB>2</SUB>/<I>r</I><SUB>1</SUB>,255<I>g</I><SUB>2</SUB>/<I>g</I><SUB>1</SUB>,255<I>b</I><SUB>2</SUB>/<I>b</I><SUB>1</SUB>].  However, this expression
+presents two problems.  The first problem is that when the foreground
+pixel has a zero component, the result is not defined; the second
+problem is that when the foreground pixel value is small, the result
+can be so large that it is no longer inside the RGB cube.  The first
+problem is solved by adding one to each component of the foreground
+pixel.  This prevents a division by zero.  The second problem is
+solved by clipping values that are too large to the surface of the
+cube.
+
+<P>
+A succinct expression for the <TT>Divide</TT> mode is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=\min \{ W , B\div \frac{(F+1)}{256} \}
+\end{displaymath} -->
+
+
+<IMG
+ SRC="img179.gif"
+ ALT="\begin{displaymath}R=\min \{ W , B\div \frac{(F+1)}{256} \}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <I>W</I> is 
+<!-- MATH: $255^R 255^G 255^B$ -->
+255<SUP><I>R</I></SUP> 255<SUP><I>G</I></SUP> 255<SUP><I>B</I></SUP>, <IMG
+ WIDTH="21" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img180.gif"
+ ALT="$\div$">
+represents component-wise
+division of two vectors, and <IMG
+ WIDTH="38" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img169.gif"
+ ALT="$\min$">
+represents component-wise
+minimization.  Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult-scr-ovrly">5.18</A>(b)
+illustrates the application of <TT>Divide</TT> to the flower image from
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a).  Here, you can see that some
+parts of the resulting image are blown out to white.  This occurs in
+regions where the original flower image has small (that is dark) pixel
+values.  Note that <TT>Divide</TT> always lightens an image because, it
+divides each pixel component by a number less than 1.
+
+<P>
+The <TT>Screen</TT> blending mode has a lightening effect that is exactly
+analogous to the darkening effect created by <TT>Multiply</TT>.  This
+concept is illustrated in Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult_scr">5.17</A>(b).  As
+shown in the figure <TT>Screen</TT> mode redefines the origin to be
+
+<!-- MATH: $255^R 255^G 255^B$ -->
+255<SUP><I>R</I></SUP> 255<SUP><I>G</I></SUP> 255<SUP><I>B</I></SUP>, the white point in the cube.  Thus, the vectors
+to the foreground and background pixels are as shown by the two blue
+arrows in Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult_scr">5.17</A>(b).  <TT>Screen</TT> then
+multiplies the two vectors, producing a resultant shown as a red arrow
+in Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult_scr">5.17</A>(b).  As with the <TT>Multiply</TT>
+mode, the resulting vector of the <TT>Screen</TT> mode is shorter than
+either the foreground or background vectors--but with respect to
+the white point in the cube.  Thus, the resulting vector is closer to
+the white point, and, consequently, lighter than either the foreground
+or background colors.  The mathematical expression for <TT>Screen</TT>
+mode is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=W-\frac{1}{255}(W-F)\times (W-B).
+\end{displaymath} -->
+
+
+<IMG
+ SRC="img181.gif"
+ ALT="\begin{displaymath}R=W-\frac{1}{255}(W-F)\times (W-B).
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Again, the factor of 255 is introduced to keep the resultant pixel
+values inside the RGB cube.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult-scr-ovrly">5.18</A>(c) illustrates an example of
+applying the <TT>Screen</TT> mode to the flower image from
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a).  As predicted, the result is
+everywhere brighter than in the original image of the flower.  Also
+notice that unlike <TT>Divide</TT>, <TT>Screen</TT> mode does not blow out
+to white.  Thus, although both <TT>Divide</TT> and <TT>Screen</TT> have
+similar lightening characteristics, they have very different
+personalities.
+
+<P>
+Finally, the <TT>Overlay</TT> mode is a combination of both <TT>Multiply</TT> and <TT>Screen</TT>.  The equation for overlay mode is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=\frac{1}{255}[B\times R_s + (1-B)\times R_m]
+\end{displaymath} -->
+
+
+<IMG
+ SRC="img182.gif"
+ ALT="\begin{displaymath}R=\frac{1}{255}[B\times R_s + (1-B)\times R_m]
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <I>R</I><SUB><I>s</I></SUB> represents the resultant pixel value for <TT>Screen</TT> mode
+and <I>R</I><SUB><I>m</I></SUB> represents that for <TT>Multiply</TT>.  This equation says that
+the resultant pixel value for <TT>Overlay</TT> mode is a combination of
+the <TT>Screen</TT> and <TT>Multiply</TT> modes.  The mix of the two modes
+is proportional to the background pixel value.
+
+<P>
+Thus, if the background is dark (that is, has an RGB value close to
+zero in all three components), the result of <TT>Multiply</TT> mode will
+dominate and the result of <TT>Screen</TT> mode will be suppressed.  The
+opposite is true if the background pixel is light (that is, has an RGB
+value close to white in all three components).  Overall, <TT>Overlay</TT>
+mode tends to make an image darker where it is already dark and
+lighter where it is already light.
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.mult-scr-ovrly">5.18</A>(d) illustrates an example of
+applying <TT>Overlay</TT> mode to the flower image from
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a).
+
+<P>
+
+<H2><A NAME="SECTION001364000000000000000">&#160;</A>
+<A NAME="s5.darken-lighten-only">&#160;</A><A NAME="7404">&#160;</A>
+<A NAME="7405">&#160;</A>
+<BR>
+5.6.4 The <TT>Darken Only</TT> and <TT>Lighten Only</TT> Blending Modes
+</H2>
+
+<P>
+<TT>Darken Only</TT> creates a resultant pixel that retains the smallest
+components of the foreground and background pixels.  Thus, if the
+foreground pixel has the components 
+<!-- MATH: $[r_1,g_1,b_1]$ -->
+[<I>r</I><SUB>1</SUB>,<I>g</I><SUB>1</SUB>,<I>b</I><SUB>1</SUB>] and the background
+has 
+<!-- MATH: $[r_2,g_2,b_2]$ -->
+[<I>r</I><SUB>2</SUB>,<I>g</I><SUB>2</SUB>,<I>b</I><SUB>2</SUB>], the resultant pixel is
+
+<!-- MATH: $[\min(r_1,r_2),\min(g_1,g_2),\min(b_1,b_2)]$ -->
+<IMG
+ WIDTH="304" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img183.gif"
+ ALT="$[\min(r_1,r_2),\min(g_1,g_2),\min(b_1,b_2)]$">.
+This is expressed more
+compactly as
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=\min\{F,B\}
+\end{displaymath} -->
+
+
+<IMG
+ SRC="img184.gif"
+ ALT="\begin{displaymath}R=\min\{F,B\}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <IMG
+ WIDTH="38" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img169.gif"
+ ALT="$\min$">
+means component-wise minimization.  Not surprisingly,
+<TT>Darken Only</TT> mode makes an image darker.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.darken-lighten">5.19</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.darken-lighten">&#160;</A><A NAME="7667">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.19:</STRONG>
+An Example of <TT> Darken Only</TT> and <TT> Lighten Only</TT> Modes</CAPTION>
+<TR><TD><IMG
+ SRC="img185.gif"
+ALT="Figure 5.19"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the use of <TT>Darken Only</TT> mode on the flower image from
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a).  Because the grayscale layer below
+the flower is uniformly 
+<!-- MATH: $127^R 127^G 127^B$ -->
+127<SUP><I>R</I></SUP> 127<SUP><I>G</I></SUP> 127<SUP><I>B</I></SUP>, everything in the flower
+that has an RGB component darker than 127 retains its character in the
+image.  The parts of the flower image that are lighter are replaced
+by the flat gray.
+
+<P>
+<TT>Lighten Only</TT> mode has the opposite action of <TT>Darken Only</TT>.
+It selects the maximum of each component from the foreground and
+background pixels.  The mathematical expression for <TT>Lighten Only</TT>
+is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=\max\{F,B\}.
+\end{displaymath} -->
+
+
+<IMG
+ SRC="img186.gif"
+ ALT="\begin{displaymath}R=\max\{F,B\}.
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <IMG
+ WIDTH="42" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img172.gif"
+ ALT="$\max$">
+means component-wise maximization. <TT>Lighten Only</TT>
+mode makes an image lighter.
+
+<P>
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.darken-lighten">5.19</A>(b) illustrates the use of
+<TT>Lighten Only</TT> mode on the flower image from
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a).  Now, everything in the flower
+that has an RGB component lighter than 127 retains its character in
+the image.  The parts of the flower image that are darker are replaced
+by the flat gray.
+
+<P>
+
+<H2><A NAME="SECTION001365000000000000000">&#160;</A>
+<A NAME="7428">&#160;</A>
+<A NAME="7429">&#160;</A>
+<A NAME="7430">&#160;</A>
+<A NAME="7431">&#160;</A>
+<BR>
+5.6.5 The <TT>Hue</TT>, <TT>Saturation</TT>, <TT>Value</TT>, and <TT>Color</TT> Blending Modes
+</H2>
+
+<P>
+The <TT>Hue</TT>, <TT>Saturation</TT>, <TT>Value</TT>, and <TT>Color</TT> blending modes all work similarly.  For each mode, one
+HSV component is taken from the foreground pixel and the other two
+components from the background pixel.  For example, if the <TT>Hue</TT>
+blending mode is chosen, the result is the hue of the foreground
+pixels combined with the saturation and value of the background
+pixels.  The same process is used for the <TT>Saturation</TT> and <TT>Value</TT> blending modes.  The <TT>Color</TT> blending mode, however, is
+slightly different.  For this mode, the hue and saturation of the
+foreground pixels are used in conjunction with the
+lightness of the background pixels.  Lightness,
+defined in Section&nbsp;<A HREF="node52.html#s.colorspaces.hsv2rgb">5.3</A>, is less bright than
+value, and is simultaneously more true to the human perception of
+brightness.
+
+<P>
+Thus, the action of the <TT>Hue</TT> blending mode can be expressed as 
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=[h(F),s(B),v(B)]
+\end{displaymath} -->
+
+
+<I>R</I>=[<I>h</I>(<I>F</I>),<I>s</I>(<I>B</I>),<I>v</I>(<I>B</I>)]
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <I>h</I>(<I>F</I>) means the hue of the foreground, <I>s</I>(<I>B</I>) represents the
+saturation of the background, and <I>v</I>(<I>B</I>) is the value of the
+background.  An example of applying the <TT>Hue</TT> blending mode is
+illustrated in Figure&nbsp;<A HREF="node55.html#f.colorspaces.hue-mode">5.20</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.hue-mode">&#160;</A><A NAME="7670">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.20:</STRONG>
+An Example of <TT> Hue</TT> Mode</CAPTION>
+<TR><TD><IMG
+ SRC="img187.gif"
+ALT="Figure 5.20"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The flower image from Figure&nbsp;<A HREF="node55.html#f.colorspaces.addition">5.15</A>(a) is shown
+in Figure&nbsp;<A HREF="node55.html#f.colorspaces.hue-mode">5.20</A>(a).  This image is the
+foreground to the <TT>Hue</TT> mode, and the background is the blue layer
+shown in Figure&nbsp;<A HREF="node55.html#f.colorspaces.hue-mode">5.20</A>(b).  This blue layer
+varies horizontally in value and vertically in saturation.  The result
+of applying the <TT>Hue</TT> mode is shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.hue-mode">5.20</A>(c).  Here, it can be clearly seen
+that the saturation and value variations of the blue layer are
+combining with the hue of the flower layer.
+
+<P>
+Similar to <TT>Hue</TT>, the <TT>Saturation</TT> blending mode produces
+resultant pixels that are a combination of the saturation of the
+foreground and the hue and value of the background.  The expression
+for this is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=[h(B),s(F),v(B)]
+\end{displaymath} -->
+
+
+<I>R</I>=[<I>h</I>(<I>B</I>),<I>s</I>(<I>F</I>),<I>v</I>(<I>B</I>)]
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <I>s</I>(<I>F</I>) is the saturation of the foreground, <I>h</I>(<I>B</I>) is the hue of
+the background, and <I>v</I>(<I>B</I>) represents the value of the background.  An
+example of applying the <TT>Saturation</TT> blending mode is illustrated
+in Figure&nbsp;<A HREF="node55.html#f.colorspaces.saturation-mode">5.21</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.saturation-mode">&#160;</A><A NAME="7672">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.21:</STRONG>
+An Example of <TT> Saturation</TT> Mode</CAPTION>
+<TR><TD><IMG
+ SRC="img188.gif"
+ALT="Figure 5.21"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+We see again our flower image in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.saturation-mode">5.21</A>(a) playing the role of the
+foreground layer.  However, now the background layer, shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.saturation-mode">5.21</A>(b), has been constructed to
+vary only in hue and value.  In this layer, the hue changes along the
+horizontal direction and the value along the vertical.  The result of
+applying the <TT>Saturation</TT> mode is shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.saturation-mode">5.21</A>(c).
+
+<P>
+The <TT>Value</TT> blending mode produces resultant pixels that are a
+combination of the value of the foreground and the hue and saturation
+of the background.  The expression for this is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=[h(B),s(B),v(F)]
+\end{displaymath} -->
+
+
+<I>R</I>=[<I>h</I>(<I>B</I>),<I>s</I>(<I>B</I>),<I>v</I>(<I>F</I>)]
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Here, <I>v</I>(<I>F</I>) represents the foreground value, <I>h</I>(<I>B</I>) the background hue,
+and <I>s</I>(<I>B</I>) the background saturation.  An example of this blending
+mode is shown in Figure&nbsp;<A HREF="node55.html#f.colorspaces.value-mode">5.22</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.value-mode">&#160;</A><A NAME="7674">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.22:</STRONG>
+An Example of <TT> Value</TT> Mode</CAPTION>
+<TR><TD><IMG
+ SRC="img189.gif"
+ALT="Figure 5.22"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The background layer, shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.value-mode">5.22</A>(b), varies in hue in the
+horizontal direction and saturation in the vertical direction.  The
+result of this mode is shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.value-mode">5.22</A>(c).
+
+<P>
+The final example in this section illustrates the <TT>Color</TT> blending
+mode.  This mode combines the foreground hue and saturation with the
+background lightness.  Lightness was defined earlier in
+Section&nbsp;<A HREF="node52.html#s.colorspaces.hsv2rgb">5.3</A>; lightness is always a bit less
+bright than value.  The expression for this blending mode is
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=[h(F),s(F),l(B)]
+\end{displaymath} -->
+
+
+<I>R</I>=[<I>h</I>(<I>F</I>),<I>s</I>(<I>F</I>),<I>l</I>(<I>B</I>)]
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <I>h</I>(<I>F</I>) and <I>s</I>(<I>F</I>) are the hue and saturation of the foreground,
+and <I>l</I>(<I>B</I>) is the lightness of the background.  An example of this
+blending mode is shown in Figure&nbsp;<A HREF="node55.html#f.colorspaces.color-mode">5.23</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.color-mode">&#160;</A><A NAME="7676">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.23:</STRONG>
+An Example of <TT> Color</TT> Mode</CAPTION>
+<TR><TD><IMG
+ SRC="img190.gif"
+ALT="Figure 5.23"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Here, the background, shown in
+Figure&nbsp;<A HREF="node55.html#f.colorspaces.color-mode">5.23</A>(b), varies only in value.  The
+result is shown in Figure&nbsp;<A HREF="node55.html#f.colorspaces.color-mode">5.23</A>(c).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1649"
+ HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1645"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1639"
+ HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1647"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1648"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1650"
+ HREF="node56.html">5.7 Opacity and Transparency</A>
+<B> Up:</B> <A NAME="tex2html1646"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1640"
+ HREF="node54.html">5.5 Conversion to Grayscale</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

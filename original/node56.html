@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>5.7 Opacity and Transparency</TITLE>
+<META NAME="description" CONTENT="5.7 Opacity and Transparency">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node57.html">
+<LINK REL="previous" HREF="node55.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node57.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1666"
+ HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1662"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1656"
+ HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1664"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1665"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1667"
+ HREF="node57.html">5.8 Practical Uses of</A>
+<B> Up:</B> <A NAME="tex2html1663"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1657"
+ HREF="node55.html">5.6 The Blending Modes</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001370000000000000000">&#160;</A>
+<A NAME="s5.opacity-transparency">&#160;</A><A NAME="7489">&#160;</A>
+<A NAME="7490">&#160;</A>
+<A NAME="7491">&#160;</A>
+<BR>
+5.7 Opacity and Transparency
+</H1>
+
+<P>
+Transparency is usually not considered to be a blending mode, however,
+it works just like one!  Transparency is just a combination of the
+<TT>Multiply</TT> and <TT>Addition</TT> blending modes; it takes a
+percentage of the foreground and adds it to the complementary
+percentage of the background.  Thus, if you want the foreground to be
+75% opaque (opacity is just the opposite of transparency), you
+multiply the foreground by 0.75, the background by (1-0.75), and add
+the two.  This relationship can be expressed as
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+R=\alpha F+(1-\alpha)B
+\end{displaymath} -->
+
+
+<IMG
+ SRC="img191.gif"
+ ALT="\begin{displaymath}R=\alpha F+(1-\alpha)B
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+where <IMG
+ WIDTH="18" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img192.gif"
+ ALT="$\alpha$">
+represents the opacity.  The percentages used in
+scaling the foreground and background pixels are called complementary
+because 
+<!-- MATH: $\alpha + (1-\alpha) = 1$ -->
+<IMG
+ WIDTH="140" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img193.gif"
+ ALT="$\alpha + (1-\alpha) = 1$">.
+
+<P>
+By the way, can you guess why the percentage of opacity is represented
+by the Greek letter alpha in the preceding equation?  It is because
+the opacity of a layer is controlled by its alpha channel.  The alpha
+channel takes values in the range [0,255] where a value of 255
+represents 100% opacity, and 0 represents 100% transparency.
+
+<P>
+Different amounts of transparency/opacity can be obtained by adjusting
+the value of <IMG
+ WIDTH="18" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img192.gif"
+ ALT="$\alpha$">.
+For a foreground and background pixel pair, the
+effect of opacity can be illustrated in the RGB cube.
+Figure&nbsp;<A HREF="node56.html#f.colorspaces.transparency">5.24</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.transparency">&#160;</A><A NAME="7496">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.24:</STRONG>
+Explanation of Opacity in the RGB Cube</CAPTION>
+<TR><TD><IMG
+ SRC="img194.gif"
+ALT="Figure 5.24"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how combining a percentage of the foreground with a
+complementary percentage of the background creates a resultant pixel
+that is somewhere on a line between the two points.  The two blue
+arrows in Figure&nbsp;<A HREF="node56.html#f.colorspaces.transparency">5.24</A> show the locations
+in the RGB cube of a foreground and background pixel.  The line
+between the two points represents the set of pixels obtained for
+varying degrees of opacity.  The three red arrows show the pixels
+corresponding to 25, 50, and 75% opacity of the foreground with
+respect to the background pixel.
+
+<P>
+Figure&nbsp;<A HREF="node56.html#f.colorspaces.transparency1">5.25</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.transparency1">&#160;</A><A NAME="7503">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.25:</STRONG>
+An Example Application of Transparency</CAPTION>
+<TR><TD><IMG
+ SRC="img195.gif"
+ALT="Figure 5.25"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an example of setting the opacity of a layer.
+Figure&nbsp;<A HREF="node56.html#f.colorspaces.transparency1">5.25</A>(a) shows a two-layer image
+consisting of herons in the upper layer and flowers in the lower.
+When the Opacity slider for the upper layer is set to 75%, as shown
+in the Layers dialog in Figure&nbsp;<A HREF="node56.html#f.colorspaces.transparency1">5.25</A>(b),
+the result is as shown in Figure&nbsp;<A HREF="node56.html#f.colorspaces.transparency1">5.25</A>(c).
+
+<P>
+Transparency/opacity can also be controlled for the GIMP's painting
+functions.  The Opacity slider for these are found in the <TT>Brush
+Selection</TT> dialog.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1666"
+ HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1662"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1656"
+ HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1664"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1665"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1667"
+ HREF="node57.html">5.8 Practical Uses of</A>
+<B> Up:</B> <A NAME="tex2html1663"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1657"
+ HREF="node55.html">5.6 The Blending Modes</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

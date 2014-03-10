@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>4. Masks</TITLE>
+<META NAME="description" CONTENT="4. Masks">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node49.html">
+<LINK REL="previous" HREF="node35.html">
+<LINK REL="up" HREF="Grokking_the_GIMP.html">
+<LINK REL="next" HREF="node43.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1433"
+ HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1429"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1423"
+ HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1431"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1432"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1434"
+ HREF="node43.html">4.1 Channel Masks</A>
+<B> Up:</B> <A NAME="tex2html1430"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1424"
+ HREF="node41.html">3.6 Common Problems and</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001200000000000000000">&#160;</A>
+<A NAME="c4.masks">&#160;</A><A NAME="5171">&#160;</A>
+<BR>
+4. Masks
+</H1>
+
+<P>
+Masks are powerful GIMP tools, and it would be quite difficult to do
+many things without them.  What are masks?  They are selections!
+Actually, they are grayscale images that <EM>represent</EM> selections.
+In masks, the white regions represent selected pixels, the black
+regions unselected pixels, and the gray regions partially selected
+pixels.
+
+<P>
+You may be asking, ``Why do we need another way of representing a
+selection?  Weren't the selection tools presented in
+Chapter&nbsp;<A HREF="node35.html#c3.selections">3</A> good enough?''  The selection tools are
+good, but masks provide a whole new set of options for creating and
+editing selections.  This chapter demonstrates how the GIMP's painting
+tools, gradients, and filters can be used with masks to get selection
+results that would be impossible with the selection tools alone.
+Masks are complementary to the selection tools, and this chapter shows
+how the two can be used together to produce the most effective
+results.
+
+<P>
+In addition to the new capabilities for editing and creating
+selections that masks provide, they also have another very useful
+feature.  A mask can be stored and used more than once.  Selections
+created with the selection tools are more ephemeral.  When created,
+they exist only until another selection is made or until they are
+canceled.  Moreover, while a selection is present in the image window,
+it only allows operations to be applied to the pixels in the selected
+region.  This means that active selections can impede the work flow
+because pixels outside the selected region cannot be processed.  Thus,
+there is a need for selections that can be stored and reused.  Masks
+provide this capability, and, as will be seen shortly, it is easy to
+convert selections to masks and vice versa.
+
+<P>
+There are two types of masks in the GIMP: channel masks and layer
+masks.  A channel mask is an independent entity and can be applied to
+any image layer.  Alternatively, a layer mask is associated with a
+single layer, on which it is totally dependent.  Every layer in an
+image can have a layer mask, but each layer mask is specific to its
+own layer.  In addition, the layer mask is directly linked to its
+layer's alpha channel.  As was discussed in
+Section&nbsp;<A HREF="node28.html#s2.channels-layers">2.2</A>, the alpha channel controls the
+opacity of the layer.  As will be developed more in this chapter, the
+alpha channel is just a special mask and, as a mask, it is just a
+special type of selection.
+
+<P>
+Selections, channel masks, layer masks, and alpha channels.  They are
+the same, they are different, and it is all explained in this chapter.
+Read on!
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1435"
+ HREF="node43.html">4.1 Channel Masks</A>
+<UL>
+<LI><A NAME="tex2html1436"
+ HREF="node43.html#SECTION001211000000000000000">4.1.1 The Channels Dialog</A>
+<LI><A NAME="tex2html1437"
+ HREF="node43.html#SECTION001212000000000000000">4.1.2 Saving Selections to Channel Masks</A>
+<LI><A NAME="tex2html1438"
+ HREF="node43.html#SECTION001213000000000000000">4.1.3 Making Channel Masks Visible</A>
+<LI><A NAME="tex2html1439"
+ HREF="node43.html#SECTION001214000000000000000">4.1.4 Setting a Channel Mask's Color, Transparency, and Title</A>
+<LI><A NAME="tex2html1440"
+ HREF="node43.html#SECTION001215000000000000000">4.1.5 The Channels Menu</A>
+<LI><A NAME="tex2html1441"
+ HREF="node43.html#SECTION001216000000000000000">4.1.6 Combining Channels</A>
+<LI><A NAME="tex2html1442"
+ HREF="node43.html#SECTION001217000000000000000">4.1.7 Partially Selected Pixels</A>
+</UL>
+<LI><A NAME="tex2html1443"
+ HREF="node44.html">4.2 Layer Masks</A>
+<UL>
+<LI><A NAME="tex2html1444"
+ HREF="node44.html#SECTION001221000000000000000">4.2.1 Creating a Layer Mask</A>
+<LI><A NAME="tex2html1445"
+ HREF="node44.html#SECTION001222000000000000000">4.2.2 Manipulating the Layer Mask</A>
+</UL>
+<LI><A NAME="tex2html1446"
+ HREF="node45.html">4.3 Basic Tools for Working with Channel and Layer Masks</A>
+<UL>
+<LI><A NAME="tex2html1447"
+ HREF="node45.html#SECTION001231000000000000000">4.3.1 Painting Tools</A>
+<LI><A NAME="tex2html1448"
+ HREF="node45.html#SECTION001232000000000000000">4.3.2 Selection Tools</A>
+<LI><A NAME="tex2html1449"
+ HREF="node45.html#SECTION001233000000000000000">4.3.3 Gradients</A>
+<LI><A NAME="tex2html1450"
+ HREF="node45.html#SECTION001234000000000000000">4.3.4 Transparency as a Tool for Editing Masks</A>
+<LI><A NAME="tex2html1451"
+ HREF="node45.html#SECTION001235000000000000000">4.3.5 Blurring of Masks and Other Effects</A>
+</UL>
+<LI><A NAME="tex2html1452"
+ HREF="node46.html">4.4 Conversions of Selections, Channel Masks, <BR>
+Layer Masks, and Alpha Channels</A>
+<LI><A NAME="tex2html1453"
+ HREF="node47.html">4.5 Masks and Selections</A>
+<UL>
+<LI><A NAME="tex2html1454"
+ HREF="node47.html#SECTION001251000000000000000">4.5.1 Using Masks to Refine Selections</A>
+<LI><A NAME="tex2html1455"
+ HREF="node47.html#SECTION001252000000000000000">4.5.2 The Quick Mask</A>
+<LI><A NAME="tex2html1456"
+ HREF="node47.html#SECTION001253000000000000000">4.5.3 Finding the Natural Mask</A>
+<UL>
+<LI><A NAME="tex2html1457"
+ HREF="node47.html#SECTION001253100000000000000">4.5.3.1 Working with the <TT>Threshold</TT> Tool</A>
+<LI><A NAME="tex2html1458"
+ HREF="node47.html#SECTION001253200000000000000">4.5.3.2 The <TT>Threshold</TT> Tool Versus the <TT>Magic Wand</TT></A>
+<LI><A NAME="tex2html1459"
+ HREF="node47.html#SECTION001253300000000000000">4.5.3.3 Threshold and Decompose</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html1460"
+ HREF="node48.html">4.6 Common Problems and <BR>
+Frequently Asked Questions</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1433"
+ HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1429"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1423"
+ HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1431"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1432"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1434"
+ HREF="node43.html">4.1 Channel Masks</A>
+<B> Up:</B> <A NAME="tex2html1430"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1424"
+ HREF="node41.html">3.6 Common Problems and</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

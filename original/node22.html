@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>1.7 Copy, Cut, and Paste Buffers</TITLE>
+<META NAME="description" CONTENT="1.7 Copy, Cut, and Paste Buffers">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node23.html">
+<LINK REL="previous" HREF="node21.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node23.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1047"
+ HREF="node23.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1043"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1037"
+ HREF="node21.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1045"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1046"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1048"
+ HREF="node23.html">1.8 Zoom and New</A>
+<B> Up:</B> <A NAME="tex2html1044"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html1038"
+ HREF="node21.html">1.6 Recalling the Last</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00970000000000000000">&#160;</A>
+<A NAME="s1.copy-paste">&#160;</A>
+<BR>
+1.7 Copy, Cut, and Paste Buffers
+</H1>
+
+<P>
+Copying, cutting, and pasting of layers and selections are among the
+most common operations in the GIMP.  In this book, these operations
+are used extensively in Chapter&nbsp;<A HREF="node42.html#c4.masks">4</A>, where they are needed
+for building masks; in Chapter&nbsp;<A HREF="node71.html#c8.rendering">8</A>, where they are used
+for image rendering; and in Chapter&nbsp;<A HREF="node65.html#c7.compositing">7</A>, where they
+are essential for compositing.
+
+<P>
+The commands for copying, cutting, and pasting are found in the <TT>Image:Edit</TT> menu, but they are so useful that memorizing their
+keyboard shortcuts is indispensable.  The <TT>Copy</TT><A NAME="1141">&#160;</A> command can be performed by typing <TT>C-c</TT> in the image
+window, cutting by typing <TT>C-x</TT>,<A NAME="1144">&#160;</A> and pasting
+by typing <TT>C-v</TT>.<A NAME="1146">&#160;</A>  As will be seen in
+Chapters&nbsp;<A HREF="node26.html#c2.layers">2</A>,
+<A HREF="node35.html#c3.selections">3</A>, and
+<A HREF="node42.html#c4.masks">4</A>, copying, cutting, and pasting are the most expeditious
+methods of moving layers and selections between image windows and
+between layer and channel masks.
+
+<P>
+The GIMP manages copying, cutting, and pasting using buffers.
+Whenever a generic copy or cut is performed, it is placed into the
+default buffer,<A NAME="1150">&#160;</A> replacing whatever was there.
+A generic paste uses the contents of the default buffer without
+clearing it, so the contents can be reused until they are replaced by
+another copy or cut operation.  A copy or cut places the <EM>active</EM>
+layer, channel mask, or layer mask into the buffer.  If a selection is
+active in the image window, only the part of the active layer
+contained in the selection is placed in the buffer.
+
+<P>
+Several special paste functions are available in the <TT>Image:Edit</TT>
+menu.  If an image contains an active selection, the <TT>Paste
+Into</TT><A NAME="1154">&#160;</A> function places the contents of the default
+buffer into the selection, clipping the pasted image to the
+selection's boundaries.<A NAME="1155">&#160;</A>  The pasted image
+can be repositioned using the <TT>Move</TT> tool.  The <TT>Paste As
+New</TT><A NAME="1158">&#160;</A> function places the contents of the
+default buffer into a new image window that has dimensions just large
+enough to accommodate the pasted image.
+
+<P>
+There is also a special copy function called <TT>Copy
+Visible</TT>.<A NAME="1160">&#160;</A>  Instead of copying the active
+layer to the default buffer, this function copies all the visible
+layers or, if a selection is active, the parts of the visible layers
+within the selection boundaries.  If the image consists of more than
+one layer the copied contents are flattened, removing the layered
+structure, before being placed into the default buffer.
+
+<P>
+In addition to the generic, default buffer, the GIMP also has named
+buffers.  If a large number of copy, cut, or paste operations is
+required, the named buffers<A NAME="1161">&#160;</A><A NAME="1162">&#160;</A>
+can be useful for organizing and distributing the pieces.
+Figure&nbsp;<A HREF="node22.html#f.basics.named-copy1">1.14</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.named-copy1">&#160;</A><A NAME="1301">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.14:</STRONG>
+Using the <TT> Copy Named</TT> Buffer</CAPTION>
+<TR><TD><IMG
+ SRC="img30.gif"
+ALT="Figure 1.14"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the use of named buffers.
+Figure&nbsp;<A HREF="node22.html#f.basics.named-copy1">1.14</A>(a) illustrates a circular selection
+that is placed into a named buffer using <TT>Copy Named</TT><A NAME="1171">&#160;</A>, found in the <TT>Image:Edit</TT> menu.  Using this
+function displays the dialog shown in
+Figure&nbsp;<A HREF="node22.html#f.basics.named-copy1">1.14</A>(b), where the name of the buffer is
+entered.  Figure&nbsp;<A HREF="node22.html#f.basics.named-copy1">1.14</A>(c) and (d) illustrate
+using <TT>Copy Named</TT>, repeated for a square selection.
+
+<P>
+Pasting from a named buffer is performed using the <TT>Paste
+Named</TT><A NAME="1177">&#160;</A> command, found in the <TT>Image:Edit</TT> menu.
+Figure&nbsp;<A HREF="node22.html#f.basics.named-paste1">1.15</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.named-paste1">&#160;</A><A NAME="1303">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.15:</STRONG>
+Using the <TT> Paste Named</TT> Buffer</CAPTION>
+<TR><TD><IMG
+ SRC="img31.gif"
+ALT="Figure 1.15"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the dialog that appears when using this command.  The
+contents of any named buffer can be pasted by clicking on the name in
+the dialog, followed by clicking on the Paste button.  Buffers can be
+removed from the list by highlighting them and clicking on the Delete
+button.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1047"
+ HREF="node23.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1043"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1037"
+ HREF="node21.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1045"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1046"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1048"
+ HREF="node23.html">1.8 Zoom and New</A>
+<B> Up:</B> <A NAME="tex2html1044"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html1038"
+ HREF="node21.html">1.6 Recalling the Last</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

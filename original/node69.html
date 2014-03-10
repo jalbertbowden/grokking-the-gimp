@@ -1,0 +1,443 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>7.4 Project 4: The Call of the Mermaid</TITLE>
+<META NAME="description" CONTENT="7.4 Project 4: The Call of the Mermaid">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node70.html">
+<LINK REL="previous" HREF="node68.html">
+<LINK REL="up" HREF="node65.html">
+<LINK REL="next" HREF="node70.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1866"
+ HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1862"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1856"
+ HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1864"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1865"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1867"
+ HREF="node70.html">7.5 Project 5: Panoramas</A>
+<B> Up:</B> <A NAME="tex2html1863"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1857"
+ HREF="node68.html">7.3 Project 3: Destination</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001540000000000000000">&#160;</A>
+<A NAME="s7.compositing.proj4">&#160;</A><A NAME="10706">&#160;</A>
+<A NAME="10707">&#160;</A>
+<A NAME="10708">&#160;</A>
+<A NAME="10709">&#160;</A>
+<BR>
+7.4 Project 4: The Call of the Mermaid
+</H1>
+
+<P>
+The fourth project is a bit more complicated than the third.  It uses
+many of the techniques of the first three projects and adds several
+more.  The objective is to actually combine image elements from two
+disparate sources, a young woman and a fish, to create a realistic and
+alluring mythological creature--the mermaid.
+
+<P>
+The raw image materials used to create the mermaid are shown in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi1">7.24</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi1">&#160;</A><A NAME="10712">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.24:</STRONG>
+Original Images of the Young Woman and the Fish</CAPTION>
+<TR><TD><IMG
+ SRC="img270.gif"
+ALT="Figure 7.24"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The first step of this project is to fuse together parts of the young
+woman and fish in a realistic way to create the mermaid.  The second
+step is to place the mermaid composite into an appropriate underwater
+background scene.
+
+<P>
+To create the mermaid, the woman and the fish must be
+selected<A NAME="10716">&#160;</A> and united into
+a single image but on separate layers.  The woman is selected using
+the <TT>Decompose</TT> and <TT>Threshold</TT> technique described in
+Section&nbsp;<A HREF="node47.html#s4.decompose_threshold">4.5.3</A>.  The HSV option of the <TT>Decompose</TT> function is chosen, and <TT>Threshold</TT> is applied to the
+resulting value component.  The result is shown in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask">7.25</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi-mask">&#160;</A><A NAME="11016">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.25:</STRONG>
+Using <TT> Threshold</TT> and the <TT> Lasso</TT> to Create a Mask
+for the Woman</CAPTION>
+<TR><TD><IMG
+ SRC="img271.gif"
+ALT="Figure 7.25"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The range of values used with the <TT>Threshold</TT> dialog is shown
+in Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask">7.25</A>(b).
+
+<P>
+The image shown in Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask">7.25</A>(a) has
+separated a large part of the subject from the background but requires
+a little more work to achieve the desired result.  First, there are
+elements of the background that must be removed, and second, there are
+holes in the subject that must be filled.  Both tasks are relatively
+easy to accomplish.  The background is removed by following these
+steps:
+<DL COMPACT>
+<DT>1.
+<DD>Draw a rough selection around the woman's silhouette using the <TT>Lasso</TT> tool.  Make sure the path of the <TT>Lasso</TT> separates the
+background from the woman.
+<DT>2.
+<DD>Invert the resulting selection by typing <TT>C-i</TT> in the image
+window.  This phase is shown in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask">7.25</A>(c).
+<DT>3.
+<DD>Choose white as the <TT>Active Background Color</TT> by typing <TT>d</TT>
+and then <TT>x</TT> in the image window.
+<DT>4.
+<DD>Cut the selection by typing <TT>C-x</TT> in the image window.
+</DL>Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask2">7.26</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi-mask2">&#160;</A><A NAME="11018">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.26:</STRONG>
+Using the <TT> Paintbrush</TT> to Finish the Mask of the Woman</CAPTION>
+<TR><TD><IMG
+ SRC="img272.gif"
+ALT="Figure 7.26"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the result of having cut away the unwanted background.  The
+remaining work is to fill in the holes seen in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask2">7.26</A>(a) using the <TT>Paintbrush</TT>
+tool.  As shown in Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask2">7.26</A>(b), a medium
+hard brush is chosen for this.
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask2">7.26</A>(c) shows the final mask.
+Although the lower portion of the woman's legs are not cleanly
+separated from the background, this is remedied shortly.
+
+<P>
+The next task is to create a layer mask<A NAME="10752">&#160;</A> for the image in Figure&nbsp;<A HREF="node69.html#f.compositing.homi1">7.24</A>(a)
+and to paste into it the grayscale image shown in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask2">7.26</A>(b).  This is done in the
+following steps:
+<DL COMPACT>
+<DT>1.
+<DD>Invert the black and white regions of the image in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi-mask2">7.26</A>(b) using <TT>Invert</TT> from the
+<TT>Image:Image/Colors</TT> menu.
+<DT>2.
+<DD>Copy the resulting grayscale image to the default buffer by typing
+<TT>C-c</TT> in the image window.
+<DT>3.
+<DD>Create a layer mask for the image in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi1">7.24</A>(a) by opening the Layers dialog and
+choosing <TT>Add Layer Mask</TT><A NAME="10762">&#160;</A> from the
+Layers menu.
+<DT>4.
+<DD>Paste the default buffer's contents into
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi1">7.24</A>(a) by typing <TT>C-v</TT> in the image
+window.
+<DT>5.
+<DD>Drop the resulting float into the layer mask by clicking on the
+<TT>Anchor</TT> button in the Layers dialog.
+</DL>The effect of the layer mask on the image is shown in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi2">7.27</A>(a), 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi2">&#160;</A><A NAME="10769">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.27:</STRONG>
+Applying a Layer Mask to the Woman</CAPTION>
+<TR><TD><IMG
+ SRC="img273.gif"
+ALT="Figure 7.27"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+and the thumbnail of the mask can be seen in the Layers dialog shown
+in Figure&nbsp;<A HREF="node69.html#f.compositing.homi2">7.27</A>(b).
+
+<P>
+Now that the layer mask is in place, the remaining parts of the
+background around the woman's lower legs are removed by painting away
+the offending parts of the layer mask with black paint using the <TT>Paintbrush</TT> tool.  
+
+<P>
+The <TT>Decompose</TT> and <TT>Threshold</TT> technique is the easiest
+method for selecting the woman.  She presents a relatively difficult
+selection using any other tool.  In particular, the outline of her
+hair would have been an especially thorny problem.  In comparison, the
+parts of the fish that are needed for the project present a simple
+outline that can easily be selected using the <TT>Bezier Path</TT> tool.
+This step is not illustrated here, but the <TT>Bezier Path</TT> tool is
+described in detail in Section&nbsp;<A HREF="node36.html#s3.bezier-paths">3.1.1</A>.
+
+<P>
+The selection of the woman and the fish are now united into a single
+image,<A NAME="10780">&#160;</A> as shown in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi3">7.28</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi3">&#160;</A><A NAME="10783">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.28:</STRONG>
+Uniting the Pieces</CAPTION>
+<TR><TD><IMG
+ SRC="img274.gif"
+ALT="Figure 7.28"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi3">7.28</A>(b), which shows the Layers dialog,
+indicates that the woman and the fish each reside in separate layers.
+Note that both images have been rotated 90<SUP><I>o</I></SUP> with respect to their
+original orientations.  This properly orients our mermaid in
+preparation for inserting her into her final underwater setting.
+
+<P>
+At this stage, we are ready to begin melding the two image components
+together.  The strategy is to take pieces of the fish's tail and
+appropriately fuse them onto the woman's body.  The fish's tail is too
+large to superimpose in one piece; thus, it is cut into two parts
+using the <TT>Lasso</TT> tool.  Using the <TT>Move</TT><A NAME="10790">&#160;</A>
+tool, the bottom part, the tail fin, is repositioned over the lower
+part of the woman's legs.  This is shown in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi4">7.29</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi4">&#160;</A><A NAME="10793">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.29:</STRONG>
+Flipping and Positioning the Tail Fin</CAPTION>
+<TR><TD><IMG
+ SRC="img275.gif"
+ALT="Figure 7.29"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+Notice that I vertically flipped the tail fin (using the <TT>Flip</TT> tool) because that orientation looked better to
+me.  The positioning of the tail fin over the woman's legs was
+facilitated by using the Opacity slider in the Layers dialog.
+
+<P>
+To convincingly fuse the tail fin to the woman's lower legs, a layer
+mask is needed.  The layer mask, which is applied to the Tail Fin
+layer, is used to mask off the parts that extend beyond the boundaries
+of the woman's legs.  Figure&nbsp;<A HREF="node69.html#f.compositing.homi4a">7.30</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi4a">&#160;</A><A NAME="10800">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.30:</STRONG>
+Fusing the Tail Fin to the Woman's Lower Legs</CAPTION>
+<TR><TD><IMG
+ SRC="img276.gif"
+ALT="Figure 7.30"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows that the Tail Fin layer has been made partially transparent to
+allow the woman's legs to be seen through it.
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi4a">7.30</A>(b) shows the corresponding Layers
+dialog.  The Tail Fin layer mask is highlighted in the Layers dialog
+and the Opacity slider set to 56%.
+
+<P>
+The <TT>Paintbrush</TT> and <TT>Airbrush</TT><A NAME="10807">&#160;</A> tools
+were used to mask off parts of the tail fin in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi4a">7.30</A>(a).  The <TT>Eraser</TT><A NAME="10810">&#160;</A> tool was used to remove the parts of the woman's feet that
+extend out beyond the tail fin.  The result, after returning the
+Opacity slider to 100% in the Layers dialog, is shown in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi4a">7.30</A>(c).  The tail fin now seems to be
+fused onto the woman's legs.
+
+<P>
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi5">7.31</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi5">&#160;</A><A NAME="10814">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.31:</STRONG>
+Fusing the Remainder of the Tail and Correcting for Image
+Inconsistencies</CAPTION>
+<TR><TD><IMG
+ SRC="img277.gif"
+ALT="Figure 7.31"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the image after performing a similar sequence of fusing the
+upper part of the fish's tail to the woman's body between her waist
+and her knees.  As before, a layer mask is used to perform the fusion.
+Also, in order to better align the highlight in the scales of the tail
+with the axis of the woman's upper legs the <TT>Rotation</TT> option from
+the <TT>Transform</TT> tool is used.
+
+<P>
+In addition to fusing the tail to the woman's body,
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi5">7.31</A> also shows that her wrist watch has
+been removed with the <TT>Clone</TT><A NAME="10822">&#160;</A> tool.  Let's hope
+she wasn't too attached to it.  The <TT>Clone</TT> tool was also used to
+remove some overly bright highlights in her face (for more on how to
+use the <TT>Clone</TT> tool see Section&nbsp;<A HREF="node62.html#s6.clone-tool">6.3</A>).  Finally,
+the image was cropped to the dimensions seen in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi5">7.31</A>.
+
+<P>
+It is now time to insert our siren of the sea into a scene reflecting
+her natural habitat, swimming with her faithful fishy companions along
+a reef, undoubtably somewhere in the south Pacific.  The insertion of
+the mermaid into the scene was accomplished by first merging all the
+layers used to create Figure&nbsp;<A HREF="node69.html#f.compositing.homi5">7.31</A>, applying the
+layer mask, and then copying and pasting the result into the
+underwater image.  As usual, the paste gives rise to a floating
+selection, which is then dropped into a new layer using the <TT>New
+Layer</TT> button in the Layers dialog.  The <TT>Move</TT> tool is used to
+position the Mermaid layer and the result is shown in
+Figure&nbsp;<A HREF="node69.html#f.compositing.homi7">7.32</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi7">&#160;</A><A NAME="10832">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.32:</STRONG>
+The Mermaid Placed into an Underwater Scene</CAPTION>
+<TR><TD><IMG
+ SRC="img278.gif"
+ALT="Figure 7.32"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+Actually, the result in Figure&nbsp;<A HREF="node69.html#f.compositing.homi7">7.32</A> also displays
+an additional finesse.  The obvious sunburn of our underwater beauty,
+as seen in Figure&nbsp;<A HREF="node69.html#f.compositing.homi5">7.31</A>, has been color corrected
+to a tint more in keeping with her new environment.  This is
+accomplished using the perturbation<A NAME="10838">&#160;</A> technique for the <TT>Curves</TT> tool, as
+described in Section&nbsp;<A HREF="node61.html#s6.perturbation-technique">6.2.5</A>.  The result is
+that her skin color has been changed to a mild bluish-green tint.
+
+<P>
+Looking at Figure&nbsp;<A HREF="node69.html#f.compositing.homi7">7.32</A>, the edge between the
+mermaid's upper body and the blue of the background waters seems fine.
+However, the edge of her yellow tail seems a little too abrupt, too
+sharp.  It looks as if this part of her body were cut out of another
+image and pasted into this one.  Indeed, it was.  So, as a final
+attention to detail, it would be nice to diminish the abruptness of
+this edge.  You can do this using a clever technique based on the <TT>Border</TT><A NAME="10843">&#160;</A> function found in the <TT>Image:Select</TT> menu (see Section&nbsp;<A HREF="node38.html#s3.border">3.3.9</A>).
+
+<P>
+The idea is to blur<A NAME="10846">&#160;</A>
+together the background and the mermaid in a narrow region around the
+mermaid's edge.  To do this, follow these
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi8">&#160;</A><A NAME="11026">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.33:</STRONG>
+Using <TT> Border</TT> and <TT> Gaussian Blur (IIR)</TT> to Soften the
+Cut-Out Look of the Mermaid's Edge</CAPTION>
+<TR><TD><IMG
+ SRC="img279.gif"
+ALT="Figure 7.33"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+steps while referring to Figure&nbsp;<A HREF="node69.html#f.compositing.homi8">7.33</A>:
+<DL COMPACT>
+<DT>1.
+<DD>Activate the Mermaid layer by clicking on her thumbnail in the
+Layers dialog (shown in Figure&nbsp;<A HREF="node69.html#f.compositing.homi8">7.33</A>(b)).
+<DT>2.
+<DD>Create a selection of the mermaid using <TT>Alpha to
+Selection</TT><A NAME="10857">&#160;</A> from the Layers menu.
+<DT>3.
+<DD>Use the selection to make a border 3 pixels wide using <TT>Border</TT>
+(Figure&nbsp;<A HREF="node69.html#f.compositing.homi8">7.33</A>(c) shows the <TT>Border</TT> tool's
+dialog, and Figure&nbsp;<A HREF="node69.html#f.compositing.homi8">7.33</A>(a) illustrates the
+selection result).
+<DT>4.
+<DD>Merge the Mermaid layer into the background by typing <TT>C-m</TT> in the Layers dialog or the image window.
+<DT>5.
+<DD>Apply <TT>Gaussian Blur (IIR)</TT><A NAME="10864">&#160;</A>
+with a radius of 3 pixels (Figure&nbsp;<A HREF="node69.html#f.compositing.homi8">7.33</A>(d) shows
+the dialog for this filter).
+<DT>6.
+<DD>Remove the selection by typing <TT>C-S-a</TT> in the image window.
+</DL>The final result gives a much softer edge between the mermaid and the
+background.  This is shown in Figure&nbsp;<A HREF="node69.html#f.compositing.homi-final">7.34</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.compositing.homi-final">&#160;</A><A NAME="10870">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 7.34:</STRONG>
+The Final Mermaid Composition</CAPTION>
+<TR><TD><IMG
+ SRC="img280.gif"
+ALT="Figure 7.34"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+To summarize, this project illustrates how layer masks, in conjunction
+with many other tools, can be used to literally fuse together image
+elements.  This project also shows how the <TT>Border</TT> tool can be
+used to finesse the edges of composited images.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1866"
+ HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1862"
+ HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1856"
+ HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1864"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1865"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1867"
+ HREF="node70.html">7.5 Project 5: Panoramas</A>
+<B> Up:</B> <A NAME="tex2html1863"
+ HREF="node65.html">7. Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1857"
+ HREF="node68.html">7.3 Project 3: Destination</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

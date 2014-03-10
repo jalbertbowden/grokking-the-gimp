@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>1.10 Common Problems and Frequently Asked Questions</TITLE>
+<META NAME="description" CONTENT="1.10 Common Problems and Frequently Asked Questions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="previous" HREF="node24.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node26.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1083"
+ HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1079"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1075"
+ HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1081"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1082"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1084"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Up:</B> <A NAME="tex2html1080"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html1076"
+ HREF="node24.html">1.9 The Help System</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION009100000000000000000">&#160;</A>
+<A NAME="s1.readme.problems">&#160;</A>
+<BR>
+1.10 Common Problems and <BR>
+Frequently Asked Questions
+</H1>
+
+<P>
+Sometimes the GIMP displays what seems like inexplicable behavior.
+This is usually not a bug but a misunderstanding on how to properly
+use the GIMP.  For this reason, Chapters&nbsp;<A HREF="node15.html#c1.basics">1</A> through
+<A HREF="node49.html#c5.colorspaces">5</A> each have a final section which addresses common
+problems.  These are presented in the format of a FAQ (frequently
+asked questions); here they are for this chapter:
+
+<P>
+<UL>
+<LI><B>I've opened an image in the GIMP and I want to run some plug-in
+filters on it, but hardly any are available.  They all seem to be
+grayed out.  What's wrong with my GIMP?</B>
+
+<P>
+Nothing is wrong.  You've probably loaded an indexed image (for
+example, a GIF format file), and most GIMP
+plug-ins<A NAME="1276">&#160;</A><A NAME="1277">&#160;</A> don't work with indexed images.  The solution is to convert
+your image to RGB format with the <TT>RGB</TT> function found in the <TT>Image:Image/Mode</TT> menu.
+
+<P>
+<LI><B>After hours of exhausting work during which I built an image with
+multiple layers, masks, and paths, I saved my image to a file.
+However, the next time I opened my image, much of what I did on the
+image was missing.  What happened?</B><A NAME="1281">&#160;</A>
+
+<P>
+The GIMP XCF format<A NAME="1282">&#160;</A> should be used to save
+images with layers, masks, or paths (see Section&nbsp;<A HREF="node17.html#s1.load-save">1.2</A>).
+This is the only format that can save the state of your GIMP image
+projects.  Once a project has been completed you may want to save it
+in another format such as JPEG, GIF, PNG, etc.  For this you will need
+to convert the image after merging it (see Sections&nbsp;<A HREF="node33.html#s2.merging">2.7.1</A>)
+or flattening it (see Section&nbsp;<A HREF="node33.html#s2.flatten">2.7.2</A>).
+
+<P>
+</UL>
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1083"
+ HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1079"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1075"
+ HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1081"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1082"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1084"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Up:</B> <A NAME="tex2html1080"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html1076"
+ HREF="node24.html">1.9 The Help System</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

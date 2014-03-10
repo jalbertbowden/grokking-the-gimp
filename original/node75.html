@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>8.4 Shadows</TITLE>
+<META NAME="description" CONTENT="8.4 Shadows">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node76.html">
+<LINK REL="previous" HREF="node74.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node76.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1947"
+ HREF="node76.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1943"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1937"
+ HREF="node74.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1945"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1946"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1948"
+ HREF="node76.html">8.5 Rendering Project I:</A>
+<B> Up:</B> <A NAME="tex2html1944"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1938"
+ HREF="node74.html">8.3 The Emboss and</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001640000000000000000">&#160;</A>
+<A NAME="s8.shadows">&#160;</A><A NAME="12015">&#160;</A>
+<A NAME="12016">&#160;</A>
+<BR>
+8.4 Shadows
+</H1>
+
+<P>
+A shadow is just a dark silhouette of an object, but with a somewhat
+fuzzy edge to account for the diffraction of the illuminating light
+source.<A NAME="12017">&#160;</A>  Furthermore, depending on the
+location of the source of light, a shadow is somewhat displaced with
+respect to the object.  You can construct very convincing shadows in
+the GIMP.  These are surprisingly useful rendering tools in image
+manipulation, and this section explains how to make them.
+
+<P>
+To make a shadow for an image object you must have a selection of it.
+The following describes the steps needed to create the selected
+region's shadow:
+<DL COMPACT>
+<DT>1.
+<DD>Cut the selected region by typing <TT>C-x</TT> in the image window.  This
+places the selection into the default buffer.
+<DT>2.
+<DD>Create a new transparent layer by clicking on the <TT>New Layer</TT>
+button in the Layers dialog and choosing the Transparent option.
+<DT>3.
+<DD>Paste the contents of the default buffer by typing <TT>C-v</TT> in the
+image window.  This places the paste into a floating selection.
+Anchor the float to the new layer by clicking on the <TT>Anchor</TT>
+button in the Layers dialog.
+<DT>4.
+<DD>Duplicate the new layer by clicking on the <TT>Duplicate Layer</TT>
+button in the Layers dialog.  The duplicated layer is placed above the
+original layer in the layer stack.
+<DT>5.
+<DD>Name the duplicated layer Object and the original layer
+Shadow.
+<DT>6.
+<DD>Make the Shadow layer active by clicking on its thumbnail in the
+Layers dialog, toggle on the Keep Trans. checkbox in the Layers
+dialog, and use the <TT>Bucket Fill</TT> tool with its Threshold set to
+255 to fill the image object with black or some other appropriate,
+dark color.
+<DT>7.
+<DD>Toggle off the Keep Trans. checkbox in the Layers dialog, use <TT>Gaussian Blur (IIR)</TT><A NAME="12026">&#160;</A> found in the
+<TT>Image:Filters/Blur</TT> menu to blur the Shadow layer, and use <TT>Offset</TT><A NAME="12029">&#160;</A> from the <TT>Image:Image/Transforms</TT>
+menu to shift it.
+<DT>8.
+<DD>Use the Opacity slider in the Layers dialog to give the shadow an
+appropriate degree of transparency.
+</DL>This procedure is often referred to as making a drop shadow.<A NAME="12032">&#160;</A><A NAME="12033">&#160;</A>
+
+<P>
+An example of creating a drop shadow is now presented using the preceding
+recipe.  Figure&nbsp;<A HREF="node75.html#f.rendering.drop1">8.16</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.drop1">&#160;</A><A NAME="12036">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.16:</STRONG>
+A Daisy Selection</CAPTION>
+<TR><TD><IMG
+ SRC="img304.gif"
+ALT="Figure 8.16"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates a photo of a daisy.  Using techniques from
+Chapters&nbsp;<A HREF="node35.html#c3.selections">3</A> and
+<A HREF="node42.html#c4.masks">4</A> a selection of the daisy is made and, as shown in
+Figure&nbsp;<A HREF="node75.html#f.rendering.drop1">8.16</A>(b), this is used to cut away the
+daisy's background.  (Note: the cut produces a transparent background
+only if the original image layer has an alpha channel.  For more on
+alpha channels see Section&nbsp;<A HREF="node44.html#s4.create-layer-mask">4.2.1</A>.)  The Layers
+dialog in Figure&nbsp;<A HREF="node75.html#f.rendering.drop1">8.16</A>(c) shows that the Daisy layer
+has been duplicated and that the lower layer has been labeled Daisy
+Silhouette.
+
+<P>
+The remaining steps in the creation of the shadow are now easy.  The
+Daisy Silhouette layer is filled with black using the <TT>Bucket
+Fill</TT> tool (don't forget to set Threshold to 255 in the <TT>Bucket
+Fill</TT> dialog).  The blurring<A NAME="12047">&#160;</A> can be performed
+with any of the blur functions from the <TT>Image:Filters/Blur</TT> menu
+(but make sure that the Keep Trans. button in the Layers dialog is
+toggled off before applying one).  Here, <TT>Gaussian Blur (IIR)</TT> is
+used with a radius of 20.<A NAME="tex2html276"
+ HREF="footnode.html#foot12396"><SUP>8.1</SUP></A>  This is followed by using <TT>Offset</TT><A NAME="12054">&#160;</A>, which can be applied by typing C-S-o in the image window.
+The offset parameters are set to 15 for both the X and Y components,
+and the Wrap-Around radio button is toggled off.  The result is shown
+in Figure&nbsp;<A HREF="node75.html#f.rendering.drop3">8.17</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.drop3">&#160;</A><A NAME="12058">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.17:</STRONG>
+Filling, Blurring, and Offsetting Creates the Shadow</CAPTION>
+<TR><TD><IMG
+ SRC="img305.gif"
+ALT="Figure 8.17"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node75.html#f.rendering.drop3">8.17</A>(b) and (c) show the dialogs for the
+<TT>Gaussian Blur (IIR)</TT> and <TT>Offset</TT> filters used in this
+example.
+
+<P>
+All that remains is to place the flower and shadow over an appropriate
+background.  This could be anything: a solid color, an image pattern,
+or a photograph.  Figure&nbsp;<A HREF="node75.html#f.rendering.drop4">8.18</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.drop4">&#160;</A><A NAME="12067">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.18:</STRONG>
+The Final Drop Shadow</CAPTION>
+<TR><TD><IMG
+ SRC="img306.gif"
+ALT="Figure 8.18"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the daisy on a light blue background.  The Layers dialog
+in Figure&nbsp;<A HREF="node75.html#f.rendering.drop4">8.18</A>(b) shows the placement of the blue
+layer at the bottom of the image stack.  This layer was created by
+clicking on the <TT>New Layer</TT> button in the Layers dialog,
+positioning it to the bottom of the layer stack, and using the <TT>Bucket Fill</TT> tool to give it the desired color.
+
+<P>
+By the way, the shadow produced using this technique can be made to
+look more diffuse by making it more
+transparent.  Simply make the shadow layer active in the Layers dialog
+and set the desired value of transparency using the Opacity slider.
+
+<P>
+A technique very similar to making drop shadows is that of making
+punchouts.<A NAME="12074">&#160;</A><A NAME="12075">&#160;</A>  A drop
+shadow creates the illusion of an image object floating above a
+background.  The punchout is also a shadow technique but gives the
+illusion that part of the background has been cut away casting a
+shadow on yet another background behind.  This is the effect you would
+see by holding a stencil slightly in front of a wall.  The light
+shining through the stencil casts a shadow that can be seen through
+the stencil's hole, against the wall.
+
+<P>
+Like for drop shadows, to make a punchout for an image object you must
+have a selection of it.  The procedure for making a
+punchout is similar
+to that for making a drop shadow, but with a couple of twists.  To
+make a punchout in the shape of a selected image region follow these
+steps:
+<DL COMPACT>
+<DT>1.
+<DD>Set the default colors by typing <TT>d</TT> in the image window.
+<DT>2.
+<DD>Create a new layer by clicking on the <TT>New Layer</TT> button in the
+Layers dialog, and select Foreground as the Layer Fill Type in the <TT>New Layer Options</TT> dialog.  This fills the new layer with black.
+<DT>3.
+<DD>Make sure that the new layer is active in the Layers dialog, and fill
+the selected region with white using the <TT>Bucket Fill</TT> tool.
+Label this layer Shadow.
+<DT>4.
+<DD>Cancel the selection by typing <TT>C-S-a</TT> in the image window, and
+create a layer mask for the Shadow layer by choosing <TT>Add Layer
+Mask</TT><A NAME="12083">&#160;</A> from the Layers menu.
+<DT>5.
+<DD>Make the Shadow layer active by clicking on its thumbnail in the
+Layers dialog, and copy it to the default buffer by typing <TT>C-c</TT>
+in the image window.
+<DT>6.
+<DD>Make the layer mask of the Shadow layer active by clicking on the
+layer mask's thumbnail in the Layers dialog, paste the default
+buffer's contents by typing <TT>C-v</TT> in the image window, and anchor
+the resulting float to the layer mask by typing <TT>C-h</TT> in the image
+window.
+<DT>7.
+<DD>Make the Shadow layer active, blur it with <TT>Gaussian Blur
+(IIR)</TT>,<A NAME="12088">&#160;</A> and shift it with <TT>Offset</TT>.<A NAME="12090">&#160;</A>
+</DL>This creates the punchout effect.
+
+<P>
+An example of making a punchout is now presented.  The example
+deviates slightly from the steps described in the preceding list.
+Figure&nbsp;<A HREF="node75.html#f.rendering.punchout1">8.19</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.punchout1">&#160;</A><A NAME="12094">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.19:</STRONG>
+Lightning Strike!</CAPTION>
+<TR><TD><IMG
+ SRC="img307.gif"
+ALT="Figure 8.19"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows an impressive flash of lightning across a deep purple sky.  You
+can just imagine the powerful clap of thunder that's coming.  But in
+case you can't, we're going to drive the message home by punching it
+out of the photo.
+
+<P>
+We begin by setting the default colors by typing <TT>d</TT> and then
+switching the background and foreground colors by typing <TT>x</TT> in
+the image window.  A new layer is created by opening the Layers dialog
+and clicking on the <TT>New Layer</TT> button.  The Background radio
+button is selected from the <TT>New Layer Options</TT> dialog.  This sets
+the new layer to black.  For this example the new layer is labeled
+Inverse Text.
+
+<P>
+The <TT>Text</TT> tool is now invoked by clicking on its icon in the
+Toolbox and then clicking in the image window.  This brings up the
+<TT>Text</TT> tool dialog shown in Figure&nbsp;<A HREF="node75.html#f.rendering.punchout2">8.20</A>(c).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.punchout2">&#160;</A><A NAME="12106">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.20:</STRONG>
+Placing Some Text</CAPTION>
+<TR><TD><IMG
+ SRC="img308.gif"
+ALT="Figure 8.20"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The Brushstroke font has been chosen with a height of 100 pixels, and,
+because the goal of choosing this font is to get a rough punchout
+effect, the Antialiasing option has been turned off, as shown in the
+<TT>Text</TT> tool's <TT>Tool Options</TT> dialog
+(Figure&nbsp;<A HREF="node75.html#f.rendering.punchout2">8.20</A>(d)).  Clicking on the OK button in
+the <TT>Text</TT> tool dialog places the text into a floating selection.
+Because the <TT>Active Foreground Color</TT> is white, so is the newly
+created text.
+
+<P>
+Cutting the floating selection with <TT>C-x</TT> and then pasting it back
+with <TT>C-v</TT> centers the text before it is anchored into the layer
+below by clicking on the <TT>Anchor</TT> button in the Layers dialog.
+This makes a layer with white text on a black background.
+Figure&nbsp;<A HREF="node75.html#f.rendering.punchout2">8.20</A>(a) shows the image window, and
+Figure&nbsp;<A HREF="node75.html#f.rendering.punchout2">8.20</A>(b) shows the corresponding Layers
+dialog at this stage in the example.
+
+<P>
+The procedure is almost complete.  If we were making a drop shadow,
+the new layer would be blurred and offset.  However, for the punchout,
+we first copy the Inverse Text layer into its own layer mask.  This is
+done in the following steps:
+<DL COMPACT>
+<DT>1.
+<DD>Make the Inverse Text layer active by clicking on its thumbnail in the
+Layers dialog.
+<DT>2.
+<DD>Copy the Inverse Text image contents to the default buffer by typing
+<TT>C-c</TT> in the image window.
+<DT>3.
+<DD>Create a layer mask by choosing <TT>Add Layer Mask</TT><A NAME="12123">&#160;</A> from the Layers menu.
+<DT>4.
+<DD>Paste the default buffer contents by typing <TT>C-v</TT> in the image
+window.
+<DT>5.
+<DD>Anchor the resulting floating selection to the layer mask by clicking
+on the <TT>Anchor</TT> button in the Layers dialog.
+</DL>The result is shown in Figure&nbsp;<A HREF="node75.html#f.rendering.punchout3">8.21</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.punchout3">&#160;</A><A NAME="12129">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.21:</STRONG>
+Creating the Layer Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img309.gif"
+ALT="Figure 8.21"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node75.html#f.rendering.punchout3">8.21</A>(b) shows the corresponding Layers
+dialog.
+
+<P>
+The final step is to blur and offset the text in the Inverse Text
+layer.  To do this, the Inverse Text layer is made active by clicking
+on its thumbnail in the Layers dialog.  This layer is then blurred
+using the <TT>Gaussian Blur (IIR)</TT> filter with a radius of 8 and
+shifted using <TT>Offset</TT> with values of 4 for both X and Y.  The
+result is shown in Figure&nbsp;<A HREF="node75.html#f.rendering.punchout4">8.22</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.punchout4">&#160;</A><A NAME="12138">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.22:</STRONG>
+The Final Punchout</CAPTION>
+<TR><TD><IMG
+ SRC="img310.gif"
+ALT="Figure 8.22"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The blurred and offset inverted text now appears as a shadow seen
+through a stencil punched out of the photo.
+Figures&nbsp;<A HREF="node75.html#f.rendering.punchout4">8.22</A>(b) and (c) show the dialogs for
+the <TT>Gaussian Blur (IIR)</TT> and <TT>Offset</TT> filters used in this
+example.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1947"
+ HREF="node76.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1943"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1937"
+ HREF="node74.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1945"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1946"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1948"
+ HREF="node76.html">8.5 Rendering Project I:</A>
+<B> Up:</B> <A NAME="tex2html1944"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1938"
+ HREF="node74.html">8.3 The Emboss and</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

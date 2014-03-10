@@ -1,0 +1,394 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>1.1 Introducing the GIMP Windows and Dialogs</TITLE>
+<META NAME="description" CONTENT="1.1 Introducing the GIMP Windows and Dialogs">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node17.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html971"
+ HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html967"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html961"
+ HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html969"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html970"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html972"
+ HREF="node17.html">1.2 Loading and Saving</A>
+<B> Up:</B> <A NAME="tex2html968"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html962"
+ HREF="node15.html">1. GIMP Basics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html973"
+ HREF="node16.html#SECTION00911000000000000000">1.1.1 The Toolbox</A>
+<LI><A NAME="tex2html974"
+ HREF="node16.html#SECTION00912000000000000000">1.1.2 The Image Window</A>
+<LI><A NAME="tex2html975"
+ HREF="node16.html#SECTION00913000000000000000">1.1.3 The Layers, Channels, and Paths Dialogs</A>
+<LI><A NAME="tex2html976"
+ HREF="node16.html#SECTION00914000000000000000">1.1.4 The Dialogs for Color, Brushes, Patterns, Gradients, and Palettes</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00910000000000000000">
+1.1 Introducing the GIMP Windows and Dialogs</A>
+</H1>
+
+<P>
+This section gives an overview of the the main features of the GIMP
+windows and dialogs.  The GIMP windows fall into four main categories.
+They are the Toolbox window; the image window; the Layers, Channels,
+and Paths dialogs; and the dialogs for selecting colors, brushes,
+patterns, gradients, and palettes.  Each of these is briefly
+introduced in the following sections.
+
+<P>
+
+<H2><A NAME="SECTION00911000000000000000">
+1.1.1 The Toolbox</A>
+</H2>
+
+<P>
+Figure&nbsp;<A HREF="node16.html#f.basics.toolbox-window">1.1</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.toolbox-window">&#160;</A><A NAME="837">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.1:</STRONG>
+The Toolbox Window</CAPTION>
+<TR><TD><IMG
+ SRC="img17.gif"
+ALT="Figure 1.1"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the Toolbox window.<A NAME="841">&#160;</A><A NAME="842">&#160;</A>  This window is the first to
+appear when the GIMP is run.  It consists of 27 Toolbox function
+icons; the <TT>File</TT> and <TT>Xtns</TT> pull-down menus; and the <TT>Active Foreground Color</TT>, <TT>Active Background Color</TT>, <TT>Default
+Colors</TT>, <TT>Swap Colors</TT>, <TT>Active Brush</TT>, <TT>Active Pattern</TT>,
+and <TT>Active Gradient</TT> icons.  The function icons are each named in
+the figure shown on page&nbsp;<A HREF="node11.html#f.readme.icons"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="cross_ref_motif.gif"></A>, and their uses are
+discussed in various places in this book.
+
+<P>
+Almost all the tools in the Toolbox have options.  Double-clicking on
+a tool brings up its <TT>Tool Options</TT> dialog<A NAME="854">&#160;</A>.  Once opened, the dialog remains open until it is explicitly
+closed, supplying the interface for the tool options in use at the
+moment.  Changing tools automatically changes the <TT>Tool Options</TT>
+dialog, if its window is open.  This dialog can also be invoked with
+<TT>Toolbox:File/Dialogs/Tool Options</TT> or by typing <TT>C-S-t</TT> in
+the Toolbox window.  Figure&nbsp;<A HREF="node16.html#f.basics.toolbox-window">1.1</A>(b) shows the
+<TT>Tool Options</TT> dialog for the <TT>Gradient</TT> tool.
+
+<P>
+
+<H2><A NAME="SECTION00912000000000000000">&#160;</A>
+<A NAME="s1.image-window">&#160;</A><A NAME="863">&#160;</A>
+<A NAME="864">&#160;</A>
+<BR>
+1.1.2 The Image Window
+</H2>
+
+<P>
+The image window is the most important window in the GIMP.  It is also
+the most feature-rich.  Figure&nbsp;<A HREF="node16.html#f.basics.image-window">1.2</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.image-window">&#160;</A><A NAME="867">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.2:</STRONG>
+The Image Window</CAPTION>
+<TR><TD><IMG
+ SRC="img18.gif"
+ALT="Figure 1.2"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates a typical image window.  Note that the window title bar is
+marked
+<PRE>
+*image-window.xcf-16.0 (RGB) 200%
+</PRE>which gives quite a bit of information about this image.  The string
+<TT>image-window.xcf</TT> is the name of the file on disk which contains
+the original version of this image, and the <TT>*</TT> indicates that the
+image in the window has been modified with respect to the version on
+the disk.  Thus, to avoid losing the changes made to the image it must
+be saved (see Section&nbsp;<A HREF="node17.html#s1.load-save">1.2</A>).  The string <TT>16.0</TT>
+gives the window number, 16, and the view number, 0.  Every time a new
+image window is opened, the window number is incremented except when
+the new window is created using <TT>New View</TT> and, then, the view
+number is incremented (see Section&nbsp;<A HREF="node23.html#s1.new-view">1.8.2</A> for more on view
+numbers).  The string in parentheses, <TT>(RGB)</TT>, gives the image
+type (see Section&nbsp;<A HREF="node19.html#s1.image-type">1.4</A>), which can be RGB, Grayscale,
+or Indexed.  Finally, the string <TT>200%</TT> indicates that the image
+is zoomed and is displayed in its window at twice its true size.
+
+<P>
+Additional information about the image can be had from the <TT>Window
+Info</TT><A NAME="883">&#160;</A><A NAME="884">&#160;</A> dialog,
+which is shown in Figure&nbsp;<A HREF="node16.html#f.basics.image-window">1.2</A>(b), and which is
+found in the <TT>Image:View</TT> menu, or can be displayed by typing <TT>C-S-i</TT> in the image window.  This dialog gives the image type, its
+dimensions in pixels, and its resolution in dots per inch.  The units
+of the rulers at the left and upper sides of the image window
+correspond to the dimensions shown in the <TT>Window Info</TT> dialog.
+Moving the mouse cursor into the image window makes an arrow appear on
+each ruler, indicating the cursor's position.  The cursor position is
+also precisely shown in the status bar.<A NAME="889">&#160;</A>  In
+Figure&nbsp;<A HREF="node16.html#f.basics.image-window">1.2</A>(a), the status bar indicates that
+the mouse cursor is located at the position (99,150).  Both the
+rulers and the status bar can be toggled off, which is done with <TT>Toggle Rulers</TT><A NAME="892">&#160;</A> and <TT>Toggle
+Statusbar</TT>,<A NAME="894">&#160;</A> both found in the <TT>Image:View</TT> menu.
+
+<P>
+The most important feature of the image window is the Image
+menu,<A NAME="896">&#160;</A> shown in
+Figure&nbsp;<A HREF="node16.html#f.basics.image-window">1.2</A>(c).  This menu is displayed by
+right-clicking in the image window and can also be displayed by
+clicking the arrow icon found in the upper-left corner of the window
+(see Figure&nbsp;<A HREF="node16.html#f.basics.image-window">1.2</A>(a)).  The Image menu and its
+submenus stay open until one of its items has been selected by the
+mouse.  However, these menus can be opened as separate
+windows<A NAME="899">&#160;</A><A NAME="900">&#160;</A><A NAME="901">&#160;</A> and, in so doing,
+be made to remain on the screen.  This is done by clicking on the
+dashed line at the top of the menu.  This is illustrated in
+Figure&nbsp;<A HREF="node16.html#f.basics.image-window">1.2</A>(d).  The menu window can be
+eliminated from the screen by again clicking on the dashed line at the
+top of the menu.
+
+<P>
+When an image is larger than can be displayed by the image window, the
+scroll bars<A NAME="903">&#160;</A> seen in
+Figure&nbsp;<A HREF="node16.html#f.basics.image-window">1.2</A>(a) allow the image to be panned
+inside the window.  However, there is also a special
+panner<A NAME="905">&#160;</A><A NAME="906">&#160;</A> window that
+can be displayed by clicking and holding the left mouse button on the
+four-way arrow icon found at the lower-right corner of the image
+window.  The panner window is shown in
+Figure&nbsp;<A HREF="node16.html#f.basics.image-window">1.2</A>(e).  Dragging the mouse in this
+window pans the image in the image window.  Alternatively, the image
+can also be panned by middle-button-clicking and dragging with the
+mouse in the image window.
+
+<P>
+Finally, there are a pair of buttons found at the lower-left corner of
+the image window that are used for the <TT>Quick Mask</TT><A NAME="909">&#160;</A> function.  This function is covered in
+Section&nbsp;<A HREF="node47.html#s4.quick-mask">4.5.2</A>.
+
+<P>
+
+<H2><A NAME="SECTION00913000000000000000">
+1.1.3 The Layers, Channels, and Paths Dialogs</A>
+</H2>
+
+<P>
+The Layers, Channels, and Paths<A NAME="912">&#160;</A> dialogs are very
+important tools in the GIMP.  These dialogs can be displayed by
+selecting <TT>Layers &amp; Channels</TT><A NAME="914">&#160;</A><A NAME="915">&#160;</A> from the <TT>Image:Dialogs</TT> menu or by typing <TT>C-l</TT> in the image window and
+selecting the appropriate tab.  The three dialogs are shown in
+Figures&nbsp;<A HREF="node16.html#f.basics.layers-dialog">1.3</A>(a), (b), and (c).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.layers-dialog">&#160;</A><A NAME="920">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.3:</STRONG>
+The Layers, Channels, and Paths Dialogs</CAPTION>
+<TR><TD><IMG
+ SRC="img19.gif"
+ALT="Figure 1.3"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The Layers dialog<A NAME="924">&#160;</A> is discussed in detail in
+Section&nbsp;<A HREF="node27.html#s2.layers-dialog">2.1.1</A>, the Paths dialog in
+Section&nbsp;<A HREF="node39.html#s3.paths-dialog">3.4</A>, and the Channels dialog in
+Section&nbsp;<A HREF="node43.html#s4.channels-dialog">4.1.1</A>.
+
+<P>
+
+<H2><A NAME="SECTION00914000000000000000">
+1.1.4 The Dialogs for Color, Brushes, Patterns, Gradients, and Palettes</A>
+</H2>
+
+<P>
+Clicking on the <TT>Active Foreground Color</TT> or <TT>Active
+Background Color</TT> patches in the Toolbox window (see
+Figure&nbsp;<A HREF="node16.html#f.basics.toolbox-window">1.1</A>(a)), brings up the <TT>Color
+Selection</TT> dialog shown in Figure&nbsp;<A HREF="node16.html#f.basics.color-selection">1.4</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.color-selection">&#160;</A><A NAME="1290">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.4:</STRONG>
+The <TT> Color Selection</TT> Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img20.gif"
+ALT="Figure 1.4"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The rainbow-colored vertical bar is for choosing hue, and the large
+colored square is for choosing saturation and value.  A color choice
+is made by clicking and dragging with the mouse to select the desired
+hue, saturation, and value.  Numerical values can also be entered for
+R (red), G (green), B (blue), H (hue), S (saturation), and V (value)
+in the data entry boxes.  More on these color space components is
+discussed in Chapter&nbsp;<A HREF="node49.html#c5.colorspaces">5</A>.  Several other
+color-choosing dialogs can be used by clicking on the tabs located in
+the upper part of the window.  
+
+<P>
+Choosing a color in the <TT>Color Selection</TT> dialog makes that color
+appear in the <TT>Active Foreground Color</TT> or <TT>Active Background
+Color</TT> patch (see Figure&nbsp;<A HREF="node16.html#f.basics.toolbox-window">1.1</A>(a)), depending
+on which patch was clicked to invoke the <TT>Color Selection</TT> tool.
+Clicking the <TT>Swap Colors</TT><A NAME="946">&#160;</A><A NAME="947">&#160;</A><A NAME="948">&#160;</A><A NAME="949">&#160;</A><A NAME="950">&#160;</A>
+icon (the two-headed arrow next to the active color patches) switches
+the foreground and background colors.  This can also be accomplished
+by typing <TT>x</TT> in the image window.  Clicking the <TT>Default
+Colors</TT><A NAME="953">&#160;</A> icon (the small black and white
+rectangles below the color patches) reverts the foreground and
+background colors to their defaults of black and white.  This can also
+be accomplished by typing <TT>d</TT> in the image window.
+
+<P>
+Figure&nbsp;<A HREF="node16.html#f.basics.brush-selection">1.5</A>(a) 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.brush-selection">&#160;</A><A NAME="957">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.5:</STRONG>
+The Brush Selection Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img21.gif"
+ALT="Figure 1.5"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Brush Selection</TT><A NAME="962">&#160;</A> dialog.
+This dialog can be displayed by clicking on the <TT>Active Brush</TT>
+icon in the Toolbox window.  Clicking on a brush from the dialog makes
+it appear as the new active brush in the Toolbox window, as shown in
+Figure&nbsp;<A HREF="node16.html#f.basics.brush-selection">1.5</A>(b).
+
+<P>
+Figure&nbsp;<A HREF="node16.html#f.basics.pattern">1.6</A>(a) 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.pattern">&#160;</A><A NAME="967">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.6:</STRONG>
+The Pattern Selection Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img22.gif"
+ALT="Figure 1.6"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Pattern Selection</TT> dialog<A NAME="972">&#160;</A>.  This dialog can be displayed by clicking on the <TT>Active
+Pattern</TT> icon in the Toolbox window.  Clicking on a pattern from the
+dialog makes it appear as the new active pattern in the Toolbox
+window, as shown in Figure&nbsp;<A HREF="node16.html#f.basics.pattern">1.6</A>(b).
+
+<P>
+Figure&nbsp;<A HREF="node16.html#f.basics.gradient">1.7</A>(a) 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.gradient">&#160;</A><A NAME="977">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.7:</STRONG>
+The Gradients Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img23.gif"
+ALT="Figure 1.7"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Gradients</TT> dialog.<A NAME="982">&#160;</A>  This dialog
+can be displayed by clicking on the <TT>Active Gradient</TT> icon in the
+Toolbox window.  Clicking on a gradient from the dialog makes it
+appear as the new active gradient in the Toolbox window, as shown in
+Figure&nbsp;<A HREF="node16.html#f.basics.gradient">1.7</A>(b).  Furthermore, custom gradients can
+be created by clicking on the <TT>Gradients</TT> dialog's Edit button.
+This produces the <TT>Gradient Editor</TT>, shown in
+Figure&nbsp;<A HREF="node16.html#f.basics.gradient">1.7</A>(c).
+
+<P>
+Figure&nbsp;<A HREF="node16.html#f.basics.palette">1.8</A>(a) 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.palette">&#160;</A><A NAME="990">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.8:</STRONG>
+The Color Palette Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img24.gif"
+ALT="Figure 1.8"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>Color Palette</TT> dialog.<A NAME="995">&#160;</A><A NAME="996">&#160;</A>  This dialog can be
+displayed from the <TT>Image:Dialogs</TT> menu or by typing <TT>C-p</TT> in
+the Toolbox window.  The dialog consists of the Palette tab which
+displays the active palette.  Clicking on the Select tab allows you to
+choose from a large number of predefined palettes, as shown in
+Figure&nbsp;<A HREF="node16.html#f.basics.palette">1.8</A>(b).  In addition, you can create custom
+palettes by clicking on the Edit button.  This produces the <TT>Color
+Palette Edit</TT><A NAME="1001">&#160;</A> dialog, shown in
+Figure&nbsp;<A HREF="node16.html#f.basics.palette">1.8</A>(c).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html971"
+ HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html967"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html961"
+ HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html969"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html970"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html972"
+ HREF="node17.html">1.2 Loading and Saving</A>
+<B> Up:</B> <A NAME="tex2html968"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html962"
+ HREF="node15.html">1. GIMP Basics</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

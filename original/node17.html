@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>1.2 Loading and Saving Images</TITLE>
+<META NAME="description" CONTENT="1.2 Loading and Saving Images">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node18.html">
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html987"
+ HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html983"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html977"
+ HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html985"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html986"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html988"
+ HREF="node18.html">1.3 Creating New Images</A>
+<B> Up:</B> <A NAME="tex2html984"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html978"
+ HREF="node16.html">1.1 Introducing the GIMP</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00920000000000000000">&#160;</A>
+<A NAME="s1.load-save">&#160;</A><A NAME="1005">&#160;</A>
+<A NAME="1006">&#160;</A>
+<A NAME="1007">&#160;</A>
+<A NAME="1008">&#160;</A>
+<BR>
+1.2 Loading and Saving Images
+</H1>
+
+<P>
+The two most fundamental operations that can be performed in the GIMP
+are that of loading and saving images.  There are a few subtleties
+about these operations worth noting.  Figure&nbsp;<A HREF="node17.html#f.basics.load-image">1.9</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.load-image">&#160;</A><A NAME="1011">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.9:</STRONG>
+Loading Images into the GIMP</CAPTION>
+<TR><TD><IMG
+ SRC="img25.gif"
+ALT="Figure 1.9"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the <TT>Load Image</TT><A NAME="1016">&#160;</A> dialog.
+This function can be called in several ways.  It lives in the <TT>Image:File/Open</TT><A NAME="1018">&#160;</A> menu and the <TT>Toolbox:Image/Open</TT> menu, and it can be obtained by simply typing <TT>C-o</TT> in either the image or Toolbox windows.
+
+<P>
+You can navigate your file structure's directory tree using the <TT>Load Image</TT> dialog.  The directories are shown to the left, and files
+to the right.  Clicking on a file highlights it, and if a preview
+image for this file exists, it is displayed in the preview box near
+the bottom of the dialog.  If no preview exists one can be created by
+clicking on the Generate Preview button (the button displaying the
+thumbnail in Figure&nbsp;<A HREF="node17.html#f.basics.load-image">1.9</A>(a)).  Clicking the <TT>OK</TT> button at the bottom of the dialog loads the highlighted image.
+Figure&nbsp;<A HREF="node17.html#f.basics.load-image">1.9</A>(a) shows a highlighted file, and the
+preview box shows the associated thumbnail for this image.
+
+<P>
+Clicking the OK button loads the image.  A file can also be loaded by
+double-clicking on its name.  Double-clicking on directory names
+navigates the <TT>Load Image</TT> dialog to that directory.  It is
+possible to load multiple images<A NAME="1026">&#160;</A><A NAME="1027">&#160;</A> into the GIMP by highlighting
+multiple files before clicking the OK button.  Multiple files are
+highlighted by pressing the Shift key while clicking on the desired
+filenames.  Dragging the mouse with the Shift key pressed highlights
+all the files that come under the mouse cursor.
+
+<P>
+Another very useful feature of the <TT>Load Image</TT> dialog is that
+file (and directory) name completion<A NAME="1029">&#160;</A> is enabled in the selection box.  Typing a few
+letters of a filename followed by pressing the <TT>Tab</TT> key will
+automatically complete as much of the name as is uniquely defined by
+what has already been typed.  The right side of the dialog then
+displays all the files that match the letters in the selection box.
+Adding a letter followed by pressing the <TT>Tab</TT> key will further
+complete as much as possible, and so on.  For a good typist, this is
+an agreeable and rapid way to find the file to be loaded.
+
+<P>
+An image can be saved with the <TT>Save As</TT><A NAME="1033">&#160;</A>
+function found in the <TT>Image:File</TT> menu.  This brings up the <TT>Save Image</TT> dialog,<A NAME="1036">&#160;</A> shown in
+Figure&nbsp;<A HREF="node17.html#f.basics.save-image">1.10</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.basics.save-image">&#160;</A><A NAME="1039">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 1.10:</STRONG>
+Saving Images</CAPTION>
+<TR><TD><IMG
+ SRC="img26.gif"
+ALT="Figure 1.10"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This dialog is similar to the <TT>Load Image</TT> dialog.  The image can
+be saved to a new or existing file.  Navigation of the file structure
+directory tree is the same as for the <TT>Load Image</TT> dialog.
+Entering a name in the selection box at the bottom of the dialog
+followed by clicking the OK button saves the image to the specified
+filename.
+
+<P>
+A convenient feature of the <TT>Save Image</TT> dialog is that the file
+is automatically saved in the format specified by the extension of the
+typed filename.  As an example, if <TT>foo.jpg</TT> is typed, the file
+will be saved in JPEG format.
+
+<P>
+The GIMP can load and save in many file formats.<A NAME="1047">&#160;</A>
+The set of all formats can be seen by looking in the Save Options
+menu,<A NAME="1048">&#160;</A> shown in
+Figure&nbsp;<A HREF="node17.html#f.basics.save-image">1.10</A>(b).  There are three file formats
+which are unique to the GIMP.  The first is XCF<A NAME="1050">&#160;</A>, which is the native GIMP format<A NAME="1051">&#160;</A>.  This is the only
+format that can save all the GIMP features and states when working on
+a project.  If your image contains multiple layers, channels,
+selections, or paths, you must save using the XCF format to avoid
+losing parts of your work.  Because the GIMP is the only program that
+can load XCF format files, you will also want to eventually save to
+other formats.  See Sections&nbsp;<A HREF="node33.html#s2.merging">2.7.1</A> and <A HREF="node33.html#s2.flatten">2.7.2</A> for
+precautions that should be used before saving to a different file
+format.
+
+<P>
+The two other file formats native to the GIMP are PAT and GBR.
+PAT<A NAME="1054">&#160;</A> is for saving image patterns such as those
+available in the <TT>Pattern Selection</TT> dialog.  Placing a file saved
+with the PAT extension in your <code>~/.gimp/patterns</code> directory will
+make it available in the <TT>Pattern Selection</TT> dialog the next time
+you run the GIMP.  The GBR<A NAME="1057">&#160;</A> file format is used
+for creating GIMP brushes.  This works like for pattern files, except
+GBR files must be placed in the
+<code>~/.gimp/brushes</code> directory to be made available in the <TT>Brush Selection</TT> dialog.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html987"
+ HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html983"
+ HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html977"
+ HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html985"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html986"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html988"
+ HREF="node18.html">1.3 Creating New Images</A>
+<B> Up:</B> <A NAME="tex2html984"
+ HREF="node15.html">1. GIMP Basics</A>
+<B> Previous:</B> <A NAME="tex2html978"
+ HREF="node16.html">1.1 Introducing the GIMP</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

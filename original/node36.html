@@ -1,0 +1,858 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>3.1 The Basic Selection Tools</TITLE>
+<META NAME="description" CONTENT="3.1 The Basic Selection Tools">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node37.html">
+<LINK REL="previous" HREF="node35.html">
+<LINK REL="up" HREF="node35.html">
+<LINK REL="next" HREF="node37.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1324"
+ HREF="node37.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1320"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1314"
+ HREF="node35.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1322"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1323"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1325"
+ HREF="node37.html">3.2 Combining Selections</A>
+<B> Up:</B> <A NAME="tex2html1321"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1315"
+ HREF="node35.html">3. Selections</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1326"
+ HREF="node36.html#SECTION001111000000000000000">3.1.1 The Six Selection Tools from the Toolbox</A>
+<UL>
+<LI><A NAME="tex2html1327"
+ HREF="node36.html#SECTION001111100000000000000">3.1.1.1 The <TT>Rectangle Select</TT> and <TT>Ellipse Select</TT> Tools</A>
+<LI><A NAME="tex2html1328"
+ HREF="node36.html#SECTION001111200000000000000">3.1.1.2 The <TT>Lasso</TT> (the <TT>Free-Hand Selection</TT> Tool)</A>
+<LI><A NAME="tex2html1329"
+ HREF="node36.html#SECTION001111300000000000000">3.1.1.3 The <TT>Magic Wand</TT> (the <TT>Fuzzy Select</TT> Tool)</A>
+<LI><A NAME="tex2html1330"
+ HREF="node36.html#SECTION001111400000000000000">3.1.1.4 Bezier Paths</A>
+<LI><A NAME="tex2html1331"
+ HREF="node36.html#SECTION001111500000000000000">3.1.1.5 The <TT>Intelligent Scissors</TT></A>
+</UL>
+<LI><A NAME="tex2html1332"
+ HREF="node36.html#SECTION001112000000000000000">3.1.2 Selection Tool Options</A>
+<UL>
+<LI><A NAME="tex2html1333"
+ HREF="node36.html#SECTION001112100000000000000">3.1.2.1 Antialiasing</A>
+<LI><A NAME="tex2html1334"
+ HREF="node36.html#SECTION001112200000000000000">3.1.2.2 Feathering</A>
+<LI><A NAME="tex2html1335"
+ HREF="node36.html#SECTION001112300000000000000">3.1.2.3 Sample Merged</A>
+<LI><A NAME="tex2html1336"
+ HREF="node36.html#SECTION001112400000000000000">3.1.2.4 Threshold</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001110000000000000000">&#160;</A>
+<A NAME="s3-1.overview-of-6">&#160;</A>
+<BR>
+3.1 The Basic Selection Tools
+</H1>
+
+<P>
+There are two types<A NAME="3338">&#160;</A> of selection tools.
+The first type works by drawing lines that separate the selection
+subject from its background.  The second type makes a selection by
+specifying a representative <EM>seed</EM> pixel from the subject.  The
+selection is then made automatically by including other pixels in the
+image that are sufficiently similar to the seed in color.
+
+<P>
+A goal of this chapter is to explain how to decide which type of
+selection tool should be applied.  Often it is some combination that
+is the most effective.  The decision is partially based on evaluating
+the characteristics of the subject that best differentiate it from the
+background.  These could be a combination of its color, shape, value,
+or saturation (for more on the characteristics of color, value, and
+saturation, see Chapter&nbsp;<A HREF="node49.html#c5.colorspaces">5</A>).  For difficult
+selections it is often necessary to experiment in order to discover
+the most effective approach.
+
+<P>
+
+<H2><A NAME="SECTION001111000000000000000">
+3.1.1 The Six Selection Tools from the Toolbox</A>
+</H2>
+
+<P>
+In this section we start to develop our skills by reviewing the GIMP's
+basic selection tools and by exploring their underlying strengths and
+weaknesses.  To begin, we discuss the six selection tools found in the
+GIMP Toolbox, shown in Figure&nbsp;<A HREF="node36.html#f.selections.toolbox">3.1</A>.  They
+consist of the <TT>Rectangle Select</TT>,
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.toolbox">&#160;</A><A NAME="3345">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.1:</STRONG>
+Toolbox Selection Tools</CAPTION>
+<TR><TD><IMG
+ SRC="img66.gif"
+ALT="Figure 3.1"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+the <TT>Ellipse Select</TT>, the <TT>Free-Hand Select</TT> (also known as
+the <TT>Lasso</TT>), the <TT>Fuzzy Select</TT> (known as the <TT>Magic
+Wand</TT>), the <TT>Bezier Path</TT> tool, and the <TT>Intelligent
+Scissors</TT>.  Of these, the <TT>Bezier Path</TT> and the <TT>Lasso</TT> are
+the most useful.  <TT>Rectangle Select</TT> is also of some use.  Of less
+use are the <TT>Magic Wand</TT> and <TT>Ellipse Select</TT> tools.  Finally,
+although the <TT>Intelligent Scissors</TT><A NAME="3362">&#160;</A>
+has an intriguing name, there is nothing this tool can do that can't
+be done better and more efficiently using other tools.
+
+<P>
+
+<H3><A NAME="SECTION001111100000000000000">&#160;</A>
+<A NAME="s3.rectangle-ellipse-select">&#160;</A><A NAME="3366">&#160;</A>
+<A NAME="3367">&#160;</A>
+<BR>
+3.1.1.1 The <TT>Rectangle Select</TT> and <TT>Ellipse Select</TT> Tools
+</H3>
+
+<P>
+The <TT>Rectangle Select</TT> and <TT>Ellipse Select</TT> tools are used for
+selecting rectangular and elliptical regions in an image.  A selection
+is initiated by clicking and dragging in the image window, and the
+selection is completed by releasing the mouse button.  The selection
+process is interactively facilitated by an outline of the selection
+that can be seen while the mouse is being dragged.
+
+<P>
+Figure&nbsp;<A HREF="node36.html#f.selections.marquees1">3.2</A> shows examples of both the 
+<TT>Rectangle Select</TT> and <TT>Ellipse Select</TT> tools.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.marquees1">&#160;</A><A NAME="4073">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.2:</STRONG>
+The <TT> Rectangle Select</TT> and <TT> Ellipse Select</TT> Tools</CAPTION>
+<TR><TD><IMG
+ SRC="img67.gif"
+ALT="Figure 3.2"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+When completed, selections are displayed as moving dashed lines,
+traditionally referred to as the <EM>Marching Ants</EM>.<A NAME="3380">&#160;</A><A NAME="3381">&#160;</A>  In the figure,
+the arrows are just for illustrating where the selections begin and
+end.  They don't actually appear when you use these tools.  The
+arrows' tails show where the selections were initiated, and the heads
+show where they were terminated.  Note that for the <TT>Ellipse
+Select</TT> tool the selection is inscribed in a rectangle defined by the
+arrow's head and tail.
+
+<P>
+A perfectly square selection<A NAME="3383">&#160;</A> can be made with
+the <TT>Rectangle Select</TT> tool, and a perfectly
+circular<A NAME="3385">&#160;</A> selection can be made with the
+<TT>Ellipse Select</TT> tool.  The trick is to use the Shift key, but
+read on carefully.  Two other selection tricks are also performed with
+the Shift key (see Section&nbsp;<A HREF="node37.html#s3-2.combining-selections">3.2</A> for the
+other).  To avoid confusion, it is important to pay close attention to
+how this works.
+
+<P>
+To obtain a perfectly square or circular selection, begin the
+selection by clicking and dragging in the image window.  While the
+mouse button is down, press the Shift key.  In the image window,
+the resulting selection shape becomes a perfectly square or circular,
+depending on the tool you are using.  The Shift key must remain
+pressed until the selection is finished and the mouse button has been
+released.  Only then may the Shift key be released.  If the Shift key
+is released before the left mouse button, the selection will revert to
+a normal rectangle or ellipse selection.  The results of using the
+Shift key with the <TT>Rectangle Select</TT> and <TT>Ellipse Select</TT>
+tools are illustrated in Figure&nbsp;<A HREF="node36.html#f.selections.marquees2">3.3</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.marquees2">&#160;</A><A NAME="4075">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.3:</STRONG>
+Making Perfectly Square and Circular Selections with the <TT>
+Rectangle Select</TT> and <TT> Ellipse Select</TT> Tools</CAPTION>
+<TR><TD><IMG
+ SRC="img68.gif"
+ALT="Figure 3.3"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+Instead of initiating a rectangular or elliptical selection at one
+corner and terminating at the opposite one, it is also possible to
+initiate from the selection's center, terminating at a corner.  The
+trick for this is similar to the technique just described for creating
+a perfectly square or circular selection.  It is done by pressing the
+Control key after initiating the selection with the left mouse button.
+The Control key must remain pressed until after the mouse button is
+released.  To combine perfectly square or circular selections in
+conjunction with center initiated ones, the Shift and Control keys
+must both be pressed after the left mouse button is clicked and remain
+so until after the mouse button is released.
+
+<P>
+
+<H3><A NAME="SECTION001111200000000000000">&#160;</A>
+<A NAME="3399">&#160;</A>
+<A NAME="3400">&#160;</A>
+<BR>
+3.1.1.2 The <TT>Lasso</TT> (the <TT>Free-Hand Selection</TT> Tool)
+</H3>
+
+<P>
+The <TT>Lasso</TT> is used to draw free-hand selections.  Although its
+official name is the <TT>Free-Hand Selection</TT> tool, the <TT>Lasso</TT>
+will be preferred in this book because the tool's icon in the Toolbox
+resembles a lasso (and it's also a lot shorter to type).
+
+<P>
+The <TT>Lasso</TT> is used by clicking and dragging in the image window,
+tracing out the shape to be selected.  Releasing the mouse button
+completes the selection.  While tracing with the <TT>Lasso</TT>, the
+outline of the selection can be seen, and, when completed, the
+selection is shown by the Marching Ants.
+Figure&nbsp;<A HREF="node36.html#f.selections.lasso">3.4</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.lasso">&#160;</A><A NAME="4078">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.4:</STRONG>
+A <TT> Lasso</TT> Selection</CAPTION>
+<TR><TD><IMG
+ SRC="img69.gif"
+ALT="Figure 3.4"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows an example of a <TT>Lasso</TT> selection.  
+
+<P>
+The advantage of the <TT>Lasso</TT> is that it can be used to select
+arbitrarily complex objects.  The disadvantage is that the work can be
+painstakingly slow, requiring extremely fine control of the mouse.
+Even the small selection shown in Figure&nbsp;<A HREF="node36.html#f.selections.lasso">3.4</A> was
+difficult, because the tree's outline is so jagged and rough.  Another
+aspect of the <TT>Lasso</TT> that makes it difficult for precision work
+is that the mouse button cannot be released while the selection is
+being made.  This precludes using this tool for making large,
+complicated selections.  For these reasons, the <TT>Lasso</TT> will not
+be our selection tool of choice for fine-grain work.  Rather, it will
+mainly be used to rough-out selections around complicated shapes or
+for completing work on masks.  A good example of the latter use of the
+<TT>Lasso</TT> is demonstrated in Sections&nbsp;<A HREF="node47.html#s4.threshold">4.5.3</A> and
+<A HREF="node69.html#s7.compositing.proj4">7.4</A>.
+
+<P>
+
+<H3><A NAME="SECTION001111300000000000000">&#160;</A>
+<A NAME="s3.magic-wand">&#160;</A><A NAME="3423">&#160;</A>
+<A NAME="3424">&#160;</A>
+<BR>
+3.1.1.3 The <TT>Magic Wand</TT> (the <TT>Fuzzy Select</TT> Tool)
+</H3>
+
+<P>
+Although its name is officially the <TT>Fuzzy Select</TT> tool, the <TT>Magic Wand</TT> will be preferred in this book because the tool's icon, as
+shown in the Toolbox, resembles a magic wand.  The <TT>Magic Wand</TT>
+makes selections based on specifying a seed pixel in the image.  The
+seed is the first selected pixel, and the pixels directly adjoining
+the seed are included in the selection if their colors are
+sufficiently close to the color of the seed.  This creates a second
+set of selected pixels.  This process is repeated with the neighboring
+pixels of the second selected set, and so on, until no more pixels can
+be added.
+
+<P>
+Figure&nbsp;<A HREF="node36.html#f.selections.magic-wand">3.5</A> illustrates how the <TT>Magic
+Wand</TT> works.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.magic-wand">&#160;</A><A NAME="4081">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.5:</STRONG>
+A <TT> Magic Wand</TT> Seed Pixel and Selection</CAPTION>
+<TR><TD><IMG
+ SRC="img70.gif"
+ALT="Figure 3.5"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node36.html#f.selections.magic-wand">3.5</A>(a) shows a smoothly-varying,
+radial gradient of pixel values going from black at the center to
+white at the edges.  The location where the seed was chosen with the
+mouse is indicated.  The resulting ring-like region selected by the
+<TT>Magic Wand</TT> is shown by the Marching Ants.  The ring selection is
+equally thick on both sides of the seed because the <TT>Magic Wand</TT>
+includes pixels that have both higher and lower color values than the
+seed's.
+
+<P>
+So, how much lower and higher can adjoining pixel colors be and still
+be included in the selection?  This is specified by the <TT>Magic
+Wand</TT>'s selection threshold, which, as shown in
+Figure&nbsp;<A HREF="node36.html#f.selections.magic-wand">3.5</A>(b), can be set with the Threshold
+slider in the <TT>Tool Options</TT> dialog<A NAME="3441">&#160;</A>
+(see Section&nbsp;<A HREF="node36.html#s3-5.tool-options">3.1.2</A> for more on this).  It can also
+be set interactively with the mouse.  The threshold is set
+interactively by keeping the left mouse button pressed when selecting
+the seed pixel.  When the outline of the selection appears, and with
+the left mouse button continually pressed, the mouse can be moved
+either to the right (or downward) to increase the threshold or to the
+left (or upward) to diminish it.  Increasing the threshold results in
+a larger selection, and decreasing it, a smaller one.  Changing the
+threshold should be done by moving the mouse in small increments so
+that the changes in the selected region can be carefully controlled.
+
+<P>
+The <TT>Magic Wand</TT> is a conceptually attractive tool.  In principle,
+it automatically makes the selection by grouping pixels that are
+similar in color and that are spatially connected, being grown from a
+seed pixel.  In practice, however, it is often difficult to get good
+results with the <TT>Magic Wand</TT>.  This is because it is hard to find
+the seed pixel and threshold pair that will produce the selection we
+want.  As an example, imagine a subject you want to select using the
+<TT>Magic Wand</TT> and that has pixel color values ranging from <I>X</I> to
+<I>Y</I>.  To make the selection with the <TT>Magic Wand</TT>, a pixel whose
+value is exactly midway between <I>X</I> and <I>Y</I> must be selected as the
+seed.  But how do we determine what <I>X</I> and <I>Y</I> are for our subject,
+and how do we find the pixel in the subject that has the midway value?
+These practical problems are not easily solved!
+
+<P>
+Fortunately there is another tool in the GIMP that allows you to more
+easily exploit the color-grouping selection concept.  This tool is
+called <TT>Threshold</TT> and is found in the <TT>Image:Image/Colors</TT>
+menu.  Its use is presented in Section&nbsp;<A HREF="node47.html#s4.threshold">4.5.3</A>.
+
+<P>
+
+<H3><A NAME="SECTION001111400000000000000">&#160;</A>
+<A NAME="s3.bezier-paths">&#160;</A><A NAME="3452">&#160;</A>
+<BR>
+3.1.1.4 Bezier Paths
+</H3>
+
+<P>
+The <TT>Bezier Path</TT> selection tool is very powerful.  It is the only
+selection tool that allows the interactive adjustment of the
+selections it makes.  The <TT>Bezier Path</TT> tool works by placing <EM>control points</EM><A NAME="3456">&#160;</A> on an image.  These are
+initially connected by straight-line <EM>path segments</EM>; however,
+using the <EM>control handles</EM><A NAME="3459">&#160;</A> hidden inside each control point, the path segments can be made
+to curve in practically arbitrary manners.  By using a Bezier path, an
+initial selection can be interactively corrected until the final
+result fits the desired selection like a glove.
+
+<P>
+Figure&nbsp;<A HREF="node36.html#f.selections.bezier-control">3.6</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.bezier-control">&#160;</A><A NAME="3462">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.6:</STRONG>
+Using the Bezier Control Points and Handles: (a) A Bezier
+path, (b) Simultaneously manipulating two control handles of a control
+point, (c) Manipulating an individual control handle, and (d) Moving a
+control point.</CAPTION>
+<TR><TD><IMG
+ SRC="img71.gif"
+ALT="Figure 3.6"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the basic operations of a Bezier path.  The initial Bezier
+path shown in Figure&nbsp;<A HREF="node36.html#f.selections.bezier-control">3.6</A>(a) was created
+by clicking in the image window five times.  The upper-left corner was
+the first point, and the lower-left, lower-right, and upper-right
+corners were the second, third, and fourth points added to the path.
+The final click of the mouse was made on the initial point, thus
+closing the path.  As each point was added, the straight-line segments
+seen in the figure appeared between the control points.
+
+<P>
+While constructing a Bezier path, the mouse cursor appears as an arrow,
+with a filled circle just below and slightly to the arrow's right.
+This circle indicates that the path is not closed and that the
+next mouse click will create a new control point.  Note that Bezier
+paths need not be closed.  This is discussed in more detail in
+Section&nbsp;<A HREF="node39.html#s3.paths-dialog">3.4</A>, which describes the Paths dialog.
+
+<P>
+The path segments between control points can be made to curve by
+manipulating the points' control handles.  For a closed Bezier path,
+the control handles are made visible by clicking on a control point
+and dragging. 
+Figure&nbsp;<A HREF="node36.html#f.selections.bezier-control">3.6</A>(b) shows how the control
+handles for the upper-left corner of the Bezier path have been pulled
+out of that control point.  The dragging action of the mouse positions
+one of the control handles while the other moves in tandem with, but
+diametrically opposite, the first.  As can be seen in
+Figure&nbsp;<A HREF="node36.html#f.selections.bezier-control">3.6</A>(b), the two path segments
+attached to the control point are made to curve by the action of the
+control handles.
+
+<P>
+Note that the control handles do not disappear once the mouse button
+has been released and that the handles can be readjusted at any time
+by clicking the mouse on either handle and dragging.  However, only
+one set of handles may be visible at once.  Clicking on another
+control point displays its handles while toggling off the visibility
+of the handles for any other point.  Also note that when the mouse
+cursor is close enough to a control point or control handle to
+manipulate it, the cursor changes from an arrow with a filled circle
+below it to an arrow with the outline of square.  Because control
+handles resemble squares, this special cursor is a useful way to
+indicate that the mouse cursor is close enough to the control point
+for the handles to be active.
+
+<P>
+The two control handles for a point can be moved independently of each
+other by using the Shift key.  Pressing the Shift key while dragging
+a handle with the mouse makes that handle move while the other remains
+stationary.  Moving a single control handle in this way allows the
+curvature of a single path segment to be manipulated.
+Figure&nbsp;<A HREF="node36.html#f.selections.bezier-control">3.6</A>(c) shows the result of using
+the Shift key to move one of the control handles independently of the
+other.  Note how this changes the curve of the upper segment of the
+square while leaving the curve of the left segment as it was.
+
+<P>
+It is also possible to reposition a control point.  This is done by
+pressing the Control key before clicking on a control point.
+Dragging the mouse while the mouse button and Control key are
+pressed moves the control point.  The result of repositioning a
+control point is shown in Figure&nbsp;<A HREF="node36.html#f.selections.bezier-control">3.6</A>(d).
+
+<P>
+After creating a Bezier path with all the control points properly
+positioned and all the path segments appropriately curved, it may then
+be converted to a selection.  This is done by clicking inside the
+closed path.  Note that when the mouse cursor is moved inside the
+closed path, the cursor changes to an arrow with the outline of a
+dashed rectangle below it.  The dashed rectangle resembles the
+Marching Ants, which will appear when the Bezier path is converted to a
+selection.
+
+<P>
+Figures&nbsp;<A HREF="node36.html#f.selections.bezier1">3.7</A> through <A HREF="node36.html#f.selections.bezier3">3.9</A>
+show the application of the <TT>Bezier Path</TT> tool in a practical
+example.  Figure&nbsp;<A HREF="node36.html#f.selections.bezier1">3.7</A> shows that a closed
+Bezier path has
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.bezier1">&#160;</A><A NAME="3477">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.7:</STRONG>
+Creating a Bezier Path</CAPTION>
+<TR><TD><IMG
+ SRC="img72.gif"
+ALT="Figure 3.7"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+been created by placing seven control points around the perimeter of a
+sea turtle's shell.  Although the points are all positioned on the
+edge of the shell, the straight-line segments between points do not
+marry well to the shell's shape.
+
+<P>
+As just described, the Bezier path can be adjusted to the shell's
+shape by manipulating the control handles.  The first pair of handles
+are shown in Figure&nbsp;<A HREF="node36.html#f.selections.bezier2">3.8</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.bezier2">&#160;</A><A NAME="3483">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.8:</STRONG>
+Manipulating the Control Handles of a Bezier Control Point</CAPTION>
+<TR><TD><IMG
+ SRC="img73.gif"
+ALT="Figure 3.8"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+The two handles had to be adjusted independently of each other to
+properly match the curve of the shell on either side of the control
+point.  This can be seen in the figure by the different lengths of the
+control handles and by the slight angle between them.
+
+<P>
+After adjusting the control handles for each point in the Bezier path
+it is converted to a selection.  The result, showing the Marching
+Ants, is illustrated in Figure&nbsp;<A HREF="node36.html#f.selections.bezier3">3.9</A>.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.bezier3">&#160;</A><A NAME="3489">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.9:</STRONG>
+Selection Created from the Bezier Path</CAPTION>
+<TR><TD><IMG
+ SRC="img74.gif"
+ALT="Figure 3.9"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+What is particularly interesting about this example is that the
+selection has been made with only a few control points.  This is a
+strength of this tool.  However, there are limitations to what can be
+accomplished with a Bezier path.  A very irregular shape will need
+many control points and will require a lot of work to adjust the path
+to the shape.
+
+<P>
+A practical question is where should the control points be placed?
+Another is how many control points are necessary to adequately select
+a shape?  For the placement of control points here are some rules of
+thumb:
+<UL>
+<LI>A control point must always be placed at a corner (like the one
+found at the rear-most point of the sea turtle's shell in
+Figures&nbsp;<A HREF="node36.html#f.selections.bezier1">3.7</A> through
+<A HREF="node36.html#f.selections.bezier3">3.9</A>).
+<LI>A straight-edge region can only be created by placing a
+control point at each end of the edge, as shown in
+Figure&nbsp;<A HREF="node36.html#f.selections.bezier-number">3.10</A>(a).
+<LI>An inflection point on a curve can be created between a pair
+of control points, as shown in the bottom path segment of
+Figure&nbsp;<A HREF="node36.html#f.selections.bezier-number">3.10</A>(b).  It can also be created
+with a single control point if this is placed exactly at the point of
+inflection.
+</UL>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.bezier-number">&#160;</A><A NAME="3500">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.10:</STRONG>
+The Required Number of Bezier Control Points?</CAPTION>
+<TR><TD><IMG
+ SRC="img75.gif"
+ALT="Figure 3.10"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+The number of control points needed to adequately adjust a Bezier path
+to a shape is a more difficult question.
+Figure&nbsp;<A HREF="node36.html#f.selections.bezier-number">3.10</A>(c) shows that a pair of
+control points are all that is needed to create a circle.  Thus, a
+single control point can cover up to 180 degrees of curve.  However,
+this doesn't account for all curve characteristics.  I personally like
+to place control points as the shape of my selection passes through 90
+degrees of curve.  This personal rule is borne out in the sea turtle
+selection shown in Figures&nbsp;<A HREF="node36.html#f.selections.bezier1">3.7</A>.  
+
+<P>
+In any case, the issue of the number of points required for a shape is
+not critical because it can be resolved using the Add Point and Delete
+Point functions available in the Paths dialog.  These are discussed in
+detail in Section&nbsp;<A HREF="node39.html#s3.paths-dialog">3.4</A>.  
+
+<P>
+
+<H3><A NAME="SECTION001111500000000000000">&#160;</A>
+<A NAME="3508">&#160;</A>
+<BR>
+3.1.1.5 The <TT>Intelligent Scissors</TT>
+</H3>
+
+<P>
+In principle the <TT>Intelligent Scissors</TT> is supposed to work by
+following, as closely as possible, constant-valued color contours in
+the image between subsequent points clicked by the mouse.  However, at
+the time of this writing, the <TT>Intelligent Scissors</TT> is a GIMP
+tool that seems to be broken.  Much perplexed discussion has passed
+through the GIMP developers' mailing list on this tool and,
+unfortunately, it seems that for the present this tool has little or
+no value.  Even if the tool did work, I would still rank it as a tool
+of little utility.
+
+<P>
+
+<H2><A NAME="SECTION001112000000000000000">&#160;</A>
+<A NAME="s3-5.tool-options">&#160;</A>
+<BR>
+3.1.2 Selection Tool Options
+</H2>
+
+<P>
+Double-clicking on any of the Toolbox icons brings up the <TT>Tool
+Options</TT> dialog for that tool.  For selection tools the important
+options are Antialiasing, Feather, Sample Merged, and Threshold.  Each
+of these is discussed in this section.
+
+<P>
+
+<H3><A NAME="SECTION001112100000000000000">&#160;</A>
+<A NAME="s3.anti-aliasing">&#160;</A><A NAME="3516">&#160;</A>
+<A NAME="3517">&#160;</A>
+<A NAME="3518">&#160;</A>
+<BR>
+3.1.2.1 Antialiasing
+</H3>
+
+<P>
+Antialiasing is an important edge treatment for selections.
+Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias">3.11</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.anti-alias">&#160;</A><A NAME="3521">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.11:</STRONG>
+How Antialiasing Works</CAPTION>
+<TR><TD><IMG
+ SRC="img76.gif"
+ALT="Figure 3.11"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the antialiasing concept.
+Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias">3.11</A>(a) shows an array of pixels that
+has been partitioned into two regions by a selection edge.  However,
+due to the slope of the selection and the finite area of the pixels,
+some pixels are on both sides of the selection edge.  That is, these
+pixels are only partially selected.  What happens to this set of
+partially selected pixels is important for the aesthetic presentation
+of the selection's edge.
+
+<P>
+For example, let's assume that white represents a selected pixel and
+black an unselected one.  Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias">3.11</A>(b)
+shows what happens if pixels are included in the selection when more
+than 50% of the pixel is above the selection edge and unselected
+otherwise.  This seems like a reasonable criterion, however, notice
+that the selection edge obtained by applying this rule produces a
+staircase effect on the edge.  This staircase effect, known as <EM>aliasing</EM>,<A NAME="3528">&#160;</A> makes the edge look harsh.  We'll see this
+in a more realistic example in a moment.
+
+<P>
+Alternatively, Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias">3.11</A>(c) illustrates the
+concept of antialiasing.  Here white represents a pixel which is fully
+selected, black one that is fully unselected, and gray represents
+partially selected pixels, where the level of gray indicates the
+percentage of the pixel that falls inside the selection.  Thus, a
+lighter value of gray indicates a more fully selected pixel and a
+darker value a less selected one.  Assigning gray values to partially
+selected pixels has the effect of visually smoothing the staircase
+effect illustrated in Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias">3.11</A>(b), which
+is why this is called antialiasing.
+
+<P>
+The way antialiasing is actually implemented is by using the layer's
+alpha channel.<A NAME="3531">&#160;</A>  Alpha channels
+were introduced in Section&nbsp;<A HREF="node28.html#s2.channels-layers">2.2</A> and a more
+comprehensive presentation of them is given in Chapters&nbsp;<A HREF="node42.html#c4.masks">4</A>
+and <A HREF="node49.html#c5.colorspaces">5</A>.  However, for the purposes of discussing
+antialiasing it is sufficient to know that the white pixels in
+Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias">3.11</A>(c) represent pixels that are
+fully opaque, the black pixels those that are fully transparent, and
+the gray pixels those that are partially opaque (or transparent).
+
+<P>
+Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias2">3.12</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.anti-alias2">&#160;</A><A NAME="3538">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.12:</STRONG>
+A Practical Example of Using Antialiasing</CAPTION>
+<TR><TD><IMG
+ SRC="img77.gif"
+ALT="Figure 3.12"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates a more realistic example of aliased and antialiased
+pixels.  Figures&nbsp;<A HREF="node36.html#f.selections.anti-alias2">3.12</A>(a) and (b) each show a
+circle created using the <TT>Ellipse Select</TT> tool.  For both, the
+selections were filled with black using the <TT>Bucket
+Fill</TT><A NAME="3545">&#160;</A> tool.  The selection made in part (a) of
+the figure was made without antialiasing, and that in part (b) with.
+From these two figures it can immediately be seen that the antialiased
+circle seems to have a much smoother edge.
+
+<P>
+Figures&nbsp;<A HREF="node36.html#f.selections.anti-alias2">3.12</A>(c) and (d) show zoomed versions
+of Figures&nbsp;<A HREF="node36.html#f.selections.anti-alias2">3.12</A>(a) and (b).  The staircase
+effect can be clearly seen in
+Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias2">3.12</A>(c).  Alternatively, in
+Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias2">3.12</A>(d) there are black, edge pixels
+that are partially transparent and that allow part of the yellow
+background to show through.  Figures&nbsp;<A HREF="node36.html#f.selections.anti-alias2">3.12</A>(b)
+and (d) demonstrate that antialiasing really does improve the
+aesthetic appearance of the selection edge.
+Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias2">3.12</A>(e) shows that the Antialiasing
+checkbox in the <TT>Tool Options</TT> dialog for the <TT>Ellipse Select</TT>
+tool is toggled on for Figures&nbsp;<A HREF="node36.html#f.selections.anti-alias2">3.12</A>(b) and
+(d).  For all the selection tools, Antialiasing is on by default.
+
+<P>
+As a final remark, note that the <TT>Rectangle Select</TT> tool does not
+have an antialiasing option.  This is normal because this selection tool
+can never produce sloping edges.  Consequently, the staircase problem
+illustrated in Figure&nbsp;<A HREF="node36.html#f.selections.anti-alias">3.11</A> can never occur,
+and antialiasing is not needed.
+
+<P>
+
+<H3><A NAME="SECTION001112200000000000000">&#160;</A>
+<A NAME="s3.feathering">&#160;</A><A NAME="3559">&#160;</A>
+<A NAME="3560">&#160;</A>
+<A NAME="3561">&#160;</A>
+<BR>
+3.1.2.2 Feathering
+</H3>
+
+<P>
+Feathering is a selection edge treatment similar to antialiasing.  It
+works by changing the alpha value of pixels as a function of their
+radial distance from the selection edge.
+Figure&nbsp;<A HREF="node36.html#f.selections.feather1">3.13</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.feather1">&#160;</A><A NAME="3564">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.13:</STRONG>
+The Effect of Feathering</CAPTION>
+<TR><TD><IMG
+ SRC="img78.gif"
+ALT="Figure 3.13"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an example of a feathered selection.
+Figure&nbsp;<A HREF="node36.html#f.selections.feather1">3.13</A>(a) shows how two guides have been
+placed to aid in framing a selection using the <TT>Ellipse Select</TT>
+tool.  
+
+<P>
+As shown in Figure&nbsp;<A HREF="node36.html#f.selections.feather1">3.13</A>(b), a value of 40 has
+been chosen for the Feather Radius in the <TT>Tool Options</TT> dialog
+for this selection tool.  Furthermore, Antialiasing has been turned
+off.  The result of inverting the selection and cutting away the
+background is shown in Figure&nbsp;<A HREF="node36.html#f.selections.feather1">3.13</A>(c).  This
+result is actually displayed on a yellow background so that the
+transparency of the flower pixels can be better seen.  Also,
+superimposed on Figure&nbsp;<A HREF="node36.html#f.selections.feather1">3.13</A>(c) is the original
+elliptical selection.
+
+<P>
+The transparency of the flower image shown in
+Figure&nbsp;<A HREF="node36.html#f.selections.feather1">3.13</A>(c) is 50% at the selection edge.
+The transparency increases moving outward from the edge and decreases
+moving inward from it.  The rate at which the transparency changes
+while moving away from the selection edge is determined by the Feather
+Radius.  For this example, the value chosen is 40, meaning that there
+is a feathering effect up to 40 pixels away in both directions from
+the selection edge.  Note that for all the selection tools, feathering
+is off by default.
+
+<P>
+Partially selected pixels are discussed again in
+Section&nbsp;<A HREF="node43.html#s4.partially-selected">4.1.7</A>.
+
+<P>
+
+<H3><A NAME="SECTION001112300000000000000">&#160;</A>
+<A NAME="3577">&#160;</A>
+<BR>
+3.1.2.3 Sample Merged
+</H3>
+
+<P>
+Normally the <TT>Magic Wand</TT> selection tool only operates on the
+pixel values in the active layer.  However, if this layer is not fully
+opaque, or if this layer is using a blending mode (see
+Chapter&nbsp;<A HREF="node49.html#c5.colorspaces">5</A>), some of the pixel values from lower
+layers affect the color in the active layer.  The Sample Merged option
+in the <TT>Tool Options</TT> dialog for the <TT>Magic Wand</TT> takes this
+into account.  When this option is on, it is the merged color values
+of pixels that are used in the comparison algorithm for the <TT>Magic
+Wand</TT>.  Figure&nbsp;<A HREF="node36.html#f.selections.magic-wand-options">3.14</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.magic-wand-options">&#160;</A><A NAME="3585">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.14:</STRONG>
+The Sample Merged Option</CAPTION>
+<TR><TD><IMG
+ SRC="img79.gif"
+ALT="Figure 3.14"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the Sample Merged option toggled on in the <TT>Magic Wand</TT>'s
+<TT>Tool Options</TT> dialog.
+
+<P>
+
+<H3><A NAME="SECTION001112400000000000000">&#160;</A>
+<A NAME="3592">&#160;</A>
+<BR>
+3.1.2.4 Threshold
+</H3>
+
+<P>
+As described in Section&nbsp;<A HREF="node36.html#s3.magic-wand">3.1.1</A>, the <TT>Magic Wand</TT> uses
+a search algorithm based on the color of a seed pixel and a specified
+threshold value.  All contiguous pixels that have color values that
+are less than the threshold from the seed are included in the
+selection.  As already described, the Threshold can be set
+interactively.  However, it can also be specified in the <TT>Magic
+Wand</TT>'s <TT>Tool Options</TT> dialog.
+Figure&nbsp;<A HREF="node36.html#f.selections.magic-wand-options">3.14</A> illustrates the Threshold
+slider which can take values from 0 to 255.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1324"
+ HREF="node37.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1320"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1314"
+ HREF="node35.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1322"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1323"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1325"
+ HREF="node37.html">3.2 Combining Selections</A>
+<B> Up:</B> <A NAME="tex2html1321"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1315"
+ HREF="node35.html">3. Selections</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

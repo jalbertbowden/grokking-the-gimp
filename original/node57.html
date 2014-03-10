@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>5.8 Practical Uses of Blending Modes</TITLE>
+<META NAME="description" CONTENT="5.8 Practical Uses of Blending Modes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node58.html">
+<LINK REL="previous" HREF="node56.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node58.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1678"
+ HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1674"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1668"
+ HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1676"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1677"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1679"
+ HREF="node58.html">5.9 Common Problems and</A>
+<B> Up:</B> <A NAME="tex2html1675"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1669"
+ HREF="node56.html">5.7 Opacity and Transparency</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1680"
+ HREF="node57.html#SECTION001381000000000000000">5.8.1 Colorization</A>
+<LI><A NAME="tex2html1681"
+ HREF="node57.html#SECTION001382000000000000000">5.8.2 Realistic Shadows and Highlights</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001380000000000000000">
+5.8 Practical Uses of Blending Modes</A>
+</H1>
+
+<P>
+Blending modes are fascinating toys that are lots of fun and can
+stimulate creative play with color.  Results of experimenting with the
+blending modes often produce surprising and very aesthetic results.
+
+<P>
+Blending modes, however, are a lot more than toys for playing with
+color; some very useful operations would be impossible without them.
+Examples of practical uses for blending modes can be found in
+Sections&nbsp;<A HREF="node67.html#s7.compositing.proj2">7.2</A>,
+<A HREF="node68.html#s7.compositing.proj3">7.3</A>, and <A HREF="node69.html#s7.compositing.proj4">7.4</A>.
+This section describes two great applications of blending modes that
+do not appear elsewhere in this book.
+
+<P>
+
+<H2><A NAME="SECTION001381000000000000000">&#160;</A>
+<A NAME="7516">&#160;</A>
+<A NAME="7517">&#160;</A>
+<BR>
+5.8.1 Colorization
+</H2>
+
+<P>
+It is often desirable to completely change the color of a
+subject--the color of a car, a lip gloss, eyes, a dress.  The
+problem with changing the color of any real world image is that there
+are always lots of variations in the shading of a color.  This is due
+to natural color gradations, lighting conditions, and textures.
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization1">5.26</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.colorization1">&#160;</A><A NAME="7520">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.26:</STRONG>
+Image Whose Color Is to Be Changed</CAPTION>
+<TR><TD><IMG
+ SRC="img196.gif"
+ALT="Figure 5.26"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates such an image.  Notice the subtle variations in the
+kitten's fur.  The gray color of her coat has highlights and shadows
+as well as natural variations due to the texture of her fur.  Changing
+the color of her coat requires choosing the new color and applying it
+in such a way that these natural looking variations are preserved.
+
+<P>
+The <TT>Color</TT><A NAME="7525">&#160;</A> blending mode is purr-fect
+for this type of operation.  This mode combines the hue and saturation
+of the foreground with the lightness of the background.  Thus, the
+natural dark and light areas of the kitten's coat are preserved and
+only the color changes.  The following illustrates how the
+technique is applied.
+
+<P>
+The objective is to change the kitten into a tabby colored cat with
+blue-ish eyes and to make the T-shirt of the person holding her a
+khaki green.  To do this, a separate selection is made of the kitten's
+body, her eyes, her nose and mouth, and of the T-shirt.  Each of these
+image components are selected using any of the techniques from
+Chapters&nbsp;<A HREF="node35.html#c3.selections">3</A> or <A HREF="node42.html#c4.masks">4</A> (I used the <TT>Bezier
+Path</TT> tool).  Each selection is stored as a channel mask, as shown in
+the Channels dialog displayed in
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization1">5.26</A>(b).  The four channel masks
+are labeled Body, Eyes, T-shirt, and Nose+Mouth.
+
+<P>
+The next step is to create a transparent layer above the kitten image
+where the new colors can be applied.  The new layer is created by
+clicking on the <TT>New Layer</TT> button in the Layers dialog.  When the
+<TT>New Layer Options</TT> dialog appears, the Transparent option is
+used, and the resulting layer is labeled Colorization Layer.  Changing
+the blending mode of this new layer to <TT>Color</TT>, the color surgery
+can begin.
+
+<P>
+The Body channel mask is used to recover the selection of the kitten's
+body by applying the function <TT>Channel to Selection</TT> from the
+Channels menu (see Section&nbsp;<A HREF="node43.html#s4.channels-menu">4.1.5</A>).  The Marching Ants
+for this selection can be seen in
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization2">5.27</A>(a).  Now, making sure that
+the Colorization layer is active by clicking on its thumbnail in the
+Layers dialog, the <TT>Color Selection</TT> tool, as shown in
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization2">5.27</A>(b), is used to pick the
+desired color, and the <TT>Bucket Fill</TT><A NAME="7539">&#160;</A> tool
+is used to apply the color to the selected region.
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization2">5.27</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.colorization2">&#160;</A><A NAME="7542">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.27:</STRONG>
+Making the Kitten's Coat Tabby-Colored</CAPTION>
+<TR><TD><IMG
+ SRC="img197.gif"
+ALT="Figure 5.27"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the result of this process.  Note that the lightness variations
+of the kitten's coat from the lower layer are applied to the color and
+saturation choices in the upper one.  Also note that, in the Layers
+dialog, shown in Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization2">5.27</A>(c), the
+Colorization Layer shows the thumbnail of the <TT>Bucket Fill</TT>
+operation.
+
+<P>
+The color of the kitten's eyes are changed using a similar operation.
+After applying the selection from the Eyes channel mask and making the
+Colorization layer active, you can apply the desired color to the
+eyes.  Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization3">5.28</A>(b)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.colorization3">&#160;</A><A NAME="7550">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.28:</STRONG>
+Making the Kitten's Eyes Blue</CAPTION>
+<TR><TD><IMG
+ SRC="img198.gif"
+ALT="Figure 5.28"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the color selection, Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization3">5.28</A>(a)
+shows the result of the eye-coloring procedure, and
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization3">5.28</A>(c) shows the corresponding
+Layers dialog.
+
+<P>
+Before proceeding to the final operation, that of changing the T-shirt
+color, an important touch is needed to make the kitten's nose, mouth,
+and inner ear look natural.  These parts are not the same color as her
+fur and require a little pink to make them look correct.  The nose and
+mouth are colored by converting the Nose+Mouth mask to a selection and
+by using the <TT>Bucket Fill</TT> tool to apply an appropriately chosen
+pink color.  As for the kitten's inner ear, the color is applied a
+little differently.  The inside of her ear consists of both fur and
+skin, and, consequently, the <TT>Airbrush</TT><A NAME="7558">&#160;</A> tool
+is more suitable than the <TT>Bucket Fill</TT> tool for locally applying
+the pink paint.
+
+<P>
+Making the T-shirt a khaki green is a little different from the
+previous colorization efforts.  Because the T-shirt's color in the
+original image is so light, it is impossible to make it any darker
+using the <TT>Color</TT> blending mode, which uses the lightness of the
+lower layer.  This problem can be solved by changing blending modes.
+Creating a new transparent layer and setting the mode to <TT>Multiply</TT><A NAME="7562">&#160;</A> allows darker color to
+be applied to the T-shirt.  The result of this is shown in
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization4">5.29</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.colorization4">&#160;</A><A NAME="7683">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.29:</STRONG>
+Making the T-shirt a Khaki Green Using <TT> Multiply</TT> Mode</CAPTION>
+<TR><TD><IMG
+ SRC="img199.gif"
+ALT="Figure 5.29"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization4">5.29</A>(b) shows the color chosen for
+the T-shirt, and Figure&nbsp;<A HREF="node57.html#f.colorspaces.colorization4">5.29</A>(c) shows the
+thumbnail of the new layer and the choice of the <TT>Multiply</TT>
+blending mode.  Note that I set the Opacity slider to 50% for this
+layer, which adjusted the color to a value I liked.
+
+<P>
+
+<H2><A NAME="SECTION001382000000000000000">&#160;</A>
+<A NAME="7573">&#160;</A>
+<A NAME="7574">&#160;</A>
+<BR>
+5.8.2 Realistic Shadows and Highlights
+</H2>
+
+<P>
+A strong specular reflector illuminated by a point source creates a
+strong highlight and well defined shadows.  However, more diffuse
+lighting produces less well-defined effects.  Under these
+circumstances, the <TT>Multiply</TT> and <TT>Screen</TT> blending modes can
+be used to create realistic shadows and highlights in an image.  These
+modes can be used to darken and lighten parts of an image without the
+risk of blowing out the tonal range, as is the case for specular
+reflectors and point source illumination.  The following example
+illustrates this application of these blending modes.
+
+<P>
+Figures&nbsp;<A HREF="node57.html#f.colorspaces.hlt-shdw1">5.30</A>(a) and (b)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.hlt-shdw1">&#160;</A><A NAME="7579">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.30:</STRONG>
+Original Circle with Measured Colors Shown in Color Selection
+Dialogs</CAPTION>
+<TR><TD><IMG
+ SRC="img200.gif"
+ALT="Figure 5.30"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrate two selected colors that are used to make the red circle
+on the yellow background shown in
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.hlt-shdw1">5.30</A>(c).  The goal is to give the
+circle a 3D look, to produce the effect of depth and light by creating
+a natural, diffuse looking highlight and shadow.  The idea is to use
+each color itself to create the shadow and highlight.  Applying a
+color to itself in <TT>Multiply</TT> mode tends to slightly darken the
+spot where the paint is applied.  In <TT>Screen</TT> mode, it tends to
+slightly lighten it.  This darkening and lightening, then, appears
+visually as a diffuse shadow and highlight.  Repeated applications
+increase the shadow/highlight intensity until the desired effect is
+achieved.
+
+<P>
+Using the <TT>Color Picker</TT><A NAME="7587">&#160;</A> tool, the
+measured colors of the image are 
+<!-- MATH: $221^R 191^G 37^B$ -->
+221<SUP><I>R</I></SUP> 191<SUP><I>G</I></SUP> 37<SUP><I>B</I></SUP> for the yellow
+background and 
+<!-- MATH: $206^R 26^G 26^B$ -->
+206<SUP><I>R</I></SUP> 26<SUP><I>G</I></SUP> 26<SUP><I>B</I></SUP> for the red circle.  Because the
+colors are not fully saturated, they can be used.  However, if either
+color were fully saturated (that is, a pure red, green, blue, cyan,
+magenta, yellow, or white), it would be necessary to select a color
+that is slightly off pure for this technique to work.  This is easily
+done, however, using the <TT>Color Selection</TT> tool.
+
+<P>
+To make the highlight<A NAME="7589">&#160;</A> shown in Figure&nbsp;<A HREF="node57.html#f.colorspaces.hlt-shdw2">5.31</A>(a), a
+large fuzzy brush is chosen from the <TT>Brush Selection</TT> tool, as
+shown in Figure&nbsp;<A HREF="node57.html#f.colorspaces.hlt-shdw2">5.31</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.hlt-shdw2">&#160;</A><A NAME="7594">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.31:</STRONG>
+Screening a Diffuse Highlight</CAPTION>
+<TR><TD><IMG
+ SRC="img201.gif"
+ALT="Figure 5.31"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Note that, in the <TT>Brush Selection</TT> dialog, the blending mode has
+been set to <TT>Screen</TT> and the opacity to 60%.  These numbers were
+chosen with some experimentation to achieve results I liked.  A light
+application of the <TT>Paintbrush</TT> tool to the side of the red circle
+where I imagine the light to be coming from produces the highlight
+shown in Figure&nbsp;<A HREF="node57.html#f.colorspaces.hlt-shdw2">5.31</A>(a).  Note that the <TT>Airbrush</TT><A NAME="7603">&#160;</A> tool is also an excellent device for
+this type of work.
+
+<P>
+The shadow<A NAME="7604">&#160;</A>
+shown in Figure&nbsp;<A HREF="node57.html#f.colorspaces.hlt-shdw3">5.32</A>(a) is made with the same
+brush; however, now the <TT>Multiply</TT><A NAME="7607">&#160;</A> blending mode is used, as shown in
+Figure&nbsp;<A HREF="node57.html#f.colorspaces.hlt-shdw3">5.32</A>(b).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.hlt-shdw3">&#160;</A><A NAME="7610">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.32:</STRONG>
+Multiplying in a Diffuse Shadow</CAPTION>
+<TR><TD><IMG
+ SRC="img202.gif"
+ALT="Figure 5.32"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Here, the opacity slider in the <TT>Brush Selection</TT> dialog is set to
+100%.  Again, the numbers depend on the aesthetic sensibilities of
+the individual.  Light application of the <TT>Paintbrush</TT> tool to the
+opposite side of the highlight and below the circle produces a
+believable, diffuse shadow.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1678"
+ HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1674"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1668"
+ HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1676"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1677"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1679"
+ HREF="node58.html">5.9 Common Problems and</A>
+<B> Up:</B> <A NAME="tex2html1675"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1669"
+ HREF="node56.html">5.7 Opacity and Transparency</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

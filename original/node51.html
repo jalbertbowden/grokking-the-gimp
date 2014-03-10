@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>5.2 The HSV Colorspace</TITLE>
+<META NAME="description" CONTENT="5.2 The HSV Colorspace">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node52.html">
+<LINK REL="previous" HREF="node50.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node52.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1601"
+ HREF="node52.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1597"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1591"
+ HREF="node50.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1599"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1600"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1602"
+ HREF="node52.html">5.3 Relating HSV to</A>
+<B> Up:</B> <A NAME="tex2html1598"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1592"
+ HREF="node50.html">5.1 The RGB Colorspace</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001320000000000000000">&#160;</A>
+<A NAME="s5.hsv">&#160;</A><A NAME="7025">&#160;</A>
+<A NAME="7026">&#160;</A>
+<BR>
+5.2 The HSV Colorspace
+</H1>
+
+<P>
+The perception of color and our way of talking about it in everyday
+life is not well served by the RGB colorspace.  If we're thinking of
+repainting the walls of the living room, for example, we usually think
+about what shade of color it should be, how bright we want it, and
+whether it should be pastel or vivid.
+
+<P>
+Typically, the first thing we usually notice about a color is its
+hue.<A NAME="7027">&#160;</A><A NAME="7028">&#160;</A>  Hue describes the shade of color and where
+that color it is found in the color spectrum.  Red, yellow, and purple
+are words that describe hue.  Figure&nbsp;<A HREF="node51.html#f.colorspaces.hsv_cube">5.3</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.hsv_cube">&#160;</A><A NAME="7031">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.3:</STRONG>
+Hue, Saturation, and Value</CAPTION>
+<TR><TD><IMG
+ SRC="img150.gif"
+ALT="Figure 5.3"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the range of hues, H, as a circle represented by values
+from 0 to 360.  The reasons for this will become clear shortly.
+
+<P>
+The next most significant aspect of color is typically the
+saturation,<A NAME="7035">&#160;</A><A NAME="7036">&#160;</A> S.  The
+saturation describes how pure the hue is with respect to a white
+reference.  For example, a color that is all red and no white is fully
+saturated.  If we add some white to the red, the result becomes more
+pastel, and the color shifts from red to pink.  The hue is still red
+but it has become less saturated.  This is illustrated in the vertical
+bar of Figure&nbsp;<A HREF="node51.html#f.colorspaces.hsv_cube">5.3</A>.  Saturation is a
+percentage that ranges from 0 to 100.  A pure red that has no white is
+100% saturated.
+
+<P>
+Finally, a color also has a
+brightness.<A NAME="7038">&#160;</A><A NAME="7039">&#160;</A>  This is a
+relative description of how much light is coming from the color.  If
+the color reflects a lot of light, we would say that it is bright.
+Imagine seeing a red sportscar during the day.  Its color looks
+bright.  Compare this with the perception of the car as night is
+falling.  We can see that the car is red but it looks duller because
+ambient<A NAME="7040">&#160;</A><A NAME="7041">&#160;</A> illumination
+is reflecting less light into the eye.  Less light means the color
+looks darker.  In the GIMP, the most important measure of brightness
+is measured by a quantity called value.  However, there are also other
+measures of brightness that will be introduced shortly.  For the
+moment, though, the horizontal bar in
+Figure&nbsp;<A HREF="node51.html#f.colorspaces.hsv_cube">5.3</A> illustrates a range of red values.
+Value, like saturation, is a percentage that goes from 0 to 100.  This
+range can be thought of as the amount of light illuminating a color.
+For example, when the hue is red and the value is high the color looks
+bright.  When the value is low it looks dark.
+
+<P>
+Thus, hue, saturation, and value are like an alternative colorspace.
+Any color can be decomposed into these three components and, like for
+RGB, it is possible to represent this space as a cube.<A NAME="7043">&#160;</A>  
+Figure&nbsp;<A HREF="node51.html#f.colorspaces.hsv-ex">5.4</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.colorspaces.hsv-ex">&#160;</A><A NAME="7046">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 5.4:</STRONG>
+Decomposing a Color Image into its HSV Components</CAPTION>
+<TR><TD><IMG
+ SRC="img151.gif"
+ALT="Figure 5.4"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the result of using <TT>Image:Image/Mode/Decompose</TT><A NAME="7051">&#160;</A> on the color
+image in Figure&nbsp;<A HREF="node51.html#f.colorspaces.hsv-ex">5.4</A>(a).  Choosing the HSV
+option in the <TT>Decompose</TT> dialog produces the
+hue,<A NAME="7054">&#160;</A><A NAME="7055">&#160;</A>
+saturation,<A NAME="7056">&#160;</A><A NAME="7057">&#160;</A> and
+value<A NAME="7058">&#160;</A> decomposition shown in
+Figures&nbsp;<A HREF="node51.html#f.colorspaces.hsv-ex">5.4</A>(b), (c), and (d).  It is
+interesting to note that hue really doesn't change much.  It is almost
+constant over broad regions of the image.  For, example, although
+there is significant detail in the saturation and value components of
+the sky, the hue is quite uniform there.  Of the three, it is the
+value component that is the most detailed.
+
+<P>
+Because colors are created on the monitor using mixes of red, green,
+and blue, it is useful and instructive to see how the HSV colorspace
+lives inside of the RGB cube.<A NAME="7060">&#160;</A>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1601"
+ HREF="node52.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1597"
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1591"
+ HREF="node50.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1599"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1600"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1602"
+ HREF="node52.html">5.3 Relating HSV to</A>
+<B> Up:</B> <A NAME="tex2html1598"
+ HREF="node49.html">5. Colorspaces and Blending</A>
+<B> Previous:</B> <A NAME="tex2html1592"
+ HREF="node50.html">5.1 The RGB Colorspace</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

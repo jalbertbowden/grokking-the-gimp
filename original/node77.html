@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>8.6 Rendering Project II: A Carved Stencil</TITLE>
+<META NAME="description" CONTENT="8.6 Rendering Project II: A Carved Stencil">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node78.html">
+<LINK REL="previous" HREF="node76.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node78.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1971"
+ HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1967"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1961"
+ HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1969"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1970"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1972"
+ HREF="node78.html">8.7 Rendering Project III:</A>
+<B> Up:</B> <A NAME="tex2html1968"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1962"
+ HREF="node76.html">8.5 Rendering Project I:</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001660000000000000000">&#160;</A>
+<A NAME="s8.carved">&#160;</A><A NAME="12222">&#160;</A>
+<A NAME="12223">&#160;</A>
+<A NAME="12224">&#160;</A>
+<A NAME="12225">&#160;</A>
+<A NAME="12226">&#160;</A>
+<BR>
+8.6 Rendering Project II: A Carved Stencil
+</H1>
+
+<P>
+This project describes a rendering effect that looks like carving into
+wood.  It makes use of bumpmapping and shadows.
+
+<P>
+The technique creates the carved effect using two layers.
+Figure&nbsp;<A HREF="node77.html#f.rendering.carved1">8.29</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.carved1">&#160;</A><A NAME="12229">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.29:</STRONG>
+The Two Layers Used to Create the Carved Rendering Effect</CAPTION>
+<TR><TD><IMG
+ SRC="img317.gif"
+ALT="Figure 8.29"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the first layer, a bit-mapped image of a boat.
+Figure&nbsp;<A HREF="node77.html#f.rendering.carved1">8.29</A>(b) shows the second layer, a
+background inserted under the bitmap and filled, using the <TT>Bucket
+Fill</TT> tool, with a wood pattern from the <TT>Pattern Selection</TT>
+dialog.  The visibility of the boat layer has been toggled off so that
+the pattern can be seen.  Figure&nbsp;<A HREF="node77.html#f.rendering.carved1">8.29</A>(c)
+illustrates the disposition of the two layers in the Layers dialog.
+
+<P>
+The first step in creating the carved effect is to obtain a selection
+of the boat's outline.  Since the bitmap of the boat consists of only
+two colors, black and white, this is most easily done with the <TT>By
+Color</TT> selection tool found in the <TT>Image:Select</TT> menu (see
+Section&nbsp;<A HREF="node38.html#s3.by-color">3.3.11</A>).  The resulting selection is used to create
+an inset<A NAME="12240">&#160;</A> for the carved effect.
+
+<P>
+What is an inset?  It is just the Wood Background layer darkened
+slightly within the perimeter of the boat selection.  This helps
+create the illusion that this part of the image is recessed, or inset,
+into the wood.  Figure&nbsp;<A HREF="node77.html#f.rendering.carved2">8.30</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.carved2">&#160;</A><A NAME="12243">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.30:</STRONG>
+Creating an Inset</CAPTION>
+<TR><TD><IMG
+ SRC="img318.gif"
+ALT="Figure 8.30"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the Marching Ants of the selection.  The selection is seen
+floating over the Wood Background layer because the Eye icon in the
+Boat layer has been toggled off as shown in
+Figure&nbsp;<A HREF="node77.html#f.rendering.carved2">8.30</A>(b).  Notice that the color of the
+wood seems a little darker inside the selection.  This darkening was
+created by sliding the middle Input Slider control of the <TT>Levels</TT>
+tool slightly to the right in the Value channel.  After this step, the
+selection is canceled by typing <TT>C-S-a</TT> in the image window.
+
+<P>
+The next step is to apply the <TT>Bump map</TT><A NAME="12251">&#160;</A>
+<A NAME="12252">&#160;</A>
+filter to the Wood Background layer using the bitmap of the Boat layer
+as the embossing map.  Before doing this, the bitmap of the boat is
+blurred slightly because it improves the effect of the bumpmapping.
+Figure&nbsp;<A HREF="node77.html#f.rendering.carved3">8.31</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.carved3">&#160;</A><A NAME="12411">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.31:</STRONG>
+Creating the Carved Effect Using <TT> Bump map</TT></CAPTION>
+<TR><TD><IMG
+ SRC="img319.gif"
+ALT="Figure 8.31"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the result of applying <TT>Gaussian Blur
+(IIR)</TT><A NAME="12260">&#160;</A> with a radius of 3 pixels to
+the bitmap of the Boat layer, and Figure&nbsp;<A HREF="node77.html#f.rendering.carved3">8.31</A>(b)
+shows the <TT>Bump map</TT> dialog.  As already stated, the bitmap of the
+Boat layer has been chosen as the embossing map.  The other <TT>Bump
+map</TT> filter parameters are as shown in
+Figure&nbsp;<A HREF="node77.html#f.rendering.carved3">8.31</A>(b).  Note that the Compensate for
+darkening checkbox has been toggled on.  The result of the <TT>Bump
+map</TT> filter is shown in Figure&nbsp;<A HREF="node77.html#f.rendering.carved3">8.31</A>(c).
+
+<P>
+At this point, the result shown in Figure&nbsp;<A HREF="node77.html#f.rendering.carved3">8.31</A>(c)
+already looks carved.  However, the effect can be accentuated by
+making clever use of a punchout.  The idea is that the perimeter of
+the carving should cast a punchout-like shadow onto the inset.  To
+achieve the effect, the colors of the Boat layer need to be inverted,
+the layer must be copied into its own layer mask, and the layer must be
+blurred and offset.  The following list summarizes these steps:
+<DL COMPACT>
+<DT>1.
+<DD>Invert the colors of the Boat layer using <TT>Invert</TT> from the <TT>Image:Image/Colors</TT> menu.
+<DT>2.
+<DD>Copy the Boat layer to the default buffer by typing <TT>C-c</TT> in the image
+window.
+<DT>3.
+<DD>Create a layer mask for the Boat layer.
+<DT>4.
+<DD>Paste the contents of the default buffer by typing <TT>C-v</TT> in
+the image window.
+<DT>5.
+<DD>Anchor the resulting floating selection into the layer mask by
+clicking on the <TT>Anchor</TT> button in the Layers dialog.
+<DT>6.
+<DD>Make the Boat layer active by clicking on its thumbnail in the Layers
+dialog.
+<DT>7.
+<DD>Blur and offset the Boat layer using <TT>Gaussian Blur (IIR)</TT> with a
+radius of 5, and <TT>Offset</TT><A NAME="12276">&#160;</A> the layer by 5 in
+X and Y.
+</DL>These steps produce the image shown in Figure&nbsp;<A HREF="node77.html#f.rendering.carved4">8.32</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.carved4">&#160;</A><A NAME="12280">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.32:</STRONG>
+Making the Punchout Effect</CAPTION>
+<TR><TD><IMG
+ SRC="img320.gif"
+ALT="Figure 8.32"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node77.html#f.rendering.carved4">8.32</A>(b) shows the associated Layers
+dialog.  
+
+<P>
+Notice that the creation of the punchout has turned the inset white.
+To recover the dark colored wood of the inset the Boat layer is made
+active and the <TT>Multiply</TT> mode is selected from the Mode menu in
+the Layers dialog.  As a final finesse, the shadow from the punchout
+is made a bit more diffuse by setting the Opacity slider, in the
+Layers dialog, to 65%.  The final carved result is shown in
+Figure&nbsp;<A HREF="node77.html#f.rendering.carved5">8.33</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.rendering.carved5">&#160;</A><A NAME="12414">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 8.33:</STRONG>
+Using the <TT> Multiply</TT> Mode and the Opacity Slider to
+Obtain the Final Carved Effect</CAPTION>
+<TR><TD><IMG
+ SRC="img321.gif"
+ALT="Figure 8.33"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+Figure&nbsp;<A HREF="node77.html#f.rendering.carved5">8.33</A>(b) shows the associated Layers
+dialog.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1971"
+ HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1967"
+ HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1961"
+ HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1969"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1970"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1972"
+ HREF="node78.html">8.7 Rendering Project III:</A>
+<B> Up:</B> <A NAME="tex2html1968"
+ HREF="node71.html">8. Rendering Techniques</A>
+<B> Previous:</B> <A NAME="tex2html1962"
+ HREF="node76.html">8.5 Rendering Project I:</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

@@ -1,0 +1,558 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>3.3 The Select Menu and Friends</TITLE>
+<META NAME="description" CONTENT="3.3 The Select Menu and Friends">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node39.html">
+<LINK REL="previous" HREF="node37.html">
+<LINK REL="up" HREF="node35.html">
+<LINK REL="next" HREF="node39.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1364"
+ HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1360"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1354"
+ HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1362"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1363"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1365"
+ HREF="node39.html">3.4 The Paths Dialog</A>
+<B> Up:</B> <A NAME="tex2html1361"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1355"
+ HREF="node37.html">3.2 Combining Selections</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1366"
+ HREF="node38.html#SECTION001131000000000000000">3.3.1 The <TT>Invert</TT> Function</A>
+<LI><A NAME="tex2html1367"
+ HREF="node38.html#SECTION001132000000000000000">3.3.2 The <TT>All</TT> Function</A>
+<LI><A NAME="tex2html1368"
+ HREF="node38.html#SECTION001133000000000000000">3.3.3 The <TT>None</TT> Function</A>
+<LI><A NAME="tex2html1369"
+ HREF="node38.html#SECTION001134000000000000000">3.3.4 The <TT>Float</TT> Function</A>
+<LI><A NAME="tex2html1370"
+ HREF="node38.html#SECTION001135000000000000000">3.3.5 The <TT>Feather</TT> Function</A>
+<LI><A NAME="tex2html1371"
+ HREF="node38.html#SECTION001136000000000000000">3.3.6 The <TT>Sharpen</TT> Function</A>
+<LI><A NAME="tex2html1372"
+ HREF="node38.html#SECTION001137000000000000000">3.3.7 The <TT>Shrink</TT> Function</A>
+<LI><A NAME="tex2html1373"
+ HREF="node38.html#SECTION001138000000000000000">3.3.8 The <TT>Grow</TT> Function</A>
+<LI><A NAME="tex2html1374"
+ HREF="node38.html#SECTION001139000000000000000">3.3.9 The <TT>Border</TT> Function</A>
+<LI><A NAME="tex2html1375"
+ HREF="node38.html#SECTION0011310000000000000000">3.3.10 The <TT>Save to Channel</TT> Function</A>
+<LI><A NAME="tex2html1376"
+ HREF="node38.html#SECTION0011311000000000000000">3.3.11 The <TT>By Color</TT> Function</A>
+<LI><A NAME="tex2html1377"
+ HREF="node38.html#SECTION0011312000000000000000">3.3.12 The <TT>To Path</TT> Function</A>
+<LI><A NAME="tex2html1378"
+ HREF="node38.html#SECTION0011313000000000000000">3.3.13 The <TT>Toggle Selection</TT> Function</A>
+<LI><A NAME="tex2html1379"
+ HREF="node38.html#SECTION0011314000000000000000">3.3.14 <TT>Copy</TT>, <TT>Cut</TT>, and <TT>Paste</TT></A>
+<LI><A NAME="tex2html1380"
+ HREF="node38.html#SECTION0011315000000000000000">3.3.15 <TT>Stroke</TT></A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001130000000000000000">&#160;</A>
+<A NAME="s3-4.selections-menu">&#160;</A>
+<BR>
+3.3 The Select Menu and Friends
+</H1>
+
+<P>
+Complementary to the selection tools are the 12 functions in the <TT>Image:Select</TT> menu.  In addition to these functions, there are five
+other important functions related to selections.  These are <TT>Toggle Selection</TT>, found in the <TT>Image:View</TT> menu, and <TT>Copy</TT>,
+<TT>Cut</TT>, <TT>Paste</TT>, and <TT>Stroke</TT>, found in the <TT>Image:Edit</TT> menu.  Each of these functions is described in this
+section.
+
+<P>
+
+<H2><A NAME="SECTION001131000000000000000">&#160;</A>
+<A NAME="3650">&#160;</A>
+<A NAME="3651">&#160;</A>
+<A NAME="3652">&#160;</A>
+<BR>
+3.3.1 The <TT>Invert</TT> Function
+</H2>
+
+<P>
+A selection partitions an image into two sets--the selected pixels
+and the unselected ones.  It is often useful to invert a selection,
+which is just the swapping of these two sets.  When inverting, the
+unselected pixels become selected pixels and vice versa.  The command
+that does this is <TT>Invert</TT> from the <TT>Image:Select</TT> menu.  The
+<TT>Invert</TT> function is used so often you'll want to remember the
+keyboard shortcut for it, which is <TT>C-i</TT>.
+
+<P>
+
+<H2><A NAME="SECTION001132000000000000000">&#160;</A>
+<A NAME="3658">&#160;</A>
+<A NAME="3659">&#160;</A>
+<BR>
+3.3.2 The <TT>All</TT> Function
+</H2>
+
+<P>
+The function <TT>All</TT> in the <TT>Image:Select</TT> menu selects
+everything in an image.  If the active layer in the image is smaller
+than the largest layer, the selection is clipped to the boundaries of
+the active layer.  I personally don't find this to be a very useful
+command.
+
+<P>
+
+<H2><A NAME="SECTION001133000000000000000">&#160;</A>
+<A NAME="3663">&#160;</A>
+<A NAME="3664">&#160;</A>
+<A NAME="3665">&#160;</A>
+<BR>
+3.3.3 The <TT>None</TT> Function
+</H2>
+
+<P>
+The function <TT>None</TT> in the <TT>Image:Select</TT> menu deselects
+everything in an image.  This is very useful, as will be seen in the
+ensuing chapters.  The keyboard shortcut for this command is <TT>C-S-a</TT>.
+
+<P>
+
+<H2><A NAME="SECTION001134000000000000000">&#160;</A>
+<A NAME="3670">&#160;</A>
+<A NAME="3671">&#160;</A>
+<BR>
+3.3.4 The <TT>Float</TT> Function
+</H2>
+
+<P>
+A selection can be made into a floating selection by choosing <TT>Float</TT> from the <TT>Image:Select</TT> menu.  Floating selections were discussed in
+Section&nbsp;<A HREF="node31.html#s2.floats">2.5</A>.  A useful application of <TT>Float</TT> is
+described in Section&nbsp;<A HREF="node32.html#s2.layers.layer-resize">2.6.2</A>.
+
+<P>
+
+<H2><A NAME="SECTION001135000000000000000">&#160;</A>
+<A NAME="3678">&#160;</A>
+<A NAME="3679">&#160;</A>
+<BR>
+3.3.5 The <TT>Feather</TT> Function
+</H2>
+
+<P>
+Feathering was explained in Section&nbsp;<A HREF="node36.html#s3.feathering">3.1.2</A>.  Normally a
+feather is applied by toggling on the Feather checkbox in the
+selection tool's <TT>Tool Options</TT> dialog before making the
+selection.  However, it is possible to apply a feather after the
+selection has been made by choosing <TT>Feather</TT> from the <TT>Image:Select</TT> menu.
+
+<P>
+
+<H2><A NAME="SECTION001136000000000000000">&#160;</A>
+<A NAME="3685">&#160;</A>
+<A NAME="3686">&#160;</A>
+<A NAME="3687">&#160;</A>
+<A NAME="3688">&#160;</A>
+<BR>
+3.3.6 The <TT>Sharpen</TT> Function
+</H2>
+
+<P>
+The concept of a partially selected pixel was introduced in
+Section&nbsp;<A HREF="node36.html#s3.anti-aliasing">3.1.2</A>, in the discussion on antialiasing, and
+was extended in Section&nbsp;<A HREF="node36.html#s3.feathering">3.1.2</A>, in the discussion on
+feathering.  The function <TT>Sharpen</TT>, from the <TT>Image:Select</TT>
+menu, removes partially selected pixels in an image by transforming
+those that are 50% or more selected into fully selected pixels and by
+fully deselecting all the remaining pixels.  Thus, this function
+sharpens the active selection (not the image).
+
+<P>
+
+<H2><A NAME="SECTION001137000000000000000">&#160;</A>
+<A NAME="3694">&#160;</A>
+<A NAME="3695">&#160;</A>
+<A NAME="3696">&#160;</A>
+<A NAME="3697">&#160;</A>
+<BR>
+3.3.7 The <TT>Shrink</TT> Function
+</H2>
+
+<P>
+It is sometimes useful to be able to shrink a selection a little.  If
+a selection has been made with a tool like the <TT>Magic Wand</TT> or
+with the <TT>By Color</TT> selection function, it is possible that
+the resulting selection is a little too large.  The <TT>Shrink</TT> function, found in the
+<TT>Image:Select</TT> menu, shrinks the boundary of the current selection
+by the amount specified in its dialog.  The default unit is 1 pixel,
+but other values can be chosen.
+
+<P>
+
+<H2><A NAME="SECTION001138000000000000000">&#160;</A>
+<A NAME="3703">&#160;</A>
+<A NAME="3704">&#160;</A>
+<A NAME="3705">&#160;</A>
+<BR>
+3.3.8 The <TT>Grow</TT> Function
+</H2>
+
+<P>
+In contrast to <TT>Shrink</TT>, the function <TT>Grow</TT>, from the <TT>Image:Select</TT>
+menu, grows the boundary of the current selection by the amount
+specified in its dialog.  The default unit is 1 pixel.  
+
+<P>
+
+<H2><A NAME="SECTION001139000000000000000">&#160;</A>
+<A NAME="s3.border">&#160;</A><A NAME="3711">&#160;</A>
+<A NAME="3712">&#160;</A>
+<BR>
+3.3.9 The <TT>Border</TT> Function
+</H2>
+
+<P>
+The <TT>Border</TT> command, found in the <TT>Image:Select</TT> menu,
+replaces a selection with just those pixels within a specified radius
+of the selection edge.  Thus, this function creates a selection of the
+border around the previous selection's edge.  This command is a
+combination of the two functions <TT>Shrink</TT> and <TT>Grow</TT>.  In
+particular, if <I>A</I> represents the set of selected pixels obtained by
+applying <TT>Grow</TT> to a selection and <I>B</I> represents the set obtained
+by applying <TT>Shrink</TT>, <TT>Border</TT> produces the set that could
+otherwise be obtained by doing <I>A</I>-<I>B</I> (see
+Section&nbsp;<A HREF="node37.html#s3-2.combining-selections">3.2</A> for more on combining
+selections).  The width of the border is specified by the border
+dialog.
+
+<P>
+Figure&nbsp;<A HREF="node38.html#f.selections.border">3.16</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.border">&#160;</A><A NAME="4103">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.16:</STRONG>
+The Effect of <TT> Border</TT></CAPTION>
+<TR><TD><IMG
+ SRC="img86.gif"
+ALT="Figure 3.16"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image with a selection, and
+Figure&nbsp;<A HREF="node38.html#f.selections.border">3.16</A>(c) shows the result of applying <TT>Border</TT>.  The value chosen for the border is shown in the associated
+dialog, illustrated in Figure&nbsp;<A HREF="node38.html#f.selections.border">3.16</A>(b).  Note that
+the dialog contains a menu that allows the border width to be
+specified in a variety of different units.  The default unit is pixels.
+
+<P>
+<TT>Border</TT> is particularly useful for refining selection edges.  An
+example of using <TT>Border</TT> is presented in
+Section&nbsp;<A HREF="node69.html#s7.compositing.proj4">7.4</A>.
+
+<P>
+
+<H2><A NAME="SECTION0011310000000000000000">&#160;</A>
+<A NAME="3734">&#160;</A>
+<A NAME="3735">&#160;</A>
+<A NAME="3736">&#160;</A>
+<A NAME="3737">&#160;</A>
+<A NAME="3738">&#160;</A>
+<A NAME="3739">&#160;</A>
+<BR>
+3.3.10 The <TT>Save to Channel</TT> Function
+</H2>
+
+<P>
+Channels were introduced in Section&nbsp;<A HREF="node28.html#s2.channels-layers">2.2</A>.  As will
+be discussed in greater detail in Section&nbsp;<A HREF="node43.html#s4.channel-masks">4.1</A>,
+channels can be used to store selections.  This is an extremely useful
+feature of the GIMP because it allows you to save your selections, to
+reuse them in the current image or in others, and to edit them with
+the masking utilities (more on this in Chapter&nbsp;<A HREF="node42.html#c4.masks">4</A>).  The
+operation of saving a selection to a channel is performed with the
+<TT>Save to Channel</TT> function, found in the <TT>Image:Select</TT> menu.
+
+<P>
+Figure&nbsp;<A HREF="node38.html#f.selections.select2channel">3.17</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.select2channel">&#160;</A><A NAME="3747">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.17:</STRONG>
+Saving a Selection to a Channel</CAPTION>
+<TR><TD><IMG
+ SRC="img87.gif"
+ALT="Figure 3.17"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image with a selection, and
+Figure&nbsp;<A HREF="node38.html#f.selections.select2channel">3.17</A>(b) shows the Channels dialog
+after applying the function <TT>Save to Channel</TT>.  The Channels
+dialog for an image is displayed by typing <TT>C-l</TT> in the image
+window to bring up the <TT>Layers &amp; Channels</TT> window and clicking on
+the Channels tab.
+
+<P>
+It can be seen in Figure&nbsp;<A HREF="node38.html#f.selections.select2channel">3.17</A>(b) that,
+other than the usual Red, Green, and Blue channels usually found in
+the Channels dialog, there is a channel named Selection Mask Copy.
+This channel shows a thumbnail of the mask representing the selection.
+Much more on the subject of masks and selections is discussed in
+Chapter&nbsp;<A HREF="node42.html#c4.masks">4</A>.  This is a very powerful feature of the GIMP.
+Check it out!
+
+<P>
+
+<H2><A NAME="SECTION0011311000000000000000">&#160;</A>
+<A NAME="s3.by-color">&#160;</A><A NAME="3759">&#160;</A>
+<A NAME="3760">&#160;</A>
+<BR>
+3.3.11 The <TT>By Color</TT> Function
+</H2>
+
+<P>
+The <TT>By Color</TT> selection tool, found in the <TT>Image:Select</TT> menu, is similar to the <TT>Magic Wand</TT> in that it
+automatically selects pixels in the active layer that are close in
+color to a seed pixel value.  The difference, however, is that the
+selected pixels are not obtained by growing a contiguous region around
+the seed.  The <TT>By Color</TT> selection tool selects <EM>all</EM>
+the pixels in the layer that are within a specified threshold of the
+seed pixel's color.  This is a subtle but important difference.  It
+means that if two regions of similar pixel colors are separated by one
+of very different values, the <TT>By Color</TT> selection tool will
+get both regions, and the <TT>Magic Wand</TT> will not.
+
+<P>
+Choosing <TT>By Color</TT> brings up the dialog pictured in
+Figure&nbsp;<A HREF="node38.html#f.selections.by-color">3.18</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.by-color">&#160;</A><A NAME="4108">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.18:</STRONG>
+The <TT> By Color</TT> Selection Tool</CAPTION>
+<TR><TD><IMG
+ SRC="img88.gif"
+ALT="Figure 3.18"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This dialog box allows a Fuzziness Threshold to be chosen.  The default
+is normally 15, but here it has been set to 30.  This number determines
+how far a pixel can vary in color from the seed pixel's and still be
+selected.  The seed is chosen by clicking in the
+image window.
+
+<P>
+Clicking in the image window produces a black and white mask in the
+thumbnail area of Figure&nbsp;<A HREF="node38.html#f.selections.by-color">3.18</A>(a).  This mask
+corresponds to a selection in the image window, as can be seen in
+Figure&nbsp;<A HREF="node38.html#f.selections.by-color">3.18</A>(b).  The selection can be removed
+by clicking on the <TT>Reset</TT> button in the <TT>By Color Selection</TT>
+dialog.
+
+<P>
+When the dialog's Replace radio button is selected, clicking a second
+time in the image window replaces the selection that was there with
+one based on the new seed pixel's color.  The three other radio
+buttons in the dialog can be used to add, subtract, or intersect the
+selection created with the <TT>By Color</TT> function with an
+existing selection in the image window.  Adding, subtracting, and
+intersecting selections was explained in
+Section&nbsp;<A HREF="node37.html#s3-2.combining-selections">3.2</A>.
+
+<P>
+
+<H2><A NAME="SECTION0011312000000000000000">&#160;</A>
+<A NAME="s3.to-path">&#160;</A><A NAME="3783">&#160;</A>
+<A NAME="3784">&#160;</A>
+<A NAME="3785">&#160;</A>
+<A NAME="3786">&#160;</A>
+<BR>
+3.3.12 The <TT>To Path</TT> Function
+</H2>
+
+<P>
+Selections can be converted to Bezier paths.  As was described in
+Section&nbsp;<A HREF="node36.html#s3.bezier-paths">3.1.1</A>, Bezier paths are extremely useful tools
+because they allow selections to be interactively modified.  The <TT>To Path</TT> function, found in the <TT>Image:Select</TT> menu, converts a
+selection to a Bezier path by automatically finding the control points
+and the control handle settings to re-create the selection.
+
+<P>
+Figure&nbsp;<A HREF="node38.html#f.selections.to-path">3.19</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.to-path">&#160;</A><A NAME="3792">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.19:</STRONG>
+Converting a Selection to a Bezier Path</CAPTION>
+<TR><TD><IMG
+ SRC="img89.gif"
+ALT="Figure 3.19"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates a selection created with the <TT>Ellipse Select</TT> tool,
+and Figure&nbsp;<A HREF="node38.html#f.selections.to-path">3.19</A>(b) shows the result of applying
+<TT>To Path</TT> to it.  Applying this function removes the selection
+from the image window and replaces it with a Bezier path.  The path
+can now be used to interactively modify the selection, as described in
+Section&nbsp;<A HREF="node36.html#s3.bezier-paths">3.1.1</A>.  To recover the selection click inside
+the closed path.  
+
+<P>
+Note that clicking inside a path to convert it to a selection might
+not toggle off the path's visibility.  If this happens, the path can
+be toggled off by clicking on any icon (other than the <TT>Bezier
+Path</TT>'s) in the Toolbox.  Much more on Bezier paths is covered in
+Section&nbsp;<A HREF="node39.html#s3.paths-dialog">3.4</A>.
+
+<P>
+
+<H2><A NAME="SECTION0011313000000000000000">&#160;</A>
+<A NAME="3803">&#160;</A>
+<A NAME="3804">&#160;</A>
+<BR>
+3.3.13 The <TT>Toggle Selection</TT> Function
+</H2>
+
+<P>
+Unlike the other selection functions discussed in this section, <TT>Toggle Selection</TT> is found in the <TT>Image:View</TT>
+menu.  This command is very useful when trying to carefully position
+layers or selections (for examples, see any project in
+Chapter&nbsp;<A HREF="node65.html#c7.compositing">7</A>), or when trying to color-match a layer
+or selection edge (for an example, see Section&nbsp;<A HREF="node70.html#s7.panoramas">7.5</A>).
+
+<P>
+The <TT>Toggle Selection</TT> command toggles on and off the visibility
+of a selection's Marching Ants.  However, this function <EM>does not</EM>
+eliminate the selection.  The selection is still there, it is just not
+visible in the image window.  The <TT>Toggle
+Selection</TT><A NAME="3812">&#160;</A><A NAME="3813">&#160;</A>
+feature also toggles on and off the visibility of the black-and-yellow
+layer boundaries in an image.  This feature is also used extensively
+in Chapter&nbsp;<A HREF="node65.html#c7.compositing">7</A>.
+
+<P>
+There is a pitfall when using <TT>Toggle Selection</TT>.  It is easy to
+forget that selection boundaries have been toggled off.  This can lead
+to confusion, especially when a subsequent selection is made.  Because
+selection visibility has been toggled off, the Marching Ants do not
+appear.  I've scratched my head many times, trying to figure out why
+all of a sudden the GIMP no longer seemed to be working!  The GIMP, of
+course, was working just fine.  The selection is there; it just can't
+be seen until its visibility is toggled back on.
+
+<P>
+The <TT>Toggle Selection</TT> function is so useful that you might want
+to memorize its keyboard shortcut, which is <TT>C-t</TT>.
+
+<P>
+
+<H2><A NAME="SECTION0011314000000000000000">&#160;</A>
+<A NAME="s3.copy-cut-paste">&#160;</A><A NAME="3822">&#160;</A>
+<A NAME="3823">&#160;</A>
+<BR>
+3.3.14 <TT>Copy</TT>, <TT>Cut</TT>, and <TT>Paste</TT>
+</H2>
+
+<P>
+<TT>Copy</TT>,<A NAME="3825">&#160;</A><A NAME="3826">&#160;</A> <TT>Cut</TT>,<A NAME="3828">&#160;</A> and <TT>Paste</TT><A NAME="3830">&#160;</A> are
+probably the most frequent operations performed on selections.  These
+three functions are found in the <TT>Image:Edit</TT> menu.  However, they
+are used so frequently that it would be worth your while to memorize
+their keyboard shortcuts.  The keyboard shortcut for <TT>Copy</TT> is
+<TT>C-c</TT>, <TT>Cut</TT><A NAME="3835">&#160;</A> is <TT>C-x</TT>, and <TT>Paste</TT>
+is <TT>C-v</TT>.  More on these functions can be found in
+Section&nbsp;<A HREF="node30.html#s2.layers.cut-paste">2.4</A>.
+
+<P>
+
+<H2><A NAME="SECTION0011315000000000000000">&#160;</A>
+<A NAME="s3.stroke">&#160;</A><A NAME="3842">&#160;</A>
+<A NAME="3843">&#160;</A>
+<BR>
+3.3.15 <TT>Stroke</TT>
+</H2>
+
+<P>
+The <TT>Stroke</TT> function is found in the <TT>Image:Edit</TT> menu.  This command paints a selection edge's outline with
+the active foreground color using the active brush.
+Figure&nbsp;<A HREF="node38.html#f.selections.stroke">3.20</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.stroke">&#160;</A><A NAME="3848">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.20:</STRONG>
+The Effect of Stroke</CAPTION>
+<TR><TD><IMG
+ SRC="img90.gif"
+ALT="Figure 3.20"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an image with a selection, and
+Figure&nbsp;<A HREF="node38.html#f.selections.stroke">3.20</A>(c) shows the effect of applying <TT>Stroke</TT> to it using black as the foreground color.  As indicated in
+Figure&nbsp;<A HREF="node38.html#f.selections.stroke">3.20</A>(b), a soft round brush was used to
+stroke the selection.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1364"
+ HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1360"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1354"
+ HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1362"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1363"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1365"
+ HREF="node39.html">3.4 The Paths Dialog</A>
+<B> Up:</B> <A NAME="tex2html1361"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1355"
+ HREF="node37.html">3.2 Combining Selections</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

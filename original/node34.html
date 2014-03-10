@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>2.8 Common Problems and Frequently Asked Questions</TITLE>
+<META NAME="description" CONTENT="2.8 Common Problems and Frequently Asked Questions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="previous" HREF="node33.html">
+<LINK REL="up" HREF="node26.html">
+<LINK REL="next" HREF="node35.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1255"
+ HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1251"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1247"
+ HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1253"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1254"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1256"
+ HREF="node35.html">3. Selections</A>
+<B> Up:</B> <A NAME="tex2html1252"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1248"
+ HREF="node33.html">2.7 Combining Layers</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001080000000000000000">&#160;</A>
+<A NAME="s2.layers.problems">&#160;</A><A NAME="2505">&#160;</A>
+<A NAME="2506">&#160;</A>
+<BR>
+2.8 Common Problems and <BR>
+Frequently Asked Questions
+</H1>
+
+<P>
+Layers can be tricky, and it is sometimes possible to run into what
+seem like incomprehensible difficulties while using them.  The
+following list of problems addresses some common difficulties with
+layers.  In a nutshell, the information in the Layers dialog almost
+always contains the solutions to these problems.
+
+<P>
+<UL>
+<LI><B>I am trying to draw, paint, select, or apply some other operation on
+the image window, and repeated efforts just don't seem to produce any
+results.  What's going on?</B>
+
+<P>
+GIMP operations are applied to the active layer.  A common problem
+with layers is that the active layer is not visible.  It is possible
+that the active layer is blocked by layers above it or that the
+visibility of the active layer is not turned on.  To solve the
+problem, make sure that the Eye icon of the active layer is on, and
+turn off the Eye icon of the layers above it.
+
+<P>
+<LI><B>I am trying to paint in a transparent part of a layer, and I am
+getting no results.  Why?</B><A NAME="2510">&#160;</A>
+
+<P>
+If you are trying to draw or paint on a transparent part of a layer,
+and nothing seems to leave a mark, the problem is that the Keep
+Trans. button is on in the Layers dialog.  Toggle this button off and
+your problem will...disappear.
+
+<P>
+<LI><B>I want to add a layer mask to my image, but it is grayed out in
+the Layers menu.  Why isn't this option available?</B>
+
+<P>
+Background layers and flattened images (see Section&nbsp;<A HREF="node33.html#s2.flatten">2.7.2</A>)
+have no alpha channels<A NAME="2513">&#160;</A> and so
+cannot have a layer mask.  This problem is easily solved, though, by
+applying the <TT>Add Alpha Channel</TT><A NAME="2515">&#160;</A>
+function from the Layers menu.
+
+<P>
+<LI><B>The top layer of my image is labeled Floating Selection,
+all my other layers are grayed out, and I can't make any of my layers
+active except the top one.  What's wrong?</B>
+
+<P>
+A floating selection disables all the other layers until it is
+anchored to a new layer or to the last active layer.  To anchor to a
+new layer choose <TT>New Layer</TT> from the Layers menu or click on the
+<TT>New Layer</TT> button in the Layers dialog.  To anchor to the
+previously active layer, choose <TT>Anchor Layer</TT><A NAME="2520">&#160;</A> from the Layers menu, or type <TT>C-h</TT> in the image or
+dialog window, or click on the <TT>Anchor</TT> button in the Layers
+dialog.
+
+<P>
+<LI><B>I saved a finished project's image to disk, but when I try to view
+the saved image in another image display program, it's missing elements
+and it doesn't look like the one I saved.  Why is this?</B>
+
+<P>
+Not all image formats support layers or transparency (JPEG, is one
+example).  For finished projects that are saved to formats supporting
+alpha channels, use the <TT>Merge Visible Layers</TT> function from the
+Layers menu before saving.<A NAME="2525">&#160;</A>  If alpha is not
+supported, use <TT>Flatten Image</TT> from the Layers menu instead.
+Also, read the next item.
+
+<P>
+<LI><B>I spent hours working on an image with multiple layers, channel
+masks, layer masks, and paths and then saved it.  But when I tried to
+reload my image back into the GIMP, everything but a single layer was
+gone!  What happened!?</B>
+
+<P>
+Work in progress and finished projects should be saved in the GIMP's
+native XCF format.<A NAME="2528">&#160;</A>  This is the only format
+that saves all the information about layers, masks, and paths.
+
+<P>
+</UL><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1255"
+ HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1251"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1247"
+ HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1253"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1254"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1256"
+ HREF="node35.html">3. Selections</A>
+<B> Up:</B> <A NAME="tex2html1252"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1248"
+ HREF="node33.html">2.7 Combining Layers</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

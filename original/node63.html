@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>6.4 Sharpening</TITLE>
+<META NAME="description" CONTENT="6.4 Sharpening">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node64.html">
+<LINK REL="previous" HREF="node62.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node64.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1783"
+ HREF="node64.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1779"
+ HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1773"
+ HREF="node62.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1781"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1782"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1784"
+ HREF="node64.html">6.5 A Case Study</A>
+<B> Up:</B> <A NAME="tex2html1780"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<B> Previous:</B> <A NAME="tex2html1774"
+ HREF="node62.html">6.3 Repairing Blemishes with</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1785"
+ HREF="node63.html#SECTION001441000000000000000">6.4.1 The <TT>Unsharp Mask</TT> Concept</A>
+<LI><A NAME="tex2html1786"
+ HREF="node63.html#SECTION001442000000000000000">6.4.2 A Simplified but Illustrative Example</A>
+<LI><A NAME="tex2html1787"
+ HREF="node63.html#SECTION001443000000000000000">6.4.3 A Representative Example of
+Applying <BR>
+the <TT>Unsharp Mask</TT></A>
+<LI><A NAME="tex2html1788"
+ HREF="node63.html#SECTION001444000000000000000">6.4.4 <TT>Unsharp Mask</TT> Pitfalls</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001440000000000000000">&#160;</A>
+<A NAME="9251">&#160;</A>
+<A NAME="9252">&#160;</A>
+<BR>
+6.4 Sharpening
+</H1>
+
+<P>
+Due to a whole range of issues, the acquisition and digitization of an
+image can often produce a slightly blurred or out-of-focus result.
+Furthermore, the ensuing processing to improve tonal range and
+contrast can also deteriorate the crispness of the image.  To remedy
+this, it is desirable to sharpen things up.  Sharpening is usually
+applied at the end of the processing sequence after all other
+modifications have been made.
+
+<P>
+In the GIMP, there are two tools for sharpening an image; they are
+both located in the menu <TT>Image:Filters/Enhance</TT>.  These tools are
+called <TT>Sharpen</TT> and <TT>Unsharp Mask</TT>.  Although the underlying
+principles of the two are the same, I prefer <TT>Unsharp Mask</TT>
+because it has several parameters that have intuitive meanings and
+that provide more control over the sharpening process.  The remainder
+of this section describes in detail how to use <TT>Unsharp Mask</TT>.
+
+<P>
+
+<H2><A NAME="SECTION001441000000000000000">&#160;</A>
+<A NAME="s6.unsharp-mask">&#160;</A><A NAME="9260">&#160;</A>
+<A NAME="9261">&#160;</A>
+<A NAME="9262">&#160;</A>
+<A NAME="9263">&#160;</A>
+<BR>
+6.4.1 The <TT>Unsharp Mask</TT> Concept
+</H2>
+
+<P>
+Before knowing the sharp, little grasshopper, you must first become
+one with the unsharp.  Wheeew...that sounds like a bad episode of
+Kung Fu.  I'm expecting David Carradine to peak out from behind my
+monitor any moment now!  The truth is, though, that <TT>Unsharp
+Mask</TT>, as arcane and counter-intuitive as its name may sound, is an
+excellent tool for sharpening.  The principle of the <TT>Unsharp
+Mask</TT> and the ins and outs of this special filter are covered in this
+section.
+
+<P>
+Figure&nbsp;<A HREF="node63.html#f.touchup.draw_unsharp">6.32</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.draw_unsharp">&#160;</A><A NAME="9480">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.32:</STRONG>
+Understanding the <TT> Unsharp Mask</TT></CAPTION>
+<TR><TD><IMG
+ SRC="img234.gif"
+ALT="Figure 6.32"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the principle of the <TT>Unsharp Mask</TT>.  The upper black
+line graphed in the top part of the figure represents pixel values as
+a function of pixel index.  For example, this line could represent the
+color values along the row of an image.  The graph shows a transition
+from a lower to a higher pixel value at the middle of the graph.
+Visually, if you were looking at this row of pixels in an image, it
+would appear as an edge between regions of constant value.
+
+<P>
+The red line in the upper graph of Figure&nbsp;<A HREF="node63.html#f.touchup.draw_unsharp">6.32</A>
+illustrates how the pixel values change if the row of pixels is
+blurred.  The resulting red curve is a smoothed version of the
+original.  If you viewed the row of pixels corresponding to this
+smooth curve, it would appear much less sharp than the pixels for the
+black curve.  So, in essence, the red curve is an unsharp version of
+the black.  Now, subtract the unsharp version from the original and
+the result is the lower black line in the top graph of
+Figure&nbsp;<A HREF="node63.html#f.touchup.draw_unsharp">6.32</A>.  You could say that this result
+is just the original curve with its unsharp component masked out.
+
+<P>
+This is the interpretation of what the unsharp mask does, but how does
+this sharpen the image?  The answer is given by the lower graph of
+Figure&nbsp;<A HREF="node63.html#f.touchup.draw_unsharp">6.32</A>, which shows the original black
+line representing the row of pixel values.  The graph also shows a red
+curve, which is the original curve and the associated unsharp masked
+version added to it.  As you can see, just before the edge, there is
+now a dip in pixel value at the low side of the transition and a peak
+on the high side.  Thus, the result is that the edge has been made
+sharper.
+
+<P>
+
+<H2><A NAME="SECTION001442000000000000000">
+6.4.2 A Simplified but Illustrative Example</A>
+</H2>
+
+<P>
+So much for the theory of the <TT>Unsharp Mask</TT>.  A simple example
+brings out the practical effects of this filter.  <TT>Unsharp
+Mask</TT> can be found in the <TT>Image:Filters/Enhance</TT> menu.  
+Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp1">6.33</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.unsharp1">&#160;</A><A NAME="9282">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.33:</STRONG>
+Illustrating the Effect of Applying the Unsharp Mask</CAPTION>
+<TR><TD><IMG
+ SRC="img235.gif"
+ALT="Figure 6.33"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows a simple image with just two grayscale regions.  Thus, the
+values along a row of the image resemble the graph of
+Figure&nbsp;<A HREF="node63.html#f.touchup.draw_unsharp">6.32</A>.
+Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp1">6.33</A>(b) shows the result of applying the
+<TT>Unsharp Mask</TT> using the parameters in the filter's dialog shown
+in Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp1">6.33</A>(c).  Here a maximum value for the
+Radius has been chosen to accentuate the effect.
+
+<P>
+Note that in the sharpened result (see
+Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp1">6.33</A>(b)), there is a light halo on the
+right side of the edge and a deep shadow on the dark side of the edge.
+This corresponds to the discussion of the red curve in the lower graph
+of Figure&nbsp;<A HREF="node63.html#f.touchup.draw_unsharp">6.32</A>.  The effect of the <TT>Unsharp Mask</TT> is very pronounced but was chosen to clearly illustrate
+the effect.  In general, the dialog parameters are chosen to produce 
+more subtle results.
+
+<P>
+The <TT>Unsharp Mask</TT> dialog has three parameters.  Looking at the
+dialog in Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp1">6.33</A>(c), there is Radius, which
+specifies the relative width of the halo/shadow created by the mask.
+The parameter named Amount controls the relative magnitude of the dip
+and the peak created on each side of the edge.  Finally, Threshold
+specifies the difference in pixel values that must exist across the
+edge for the <TT>Unsharp Mask</TT> to be applied.  Thus, if Threshold is
+set to 25, adjacent pixels whose difference in pixel value is less
+than 25 are not sharpened.  An important fact is that the <TT>Unsharp
+Mask</TT> is applied individually to each color channel, R, G, and B; the
+results are then combined.
+
+<P>
+
+<H2><A NAME="SECTION001443000000000000000">
+6.4.3 A Representative Example of
+Applying <BR>
+the <TT>Unsharp Mask</TT></A>
+</H2>
+
+<P>
+Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp-example">6.34</A> 
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.unsharp-example">&#160;</A><A NAME="9484">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.34:</STRONG>
+An Example of Applying the <TT> Unsharp Mask</TT></CAPTION>
+<TR><TD><IMG
+ SRC="img236.gif"
+ALT="Figure 6.34"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the application of the <TT>Unsharp Mask</TT> to a more
+representative image.  Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp-example">6.34</A>(a) shows
+the original and Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp-example">6.34</A>(b) the result
+of applying the mask.  The parameters chosen to perform the sharpening
+are shown in the <TT>Unsharp Mask</TT> dialog illustrated in
+Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp-example">6.34</A>(c).
+
+<P>
+The choice of parameters used to obtain the results in
+Figure&nbsp;<A HREF="node63.html#f.touchup.unsharp-example">6.34</A> was obtained by trial and
+error.  Using <TT>Undo</TT> (<TT>C-z</TT>) in conjunction with the keyboard
+shortcut that recalls the last applied filter (<TT>A-S-f</TT><A NAME="9314">&#160;</A>), it was possible to apply the
+<TT>Unsharp Mask</TT> repeatedly, experimenting with values.  In this
+way, it was possible to obtain just the desired effect.
+
+<P>
+What parameter values should be used with the <TT>Unsharp Mask</TT>?  The
+answer depends on the image, of course.  However, one rule of thumb is
+the Radius of the mask should be small--2 to 4 pixels wide.  This is
+because the halo and shadow created by the <TT>Unsharp Mask</TT> should
+be subtle.  On the other hand, the Amount should be as much as you can
+get away with without overly accentuating noise.  This is typically in
+the range of 75% to 150% depending on the pixel values in the image.
+
+<P>
+
+<H2><A NAME="SECTION001444000000000000000">&#160;</A>
+<A NAME="s6.unsharp-mask-pitfalls">&#160;</A>
+<BR>
+6.4.4 <TT>Unsharp Mask</TT> Pitfalls
+</H2>
+
+<P>
+Applying <TT>Unsharp Mask</TT> can have its problems. For example, this
+method of sharpening an image can sometimes introduce undesirable
+color shifts.<A NAME="9321">&#160;</A>
+Figure&nbsp;<A HREF="node63.html#f.touchup.usmp1">6.35</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.usmp1">&#160;</A><A NAME="9487">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.35:</STRONG>
+Example of <TT> Unsharp Mask</TT> Provoking a Color Shift</CAPTION>
+<TR><TD><IMG
+ SRC="img237.gif"
+ALT="Figure 6.35"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates just such a case.  Figure&nbsp;<A HREF="node63.html#f.touchup.usmp1">6.35</A>(a) shows
+an image with a single edge and with a gray region to the left of the
+edge and a red region to the right.  Figure&nbsp;<A HREF="node63.html#f.touchup.usmp1">6.35</A>(b)
+shows the result of applying the <TT>Unsharp Mask</TT> to this image.
+You can clearly see a cyan colored halo just to the left of the edge
+even though there is no apparent cyan in the original.
+
+<P>
+The explanation for this is as follows.  Remember that each image is
+composed of three color channels.  Thus, the <TT>Unsharp Mask</TT> is
+actually applied to each of the three channels individually and the
+results are then combined.  Imagine, then, that the color on the left
+side of an edge consists of a low value of red and green but a high
+value of blue.  Furthermore, suppose that the region on the right side
+of the edge has a high value of red and green but a low value of blue.
+This situation presents you with an edge that goes from dark to light
+in the Red and Green channels but from light to dark in the Blue.
+According to the preceding description, the <TT>Unsharp Mask</TT> makes a
+dip for the Red and Green channels on the left side of the edge but a
+peak for the Blue.  Clearly, when adding the Red, Green, and Blue
+channels, the two dips plus the one peak do not create a color whose
+relative mix has been maintained.  In plain language, this means the
+hue has been changed.
+
+<P>
+This is just what has happened in Figure&nbsp;<A HREF="node63.html#f.touchup.usmp1">6.35</A>.  The
+color region to the left side of the edge is a medium gray.  Thus, it
+consists of medium values of red, green, and blue.  The right side of
+the edge is composed uniquely of a high value of red and low (zero)
+values of green and blue.  Thus, the application of the <TT>Unsharp
+Mask</TT> creates peaks in the Green and Blue channels of the gray region
+but a dip in the Red.  This explains where the cyan halo comes from,
+removing red from an image makes it look more cyan.
+
+<P>
+In most images, the creation of an off-color halo does not occur or is
+not evident.  But when it does happen, don't worry; there is a
+technique to correct the problem.  Figure&nbsp;<A HREF="node63.html#f.touchup.usmp2">6.36</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.touchup.usmp2">&#160;</A><A NAME="9489">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 6.36:</STRONG>
+Circumventing the <TT> Unsharp Mask</TT> Color Shift Problem by
+Sharpening only the Value Channel</CAPTION>
+<TR><TD><IMG
+ SRC="img238.gif"
+\index{Value channel!sharpening}
+\vskip.25in
+ALT="Figure 6.36"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates the procedure.  Figure&nbsp;<A HREF="node63.html#f.touchup.usmp2">6.36</A>(a) is
+identical to Figure&nbsp;<A HREF="node63.html#f.touchup.usmp1">6.35</A>(a).  The procedure first
+decomposes the image into its hue, saturation, and value components.
+This is done with the HSV option of the <TT>Decompose</TT> function
+(found in the <TT>Image:Image/Channels</TT> menu).  The value component
+of the result is shown in Figure&nbsp;<A HREF="node63.html#f.touchup.usmp2">6.36</A>(b).  The <TT>Unsharp Mask</TT> is then applied uniquely to this value component, the
+result being shown in Figure&nbsp;<A HREF="node63.html#f.touchup.usmp2">6.36</A>(c).  Finally, the
+hue, saturation, and sharpened value components are recomposed using
+the HSV option of the <TT>Compose</TT> function (also found in the <TT>Image:Image/Channels</TT> menu).  Figure&nbsp;<A HREF="node63.html#f.touchup.usmp2">6.36</A>(d) shows
+the result of the processing sequence.  As you can see, the edge has
+been sharpened without creating a shift in hue at the edge.
+
+<P>
+Because the value component of the image only contains light and dark
+information about the image, the sharpening is performed just where it
+should be and no color shift occurs.  Why isn't an HSV decomposition
+built into the <TT>Unsharp Mask</TT>?  Apparently, a few mysteries of the
+unsharp persist...
+
+<P>
+The other important problem that the <TT>Unsharp Mask</TT> can create is
+the amplification<A NAME="9354">&#160;</A> of noise.  Noise is
+sharpened just as are the other elements of the image, and if the
+sharpened noise becomes too apparent, it can become a significant
+detraction.  An approach that can be used to avoid the problem is to
+set a non-zero value of Threshold in the <TT>Unsharp Mask</TT> dialog.
+Setting the threshold diminishes the effect of noise by applying the
+mask only to edges that have jumps greater than the Threshold value.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1783"
+ HREF="node64.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1779"
+ HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1773"
+ HREF="node62.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1781"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1782"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1784"
+ HREF="node64.html">6.5 A Case Study</A>
+<B> Up:</B> <A NAME="tex2html1780"
+ HREF="node59.html">6. Touchup and Enhancement</A>
+<B> Previous:</B> <A NAME="tex2html1774"
+ HREF="node62.html">6.3 Repairing Blemishes with</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

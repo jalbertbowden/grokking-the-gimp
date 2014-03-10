@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>2.7 Combining Layers</TITLE>
+<META NAME="description" CONTENT="2.7 Combining Layers">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node34.html">
+<LINK REL="previous" HREF="node32.html">
+<LINK REL="up" HREF="node26.html">
+<LINK REL="next" HREF="node34.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1243"
+ HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1239"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1233"
+ HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1241"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1242"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1244"
+ HREF="node34.html">2.8 Common Problems and</A>
+<B> Up:</B> <A NAME="tex2html1240"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1234"
+ HREF="node32.html">2.6 Manipulating Layers</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1245"
+ HREF="node33.html#SECTION001071000000000000000">2.7.1 Merging</A>
+<LI><A NAME="tex2html1246"
+ HREF="node33.html#SECTION001072000000000000000">2.7.2 Flattening</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001070000000000000000">&#160;</A>
+<A NAME="2476">&#160;</A>
+<BR>
+2.7 Combining Layers
+</H1> 
+
+<P>
+It is often necessary to combine several layers into one.  This is
+particularly useful prior to saving<A NAME="2477">&#160;</A> an image to a
+non-GIMP format such as JPEG or GIF.  There are two ways of combining
+layers in the GIMP.  The method to use depends on the final use of the
+resulting image.
+
+<P>
+
+<H2><A NAME="SECTION001071000000000000000">&#160;</A>
+<A NAME="s2.merging">&#160;</A><A NAME="2480">&#160;</A>
+<A NAME="2481">&#160;</A>
+<BR>
+2.7.1 Merging
+</H2>
+
+<P>
+It is possible to merge a subset of layers from an image into a single
+layer.  This is accomplished by choosing <TT>Merge Visible
+Layers</TT><A NAME="2483">&#160;</A> from the Layers menu or
+by simply typing <TT>C-m</TT> in the image window.  Alternatively, it is
+sometimes convenient to merge just two adjacent layers in the layer
+stack.  This can be done with <TT>Merge Down</TT>, found in the Layers
+menu.  The use of this function merges the active layer with the next
+<EM>visible</EM> layer down in the stack.  <TT>Merge Down</TT><A NAME="2488">&#160;</A> can be conveniently invoked by typing <TT>C-S-m</TT> in
+the Layers dialog.  A nice use of <TT>Merge Down</TT> is illustrated in
+Section&nbsp;<A HREF="node80.html#s9.shuttle-animation">9.1.4</A>.
+
+<P>
+
+<H2><A NAME="SECTION001072000000000000000">&#160;</A>
+<A NAME="s2.flatten">&#160;</A><A NAME="2494">&#160;</A>
+<A NAME="2495">&#160;</A>
+<BR>
+2.7.2 Flattening
+</H2>
+
+<P>
+The function <TT>Flatten Image</TT>,<A NAME="2497">&#160;</A> found
+in the Layers menu, is an alternative to <TT>Merge Visible Layers</TT>.
+This function merges all the layers regardless of their visibility in
+the image window.  In addition, <TT>Flatten Image</TT> applies all the
+layer masks to their respective layers (for more on layer masks, see
+Section&nbsp;<A HREF="node44.html#s4.layer-masks">4.2</A>) and deletes any remaining alpha values
+in the image.  In fact, <TT>Flatten Image</TT> is the only function in
+the GIMP that can remove the alpha channel from an image.  Channel
+masks, however, are neither applied nor deleted (see
+Section&nbsp;<A HREF="node43.html#s4.channel-masks">4.1</A> for more on channel masks).  Typically
+an image is flattened in order to save it in an image format that does
+not support layers or transparency.  The JPEG format is an example of
+this.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1243"
+ HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1239"
+ HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1233"
+ HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1241"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1242"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1244"
+ HREF="node34.html">2.8 Common Problems and</A>
+<B> Up:</B> <A NAME="tex2html1240"
+ HREF="node26.html">2. Review of Layers</A>
+<B> Previous:</B> <A NAME="tex2html1234"
+ HREF="node32.html">2.6 Manipulating Layers</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

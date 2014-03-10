@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>9. Web-Centric GIMP</TITLE>
+<META NAME="description" CONTENT="9. Web-Centric GIMP">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node87.html">
+<LINK REL="previous" HREF="node71.html">
+<LINK REL="up" HREF="Grokking_the_GIMP.html">
+<LINK REL="next" HREF="node80.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1993"
+ HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1989"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1983"
+ HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1991"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1992"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1994"
+ HREF="node80.html">9.1 Web Animations</A>
+<B> Up:</B> <A NAME="tex2html1990"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1984"
+ HREF="node78.html">8.7 Rendering Project III:</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001700000000000000000">&#160;</A>
+<A NAME="c9.web-centric">&#160;</A>
+<BR>
+9. Web-Centric GIMP
+</H1>
+
+<P>
+The GIMP has many powerful tools for creating interesting and useful
+graphic components for Web pages.  In this chapter, you will learn how
+the GIMP can be used to create animated GIFs, clickable image maps,
+fancy type styles, and tileable backgrounds, all of which are
+important features for dynamic, exciting Web pages.  The chapter
+finishes with a discussion on how to best prepare color images to be
+viewed on the Web using a standard Web browser.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1995"
+ HREF="node80.html">9.1 Web Animations</A>
+<UL>
+<LI><A NAME="tex2html1996"
+ HREF="node80.html#SECTION001711000000000000000">9.1.1 Using GIF Files for Animation</A>
+<LI><A NAME="tex2html1997"
+ HREF="node80.html#SECTION001712000000000000000">9.1.2 GIMP Layers Can Behave Like Animation Frames</A>
+<LI><A NAME="tex2html1998"
+ HREF="node80.html#SECTION001713000000000000000">9.1.3 Saving Animations to GIF</A>
+<LI><A NAME="tex2html1999"
+ HREF="node80.html#SECTION001714000000000000000">9.1.4 A Second Example of Creating a GIF Animation</A>
+<LI><A NAME="tex2html2000"
+ HREF="node80.html#SECTION001715000000000000000">9.1.5 Animation Optimization</A>
+<LI><A NAME="tex2html2001"
+ HREF="node80.html#SECTION001716000000000000000">9.1.6 IWarp</A>
+</UL>
+<LI><A NAME="tex2html2002"
+ HREF="node81.html">9.2  Clickable Image Maps</A>
+<LI><A NAME="tex2html2003"
+ HREF="node82.html">9.3 Type Effects</A>
+<LI><A NAME="tex2html2004"
+ HREF="node83.html">9.4 Tileable Backgrounds</A>
+<LI><A NAME="tex2html2005"
+ HREF="node84.html">9.5 Web-Safe Color</A>
+<UL>
+<LI><A NAME="tex2html2006"
+ HREF="node84.html#SECTION001751000000000000000">9.5.1 Types of Color Distortion</A>
+<LI><A NAME="tex2html2007"
+ HREF="node84.html#SECTION001752000000000000000">9.5.2 Low-Color Systems and Web Browser <BR>
+Color Palettes</A>
+<LI><A NAME="tex2html2008"
+ HREF="node84.html#SECTION001753000000000000000">9.5.3 Converting to Indexed Color</A>
+<LI><A NAME="tex2html2009"
+ HREF="node84.html#SECTION001754000000000000000">9.5.4 What Is the Best Choice?</A>
+</UL>
+<LI><A NAME="tex2html2010"
+ HREF="node85.html">9.6 Semi-Transparency and Indexed Images</A>
+<LI><A NAME="tex2html2011"
+ HREF="node86.html">9.7 Which Format GIF or JPEG?</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1993"
+ HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1989"
+ HREF="Grokking_the_GIMP.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1983"
+ HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1991"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1992"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1994"
+ HREF="node80.html">9.1 Web Animations</A>
+<B> Up:</B> <A NAME="tex2html1990"
+ HREF="Grokking_the_GIMP.html">Grokking the GIMP</A>
+<B> Previous:</B> <A NAME="tex2html1984"
+ HREF="node78.html">8.7 Rendering Project III:</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

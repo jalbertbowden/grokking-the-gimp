@@ -1,0 +1,379 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>9.2 Clickable Image Maps</TITLE>
+<META NAME="description" CONTENT="9.2 Clickable Image Maps">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node82.html">
+<LINK REL="previous" HREF="node80.html">
+<LINK REL="up" HREF="node79.html">
+<LINK REL="next" HREF="node82.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html2040"
+ HREF="node82.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2036"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2030"
+ HREF="node80.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2038"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2039"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2041"
+ HREF="node82.html">9.3 Type Effects</A>
+<B> Up:</B> <A NAME="tex2html2037"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2031"
+ HREF="node80.html">9.1 Web Animations</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001720000000000000000">&#160;</A>
+<A NAME="s9.imagemap">&#160;</A><A NAME="13299">&#160;</A>
+<A NAME="13300">&#160;</A>
+<A NAME="13301">&#160;</A>
+<A NAME="13302">&#160;</A>
+<BR>
+9.2  Clickable Image Maps
+</H1>
+
+<P>
+A common graphical device on the Web is the clickable image map.  A
+clickable image map is a graphic that has multiple hyperlinks, and,
+perhaps, Java scripts, associated to a single image.  Such an image
+allows the Web designer to associate links and dynamic actions to
+graphical cues.  
+
+<P>
+As an example, one use of a clickable image map might be for a travel
+agency offering vacation packages to different exotic locations around
+the world.  A clickable image map of the world could be constructed to
+contain hyperlinks cued to the location of a mouse click on the map.
+For example, clicking on France might send the user to another web
+page giving details of vacation packages, sites to see, places to
+stay, and restaurants to try when visiting Paris.  Clicking on
+Venezuela would send the user to pages on Caracas, and so on.
+
+<P>
+Clickable image maps are very useful devices for the Web because they
+represent an alternate, graphical means of navigating to other pages.
+One problem, however, is that they can be difficult to construct.  For
+each hyperlink, a region of the image must be defined that activates
+the link when the mouse is clicked in it.  This region is defined by a
+polygon, which in turn is specified by a set of pairs of coordinates
+giving the locations of the polygon's vertices.  The difficulty comes
+from trying to determine the coordinate values.  For an image map
+containing many hyperlinks associated to complicated regions, the task
+of assembling these points can be quite arduous.
+
+<P>
+Fortunately, the <TT>ImageMap</TT><A NAME="13304">&#160;</A> plug-in, found
+in the <TT>Image:Filters/Web</TT> menu, allows you to graphically input
+the vertices of polygonal regions by drawing directly on the image.
+The plug-in also allows you to easily assign hyperlinks and Java
+scripts to the regions.  When finished, the plug-in automatically
+writes the HTML file that displays the newly created image map.  All
+the positional information about vertices for the map regions is
+written into this file along with the hyperlinks and references to the
+Java scripts associated with the regions.
+
+<P>
+The initial description of how the <TT>ImageMap</TT> plug-in works is
+based on the blank image shown in 
+Figure&nbsp;<A HREF="node81.html#f.web_centric.blank1">9.13</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.blank1">&#160;</A><A NAME="13652">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.13:</STRONG>
+The <TT> ImageMap</TT> Plug-in</CAPTION>
+<TR><TD><IMG
+ SRC="img341.gif"
+ALT="Figure 9.13"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+A blank image is not terribly useful as a practical image map but is
+great for illustrating how the <TT>ImageMap</TT> plug-in works.
+Figure&nbsp;<A HREF="node81.html#f.web_centric.blank1">9.13</A>(b) illustrates the <TT>ImageMap</TT>
+dialog, which consists of three main areas.  There is the Drawing
+Canvas, where the image that the map is being created for is shown.
+Because the image in Figure&nbsp;<A HREF="node81.html#f.web_centric.blank1">9.13</A>(a) is blank,
+the canvas area shows a white background.  To the left of the Drawing
+Canvas, is the toolbar containing the selection and editing function
+icons.  These are used to draw the outlines of regions in the image
+that will become the clickable zones.  Finally, there is the Region
+List, which is located to the right of the Drawing Canvas area.  This
+is used to organize and edit the list of drawn regions.
+
+<P>
+The <TT>ImageMap</TT> selection tools are used to define the clickable
+regions.  The selection tool choices are rectangular, circular, and
+polygonal.  Of the three, the polygon tool is the most general because
+it allows for the most complex shapes to be selected.
+Figure&nbsp;<A HREF="node81.html#f.web_centric.blank2">9.14</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.blank2">&#160;</A><A NAME="13320">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.14:</STRONG>
+Selecting a Polygon Region</CAPTION>
+<TR><TD><IMG
+ SRC="img342.gif"
+ALT="Figure 9.14"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+illustrates an irregular shape made with the polygon selection tool.
+The shape is made by clicking on the polygon selection tool button and
+then by clicking on points in the Drawing Canvas area.  Each point
+becomes a new vertex of the polygon.  The selection is terminated, and
+the polygon fully defined when the left mouse button is
+double-clicked.
+
+<P>
+As soon as an area like the polygon in
+Figure&nbsp;<A HREF="node81.html#f.web_centric.blank2">9.14</A>(a) has been defined, the <TT>Settings</TT><A NAME="13326">&#160;</A> dialog appears as shown in
+Figure&nbsp;<A HREF="node81.html#f.web_centric.blank2">9.14</A>(b).  This is used to specify the
+hyperlink associated to the selected area.  As you can see from the
+dialog, any valid Web link can be specified.  In this example, the text
+<A NAME="tex2html311"
+ HREF="http://www.gimp.org" target="new"><TT>http://www.gimp.org</TT></A>
+has
+been entered as the link.  In addition, informational text has been
+added to the Comment field at the bottom of the dialog.  The
+<TT>Settings</TT> dialog allows the polygon to be edited and Java scripts
+to be associated with the selected area.  These functionalities are
+accessed by clicking on the relevant tabs shown in the dialog.
+
+<P>
+Figure&nbsp;<A HREF="node81.html#f.web_centric.blank3">9.15</A>(a)
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.blank3">&#160;</A><A NAME="13333">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.15:</STRONG>
+Managing the Selected Regions</CAPTION>
+<TR><TD><IMG
+ SRC="img343.gif"
+ALT="Figure 9.15"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the <TT>ImageMap</TT> dialog after several areas have been
+selected.  The three areas are each shown in the Region List, and the
+active one is highlighted in blue.  The editing tools can be used to
+modify any of the areas in the Region List.  You can make a particular
+area active by clicking on it, you can delete the active area by
+clicking on the button displaying the red, X icon, and you can bring
+up the area's <TT>Settings</TT> dialog by clicking on the button showing
+the pencil icon.
+
+<P>
+As seen in Figure&nbsp;<A HREF="node81.html#f.web_centric.blank3">9.15</A>(a), the points of the
+active region are displayed as red squares.  It is possible to insert,
+delete, or move these points.  Choosing the Arrow icon from the
+selection tools, any point can be moved by clicking and dragging it.
+A point can be deleted by right-clicking it, which brings up the menu
+shown in Figure&nbsp;<A HREF="node81.html#f.web_centric.blank3">9.15</A>(b).  A point can be added
+to a line segment by right-clicking it, which brings up the menu shown
+in Figure&nbsp;<A HREF="node81.html#f.web_centric.blank3">9.15</A>(c).
+
+<P>
+After all the desired areas have been selected and hyperlinks defined,
+you can save the work by clicking on the floppy disk icon or 
+selecting the <TT>Save As</TT> function from the File menu.  This
+brings up a dialog that allows a file name to be entered.  This
+should be a file whose extension ends in <TT>.html</TT> or <TT>.htm</TT>.
+
+<P>
+A more realistic example of the <TT>ImageMap</TT> plug-in's use is
+illustrated with the image shown in
+Figure&nbsp;<A HREF="node81.html#f.web_centric.image-map1">9.16</A>(a).
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.image-map1">&#160;</A><A NAME="13657">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.16:</STRONG>
+Map of the Southeast United States and the <TT> ImageMap</TT> Dialog</CAPTION>
+<TR><TD><IMG
+ SRC="img344.gif"
+ALT="Figure 9.16"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+This image is a map of the south-eastern United States.  Each of the
+ten states is designated by its two-letter abbreviation: FL for
+Florida, GA for Georgia, AL for Alabama, and so on.  The goal is to
+create an image map having a separate hyperlink for each state.
+Figure&nbsp;<A HREF="node81.html#f.web_centric.image-map1">9.16</A>(b) shows the <TT>ImageMap</TT>
+dialog with the image from Figure&nbsp;<A HREF="node81.html#f.web_centric.image-map1">9.16</A>(a)
+loaded into the Drawing Canvas area.  The outline of each state can
+easily be made using the polygon selection tool.  When all the states
+have been delineated, and when the final result is saved it produces
+the following file:
+
+<P><PRE>
+&lt;IMG
+SRC="/home/cbunks/PROJECTS/GIMP/BOOK/08-WEB_CENTRIC/Figures/southeast-usa.gif"
+WIDTH=482 HEIGHT=428 BORDER=0 USEMAP="#"&gt;
+
+&lt;MAP NAME=""&gt;
+&lt;!-- #$-:Image Map file created by GIMP Imagemap Plugin --&gt;
+&lt;!-- #$-:GIMP Imagemap Plugin by Maurits Rijk --&gt;
+&lt;!-- #$-:Please do not edit lines starting with "#$" --&gt;
+&lt;!-- #$VERSION:1.1 --&gt;
+&lt;!-- #$AUTHOR:Carey Bunks --&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="6,91,10,178,21,183,21,195,98,195,113,144,128,
+107,113,104,120,92" HREF="http://www.good-travel.com/arkansas.html"&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="21,197,21,234,32,252,22,291,49,292,69,299,75,
+295,101,312,117,307,131,308,150,312,142,298,120,281,138,276,130,255,83,253,
+100,197" HREF="http://www.good-travel.com/louisiana.html"&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="119,136,172,135,174,276,140,277,132,255,85,253" 
+HREF="http://www.good-travel.com/missouri.html"&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="119,136,269,127,288,106,334,74,168,83,170,88,
+136,93" HREF="http://www.good-travel.com/tennessee"&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="139,91,170,90,170,81,285,75,319,43,295,28,293,12,
+274,18,251,4,243,4,243,12,232,18,218,39,209,33,186,48,171,46,157,65,145,68" 
+HREF="http://www.good-travel.com/kentucky.html"&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="173,272,200,271,190,248,261,247,261,208,235,130,
+170,133" HREF="http://www.good-travel.com/alabama.html"&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="237,132,263,213,266,254,342,255,342,245,357,247,
+367,207,305,139,292,135,296,126" HREF="http://www.good-travel.com/georgia.html"&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="300,127,296,133,365,205,420,146,388,120,357,122,351,
+113,317,117" HREF="http://www.good-travel.com/south-carolina.html"&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="333,74,270,124,304,124,314,117,354,112,360,120,386,
+120,423,145,433,145,440,127,465,111,459,97,479,78,468,60" 
+HREF="http://www.good-travel.com/north-carolina.html"&gt;
+
+&lt;AREA SHAPE="POLY" COORDS="195,253,198,271,227,271,257,288,284,275,318,303,
+328,303,329,345,347,365,360,395,388,416,404,410,408,367,385,317,355,249,342,
+248,342,259,335,259,335,255,266,256,259,249" 
+HREF="http://www.good-travel.com/florida.html"&gt;
+
+&lt;/MAP&gt;
+</PRE>
+As you can see, each of the areas defined in the <TT>ImageMap</TT> dialog
+is specified by an <TT>AREA</TT> hypertext markup tag.  This tag contains
+the coordinates of the polygon region and the text of the associated
+hyperlink.
+The example described above can be viewed as an HTML document by
+clicking
+<A NAME="tex2html312"
+ HREF="image-map.html">here.</A>
+HTML files created with <TT>ImageMap</TT> can be reloaded and edited by
+the plug-in.  Normally, this is done by reloading the original image
+into the GIMP, running the <TT>ImageMap</TT> plug-in on the image, and
+then loading the saved imagemap file using the <TT>Open</TT> command from
+the plug-in's <TT>File</TT> menu.
+Figure&nbsp;<A HREF="node81.html#f.web_centric.southeast-usa2">9.17</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.southeast-usa2">&#160;</A><A NAME="13367">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.17:</STRONG>
+The Image Map Reloaded onto a White Background</CAPTION>
+<TR><TD><IMG
+ SRC="img345.gif"
+ALT="Figure 9.17"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows the result of doing this with the HTML file created for
+Figure&nbsp;<A HREF="node81.html#f.web_centric.image-map1">9.16</A>.  However, instead of running
+the <TT>ImageMap</TT> plug-in on the original map image, it is done on a
+blank image having the same dimensions as the map.  This allows you to
+clearly see the loaded imagemap regions against the white background.
+Doing this has no practical application, but it is a nice way of
+illustrating the results of the example.  Note that the Region List
+area shows that each of the 10 states has an entry.  Clicking on an
+entry in this list highlights the region in the Drawing Canvas, as is
+illustrated for the state of Alabama in
+Figure&nbsp;<A HREF="node81.html#f.web_centric.southeast-usa2">9.17</A>.
+
+<P>
+As a final note, with a Web browser, you can open the HTML file
+created by <TT>ImageMap</TT> to verify that it is working correctly.  If
+necessary, you can edit the HTML file directly with a text editor.
+Figure&nbsp;<A HREF="node81.html#f.web_centric.netscape">9.18</A>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.web_centric.netscape">&#160;</A><A NAME="13377">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 9.18:</STRONG>
+Map of the Southeast United States Seen in Netscape</CAPTION>
+<TR><TD><IMG
+ SRC="img346.gif"
+ALT="Figure 9.18"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+shows how the clickable image map for the preceding example displays
+in the Netscape Navigator Web browser.  Notice that the mouse cursor,
+represented by the small left-pointing hand, is located at the lower
+tip of the state of Florida.  The fact that the mouse cursor appears
+as a hand means that it is over an active HTML link, and at the bottom
+of the browser window you can see the associated hyperlink in the link
+information field.
+
+<P>
+The <TT>ImageMap</TT> plug-in has many other features.  This book is not
+the appropriate place to cover this plug-in in detail.  However, most
+of the features are not difficult to discover, and you should be able
+to determine their use with a little experimentation.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2040"
+ HREF="node82.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2036"
+ HREF="node79.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2030"
+ HREF="node80.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2038"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2039"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2041"
+ HREF="node82.html">9.3 Type Effects</A>
+<B> Up:</B> <A NAME="tex2html2037"
+ HREF="node79.html">9. Web-Centric GIMP</A>
+<B> Previous:</B> <A NAME="tex2html2031"
+ HREF="node80.html">9.1 Web Animations</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>

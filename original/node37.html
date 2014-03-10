@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>3.2 Combining Selections</TITLE>
+<META NAME="description" CONTENT="3.2 Combining Selections">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="keywords" CONTENT="GIMP, gimp, Gimp, GNU Image Manipulation Program, gnu image manipulation program, Gimp tutorials, GIMP tutorials, gimp tutorials, Linux applications, linux applications, editing digital images, digital image editing, photo touchup, photo enhancement, enhancement photos, touchup, enhancement, image touchup, image enhancement, enhancement images, touchup images, digital collage, collage, compositing, photo montage, montage, photos, images, stock photos, copyright free photos, selection, selections, mask, masks, color correct, color correction, colorspace, colorspaces, RGB, rgb, hsv, HSV, free-hand tool, free hand tool, lasso tool, bezier path tool, Bezier path tool, layer mask, layer masks, layer, layers, gradient tool, gradients, blend tool, blending, threshold tool, thresholding, histogram, curves tool, curves, levels tool, levels, color picker, eyedropper, wilber, wilber the gimp, Wilber the GIMP, magic wand, fuzzy-select tool, fuzzy select tool, crop tool, transform tool, text tool, bucket fill tool, bucket fill, clone tool, rubber stamp tool, smudge tool, convolve tool, airbrush tool, measure tool, eraser tool, patterns, pattern, brush, brush selection, grayscale, indexed, image conversions, image format, image blurring, gaussian blur, Gaussian blur, channels, channel mask, channel masks, path tool, control handle, control handles, stroke selection, stroking a selection, color balance, image transforms, transforms, perspective transform, intelligent scissors">
+<META NAME="description" CONTENT="Grokking the GIMP - Advanced Techniques for Working with Digital Images: the source for learning learning advanced image editing techniques using the GIMP">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="Grokking_the_GIMP.css">
+<LINK REL="next" HREF="node38.html">
+<LINK REL="previous" HREF="node36.html">
+<LINK REL="up" HREF="node35.html">
+<LINK REL="next" HREF="node38.html">
+</HEAD>
+<BODY background="background.gif" link="#3a4eb2" vlink="#894900">
+<!--Navigation Panel-->
+<A NAME="tex2html1347"
+ HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1343"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1337"
+ HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1345"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1346"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1348"
+ HREF="node38.html">3.3 The Select Menu</A>
+<B> Up:</B> <A NAME="tex2html1344"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1338"
+ HREF="node36.html">3.1 The Basic Selection</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><strong>Subsections</strong></A>
+<UL>
+<LI><A NAME="tex2html1349"
+ HREF="node37.html#SECTION001121000000000000000">3.2.1 Adding</A>
+<LI><A NAME="tex2html1350"
+ HREF="node37.html#SECTION001122000000000000000">3.2.2 Subtracting</A>
+<LI><A NAME="tex2html1351"
+ HREF="node37.html#SECTION001123000000000000000">3.2.3 Intersecting</A>
+<LI><A NAME="tex2html1352"
+ HREF="node37.html#SECTION001124000000000000000">3.2.4 Using Add, Subtract, and Intersect with the Rectangle
+and Ellipse Selection Tool Features</A>
+<LI><A NAME="tex2html1353"
+ HREF="node37.html#SECTION001125000000000000000">3.2.5 Moving a Selection Boundary</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION001120000000000000000">&#160;</A>
+<A NAME="s3-2.combining-selections">&#160;</A><A NAME="3600">&#160;</A>
+<A NAME="3601">&#160;</A>
+<BR>
+3.2 Combining Selections
+</H1>
+
+<P>
+Selections can be combined in various ways.  In particular, the GIMP
+provides the capability to add, subtract, and intersect selections.
+
+<P>
+
+<H2><A NAME="SECTION001121000000000000000">&#160;</A>
+<A NAME="3603">&#160;</A>
+<A NAME="3604">&#160;</A>
+<A NAME="3605">&#160;</A>
+<BR>
+3.2.1 Adding
+</H2>
+
+<P>
+Adding a selection to an existing one means that the resulting
+selection is the union of the pixels from the two.  Thus, if <I>A</I> is
+the set of pixels defined by the first selection and <I>B</I> the set for
+the second, then <IMG
+ WIDTH="58" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img80.gif"
+ ALT="$A\cup B$">
+is the result of adding the second to the
+first, where <IMG
+ WIDTH="19" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img81.gif"
+ ALT="$\cup$">
+is the set union operator.
+
+<P>
+If a selection already exists in the image window, the addition is
+made by pressing the Shift key <EM>before</EM> clicking to begin the
+new selection.  Once the mouse button has been pressed, the Shift
+key should be released.  Figure&nbsp;<A HREF="node37.html#f.selections.combine">3.15</A>(a) shows an
+initial rectangular selection, and Figure&nbsp;<A HREF="node37.html#f.selections.combine">3.15</A>(b)
+shows the result of adding an ellipse to this.
+<BR>
+<DIV ALIGN="CENTER"><A NAME="f.selections.combine">&#160;</A><A NAME="3610">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure 3.15:</STRONG>
+Combining Selections</CAPTION>
+<TR><TD><IMG
+ SRC="img82.gif"
+ALT="Figure 3.15"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+It is useful to note that pressing the Shift key while the mouse is
+in the image window has the effect of changing the mouse cursor to an
+arrow with a plus sign below it.  This indicates that the next
+selection will be added to any selection already existing in the image
+window.
+
+<P>
+
+<H2><A NAME="SECTION001122000000000000000">&#160;</A>
+<A NAME="3615">&#160;</A>
+<A NAME="3616">&#160;</A>
+<BR>
+3.2.2 Subtracting
+</H2>
+
+<P>
+Subtracting a new selection from an existing one means that the result
+is the first selection less the pixels contained in the intersection
+of the two.  Thus, if <I>A</I> is the set of pixels defined by the first
+selection and <I>B</I> is the set for the second, 
+<!-- MATH: $A-(A\cap B)$ -->
+<IMG
+ WIDTH="113" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.gif"
+ ALT="$A-(A\cap B)$">
+is the
+result of subtracting the second from the first, where <IMG
+ WIDTH="19" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img84.gif"
+ ALT="$\cap$">
+is the
+set intersection operator.
+
+<P>
+A subtraction is made by pressing the Control key <EM>before</EM>
+beginning the new selection.  Once the new selection is begun, the
+Control key should be released.  The result of subtracting an ellipse
+from the rectangular selection in Figure&nbsp;<A HREF="node37.html#f.selections.combine">3.15</A>(a)
+is shown in Figure&nbsp;<A HREF="node37.html#f.selections.combine">3.15</A>(c).  Note that it is the
+new selection that is subtracted from the old selection, not vice
+versa.
+
+<P>
+It is useful to note that pressing the Control key while the mouse is
+in the image window has the effect of changing the mouse cursor to an
+arrow with a minus sign below it.  This indicates that the next
+selection will be subtracted from any selection already existing in
+the image window.  Because I always forget which key controls addition
+and which controls subtraction, I find the mouse cursor indicators are
+particularly useful.
+
+<P>
+
+<H2><A NAME="SECTION001123000000000000000">&#160;</A>
+<A NAME="3621">&#160;</A>
+<A NAME="3622">&#160;</A>
+<BR>
+3.2.3 Intersecting
+</H2>
+
+<P>
+Intersecting two selections means that the resulting selection is, you
+guessed it, the intersection of the two.  Thus, if <I>A</I> is the set of
+pixels defined by the first selection and <I>B</I> the set for the second,
+<IMG
+ WIDTH="58" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img85.gif"
+ ALT="$A\cap B$">
+is the result of intersecting the two.  The intersection is
+made by pressing the Shift and Control keys together <EM>before</EM>
+pressing the left mouse button to begin the new selection.  The
+Control and Shift keys should be released before releasing the mouse
+button.  The result of intersecting an ellipse with the rectangular
+selection in Figure&nbsp;<A HREF="node37.html#f.selections.combine">3.15</A>(a) is shown in
+Figure&nbsp;<A HREF="node37.html#f.selections.combine">3.15</A>(d).
+
+<P>
+It is useful to note that pressing the Shift and Control keys
+together while the mouse is in the image window has the effect of
+changing the mouse cursor to an arrow with a <IMG
+ WIDTH="19" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img84.gif"
+ ALT="$\cap$">
+sign below
+it.  This indicates that the next selection will be intersected with
+any selection already existing in the image window.
+
+<P>
+
+<H2><A NAME="SECTION001124000000000000000">&#160;</A>
+<A NAME="3627">&#160;</A>
+<A NAME="3628">&#160;</A>
+<BR>
+3.2.4 Using Add, Subtract, and Intersect with the Rectangle
+and Ellipse Selection Tool Features
+</H2>
+
+<P>
+As described in Section&nbsp;<A HREF="node36.html#s3.rectangle-ellipse-select">3.1.1</A>, the Shift
+key can be used to create perfectly square or circular selections, and
+the Control key can be used to perform selections centered at the
+position of the mouse click.  In addition,
+Section&nbsp;<A HREF="node37.html#s3-2.combining-selections">3.2</A> describes how the Shift
+key can be used for adding selections, the Control key for subtracting
+them, and the Shift and Control keys together for intersecting them.
+
+<P>
+The question you may be asking, then, is how these features can be
+used together.  How can a perfect square be subtracted from a prior
+selection or a center-initiated ellipse added to one?  The answer is
+quite simple.  The trick is to remember that adding, subtracting, and
+intersecting selections is signaled by pressing the Shift key, the
+Control key, or both <EM>before</EM> clicking to initiate the selection.
+The sequence for creating a perfectly square or circular selection or
+for center-initiated selections is by pressing the Shift key, Control
+key, or both <EM>after</EM> clicking to initiate the selection.  These
+features can be combined by applying the following steps:
+<DL COMPACT>
+<DT>1.
+<DD>Begin by pressing the appropriate combination of Shift and
+Control to specify whether the selection is to be added to,
+subtracted from, or intersected with an already existing selection.
+<DT>2.
+<DD>While the keys are pressed, click and drag in the
+image window to initiate the new selection.
+<DT>3.
+<DD>While the left mouse button is pressed, release the Shift
+and/or Control keys.
+<DT>4.
+<DD>Apply the appropriate combination of Shift and Control keys to
+specify a perfectly square, circular, and/or center-initiated
+selection.
+<DT>5.
+<DD>While keeping the last combination of Shift and Control keys
+pressed, release the mouse button, thus completing the selection.
+</DL>
+<P>
+
+<H2><A NAME="SECTION001125000000000000000">&#160;</A>
+<A NAME="3636">&#160;</A>
+<A NAME="3637">&#160;</A>
+<A NAME="3638">&#160;</A>
+<BR>
+3.2.5 Moving a Selection Boundary
+</H2>
+
+<P>
+Occasionally it is useful to be able to move a selection after it has
+been made.  That is, it is useful moving the selection itself, not the
+selection contents.  This can be done by Alt-clicking and dragging the
+selection boundary.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1347"
+ HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1343"
+ HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1337"
+ HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1345"
+ HREF="node3.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1346"
+ HREF="node90.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1348"
+ HREF="node38.html">3.3 The Select Menu</A>
+<B> Up:</B> <A NAME="tex2html1344"
+ HREF="node35.html">3. Selections</A>
+<B> Previous:</B> <A NAME="tex2html1338"
+ HREF="node36.html">3.1 The Basic Selection</A>
+<!--End of Navigation Panel-->
+
+<br><br>
+<center>
+<font size=1 color="#000000">&#169;2000 Gimp-Savvy.com</font>
+</center>
+</BODY>
+</HTML>
